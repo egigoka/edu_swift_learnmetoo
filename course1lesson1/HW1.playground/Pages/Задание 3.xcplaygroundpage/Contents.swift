@@ -11,6 +11,12 @@ import Foundation
  
  */
 
+let triangleLineAC = 8.0
+let triangleLineCB = 6.0
 
+let triangleLineBA = sqrt(triangleLineAC * triangleLineAC + triangleLineCB * triangleLineCB)
 
+let triangleArea = triangleLineAC * triangleLineCB / 2
+
+let trianglePerimetr = triangleLineAC + triangleLineBA + triangleLineCB
 //: [Ранее: Задани 2](@previous) | Задание 3 из 3

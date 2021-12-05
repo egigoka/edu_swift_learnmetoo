@@ -47,7 +47,7 @@ let castDoubleToInt = age + Int(someNumber)
 let myAge = "I am "
 let castIntToString = myAge + String(age) + " years old"
 
-let someString = "10g"
+let someString = "10"
 let castStringToInt = age + (Int(someString) ?? 0)
 
 // 10.11.2021
