@@ -80,12 +80,46 @@ if hasDoorKey || knowsOverridePassword {
     print(accessDeniedMessage)
 }
 
+// Комбинирование логических операторов
+
+if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
 //: ### Строки и символы:
 
+let name: String
+var surname = String()
+var email = ""
 
+name = "Alexey"
+surname = "Efimov"
+
+var aboutCourse = """
+Мы изучаем курс Основы программирования на Swift.
+Сейчас у нас урок номер 2.
+Автор и ведущий курса Алексей Ефимов
+"""
+
+//print(aboutCourse)
 
 //: ### Конкатенация строк:
 
+let fullName = name + " " + surname
+var myName = "My name is "
+
+//myName = myName + fullName
+myName += fullName
 
 //: ### Интерполяция строк
 
+var lessonNumber = 2
+
+aboutCourse = """
+Мы изучаем курс Основы программирования на Swift.
+Сейчас у нас урок номер \(lessonNumber).
+Автор и ведущий курса \(fullName)
+"""
+
+print(aboutCourse)
