@@ -61,7 +61,7 @@ print("My name is \(userName), i am \(age) old")
  #### Double
 */
 
-var someNumber = 10.1
+var someNumber = 10.99999
 
 /*:
  #### Float
@@ -89,9 +89,12 @@ let boolean = true
 let castIntToDouble = Double(age) + someNumber
 
 // Новая константа с типом Int
+let castDoubleToInt = age + Int(someNumber)
 
 // Приведение числовых значений к строковым данным
-
+let myAge = "I am "
+let castIntToString = myAge + String(age) + " years old"
 
 // Приведение строковых данных к числовым значениям
-
+let someString = "10g"
+let castStringToInt = age + (Int(someString) ?? 0)
