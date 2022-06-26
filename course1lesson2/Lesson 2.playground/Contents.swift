@@ -1,6 +1,7 @@
 //: ## Базовые операторы
 
 import UIKit
+import Darwin
 
 //: ### Арифметические операторы:
 
@@ -48,12 +49,36 @@ a >= b // true
 
 //: ### Оператор логического НЕ:
 
+let accessDeniedMessage = "ACCESS DENIED"
+let welcomeMessage = "Welcome!"
 
+let allowedEntry = false // Разрешение на вход отсутствует
+
+if !allowedEntry {
+    print(accessDeniedMessage)
+}
 
 //: ### Оператор логического И:
 
+let enteredDoorCode = true
+let passedRetinaScan = false
+
+if enteredDoorCode && passedRetinaScan {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
 
 //: ### Оператор логического ИЛИ:
+
+let hasDoorKey = false
+let knowsOverridePassword = true
+
+if hasDoorKey || knowsOverridePassword {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
 
 //: ### Строки и символы:
 
