@@ -13,9 +13,17 @@ import UIKit
 
 var str = "Hello, playground"
 
-// variables
 
-var teamSport = "Гандбол"
+/*:
+ ### Переменные
+*/
+
+
+/*:
+ > Футбол - это командный вид спорта с мячом, в котором целью является забить мяч в ворота соперника. Футбол это не просто вид спорта, футбол - это стиль жизни, футбол - это философия. Футбол, вид спорта для сильных духом и целеустремленных людей. Я люблю футбол. Футбол мой любимый вид спорта!
+ */
+
+var teamSport = "Футбол"
 
 print("\(teamSport) - это командный вид спорта с мячом, в котором целью является забить мяч в ворота соперника. \(teamSport) это не просто вид спорта, \(teamSport) - это стиль жизни, \(teamSport) - это философия. \(teamSport), вид спорта для сильных духом и целеустремленных людей. Я люблю \(teamSport). \(teamSport) мой любимый вид спорта!\n")
 
@@ -23,21 +31,67 @@ teamSport = "Американский футбол"
 
 print("\(teamSport) - это командный вид спорта с мячом, в котором целью является забить мяч в ворота соперника. \(teamSport) это не просто вид спорта, \(teamSport) - это стиль жизни, \(teamSport) - это философия. \(teamSport), вид спорта для сильных духом и целеустремленных людей. Я люблю \(teamSport). \(teamSport) мой любимый вид спорта!")
 
-// basic types
-
-// basic types in Swift
-
-// strings
-
-var username = ""
-print("Hello, \(username)!")
 
 
-// number types
+/*:
+ ### Базовые типы
+*/
 
-// int
+//teamSport = 10
 
-var age = 0
+/*:
+ ### Базовые типы в Swift.
+*/
+/*:
+ ### Строковые типы - String
+*/
 
-print("My name is \(username), I am \(age) years old.")
+var userName = ""
+print("Hello, \(userName)")
+
+/*:
+ ### Числовые типы
+ #### Int
+*/
+
+var age = 38
+print("My name is \(userName), i am \(age) old")
+
+/*:
+ #### Double
+*/
+
+var someNumber = 10.1
+
+/*:
+ #### Float
+*/
+
+var someFloat: Float = 0.0
+
+someFloat = 121.123444
+someFloat = 1221.123444
+someFloat = 12321.123444
+someFloat = 123421.123444
+someFloat = 1234521.123444
+
+/*:
+ ### Булево значения
+*/
+
+let boolean = true
+
+/*:
+ ### Приведение типов
+*/
+
+// Новая константа с типом Double
+let castIntToDouble = Double(age) + someNumber
+
+// Новая константа с типом Int
+
+// Приведение числовых значений к строковым данным
+
+
+// Приведение строковых данных к числовым значениям
 
