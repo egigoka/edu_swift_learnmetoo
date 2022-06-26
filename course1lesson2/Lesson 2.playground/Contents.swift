@@ -115,11 +115,17 @@ myName += fullName
 //: ### Интерполяция строк
 
 var lessonNumber = 2
+var numberOfLessons = 8
 
 aboutCourse = """
 Мы изучаем курс Основы программирования на Swift.
 Сейчас у нас урок номер \(lessonNumber).
+До окончания курса осталось \(numberOfLessons - lessonNumber) уроков.
 Автор и ведущий курса \(fullName)
 """
 
 print(aboutCourse)
+
+let exclamationMark: Character = "!"
+
+myName.append(exclamationMark)
