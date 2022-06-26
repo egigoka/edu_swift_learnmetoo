@@ -11,6 +11,11 @@ import Foundation
  
  */
 
+let sideAC = 8.0
+let sideCB = 6.0
+let sideAB = sqrt(sideAC * sideAC + sideCB * sideCB)
 
+let perimeter = sideAC + sideCB + sideAB
 
+let area = sideAC * sideCB / 2
 //: [Ранее: Задани 2](@previous) | Задание 3 из 3
