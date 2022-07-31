@@ -81,7 +81,10 @@ print("\(yearsPassed) years, \(monthsPassed) months, \(daysPassed) days and \(se
 
 let quarterOfBirth: String
 
-if monthOfBirth <= 3 {
+if monthOfBirth <= 0 || monthOfBirth > 12 {
+    print("Error")
+    quarterOfBirth = "unknown"
+} else if monthOfBirth <= 3 {
     quarterOfBirth = "1st"
 } else if monthOfBirth <= 6 {
     quarterOfBirth = "2nd"
@@ -99,4 +102,4 @@ print("I've born in \(quarterOfBirth) quarter of year")
  */
 
 let sinOfOne = sin(1.0)
-let sinOfOneRounded = String(format: "%.3f", sinOfOne)
+let sinOfOneRounded = String(format: "sin of 1.0 is %.3f", sinOfOne)
