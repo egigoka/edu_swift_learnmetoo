@@ -4,7 +4,7 @@ course 1 lesson 1 homework - done
 
 course 1 lesson 2 homework review - done
 course 1 lesson 2 theory - done
-course 1 lesson 2 homework - 
+course 1 lesson 2 homework - done
 
 course 1 lesson 3 homework review - 
 course 1 lesson 3 theory - 
