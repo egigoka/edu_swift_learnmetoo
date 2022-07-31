@@ -13,8 +13,17 @@ import UIKit
 */
 print("====КОНСТРУКЦИЯ if====")
 
+var someNumber = 10
 
+if someNumber < 4 {
+    print("The condition is true")
+}
 
+someNumber = 1
+
+if someNumber < 4 {
+    print("The condition is true")
+}
 /*:
     if conditionOne {
         some code
@@ -24,8 +33,29 @@ print("====КОНСТРУКЦИЯ if====")
 */
 print("\n====КОНСТРУКЦИЯ else if====")
 
+someNumber = 10
 
+if someNumber < 4 { // false
+    print("The first condition is true")
+} else if someNumber < 8 { // false
+    print("The second condition is true")
+}
 
+someNumber = 1
+
+if someNumber < 4 { // true
+    print("The first condition is true")
+} else if someNumber < 8 { // true, but never executed
+    print("The second condition is true")
+}
+
+if someNumber < 4 { // true
+    print("The first condition is true")
+}
+
+if someNumber < 8 { // true
+    print("The second condition is true")
+}
 /*:
     if conditionOne {
         some code
@@ -37,7 +67,17 @@ print("\n====КОНСТРУКЦИЯ else if====")
  */
 print("\n====КОНСТРУКЦИЯ if-else====")
 
+someNumber = 10
 
+if someNumber < 4 { // false
+    print("The first condition is true")
+} else if someNumber < 8 { // false
+    print("The second condition is true")
+} else if someNumber < 10 {
+    print("The third condition is true")
+} else {
+    print("Nothing was true")
+}
 
 //: ### Тернарный оператор
 print("\n====ТЕРНАРНЫЙ ОПЕРАТОР====")
@@ -58,13 +98,13 @@ print("\n====ТЕРНАРНЫЙ ОПЕРАТОР====")
     }
 */
 
-print("====SWITCH STATEMENT====")
+print("\n====SWITCH STATEMENT====")
 
 
 
 //: ### Соответствие диапазону
 
-print("====СООТВЕТСТВИЕ ДИАПАЗОНУ====")
+print("\n====СООТВЕТСТВИЕ ДИАПАЗОНУ====")
 
 
 
