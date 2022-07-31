@@ -10,7 +10,12 @@ import UIKit
  
  1.3 Выведите результат при помощи `print()`
  */
- 
+let floatOne: Float = 3.14
+let floatTwo: Float = 42.0
+
+let double = Double(floatOne + floatTwo)
+
+print(double)
 /*:
  ### Задание 2
  2.1 Создайте переменную `numberOne` и присвойте ей любое целочисленное значение
@@ -26,7 +31,17 @@ import UIKit
  2.6 Выведите на консоль фразу: «Результат деления <...> на <...> равен <...> <...>/<...>». Поясню: в математике результатом деления 5 на 3 будет натуральная дробь 1 2/3 (одна целая две третьих, здесь мы используем стандартную математическую запись, а не оператор деления). Вам необходимо вывести на консоль именно такой результат от деления `numberOne` на `numberTwo` в виде натуральной дроби — например «Результат деления 7 на 3 равен 2 1/3».
  
  */
+let numberOne = 10
 
+let numberTwo = 3
+
+let result = numberOne / numberTwo
+
+let remainder = numberOne % numberTwo
+
+print("При делении \(numberOne) на \(numberTwo) результат равен \(result), остаток равен \(remainder)")
+
+print("Результат деления \(numberOne) на \(numberTwo) равен \(result) \(remainder)/\(numberTwo)")
 
 /*:
  ### Задание 3
@@ -42,11 +57,45 @@ import UIKit
  
  3.6 Выведите на консоль сообщение о том в каком квартале вы родились. Для этого используейте операторы сравнения, что бы сравнить номер месяца вашего рождения с одним из четрырех кварталов. Например если номер месяца больше 0 и меньше или равно 3, то это будет первый квартал. Для получения результата используйте конструкцию if
  */
+let dayOfBirth = 18
+let monthOfBirth = 7
+let yearOfBirth = 2000
 
+let currentDay = 31
+let currentMonth = 7
+let currentYear = 2022
+
+let secondsInMinute = 60
+let minutesInHour = 60
+let hoursInDay = 24
+let daysInMonth = 30
+let monthsInYear = 12
+
+let secondsPassed = (currentYear - yearOfBirth) * monthsInYear * daysInMonth * hoursInDay * minutesInHour * secondsInMinute + (currentMonth - monthOfBirth) * daysInMonth * hoursInDay * minutesInHour * secondsInMinute + (currentDay * dayOfBirth) * hoursInDay * minutesInHour * secondsInMinute
+let daysPassed = secondsPassed / secondsInMinute / minutesInHour / hoursInDay
+let monthsPassed = daysPassed / daysInMonth
+let yearsPassed = monthsPassed / monthsInYear
+
+print("\(yearsPassed) years, \(monthsPassed) months, \(daysPassed) days and \(secondsPassed) seconds have passed since my birth")
+
+let quarterOfBirth: String
+
+if monthOfBirth <= 3 {
+    quarterOfBirth = "1st"
+} else if monthOfBirth <= 6 {
+    quarterOfBirth = "2nd"
+} else if monthOfBirth <= 9 {
+    quarterOfBirth = "3rd"
+} else {
+    quarterOfBirth = "4th"
+}
+
+print("I've born in \(quarterOfBirth) quarter of year")
 /*:
  ### Задание 4
  Задание на вашу способность гуглить. Необходимо вычислить синус от числа 1 и округлить результат до тысячных.
  > Подсказка: в результате должно получиться 0.841
  */
 
-
+let sinOfOne = sin(1.0)
+let sinOfOneRounded = String(format: "%.3f", sinOfOne)
