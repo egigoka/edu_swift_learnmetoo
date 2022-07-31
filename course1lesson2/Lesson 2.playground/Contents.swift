@@ -129,3 +129,4 @@ print(aboutCourse)
 let exclamationMark: Character = "!"
 
 myName.append(exclamationMark)
+

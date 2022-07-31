@@ -36,7 +36,6 @@ let numberOne = 10
 let numberTwo = 3
 
 let result = numberOne / numberTwo
-
 let remainder = numberOne % numberTwo
 
 print("При делении \(numberOne) на \(numberTwo) результат равен \(result), остаток равен \(remainder)")
