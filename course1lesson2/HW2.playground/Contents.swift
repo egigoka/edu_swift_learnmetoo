@@ -64,16 +64,18 @@ let currentDay = 31
 let currentMonth = 7
 let currentYear = 2022
 
-let secondsInMinute = 60
-let minutesInHour = 60
+let secondsInDay = 60 * 60 * 24
 let hoursInDay = 24
 let daysInMonth = 30
-let monthsInYear = 12
+let daysInYear = 365
 
-let secondsPassed = (currentYear - yearOfBirth) * monthsInYear * daysInMonth * hoursInDay * minutesInHour * secondsInMinute + (currentMonth - monthOfBirth) * daysInMonth * hoursInDay * minutesInHour * secondsInMinute + (currentDay * dayOfBirth) * hoursInDay * minutesInHour * secondsInMinute
-let daysPassed = secondsPassed / secondsInMinute / minutesInHour / hoursInDay
+var daysPassed = (currentYear - yearOfBirth) * daysInYear
+daysPassed += (currentMonth - monthOfBirth) * daysInMonth
+daysPassed += (currentDay - dayOfBirth)
+
+let secondsPassed = daysPassed * secondsInDay
 let monthsPassed = daysPassed / daysInMonth
-let yearsPassed = monthsPassed / monthsInYear
+let yearsPassed = daysPassed / daysInYear
 
 print("\(yearsPassed) years, \(monthsPassed) months, \(daysPassed) days and \(secondsPassed) seconds have passed since my birth")
 
