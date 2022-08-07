@@ -73,7 +73,7 @@ if someNumber < 4 { // false
     print("The first condition is true")
 } else if someNumber < 8 { // false
     print("The second condition is true")
-} else if someNumber < 10 {
+} else if someNumber < 10 { // false
     print("The third condition is true")
 } else {
     print("Nothing was true")
@@ -82,7 +82,27 @@ if someNumber < 4 { // false
 //: ### Тернарный оператор
 print("\n====ТЕРНАРНЫЙ ОПЕРАТОР====")
 
+// condition ? some code : some code
 
+let a = 5
+let b = 10
+var c = 0
+
+if a < 10 {
+    print("The condition is true")
+} else {
+    print("The condition is false")
+}
+
+a < 10 ? print("The condition is true") : print("The condition is false")
+
+if a < 10 {
+    c = a - b
+} else {
+    c = a + b
+}
+
+c = a < 10 ? a - b : a + b
 
 //: ## Switch statement
 
