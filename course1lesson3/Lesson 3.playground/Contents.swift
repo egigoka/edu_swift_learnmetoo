@@ -193,19 +193,53 @@ print("\n====ОПЦИОНАЛЬНЫЕ ТИПЫ====")
 var someString = ""
 var optionalString: String?
 
+var possibleNumber = "12345d"
+var convertedNumber = Int(possibleNumber)
+
+convertedNumber = 16
+convertedNumber = nil
+
+
 //: ### Извлечение опционалов
 
 print("\n====ИЗВЛЕЧЕНИЕ ОПЦИОНАЛОВ====")
+
+if convertedNumber == nil {
+    print("convertedNumber doesn't contains some integer value")
+}
 
 //: ### Принудительное извлечение опционалов
 
 print("\n====ПРИНУДИТЕЛЬНОЕ ИЗВЛЕЧЕНИЕ ОПЦИОНАЛОВ====")
 
+convertedNumber = 16
+
+if convertedNumber != nil {
+//    convertedNumber = nil
+    print("convertedNumber has an integer value of \(convertedNumber!)")
+}
+
 //: ### Привязка опционалов
 
 print("\n====ПРИВЯЗКА ОПЦИОНАЛОВ====")
 
+convertedNumber = nil
+
+if let convertedNumber = convertedNumber {
+    print("convertedNumber has an integer value of \(convertedNumber)")
+} else {
+    print("convertedNumber doesn't contains some integer value")
+}
+
 //: ### Неявно извлеченные опционалы
 
 print("\n====НЕЯВНО ИЗВЛЕЧЕННЫЕ ОПЦИОНАЛЫ====")
+
+var name = ""
+var userName: String! = "Tim"
+
+userName = nil
+
+name = userName
+
 
