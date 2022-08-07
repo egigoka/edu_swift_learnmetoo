@@ -167,19 +167,45 @@ let approximateCount = 62
 let countedThings = "moons orbiting Saturn"
 var naturalCount = ""
 
+switch approximateCount {
+case ..<0:
+    print("Error")
+case 0:
+    naturalCount = "no"
+case 1:
+    naturalCount = "one"
+case 2..<5:
+    naturalCount = "a few"
+case 5...11:
+    naturalCount = "several"
+case 12...99:
+    naturalCount = "dozens of"
+default:
+    naturalCount = "a lot of"
+}
+
+print("There are \(naturalCount) \(countedThings)")
+
 //: ## Опциональные типы
 
+print("\n====ОПЦИОНАЛЬНЫЕ ТИПЫ====")
 
+var someString = ""
+var optionalString: String?
 
 //: ### Извлечение опционалов
 
+print("\n====ИЗВЛЕЧЕНИЕ ОПЦИОНАЛОВ====")
 
 //: ### Принудительное извлечение опционалов
 
-
+print("\n====ПРИНУДИТЕЛЬНОЕ ИЗВЛЕЧЕНИЕ ОПЦИОНАЛОВ====")
 
 //: ### Привязка опционалов
 
+print("\n====ПРИВЯЗКА ОПЦИОНАЛОВ====")
 
 //: ### Неявно извлеченные опционалы
+
+print("\n====НЕЯВНО ИЗВЛЕЧЕННЫЕ ОПЦИОНАЛЫ====")
 
