@@ -215,18 +215,19 @@ print("\n====ПРИНУДИТЕЛЬНОЕ ИЗВЛЕЧЕНИЕ ОПЦИОНАЛ�
 convertedNumber = 16
 
 if convertedNumber != nil {
-//    convertedNumber = nil
-    print("convertedNumber has an integer value of \(convertedNumber!)")
+//    convertedNumber = nil // creates a fuckup
+    print("convertedNumber has an integer value of \(convertedNumber ?? 0)") // don't create a fuckup
+    print("convertedNumber has an integer value of \(convertedNumber!)") // fuckup
 }
 
 //: ### Привязка опционалов
 
 print("\n====ПРИВЯЗКА ОПЦИОНАЛОВ====")
 
-convertedNumber = nil
+//convertedNumber = nil
 
-if let convertedNumber = convertedNumber {
-    print("convertedNumber has an integer value of \(convertedNumber)")
+if let number = convertedNumber {
+    print("convertedNumber has an integer value of \(number)")
 } else {
     print("convertedNumber doesn't contains some integer value")
 }
@@ -238,8 +239,7 @@ print("\n====НЕЯВНО ИЗВЛЕЧЕННЫЕ ОПЦИОНАЛЫ====")
 var name = ""
 var userName: String! = "Tim"
 
-userName = nil
+//userName = nil // creates a fuckup
 
-name = userName
-
+name = userName // fuckup
 
