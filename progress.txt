@@ -7,7 +7,7 @@ course 1 lesson 2 theory - done
 course 1 lesson 2 homework - done
 
 course 1 lesson 3 homework review - done
-course 1 lesson 3 theory - 1:20:08
+course 1 lesson 3 theory - 1:32:45
 course 1 lesson 3 homework - 
 
 course 1 lesson 4 homework review - 
