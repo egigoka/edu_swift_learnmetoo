@@ -104,6 +104,8 @@ if a < 10 {
 
 c = a < 10 ? a - b : a + b
 
+
+
 //: ## Switch statement
 
 
@@ -120,13 +122,50 @@ c = a < 10 ? a - b : a + b
 
 print("\n====SWITCH STATEMENT====")
 
+var someCharacter: Character = "a"
+
+if someCharacter == "a" {
+    print("Is an A")
+} else if someCharacter == "b" {
+    print("Is an B")
+} else if someCharacter == "c" {
+    print("Is an C")
+} else {
+    print("Don't know what is it")
+}
+
+someCharacter = "B"
+
+if someCharacter == "a" || someCharacter == "A" {
+    print("Is an A")
+} else if someCharacter == "b" || someCharacter == "B" {
+    print("Is an B")
+} else if someCharacter == "c" || someCharacter == "C"{
+    print("Is an C")
+} else {
+    print("Don't know what is it")
+}
+
+switch someCharacter {
+case "a", "A":
+    print("Is an A")
+case "b", "B":
+    print("Is an B")
+case "c", "C":
+    print("Is an C")
+default:
+    print("Don't know what is it")
+}
+
 
 
 //: ### Соответствие диапазону
 
 print("\n====СООТВЕТСТВИЕ ДИАПАЗОНУ====")
 
-
+let approximateCount = 62
+let countedThings = "moons orbiting Saturn"
+var naturalCount = ""
 
 //: ## Опциональные типы
 
