@@ -11,7 +11,7 @@ import Foundation
  Объявите переменную `userInputAge` типа `String` и присвойте ей значение "34e" для моделирования опечатки.  Затем определите константу `userAge` типа `Int` и используйте конструктор `Int` для преобразования `userInputAge`.  Какую ошибку вы получаете?
  */
 
-let userInputAge = "34e"
+var userInputAge = "34e"
 
 //var userAge:Int = Int(userInputAge)
 
@@ -21,7 +21,7 @@ let userInputAge = "34e"
  Теперь поменяйте тип `userAge` на `Int?`, и напечатайте значение `userAge`.  Почему значение `userAge` равно `nil`?  Ответьте в комментарии или внутри команды print.
  */
 
-let userAge:Int? = Int(userInputAge)
+var userAge:Int? = Int(userInputAge)
 
 print(userAge)
 
@@ -33,18 +33,31 @@ print(userAge)
  Напечатайте `userAge` снова, но теперь извлеките `userAge` с помощью оператора «!».
  */
 
+userInputAge = "34"
 
+userAge = Int(userInputAge)
 
+print(userAge)
+
+// печатается, что свойство имеет опциональное значение
+
+print(userAge!)
 /*:
  Используйте привязку опционалов для извлечения `userAge`.  Если `userAge` содержит значение, выведите его в консоль.
  */
 
-
+if let userAge = userAge {
+    print(userAge)
+}
 
 /*:
  Теперь снова эмулируйте опечатку и попробуйте вывести на консоль целочисленное значение переменной `userInputAge`, при помощи оператора "!". Какую ошибку вы получите? Почему?
  */
 
+userInputAge = "34e"
 
+print(Int(userInputAge)!)
+
+// ошибка о том, что в разворачиваемом свойстве хранится значение nil, так как строку "34e" нельзя преобразовать в тип Int
 
 //: [Ранее: Задание 1](@previous)  |  задание 2 из 4  |  [Далее: Задание 3](@next)
