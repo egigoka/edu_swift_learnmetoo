@@ -13,7 +13,7 @@ import Foundation
 
 var userInputAge = "34e"
 
-//var userAge:Int = Int(userInputAge)
+//let userAge: Int = Int(userInputAge)
 
 // возвращается ошибка о том, что перед присвоением значения типу Int значения из опционального типа Int? нужно его сначала развернуть
 
@@ -21,7 +21,7 @@ var userInputAge = "34e"
  Теперь поменяйте тип `userAge` на `Int?`, и напечатайте значение `userAge`.  Почему значение `userAge` равно `nil`?  Ответьте в комментарии или внутри команды print.
  */
 
-var userAge:Int? = Int(userInputAge)
+var userAge: = Int(userInputAge)
 
 print(userAge)
 
