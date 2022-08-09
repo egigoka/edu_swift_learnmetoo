@@ -18,7 +18,8 @@ case "red" where filling == "choco":
     print("Red with chocolate, goes to pile one")
 case "yellow" where filling == "nuts":
     print("Yellow with nuts, goes to pile two")
-case "brown" where filling == "choco", "green" where filling == "choco":
+case "brown" where filling == "choco",
+     "green" where filling == "choco":
     print("Brown or green with chocolate, goes to pile three")
 default:
     print("Unknown combination, goes to \"unknown\" pile")
