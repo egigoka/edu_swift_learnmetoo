@@ -8,6 +8,26 @@ import UIKit
  1.2 Выведите результат на консоль в таком виде: "Сумма вклада через <... > лет увеличится на <...> и составит <...>"
  */
 
+var deposit = 500000
+let rate = 11
+var profit = 0
+let period = 5
+
+for year in 1...period {
+    profit += (deposit + profit) * rate / 100
+    
+    let yearLiteral: String
+    if year == 1 {
+        yearLiteral = "год"
+    } else if (2...3).contains(year) {
+        yearLiteral = "года"
+    } else {
+        yearLiteral = "лет"
+    }
+    
+    print("Сумма вклада через \(year) \(yearLiteral) увеличится на "
+          + "\(profit) и составит \(deposit + profit)")
+}
 
 
 /*:
@@ -19,7 +39,15 @@ import UIKit
  2.3 Выведите результат на консоль в следующем виде: «<…> в <…> степени равно <…>»
  */
 
+let base = 2
+let power = 10
+var result = 1
 
+for _ in 1...power {
+    result *= base
+}
+
+print("\(base) в \(power) степени равно \(result)")
 
 /*:
  ### Задание 3
