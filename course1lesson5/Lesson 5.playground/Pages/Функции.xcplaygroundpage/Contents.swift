@@ -12,11 +12,19 @@ import Foundation
  
  */
 
+func addingTwoNumbers() {
+    let a = 3
+    let b = 2
+    let c = a + b
+    
+    print(c)
+}
 
-
-
+addingTwoNumbers()
 
 //: ### Функции с возвращаемыми значениями
+
+
 
 /*:
     func nameOfFunction() -> Data Type {
@@ -30,6 +38,8 @@ import Foundation
 
 //: ### Функции с параметрами
 
+
+
 /*:
     func name(argumentOne parameterOne: Data Type, argumentTwo parameterTwo: Data Type) {
         some code
@@ -40,5 +50,6 @@ import Foundation
 
 
 // Функция с параметрами и аргументами
+
 
 //: [Next](@next)
