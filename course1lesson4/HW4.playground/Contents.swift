@@ -13,22 +13,14 @@ let rate = 11
 var profit = 0
 let period = 5
 
-for year in 1...period {
-    profit += (deposit + profit) * rate / 100
-    
-    let yearLiteral: String
-    if year == 1 {
-        yearLiteral = "год"
-    } else if (2...3).contains(year) {
-        yearLiteral = "года"
-    } else {
-        yearLiteral = "лет"
-    }
-    
-    print("Сумма вклада через \(year) \(yearLiteral) увеличится на "
-          + "\(profit) и составит \(deposit + profit)")
+for _ in 1...period {
+    let currentProfit = deposit * rate / 100
+    deposit += currentProfit
+    profit += currentProfit
 }
 
+print("Сумма вклада через \(period) лет увеличится на "
+      + "\(profit) и составит \(deposit)")
 
 /*:
  ### Задание 2
@@ -60,7 +52,7 @@ let numbers = [1, 3, 3556, 420, 69, 42]
 
 for number in numbers {
     if number % 2 == 0 {
-        print(number)
+        print("Четные: \(number)")
     }
 }
 
@@ -70,7 +62,7 @@ for number in numbers {
     if number % 2 == 0 {
         continue
     }
-    print(number)
+    print("Нечетные: \(number)")
 }
 
 //: ### Задание 4
