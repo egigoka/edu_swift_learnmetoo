@@ -18,14 +18,49 @@ import UIKit
  - Игра с АкБарс - 1:2
  */
 
+let games = [
+    "Salavat Yulaev": ["3:6", "5:5"],
+    "Avangard": ["2:1", "2:3"],
+    "AkBars": ["3:3", "1:2"]
+]
 
+for (name, results) in games {
+    for result in results{
+        print("Game with \(name) - \(result)")
+    }
+}
 
 /*:
  ### Задание 2
  2.1 Создайте функцию, которая считает общую сумму денег, хранящихся в кошельке. В кошельке имеются купюры различного достоинства от 50 до 5000 рублей
  */
 
+func totalMoneyInWallet(bills: [Int:Int]) -> Int {
+    var total = 0
+    
+    for (value, count) in bills {
+        total += value * count
+    }
+    
+    return total
+}
 
+let wallet = [
+    10000: 20,
+    5000: 3,
+    2000: 1,
+    1000: 1,
+    500: 3,
+    200: 2,
+    100: 1,
+    50: 1,
+    20: 3,
+    10: 4,
+    5: 1,
+    1: 3
+]
+
+totalMoneyInWallet(bills: wallet)
 
 //: 2.2 Заполните массив различными купюрами и подсчитайте общую сумму
 
