@@ -8,31 +8,78 @@ import Foundation
 
 //: Отбираем числа меньше заданного значения
 
+func filterLessThanValue(value: Int, numbers: [Int]) -> [Int] {
+    
+    var fileteredSetOfNumbers: [Int] = []
+    
+    for number in numbers {
+        if number < value {
+            fileteredSetOfNumbers.append(number)
+        }
+    }
+    return fileteredSetOfNumbers
+}
 
+let someValue = 5
+let numbers = [5, 8, 20, 13, 1, 4, 3, 6]
+
+filterLessThanValue(value: someValue, numbers: numbers)
 
 //: Отбираем числа больше заданного значения
 
+func filterGreaterThanValue(value: Int, numbers: [Int]) -> [Int] {
+    
+    var fileteredSetOfNumbers: [Int] = []
+    
+    for number in numbers {
+        if number > value {
+            fileteredSetOfNumbers.append(number)
+        }
+    }
+    return fileteredSetOfNumbers
+}
 
+filterGreaterThanValue(value: someValue, numbers: numbers)
 
 //: Функция для отбора чисел, относительно заданного значения
 
-
+func filterWithPredicateClosure(value: Int,
+                                numbers: [Int],
+                                closure: (Int, Int) -> Bool) -> [Int] {
+    var filteredNumbers: [Int] = []
+    
+    for number in numbers {
+        if closure(number, value) {
+            filteredNumbers.append(number)
+        }
+    }
+    
+    return filteredNumbers
+}
 
 //: Функция для отбора числе меньше указанного значения
 
-
+func lessThanValue(number: Int, value: Int) -> Bool {
+    number < value
+}
 
 //: Функция для отбора числе больше указанного значения
 
-
+func greaterThanValue(number: Int, value: Int) -> Bool {
+    number > value
+}
 
 //: Отбор чисел меньше указанного значения
 
-
+filterWithPredicateClosure(value: someValue,
+                           numbers: numbers,
+                           closure: lessThanValue)
 
 //: Отбор чисел больше указанного значения
 
-
+filterWithPredicateClosure(value: someValue,
+                           numbers: numbers,
+                           closure: greaterThanValue)
 
 //: ### Замыкающие выражения
 
