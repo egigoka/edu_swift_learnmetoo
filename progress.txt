@@ -18,7 +18,7 @@ course 1 lesson 4 homework - done
 
 course 1 lesson 5 homework review - done
 course 1 lesson 5 theory - done
-course 1 lesson 5 homework - 
+course 1 lesson 5 homework - partially
 
 course 1 lesson 6 homework review - 
 course 1 lesson 6 theory - 
