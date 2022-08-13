@@ -83,8 +83,6 @@ filterWithPredicateClosure(value: someValue,
 
 //: ### Замыкающие выражения
 
-
-
 /*:
  
  Замыкания бывают трех видов:
@@ -97,15 +95,11 @@ filterWithPredicateClosure(value: someValue,
  
  */
 
-
-
 /*:
     { (параметры) -> тип результата in
         тело замыкающего выражения
     }
  */
-
-
 
 /*:
  Изпользование замыкания в качестве аргумента
@@ -113,15 +107,37 @@ filterWithPredicateClosure(value: someValue,
  Отбор чисел меньше указанного значения
  */
 
-
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: {(number: Int, value: Int) -> Bool in
+        number < value
+    }
+)
 
 //: Отбор чисел больше указанного значения
 
-
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: {(number: Int, value: Int) -> Bool in
+        number > value
+    }
+)
 
 //: Вывод типа из контекста
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: {(number, value) in  number < value }
+)
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: {(number, value) in  number > value }
+)
 
 //: Неявные возвращаемые значения из замыканий с одним выражением
 
@@ -129,12 +145,24 @@ filterWithPredicateClosure(value: someValue,
 
 //: Сокращенные имена параметров
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: { $0 < $1 }
+)
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: { $0 > $1 }
+)
 
 //: Последующее замыкание
 
-
+filterWithPredicateClosure(value: someValue, numbers: numbers) { $0 < $1 }
+filterWithPredicateClosure(value: someValue, numbers: numbers) { $0 > $1 }
 
 //: Операторные функции
 
-
+filterWithPredicateClosure(value: someValue, numbers: numbers, closure: <)
+filterWithPredicateClosure(value: someValue, numbers: numbers, closure: >)
