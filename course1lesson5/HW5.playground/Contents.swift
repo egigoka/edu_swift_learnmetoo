@@ -127,3 +127,19 @@ smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts,
                                             closure: isDividableByThree)
 
 print(smallerArrayOfInts, smallerArrayOfInts.count)
+
+smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts,
+                                            closure: { int in
+    int % 5 == 0
+})
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
+
+smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts,
+                                            closure: {$0 % 7 == 0})
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
+
+smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts) {$0 % 11 == 0}
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
