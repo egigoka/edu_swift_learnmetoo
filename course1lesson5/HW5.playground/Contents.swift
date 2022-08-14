@@ -143,3 +143,13 @@ print(smallerArrayOfInts, smallerArrayOfInts.count)
 smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts) {$0 % 11 == 0}
 
 print(smallerArrayOfInts, smallerArrayOfInts.count)
+
+var array = createArrayOfInts(from: 1, to: 100)
+
+smallerArrayOfInts = array.filter { !isEven($0) }
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
+
+smallerArrayOfInts.removeAll(where: isDividableByThree)
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
