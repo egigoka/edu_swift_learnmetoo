@@ -15,7 +15,11 @@ class Post {
     var title = ""
     var body = ""
     var author = ""
-    var numberOfComments = 0
+    var description: Int {
+        numberOfComments
+    }
+   
+    private var numberOfComments = 0
     
     func addComent() {
         numberOfComments += 1
@@ -31,6 +35,8 @@ firstPost.body = "Hello"
 firstPost.author = "Efimov Alexey"
 firstPost.addComent()
 firstPost.addComent()
+//firstPost.numberOfComments = 60
+//firstPost.description = 60
 
 //let secondPost = firstPost
 let secondPost = Post()
@@ -40,12 +46,12 @@ secondPost.body = "A lot of text"
 secondPost.author
 
 print("Author \(firstPost.author) has published new post '\(firstPost.title)' with text '\(firstPost.body)'")
-print("The number of comments for the post '\(firstPost.title)' is \(firstPost.numberOfComments)")
+print("The number of comments for the post '\(firstPost.title)' is \(firstPost.description)")
 
 print()
 
 print("Author \(secondPost.author) has published new post '\(secondPost.title)' with text '\(secondPost.body)'")
-print("The number of comments for the post '\(secondPost.title)' is \(secondPost.numberOfComments)")
+print("The number of comments for the post '\(secondPost.title)' is \(secondPost.description)")
 
 
 firstPost === secondPost
@@ -60,21 +66,39 @@ class Human {
     var name = ""
     var age = 0
     
-    init(name: String, age: Int) {
+    init(name: String = "", age: Int = 0) {
         self.name = name
         self.age = age
+    }
+    
+    func walk() {
+        print("I can walk")
+    }
+    
+    func sleep() {
+        print("I need sleep")
+    }
+    
+    func eat() {
+        print("I need food")
     }
 }
 
 let somePerson = Human(name: "Ron", age: 24)
+let human = Human(name: "Tim Cook")
 
 somePerson.name
 somePerson.age
 
+human.name
+human.age
+
 
 //: ### Наследовение
 
-
+class Child: Human {
+    
+}
 
 //: ### Полиморфизм
 
