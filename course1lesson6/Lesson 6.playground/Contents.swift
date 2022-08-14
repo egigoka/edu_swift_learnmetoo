@@ -53,6 +53,8 @@ print()
 print("Author \(secondPost.author) has published new post '\(secondPost.title)' with text '\(secondPost.body)'")
 print("The number of comments for the post '\(secondPost.title)' is \(secondPost.description)")
 
+print()
+
 
 firstPost === secondPost
 
@@ -98,8 +100,95 @@ human.age
 
 class Child: Human {
     
+    func nursing() {
+        if age <= 5 {
+            print("I need care")
+        } else {
+            print("I can eat independently")
+        }
+    }
+    
+    func parenting() {
+        if age >= 5 && age <= 13 {
+            print("I need an education")
+        } else if age < 5 {
+            print("It's too early for education")
+        } else {
+            print("It's too late for education")
+        }
+    }
+    
 }
+
+let littleBoy = Child(name: "Tom", age: 4)
+littleBoy.sleep()
+littleBoy.eat()
+littleBoy.nursing()
+littleBoy.parenting()
+print()
+
+class SchoolChild: Child {
+    
+    func schooling() {
+        if age >= 6 && age <= 17 {
+            print("I have to go to school")
+        } else {
+            print("I'm still to young for school")
+        }
+    }
+}
+
+let schoolGirl = SchoolChild(name: "Sara", age: 8)
+
+schoolGirl.schooling()
+schoolGirl.nursing()
+schoolGirl.parenting()
+schoolGirl.sleep()
+print()
 
 //: ### Полиморфизм
 
+class Shape {
+    func draw() {
+        print("Draw some shape")
+    }
+}
 
+class Rectangle: Shape {
+    override func draw() {
+        super.draw()
+        print("Draw Rectangle")
+    }
+}
+
+class Triangle {
+    func draw() {
+        print("Draw Triangle")
+    }
+}
+
+class Circle {
+    func draw() {
+        print("Draw Circle")
+    }
+}
+
+func drawRectangle(_ rectangle: Rectangle) {
+    rectangle.draw()
+}
+
+func drawTriangle(_ triangle: Triangle) {
+    triangle.draw()
+}
+
+func drawCircle(_ circle: Circle) {
+    circle.draw()
+}
+
+let rectangle = Rectangle()
+let triangle = Triangle()
+let circle = Circle()
+
+drawRectangle(rectangle)
+drawTriangle(triangle)
+drawCircle(circle)
