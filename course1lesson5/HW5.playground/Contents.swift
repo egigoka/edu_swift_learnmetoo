@@ -69,15 +69,15 @@ totalMoneyInWallet(bills: wallet)
  */
 
 func isEven(_ int:Int) -> Bool {
-    int%2 == 0
+    int % 2 == 0
 }
 
 /*:
-3.2 Создайте функцию, которая определяет делится ли число на *3* без остатка. Функция так же должна возвращать булево значение. Так же подумайте над названием функции
-*/
+ 3.2 Создайте функцию, которая определяет делится ли число на *3* без остатка. Функция так же должна возвращать булево значение. Так же подумайте над названием функции
+ */
 
 func isDividableByThree(_ int: Int) -> Bool {
-    int%3 == 0
+    int % 3 == 0
 }
 
 /*:
@@ -90,7 +90,7 @@ func createArrayOfInts(from start: Int, to end: Int) -> [Int] {
     var currentPosition = start
     
     while currentPosition <= end {
-        output.append(currentPosition)
+        output.insert(currentPosition, at: Int.random(in: 0...output.count))
         currentPosition += 1
     }
     
@@ -99,7 +99,7 @@ func createArrayOfInts(from start: Int, to end: Int) -> [Int] {
 }
 
 /*:
-3.4 Создайте массив чисел от *1* до *100*, используя для этого вышесозданную функцию
+ 3.4 Создайте массив чисел от *1* до *100*, используя для этого вышесозданную функцию
  */
 
 let arrayOfints = createArrayOfInts(from: 1, to: 100)
@@ -121,7 +121,9 @@ func filterArrayWithClosure(_ input: [Int], closure: (Int) -> Bool) -> [Int] {
 }
 
 var smallerArrayOfInts = filterArrayWithClosure(arrayOfints, closure: isEven)
-print(smallerArrayOfInts)
+print(smallerArrayOfInts, smallerArrayOfInts.count)
 
-smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts, closure: isDividableByThree)
-print(smallerArrayOfInts)
+smallerArrayOfInts = filterArrayWithClosure(smallerArrayOfInts,
+                                            closure: isDividableByThree)
+
+print(smallerArrayOfInts, smallerArrayOfInts.count)
