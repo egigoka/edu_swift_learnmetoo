@@ -111,21 +111,63 @@ class Shape {
  */
 
 class Circle: Shape {
-    
     override func squareOfShape() -> Float? {
-        <#code#>
+        Float.pi * pow(radius, 2)
     }
     
     override func perimeterOfShape() -> Float? {
-        <#code#>
+        2 * Float.pi * radius
     }
     
+    func description() {
+        print("Area of Circle is \(squareOfShape() ?? 0), "
+              + "perimeter is \(perimeterOfShape() ?? 0)")
+    }
+}
+
+class Rectangle: Shape {
+    override func squareOfShape() -> Float? {
+        height * width
+    }
+    
+    override func perimeterOfShape() -> Float? {
+        height * 2 + width * 2
+    }
+    
+    func description() {
+        print("Area of Rectangle is \(squareOfShape() ?? 0), "
+              + "perimeter is \(perimeterOfShape() ?? 0)")
+    }
+}
+
+class Ellipse: Shape {
+    override func squareOfShape() -> Float? {
+        Float.pi * (height / 2) * (width / 2)
+    }
+    
+    override func perimeterOfShape() -> Float? {
+        let lineA = height / 2
+        let lineB = width / 2
+        let valueH = pow(lineA - lineB, 2) / pow(lineA + lineB, 2)
+        return Float.pi * (lineA + lineB)
+               * (1 + ((3 * valueH) / (10 + sqrt(4 - 3 * valueH))))
+    }
+    
+    func description() {
+        print("Area of Ellipse is \(squareOfShape() ?? 0), "
+              + "perimeter is \(perimeterOfShape() ?? 0)")
+    }
 }
 
 //: 2.4 Создайте по экземпляру каждого класса, кроме `Shape`, проинициализируйте свойства `height` и `width` или `radius` для каждого класса в любые значения и вызовите у каждого экземпляра класса метод `description`
 
+let circle = Circle(radius: 10)
+let rectangle = Rectangle(height: 10, width: 20)
+let ellipse = Ellipse(height: 10, width: 20)
 
- 
+circle.description()
+rectangle.description()
+ellipse.description()
 /*:
  ## Задание 3
  3.1 Создайте класс `Employee` (сотрудник) со следующими свойствами:
@@ -137,20 +179,45 @@ class Circle: Shape {
  - `surname`
  */
 
-
+class Employee {
+    var salary = 0
+    var name = ""
+    var surname = ""
+    
+    init(name: String, surname: String, salary: Int) {
+        self.name = name
+        self.surname = surname
+        self.salary = salary
+    }
+}
  
 //: 3.2 Создайте массив из 5 объектов под названием `names` со следующими элементами: *John*, *Aaron*, *Tim*, *Ted*, *Steven*. И еще один массив `surnames` с элементами: *Smith*, *Dow*, *Isaacson*, *Pennyworth*, *Jankins*
 
-
+let names = ["John", "Aaron", "Tim", "Ted", "Steven"]
+var surnames = ["Smith", "Dow", "Isaacson", "Pennyworth", "Jankins"]
 
 //: 3.3 Объявите массив `employees` и создайте цикл, в котором он заполняется десятью объектами класса `Employee` таким образом, что свойства `name` и `surname` инициализируются случайными именами и фамилиями из массивов `names` и `surnames`, соответственно. Свойство `salary` (зарплата) тоже должно генерироваться в случайном диапазоне от *$1000* до *$2000*
 
+var employees: [Employee] = []
 
+for _ in 0..<10 {
+    employees.append(Employee(name: names.randomElement() ?? "",
+                              surname: surnames.randomElement() ?? "",
+                              salary: Int.random(in: 1000...2000)))
+}
 
 //: 3.4 Пройдитесь по массиву `employees` при помощи `for-in` и выведите информацию по каждому объекту в виде: «<имя> <фимилия>’s salary is $<... >»
 
+for employee in employees {
+    print("\(employee.name) \(employee.surname)'s salary is $\(employee.salary)")
+}
 
+print()
 
 //: 3.5 Создайте отдельный массив на основании `employees`, который включает только тех работников, зарплата которых чётная. Выведите информацию по каждому сотруднику с четной зарплатой, как в пункте 3.4
 
+let employeesWithEvenSalary = employees.filter({$0.salary % 2 == 0})
 
+for employee in employeesWithEvenSalary {
+    print("\(employee.name) \(employee.surname)'s salary is $\(employee.salary)")
+}
