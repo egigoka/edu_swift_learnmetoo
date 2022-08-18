@@ -161,34 +161,42 @@ class Rectangle: Shape {
     }
 }
 
-class Triangle {
-    func draw() {
+class Triangle: Shape {
+    override func draw() {
         print("Draw Triangle")
     }
 }
 
-class Circle {
-    func draw() {
+class Circle: Shape {
+    override func draw() {
         print("Draw Circle")
     }
 }
 
-func drawRectangle(_ rectangle: Rectangle) {
-    rectangle.draw()
-}
+//func drawRectangle(_ rectangle: Rectangle) {
+//    rectangle.draw()
+//}
+//
+//func drawTriangle(_ triangle: Triangle) {
+//    triangle.draw()
+//}
+//
+//func drawCircle(_ circle: Circle) {
+//    circle.draw()
+//}
 
-func drawTriangle(_ triangle: Triangle) {
-    triangle.draw()
-}
-
-func drawCircle(_ circle: Circle) {
-    circle.draw()
+func drawShape(_ shape: Shape) {
+    shape.draw()
 }
 
 let rectangle = Rectangle()
 let triangle = Triangle()
 let circle = Circle()
 
-drawRectangle(rectangle)
-drawTriangle(triangle)
-drawCircle(circle)
+drawShape(rectangle)
+drawShape(triangle)
+drawShape(circle)
+
+//drawRectangle(rectangle)
+//drawTriangle(triangle)
+//drawCircle(circle)
