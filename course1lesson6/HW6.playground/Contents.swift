@@ -17,9 +17,29 @@ import UIKit
  Объявите геттер *orangeVolume*, возвращающий объем апельсина. Расчет объема необходимо реализовать в методе *calculateOrangeVolume* (число Пи в Swift можно получить через константу `Double.pi`. Формулу расчета можно погуглить).
  */
 
-
+class Orange {
+    var color: String
+    var taste: String
+    var radius: Double
+    
+    var orangeVolume: Double {
+        calculateOrangeVolume()
+    }
+    
+    func calculateOrangeVolume() -> Double {
+        (4/3) * Double.pi * pow(radius, 3)
+    }
+    
+    init(radius: Double, color: String = "", taste: String = "") {
+        self.radius = radius
+        self.color = color
+        self.taste = taste
+    }
+}
 
 //: 1.2 Создайте экземпляр класса `Orange`, вызвав при этом инициализатор  только для радиуса
+
+let orange = Orange(radius: 3)
 
 /*: 1.3 Присвойте остальным свойствам, созданного экземпляра класса, следующие значения:
  
@@ -28,11 +48,15 @@ import UIKit
  - `taste` — *Sweet*
  */
 
+orange.color = "Orange"
+orange.taste = "Sweet"
+
 /*:
 1.4 Выведите на консоль сообщение «Orange has <...> color and <...> taste. The volume of orange is <...>». Обращайтесь к этим значениям через экземпляр класса.
  */
 
-
+print("Orange has \(orange.color) color and \(orange.taste) taste. The volume "
+      + "of organe is \(orange.orangeVolume).")
  
 /*:
  ## Задание 2
@@ -51,7 +75,34 @@ import UIKit
  Oбъявите в классе методы `squareOfShape` и `perimeterOfShape` для расчетов площади и периметра (длины) фигуры соответственно. Методы должены возвращать `Float`. Создайте инициализатор для сторон прямоугольника и отдельный инициализатор для радиуса.
  */
 
-
+class Shape {
+    var height: Float = 0
+    var width: Float = 0
+    var radius: Float = 0
+    var square: Float? {
+        squareOfShape()
+    }
+    var perimeter: Float? {
+        perimeterOfShape()
+    }
+    
+    func squareOfShape() -> Float? {
+        return 0.0
+    }
+    
+    func perimeterOfShape() -> Float? {
+        return 0.0
+    }
+    
+    init(height: Float, width: Float) {
+        self.height = height
+        self.width = width
+    }
+    
+    init(radius: Float) {
+        self.radius = radius
+    }
+}
 
 /*:
  2.2. Создайте классы `Circle`, `Rectangle` и `Ellipse`, унаследовав их от `Shape`. Переопределите методы `squareOfShape` и `perimeterOfShape` для каждого класса в соответствии с правилом расчета площади или периметра (длины) конкретной фигуры
@@ -59,7 +110,17 @@ import UIKit
  2.3 В каждом классе создайте метод `description`, который выводит на консоль сообщение следующего вида: «Площадь фигуры <тип фигуры> равна <... >, периметр (длина) равна <...>»
  */
 
-
+class Circle: Shape {
+    
+    override func squareOfShape() -> Float? {
+        <#code#>
+    }
+    
+    override func perimeterOfShape() -> Float? {
+        <#code#>
+    }
+    
+}
 
 //: 2.4 Создайте по экземпляру каждого класса, кроме `Shape`, проинициализируйте свойства `height` и `width` или `radius` для каждого класса в любые значения и вызовите у каждого экземпляра класса метод `description`
 
