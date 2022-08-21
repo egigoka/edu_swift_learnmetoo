@@ -162,6 +162,7 @@ let ellipse = Ellipse(height: 10, width: 20)
 circle.description()
 rectangle.description()
 ellipse.description()
+print()
 /*:
  ## Задание 3
  3.1 Создайте класс `Employee` (сотрудник) со следующими свойствами:
@@ -174,9 +175,10 @@ ellipse.description()
  */
 
 class Employee {
-    var salary = 0
-    var name = ""
-    var surname = ""
+    
+    let name: String
+    let surname: String
+    let salary: Int
     
     init(name: String, surname: String, salary: Int) {
         self.name = name
@@ -188,7 +190,7 @@ class Employee {
 //: 3.2 Создайте массив из 5 объектов под названием `names` со следующими элементами: *John*, *Aaron*, *Tim*, *Ted*, *Steven*. И еще один массив `surnames` с элементами: *Smith*, *Dow*, *Isaacson*, *Pennyworth*, *Jankins*
 
 let names = ["John", "Aaron", "Tim", "Ted", "Steven"]
-var surnames = ["Smith", "Dow", "Isaacson", "Pennyworth", "Jankins"]
+let surnames = ["Smith", "Dow", "Isaacson", "Pennyworth", "Jankins"]
 
 //: 3.3 Объявите массив `employees` и создайте цикл, в котором он заполняется десятью объектами класса `Employee` таким образом, что свойства `name` и `surname` инициализируются случайными именами и фамилиями из массивов `names` и `surnames`, соответственно. Свойство `salary` (зарплата) тоже должно генерироваться в случайном диапазоне от *$1000* до *$2000*
 
@@ -210,7 +212,7 @@ print()
 
 //: 3.5 Создайте отдельный массив на основании `employees`, который включает только тех работников, зарплата которых чётная. Выведите информацию по каждому сотруднику с четной зарплатой, как в пункте 3.4
 
-let employeesWithEvenSalary = employees.filter({$0.salary % 2 == 0})
+let employeesWithEvenSalary = employees.filter({$0.salary.isMultiple(of: 2)})
 
 for employee in employeesWithEvenSalary {
     print("\(employee.name) \(employee.surname)'s salary is $\(employee.salary)")
