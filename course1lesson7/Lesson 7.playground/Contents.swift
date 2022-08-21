@@ -30,7 +30,7 @@ setupAlarm(for: someDay)
 enum Weekday {
     case monday
     case tuesday
-    case wenesday
+    case wednesday
     case thursday
     case friday
     case saturday
@@ -46,7 +46,7 @@ func setupAlarm(for weekday: Weekday) {
         print("Alarm is set to 8 am.")
     case .tuesday:
         print("Alarm is set to 8 am.")
-    case .wenesday:
+    case .wednesday:
         print("Alarm is set to 8 am.")
     case .thursday:
         print("Alarm is set to 8 am.")
@@ -76,9 +76,35 @@ let usa = Countries.usa
 print("case name: \(usa)")
 print("case value: \(usa.rawValue)")
 
+enum WeekdayVer2: String {
+    
+    case monday = "The alarm is set to 8 am"
+    case tuesday = "The alarm is set to 8:30 am"
+    case wednesday = "The alarm is set to 9 am"
+    case thursday = "The alarm is set to 7:30 am"
+    case friday = "Yay! The last day of the week"
+    case saturday
+    case sunday
+}
+
+var weekdayVer2 = WeekdayVer2.sunday
+
+print("case name: \(weekdayVer2)")
+print("case value: \(weekdayVer2.rawValue)")
+print()
+
+enum Planet: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+
+var somePlanet = Planet.earth
+print("Earth is the \(somePlanet.rawValue) planet from the Sun")
+
 //: ### Инициализация
 
-
+if let possiblePlanet = Planet(rawValue: 0) {
+    print("The seventh")
+}
 
 //: ### Связанные значения (ассоциированные параметры)
 
