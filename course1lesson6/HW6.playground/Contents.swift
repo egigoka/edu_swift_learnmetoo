@@ -26,20 +26,20 @@ class Orange {
         calculateOrangeVolume()
     }
     
-    func calculateOrangeVolume() -> Double {
-        (4/3) * Double.pi * pow(radius, 3)
-    }
-    
     init(radius: Double, color: String = "", taste: String = "") {
         self.radius = radius
         self.color = color
         self.taste = taste
     }
+    
+    private func calculateOrangeVolume() -> Double {
+        4 / 3 * Double.pi * pow(radius, 3)
+    }
 }
 
 //: 1.2 Создайте экземпляр класса `Orange`, вызвав при этом инициализатор  только для радиуса
 
-let orange = Orange(radius: 3)
+let orange = Orange(radius: 95)
 
 /*: 1.3 Присвойте остальным свойствам, созданного экземпляра класса, следующие значения:
  
@@ -79,19 +79,13 @@ class Shape {
     var height: Float = 0
     var width: Float = 0
     var radius: Float = 0
+    
     var square: Float? {
         squareOfShape()
     }
+    
     var perimeter: Float? {
         perimeterOfShape()
-    }
-    
-    func squareOfShape() -> Float? {
-        return 0.0
-    }
-    
-    func perimeterOfShape() -> Float? {
-        return 0.0
     }
     
     init(height: Float, width: Float) {
@@ -102,6 +96,21 @@ class Shape {
     init(radius: Float) {
         self.radius = radius
     }
+    
+    func squareOfShape() -> Float? {
+        nil
+    }
+    
+    func perimeterOfShape() -> Float? {
+        nil
+    }
+    
+    func description() {
+        print("Square of \(Self.self) is \(square ?? 0). "
+              + "Perimeter - \(perimeter ?? 0)")
+    }
+    
+    
 }
 
 /*:
@@ -118,11 +127,6 @@ class Circle: Shape {
     override func perimeterOfShape() -> Float? {
         2 * Float.pi * radius
     }
-    
-    func description() {
-        print("Area of Circle is \(squareOfShape() ?? 0), "
-              + "perimeter is \(perimeterOfShape() ?? 0)")
-    }
 }
 
 class Rectangle: Shape {
@@ -131,12 +135,7 @@ class Rectangle: Shape {
     }
     
     override func perimeterOfShape() -> Float? {
-        height * 2 + width * 2
-    }
-    
-    func description() {
-        print("Area of Rectangle is \(squareOfShape() ?? 0), "
-              + "perimeter is \(perimeterOfShape() ?? 0)")
+        (height + width) * 2
     }
 }
 
@@ -151,11 +150,6 @@ class Ellipse: Shape {
         let valueH = pow(lineA - lineB, 2) / pow(lineA + lineB, 2)
         return Float.pi * (lineA + lineB)
                * (1 + ((3 * valueH) / (10 + sqrt(4 - 3 * valueH))))
-    }
-    
-    func description() {
-        print("Area of Ellipse is \(squareOfShape() ?? 0), "
-              + "perimeter is \(perimeterOfShape() ?? 0)")
     }
 }
 
