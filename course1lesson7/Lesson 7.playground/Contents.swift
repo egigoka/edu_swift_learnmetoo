@@ -89,6 +89,10 @@ enum WeekdayVer2: String {
 
 var weekdayVer2 = WeekdayVer2.sunday
 
+if let ukraine = Countries(rawValue: "Ukraine") {
+    print(ukraine.rawValue)
+}
+
 print("case name: \(weekdayVer2)")
 print("case value: \(weekdayVer2.rawValue)")
 print()
@@ -102,10 +106,9 @@ print("Earth is the \(somePlanet.rawValue) planet from the Sun")
 
 //: ### Инициализация
 
-if let possiblePlanet = Planet(rawValue: 0) {
-    print("The seventh")
+if let possiblePlanet = Planet(rawValue: 7) {
+    print("The seventh planet is \(possiblePlanet)")
 }
-
 //: ### Связанные значения (ассоциированные параметры)
 
 
