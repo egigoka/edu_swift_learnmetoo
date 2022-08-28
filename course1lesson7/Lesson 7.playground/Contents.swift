@@ -219,7 +219,29 @@ iPhone11.name = "iPhone 11"
 
 iPhoneXR.printDescription()
 iPhone11.printDescription()
+
+var someInt = 10
+var anotherInt = 15
+
+someInt = anotherInt
+anotherInt = 20
 //: ### Методы в структурах
 
+struct Rectangle {
+    var width: Int
+    var height: Int
+    
+    var area: Int {
+        width * height
+    }
+    
+    mutating func scale(width: Int, height: Int) {
+        self.width *= width
+        self.height *= height
+    }
+}
 
-
+var rectangle = Rectangle(width: 10, height: 5)
+rectangle.area
+rectangle.scale(width: 2, height: 3)
+rectangle.area
