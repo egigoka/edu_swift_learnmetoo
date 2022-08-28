@@ -111,11 +111,46 @@ if let possiblePlanet = Planet(rawValue: 7) {
 }
 //: ### Связанные значения (ассоциированные параметры)
 
+enum WeekdayVer3 {
+    case workday(message: String, time: Int)
+    case weekend(message: String)
+}
 
+let weekDayVer3 = WeekdayVer3.workday(message: "Set alarm to" , time: 8)
+
+func setupAlarmVer2(for weekday: WeekdayVer3) {
+    switch weekday {
+    case let .workday(message, time):
+        print("\(message) \(time)")
+    case let .weekend(message):
+        print(message)
+    }
+}
+
+setupAlarmVer2(for: weekDayVer3)
 
 //: ## Структуры
 
+let playerOne = "Player One"
+var player1XPosition = 10
+var player1YPosition = 5
 
+let playerTwo = "Player Two"
+var player2XPosition = 8
+var player2YPosition = 3
+
+func playersPosition(player: String, x: Int, y: Int) {
+    print("The position of \(player): X\(x):Y\(y)")
+}
+
+playersPosition(player: playerOne, x: player1XPosition, y: player1YPosition)
+playersPosition(player: playerTwo, x: player2XPosition, y: player2YPosition)
+
+struct PositionOnMap {
+    let player: String
+    let x: Int
+    let y: Int
+}
 
 /*:
     struct StructureName {
