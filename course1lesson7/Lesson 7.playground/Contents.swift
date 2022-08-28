@@ -148,9 +148,22 @@ playersPosition(player: playerTwo, x: player2XPosition, y: player2YPosition)
 
 struct PositionOnMap {
     let player: String
-    let x: Int
-    let y: Int
+    var x: Int
+    var y: Int
+    
+    func printPlayerPosition () {
+        print("The position of \(player): X\(x):Y\(y)")
+    }
 }
+
+
+var playerOnePosition = PositionOnMap(player: playerOne, x: 10, y: 8)
+var playerTwoPosition = PositionOnMap(player: playerTwo, x: 7, y: 5)
+
+playerOnePosition.player
+playerOnePosition.x = 7
+playerOnePosition.y
+playerOnePosition.printPlayerPosition()
 
 /*:
     struct StructureName {
@@ -166,8 +179,47 @@ struct PositionOnMap {
 
 //: ### Сравение классов и структур
 
+class MacBook {
+    var name: String
+    var year: Int
+    var color: String
+    
+    init(name: String, year: Int, color: String) {
+        self.name = name
+        self.year = year
+        self.color = color
+    }
+    
+    func printDescription() {
+        print("\(name) \(year) \(color)")
+    }
+}
+
+let macBookPro = MacBook(name: "MacBook Pro", year: 2022, color: "Space Gray")
 
 
+let macBookAir = macBookPro
+macBookPro.name = "MacBook Air"
+macBookPro.printDescription()
+macBookAir.printDescription()
+
+struct IPhone {
+    var name: String
+    var color: String
+    var capacity: Int
+    
+    func printDescription() {
+        print("\(name) \(color) \(capacity)GiB")
+    }
+}
+
+let iPhoneXR = IPhone(name: "iPhone XR", color: "Coral", capacity: 128)
+var iPhone11 = iPhoneXR
+iPhone11.name = "iPhone 11"
+
+iPhoneXR.printDescription()
+iPhone11.printDescription()
 //: ### Методы в структурах
+
 
 
