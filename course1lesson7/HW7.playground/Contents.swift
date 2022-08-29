@@ -18,36 +18,37 @@ enum CalculationType{
 
 func calculate(operation: CalculationType,
                for numberOne: Int,
-               and numberTwo: Int) -> Int {
+               and numberTwo: Int) -> Int? {
+    var result = numberOne
+    
     switch operation {
-    case .addtiton:
-        return numberOne + numberTwo
-    case .subtraction:
-        return numberOne - numberTwo
-    case .multiplication:
-        return numberOne * numberTwo
+    case .addtiton: result += numberTwo
+    case .subtraction: result -= numberTwo
+    case .multiplication: result *= numberTwo
     case .division:
-        return numberOne / numberTwo
+        if numberTwo == 0 {
+            print("Division by zero.")
+            return nil
+        }
+        result /= numberTwo
     }
+    
+    print("Result of \(operation) with numbers \(numberOne)"
+          + "and \(numberTwo) is \(result)")
+    
+    return result
 }
 
 //: 1.3 Вызовите эту функцию четыре раза для каждого математического оператора в отдельности. Постарайтесь сделать реализацию максимально гибкой — такой, что бы результат вывода можно было легко изменить, поменяв значения переменных. Доработайте функцию так, что бы при каждом её вызове на консоль выводился результат следующего содержания: «Результат сложения (вычитания, деления, умножения) <…> и <…> равен <…>» для каждого отдельного случая.
 
 let numberOne = 10
 let numberTwo = 3
-var result = 0
+var result: Int? = 0
 
 result = calculate(operation: .addtiton, for: numberOne, and: numberTwo)
-print("Result of of addition \(numberOne) and \(numberTwo) is \(result)")
-
 result = calculate(operation: .subtraction, for: numberOne, and: numberTwo)
-print("Result of of subtraction \(numberOne) and \(numberTwo) is \(result)")
-
 result = calculate(operation: .multiplication, for: numberOne, and: numberTwo)
-print("Result of of multiplication \(numberOne) and \(numberTwo) is \(result)")
-
 result = calculate(operation: .division, for: numberOne, and: numberTwo)
-print("Result of of division \(numberOne) and \(numberTwo) is \(result)")
 
 print()
 
