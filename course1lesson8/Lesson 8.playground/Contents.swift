@@ -13,7 +13,18 @@ import UIKit
 
 */
 
+var currentWeather = (22, "Sunny")
 
+class Weather{
+    var currentWeather: (Int, String)
+    
+    init(currentWeather: (Int, String)){
+        self.currentWeather = currentWeather
+    }
+}
+
+let weather = Weather(currentWeather: currentWeather)
+weather.currentWeather
 
 //: ### Получение доступа к элементам
 
