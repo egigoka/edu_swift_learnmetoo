@@ -67,17 +67,20 @@ print()
  */
 
 enum CurrencyUnit {
-    case hryvnia(countriesUsing: [String], currencyCode: String)
-    case dollar(countriesUsing: [String],
-                currencyCode: String,
-                countryEmitent: DollarCountries)
-    case euro(countriesUsing: [String], currencyCode: String)
     
     enum DollarCountries: String {
         case usa = "USA"
         case canada = "Canada"
         case australia = "Australia"
     }
+    
+    case hryvnia(countriesUsing: [String], currencyCode: String)
+    case dollar(countriesUsing: [String],
+                currencyCode: String,
+                countryEmitent: DollarCountries)
+    case euro(countriesUsing: [String], currencyCode: String)
+    
+    
 }
 
 /*:
@@ -102,11 +105,12 @@ func printCurrencyDescription(currency: CurrencyUnit) {
     switch currency {
     case let .hryvnia(countriesUsing, currencyCode),
          let .euro(countriesUsing, currencyCode):
-        let countries = countriesUsing.joined(separator: ",")
-        print("Currency is used in: \(countries), currency code: \(currencyCode)")
-    case let .dollar(countriesUsing, currencyCode, countryEmitent):
-        let countries = countriesUsing.joined(separator: ",")
+        let countries = countriesUsing.joined(separator: ", ")
         print("Currency is used in: \(countries), "
+              + "currency code: \(currencyCode)")
+    case let .dollar(countriesUsing, currencyCode, countryEmitent):
+        let countries = countriesUsing.joined(separator: ", ")
+        print("Dollar is used in: \(countries), "
               + "currency code: \(currencyCode), "
               + "emitent is \(countryEmitent.rawValue)")
     }
@@ -169,12 +173,12 @@ struct PlayerInChess{
     let name: String
     var wins: Int
     
-    func printDescription() {
-        print("Player \"\(name)\" has won \(wins) games")
-    }
-    
     mutating func addWins(count: Int) {
         wins += count
+    }
+    
+    func printDescription() {
+        print("Player \"\(name)\" has won \(wins) games")
     }
 }
 
