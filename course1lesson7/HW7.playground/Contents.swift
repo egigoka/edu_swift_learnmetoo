@@ -49,6 +49,8 @@ print("Result of of multiplication \(numberOne) and \(numberTwo) is \(result)")
 result = calculate(operation: .division, for: numberOne, and: numberTwo)
 print("Result of of division \(numberOne) and \(numberTwo) is \(result)")
 
+print()
+
 /*:
  ## Задание 2
  2.1 Создайте перечисление `CurrencyUnit` со следующими членами: `rouble`, `dollar`, `euro`.
@@ -97,20 +99,21 @@ let someCurrency = CurrencyUnit.dollar(countriesUsing: ["USA", "Puerto Rico"],
 
 func printCurrencyDescription(currency: CurrencyUnit) {
     switch currency {
-    case let .hryvnia(countriesUsing, currencyCode):
+    case let .hryvnia(countriesUsing, currencyCode),
+         let .euro(countriesUsing, currencyCode):
         let countries = countriesUsing.joined(separator: ",")
-        print("\(countries), \(currencyCode)")
-    case let .euro(countriesUsing, currencyCode):
-        let countries = countriesUsing.joined(separator: ",")
-        print("\(countries), \(currencyCode)")
+        print("Currency is used in: \(countries), currency code: \(currencyCode)")
     case let .dollar(countriesUsing, currencyCode, countryEmitent):
         let countries = countriesUsing.joined(separator: ",")
-        print("\(countries), \(currencyCode) \(countryEmitent.rawValue)")
+        print("Currency is used in: \(countries), "
+              + "currency code: \(currencyCode), "
+              + "emitent is \(countryEmitent.rawValue)")
     }
 }
 
 printCurrencyDescription(currency: hryvniaCurrency)
 printCurrencyDescription(currency: someCurrency)
+print()
 
 /*:
  ## Задание 3
@@ -120,28 +123,36 @@ printCurrencyDescription(currency: someCurrency)
  - `horsePower: Int`
  */
 
-
+struct Car {
+    var name: String
+    let productionYear: Int
+    var horsePower: Int
+}
 
 //: 3.2 Создайте экземпляр структуры `Car` с названием какого либо автомобильного бренда, например `honda`.
 
-
+let honda = Car(name: "Honda Accord", productionYear: 2020, horsePower: 134)
 
 //: 3.3 Создайте копию экземпляра `honda`, например, `hondaCivic`
 
-
+var hondaCivic = honda
 
 //: 3.4 Присвойте новое значение переменной name структуры `hondaCivic`
 
-
+hondaCivic.name = "Honda Civic"
 
 //: 3.5 Создайте цикл с пятью итерациями, в котором в каждой итерации необходимо увеличивать значение horsePower у структуры hondaCivic на единицу
 
-
+for _ in 1...5 {
+    hondaCivic.horsePower += 1
+}
 
 //: 3.6 Выведите значения структур `honda` и `hondaCivic` на консоль в следующем виде: "Мощность двигателя <..> составляет <...> л.с."
 
-
- 
+for car in [honda, hondaCivic] {
+    print("Power of \(car.name) is \(car.horsePower)HP")
+}
+ print()
 /*:
  ## Задание 4
  4.1 Создайте структуру `PlayerInChess`, в которой есть два свойства: `name` с типом `Sting` и `wins` с типом `Int`
@@ -153,7 +164,21 @@ printCurrencyDescription(currency: someCurrency)
  4.4 Вызвите данный метод из экземпляра структуры
   */
 
+struct PlayerInChess{
+    let name: String
+    var wins: Int
+    
+    func printDescription() {
+        print("Player \"\(name)\" has won \(wins) games")
+    }
+    
+    mutating func addWins(count: Int) {
+        wins += count
+    }
+}
 
+var playerInChess = PlayerInChess(name: "John", wins: 10)
+playerInChess.printDescription()
 
 /*:
 4.5 Расширте структуру методом addWins, который должен принимать целочисленное значение и увеличивать количество побед на это значение.
@@ -161,4 +186,5 @@ printCurrencyDescription(currency: someCurrency)
 4.6 Вызовите метода addWins из экземпляра структуры, затем вызовите метод description
 */
 
-
+playerInChess.addWins(count: 10)
+playerInChess.printDescription()
