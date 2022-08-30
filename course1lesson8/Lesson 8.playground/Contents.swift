@@ -56,6 +56,33 @@ var cityTemp = ["Kiyv": Int.random(in: -2...16),
                 "Odessa": Int.random(in: -2...16),
                 "Lviv": Int.random(in: -2...16)]
 
+for (city, temp) in cityTemp {
+    print("In \(city) temperature now is \(temp)º")
+}
+
+print()
+
+let cityList = cityTemp.sorted(by: <)
+
+for cityTemp in cityList {
+    print("In \(cityTemp.key) temperature now is \(cityTemp.value)º")
+}
+print()
+
+
+func getTemp(in city: String) -> (city: String, temp: Int) {
+    let temp = Int.random(in: -2...16)
+    return (city, temp)
+}
+
+let (city, temp) = getTemp(in: "Vinnytsia")
+print("In \(city) temperature now is \(temp)º")
+print()
+
+let tempInCity = getTemp(in: "Vinnytsia")
+print("In \(tempInCity.city) temperature now is \(tempInCity.temp)º")
+print()
+
 //: ## Guard
 
 
