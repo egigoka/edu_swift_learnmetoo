@@ -85,8 +85,107 @@ print()
 
 //: ## Guard
 
+var name = ""
+var surname = ""
+var email = ""
+var age = 0
 
+func createNewUserV1(name: String, surname: String, email: String, age:Int) {
+    if name != "" {
+        print(name)
+    } else {
+        print("Enter your name")
+    }
+    
+    if surname != "" {
+        print(surname)
+    } else {
+        print("Enter your surname")
+    }
+    
+    if email != "" {
+        print(email)
+    } else {
+        print("Enter your email")
+    }
+    
+    if age >= 18 {
+        print(age)
+    } else {
+        print("Enter for adult only")
+    }
+    
+    print("\(name) \(surname), welcome!")
+}
 
+createNewUserV1(name: name, surname: surname, email: email, age: age)
+print()
+
+func createNewUserV2(name: String, surname: String, email: String, age:Int) {
+    if name != "" {
+        print(name)
+        if surname != "" {
+            print(surname)
+            if email != "" {
+                print(email)
+                if age >= 18 {
+                    print("\(name) \(surname), welcome!")
+                } else {
+                    print("Enter for adult only")
+                }
+            } else {
+                print("Enter your email")
+            }
+        } else {
+            print("Enter your surname")
+        }
+    } else {
+        print("Enter your name")
+    }
+}
+
+name = "Alexey"
+surname = "Efimov"
+email = "lex.efimov@swiftbook.ru"
+age = 18
+
+createNewUserV2(name: name, surname: surname, email: email, age: age)
+print()
+
+func createNewUserV3(name: String, surname: String, email: String, age:Int) {
+    if name == "" {
+        print("Enter your name")
+        return
+    }
+    
+    print(name)
+    
+    if surname == "" {
+        print("Enter your surname")
+        return
+    }
+    
+    print(surname)
+    
+    if email == "" {
+        print("Enter your email")
+        return
+    }
+    
+    print(email)
+    
+    if age < 18 {
+        print("Enter for adult only")
+    }
+    
+    print("\(name) \(surname), welcome!")
+}
+
+//surname = ""
+age = 16
+
+createNewUserV3(name: name, surname: surname, email: email, age: age)
+print()
 //: ### Синтаксис
 
 /*:
