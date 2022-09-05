@@ -36,7 +36,7 @@ course 1 lesson 8 homework - none
 
 
 course 2 lesson 1 homework review - none
-course 2 lesson 1 theory - 1:02:49
+course 2 lesson 1 theory - 1:33:58
 course 2 lesson 1 homework - 
 
 course 2 lesson 2 homework review - 
