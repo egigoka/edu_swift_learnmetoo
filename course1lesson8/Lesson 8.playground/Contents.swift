@@ -246,3 +246,35 @@ func createNewUserV5(name: String?,
 
 createNewUserV5(name: name, surname: surname, email: email, age: age)
 print()
+
+//: ### Опциональная последовательность
+
+class Person {
+    var id: String?
+    var residence: Residence?
+}
+
+class Residence {
+    var adress: Adress?
+}
+
+class Adress {
+    var street: String?
+    var building: String?
+    var apartment: String?
+}
+
+
+var person: Person?
+
+if let residence = person?.residence {
+    if let adress = residence.adress {
+        if let apartment = adress.apartment {
+            print("The apartment number is \(apartment)")
+        }
+    }
+}
+
+if let apartment = person?.residence?.adress?.apartment {
+    print("The apartment number is \(apartment)")
+}
