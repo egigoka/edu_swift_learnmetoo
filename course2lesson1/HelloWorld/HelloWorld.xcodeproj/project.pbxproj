@@ -7,32 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13148B7E28C66EC80029826C /* HelloWorldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B6E28C66EC40029826C /* HelloWorldApp.swift */; };
-		13148B7F28C66EC80029826C /* HelloWorldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B6E28C66EC40029826C /* HelloWorldApp.swift */; };
-		13148B8028C66EC80029826C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B6F28C66EC40029826C /* ContentView.swift */; };
-		13148B8128C66EC80029826C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B6F28C66EC40029826C /* ContentView.swift */; };
-		13148B8228C66EC80029826C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13148B7028C66EC80029826C /* Assets.xcassets */; };
-		13148B8328C66EC80029826C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13148B7028C66EC80029826C /* Assets.xcassets */; };
+		13148B9C28C676940029826C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B9B28C676940029826C /* AppDelegate.swift */; };
+		13148B9E28C676940029826C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B9D28C676940029826C /* SceneDelegate.swift */; };
+		13148BA028C676940029826C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13148B9F28C676940029826C /* ViewController.swift */; };
+		13148BA328C676940029826C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13148BA128C676940029826C /* Main.storyboard */; };
+		13148BA528C676960029826C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13148BA428C676960029826C /* Assets.xcassets */; };
+		13148BA828C676960029826C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13148BA628C676960029826C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13148B6E28C66EC40029826C /* HelloWorldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldApp.swift; sourceTree = "<group>"; };
-		13148B6F28C66EC40029826C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		13148B7028C66EC80029826C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		13148B7528C66EC80029826C /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13148B7B28C66EC80029826C /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13148B7D28C66EC80029826C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		13148B9828C676940029826C /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13148B9B28C676940029826C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13148B9D28C676940029826C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		13148B9F28C676940029826C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		13148BA228C676940029826C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13148BA428C676960029826C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13148BA728C676960029826C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13148BA928C676960029826C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		13148B7228C66EC80029826C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13148B7828C66EC80029826C /* Frameworks */ = {
+		13148B9528C676940029826C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,98 +37,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13148B6828C66EC40029826C = {
+		13148B8F28C676940029826C = {
 			isa = PBXGroup;
 			children = (
-				13148B6D28C66EC40029826C /* Shared */,
-				13148B7C28C66EC80029826C /* macOS */,
-				13148B7628C66EC80029826C /* Products */,
+				13148B9A28C676940029826C /* HelloWorld */,
+				13148B9928C676940029826C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		13148B6D28C66EC40029826C /* Shared */ = {
+		13148B9928C676940029826C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13148B6E28C66EC40029826C /* HelloWorldApp.swift */,
-				13148B6F28C66EC40029826C /* ContentView.swift */,
-				13148B7028C66EC80029826C /* Assets.xcassets */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		13148B7628C66EC80029826C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				13148B7528C66EC80029826C /* HelloWorld.app */,
-				13148B7B28C66EC80029826C /* HelloWorld.app */,
+				13148B9828C676940029826C /* HelloWorld.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13148B7C28C66EC80029826C /* macOS */ = {
+		13148B9A28C676940029826C /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
-				13148B7D28C66EC80029826C /* macOS.entitlements */,
+				13148B9B28C676940029826C /* AppDelegate.swift */,
+				13148B9D28C676940029826C /* SceneDelegate.swift */,
+				13148B9F28C676940029826C /* ViewController.swift */,
+				13148BA128C676940029826C /* Main.storyboard */,
+				13148BA428C676960029826C /* Assets.xcassets */,
+				13148BA628C676960029826C /* LaunchScreen.storyboard */,
+				13148BA928C676960029826C /* Info.plist */,
 			);
-			path = macOS;
+			path = HelloWorld;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13148B7428C66EC80029826C /* HelloWorld (iOS) */ = {
+		13148B9728C676940029826C /* HelloWorld */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13148B8628C66EC80029826C /* Build configuration list for PBXNativeTarget "HelloWorld (iOS)" */;
+			buildConfigurationList = 13148BAC28C676960029826C /* Build configuration list for PBXNativeTarget "HelloWorld" */;
 			buildPhases = (
-				13148B7128C66EC80029826C /* Sources */,
-				13148B7228C66EC80029826C /* Frameworks */,
-				13148B7328C66EC80029826C /* Resources */,
+				13148B9428C676940029826C /* Sources */,
+				13148B9528C676940029826C /* Frameworks */,
+				13148B9628C676940029826C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "HelloWorld (iOS)";
-			productName = "HelloWorld (iOS)";
-			productReference = 13148B7528C66EC80029826C /* HelloWorld.app */;
-			productType = "com.apple.product-type.application";
-		};
-		13148B7A28C66EC80029826C /* HelloWorld (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13148B8928C66EC80029826C /* Build configuration list for PBXNativeTarget "HelloWorld (macOS)" */;
-			buildPhases = (
-				13148B7728C66EC80029826C /* Sources */,
-				13148B7828C66EC80029826C /* Frameworks */,
-				13148B7928C66EC80029826C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HelloWorld (macOS)";
-			productName = "HelloWorld (macOS)";
-			productReference = 13148B7B28C66EC80029826C /* HelloWorld.app */;
+			name = HelloWorld;
+			productName = HelloWorld;
+			productReference = 13148B9828C676940029826C /* HelloWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		13148B6928C66EC40029826C /* Project object */ = {
+		13148B9028C676940029826C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					13148B7428C66EC80029826C = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
-					13148B7A28C66EC80029826C = {
+					13148B9728C676940029826C = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 13148B6C28C66EC40029826C /* Build configuration list for PBXProject "HelloWorld" */;
+			buildConfigurationList = 13148B9328C676940029826C /* Build configuration list for PBXProject "HelloWorld" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,59 +110,63 @@
 				en,
 				Base,
 			);
-			mainGroup = 13148B6828C66EC40029826C;
-			productRefGroup = 13148B7628C66EC80029826C /* Products */;
+			mainGroup = 13148B8F28C676940029826C;
+			productRefGroup = 13148B9928C676940029826C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13148B7428C66EC80029826C /* HelloWorld (iOS) */,
-				13148B7A28C66EC80029826C /* HelloWorld (macOS) */,
+				13148B9728C676940029826C /* HelloWorld */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		13148B7328C66EC80029826C /* Resources */ = {
+		13148B9628C676940029826C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13148B8228C66EC80029826C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13148B7928C66EC80029826C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13148B8328C66EC80029826C /* Assets.xcassets in Resources */,
+				13148BA828C676960029826C /* LaunchScreen.storyboard in Resources */,
+				13148BA528C676960029826C /* Assets.xcassets in Resources */,
+				13148BA328C676940029826C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13148B7128C66EC80029826C /* Sources */ = {
+		13148B9428C676940029826C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13148B8028C66EC80029826C /* ContentView.swift in Sources */,
-				13148B7E28C66EC80029826C /* HelloWorldApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13148B7728C66EC80029826C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13148B8128C66EC80029826C /* ContentView.swift in Sources */,
-				13148B7F28C66EC80029826C /* HelloWorldApp.swift in Sources */,
+				13148BA028C676940029826C /* ViewController.swift in Sources */,
+				13148B9C28C676940029826C /* AppDelegate.swift in Sources */,
+				13148B9E28C676940029826C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		13148BA128C676940029826C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13148BA228C676940029826C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13148BA628C676960029826C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13148BA728C676960029826C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		13148B8428C66EC80029826C /* Debug */ = {
+		13148BAA28C676960029826C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,15 +216,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		13148B8528C66EC80029826C /* Release */ = {
+		13148BAB28C676960029826C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -295,163 +270,96 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		13148B8728C66EC80029826C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PTT6GCQ699;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = egorov.egor.HelloWorld;
-				PRODUCT_NAME = HelloWorld;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		13148B8828C66EC80029826C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PTT6GCQ699;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = egorov.egor.HelloWorld;
-				PRODUCT_NAME = HelloWorld;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		13148B8A28C66EC80029826C /* Debug */ = {
+		13148BAD28C676960029826C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = PTT6GCQ699;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = HelloWorld/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = egorov.egor.HelloWorld;
-				PRODUCT_NAME = HelloWorld;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		13148B8B28C66EC80029826C /* Release */ = {
+		13148BAE28C676960029826C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = PTT6GCQ699;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = HelloWorld/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = egorov.egor.HelloWorld;
-				PRODUCT_NAME = HelloWorld;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13148B6C28C66EC40029826C /* Build configuration list for PBXProject "HelloWorld" */ = {
+		13148B9328C676940029826C /* Build configuration list for PBXProject "HelloWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13148B8428C66EC80029826C /* Debug */,
-				13148B8528C66EC80029826C /* Release */,
+				13148BAA28C676960029826C /* Debug */,
+				13148BAB28C676960029826C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13148B8628C66EC80029826C /* Build configuration list for PBXNativeTarget "HelloWorld (iOS)" */ = {
+		13148BAC28C676960029826C /* Build configuration list for PBXNativeTarget "HelloWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13148B8728C66EC80029826C /* Debug */,
-				13148B8828C66EC80029826C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		13148B8928C66EC80029826C /* Build configuration list for PBXNativeTarget "HelloWorld (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				13148B8A28C66EC80029826C /* Debug */,
-				13148B8B28C66EC80029826C /* Release */,
+				13148BAD28C676960029826C /* Debug */,
+				13148BAE28C676960029826C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 13148B6928C66EC40029826C /* Project object */;
+	rootObject = 13148B9028C676940029826C /* Project object */;
 }
