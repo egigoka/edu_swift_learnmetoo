@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World!" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPU-Fl-Nc5">
-                                <rect key="frame" x="54" y="425" width="306" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World!" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPU-Fl-Nc5">
+                                <rect key="frame" x="61" y="425" width="292" height="46"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="39"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +26,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="uPU-Fl-Nc5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0ak-Vv-f3k"/>
                             <constraint firstItem="uPU-Fl-Nc5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7E8-pc-xAs"/>
+                            <constraint firstItem="uPU-Fl-Nc5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="8VX-AZ-Yvp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uPU-Fl-Nc5" secondAttribute="trailing" constant="61" id="RNs-nc-Cpe"/>
                         </constraints>
                     </view>
                 </viewController>
