@@ -22,18 +22,21 @@ class ViewController: UIViewController {
     @IBOutlet var startNextButton: UIButton!
     
     private var status = Status.green
-    private var lightIsOn = 1.0
-    private var lightIsOff = 0.3
+    private var lightIsOn: CGFloat = 1
+    private var lightIsOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startNextButton.layer.cornerRadius = 10
         
-        circlifySignalViews()
-        
         turnOffTheLights()
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        circlifySignalViews()
     }
     
     func circlifySignalViews() {
