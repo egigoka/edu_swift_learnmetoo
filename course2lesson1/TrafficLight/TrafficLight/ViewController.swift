@@ -34,7 +34,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startNextButtonPressed() {
-        startNextButton.setTitle("NEXT", for: .normal)
+        let attributedString = NSAttributedString(string: "NEXT")
+//        startNextButton.setTitle("NEXT", for: .normal)
+//        startNextButton.titleLabel?.font = UIFont.systemFont(ofSize: 280.0)
+        startNextButton.setAttributedTitle(attributedString, for: .normal)
         
         switch status{
         case .uninitialized:
