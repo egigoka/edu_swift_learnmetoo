@@ -18,7 +18,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTT-8L-zo4">
                                 <rect key="frame" x="143" y="94" width="128" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="23y-il-Ucf"/>
                                     <constraint firstAttribute="height" constant="128" id="Ru0-PR-31f"/>
@@ -26,7 +26,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wia-U0-S7H">
                                 <rect key="frame" x="143" y="227" width="128" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Ube-h5-ufl"/>
                                     <constraint firstAttribute="width" constant="128" id="XOD-lR-iR9"/>
@@ -34,19 +34,25 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t5-sv-dS0">
                                 <rect key="frame" x="143" y="360" width="128" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Hf5-Hd-R8P"/>
                                     <constraint firstAttribute="width" constant="128" id="eDG-at-vgz"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-Uc-mrO">
-                                <rect key="frame" x="79.5" y="781" width="255" height="31"/>
+                                <rect key="frame" x="79.5" y="757" width="255" height="55"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="8rx-qL-L1r"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="xGH-yp-vZ5"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="START">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startNextButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="nH1-fT-XcO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -55,7 +61,6 @@
                             <constraint firstItem="9t5-sv-dS0" firstAttribute="top" secondItem="wia-U0-S7H" secondAttribute="bottom" constant="5" id="ENl-ew-piP"/>
                             <constraint firstItem="wia-U0-S7H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FR2-mF-Fhg"/>
                             <constraint firstItem="Ljf-Uc-mrO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jqm-D9-uXo"/>
-                            <constraint firstItem="wia-U0-S7H" firstAttribute="top" secondItem="KTT-8L-zo4" secondAttribute="bottom" constant="8" symbolic="YES" id="SJx-1F-wO4"/>
                             <constraint firstItem="wia-U0-S7H" firstAttribute="top" secondItem="KTT-8L-zo4" secondAttribute="bottom" constant="5" id="Xpq-vH-wCq"/>
                             <constraint firstItem="KTT-8L-zo4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="mN5-Gr-Zx5"/>
                             <constraint firstItem="9t5-sv-dS0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nBN-9n-x1R"/>
@@ -63,6 +68,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ljf-Uc-mrO" secondAttribute="bottom" constant="50" id="vjS-cd-wty"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenSignalView" destination="9t5-sv-dS0" id="bNU-SJ-ZtC"/>
+                        <outlet property="redSignalView" destination="KTT-8L-zo4" id="4VT-yK-z82"/>
+                        <outlet property="startNextButton" destination="Ljf-Uc-mrO" id="bxf-IF-d2q"/>
+                        <outlet property="yellowSignalView" destination="wia-U0-S7H" id="ErI-9R-Asy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,8 +84,14 @@
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
