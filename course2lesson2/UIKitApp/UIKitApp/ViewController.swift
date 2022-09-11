@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var segmentedContol: UISegmentedControl!
     @IBOutlet var slider: UISlider!
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,5 +60,36 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func doneButtonPressed() {
+        guard let inputText = textField.text, !inputText.isEmpty else {
+            print("The field text is empty")
+            showAlert(with: "The field text is empty", and: "Please, enter your name")
+            return
+        }
+        
+        if let _ = Double(inputText) {
+            print("Wrong format")
+            showAlert(with: "Wrong format", and: "Please, enter your name")
+            return
+        }
+        
+        mainLabel.text = textField.text
+    }
+    
+    @IBAction func datePickerAction() {
+        
+    }
+    
 }
 
+// MARK: - Alert Controller
+extension ViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.textField.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
