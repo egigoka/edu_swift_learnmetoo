@@ -9,11 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mainLabel: UILabel!
+    @IBOutlet var segmentedContol: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Lebel
+        mainLabel.text = ""
     }
 
-
+    @IBAction func segmentedControlAction() {
+    }
+    
+    
 }
 
