@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="E15-Sw-yxT">
-                                <rect key="frame" x="16" y="40" width="343" height="305.5"/>
+                                <rect key="frame" x="16" y="40" width="343" height="561.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-Ak-CPM">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
@@ -53,7 +53,16 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="CZy-PH-eSf"/>
+                                        </connections>
                                     </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Py-mVV">
+                                        <rect key="frame" x="0.0" y="345.5" width="343" height="216"/>
+                                        <connections>
+                                            <action selector="datePickerAction" destination="BYZ-38-t0r" eventType="valueChanged" id="4Ix-JK-max"/>
+                                        </connections>
+                                    </datePicker>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -66,9 +75,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="Elt-Py-mVV" id="XB5-R3-KUU"/>
                         <outlet property="mainLabel" destination="JTT-KG-qIt" id="35m-zg-8cP"/>
                         <outlet property="segmentedContol" destination="NTj-Ak-CPM" id="F5B-kH-OrH"/>
                         <outlet property="slider" destination="kBY-Du-WA0" id="LjU-s6-BJd"/>
+                        <outlet property="textField" destination="xYv-Ki-XfL" id="5c3-9l-SAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
