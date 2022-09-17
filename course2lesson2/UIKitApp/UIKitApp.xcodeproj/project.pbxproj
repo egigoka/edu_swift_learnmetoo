@@ -13,6 +13,7 @@
 		13235F7328CE170C002D2AA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13235F7128CE170C002D2AA8 /* Main.storyboard */; };
 		13235F7528CE170D002D2AA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13235F7428CE170D002D2AA8 /* Assets.xcassets */; };
 		13235F7828CE170D002D2AA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13235F7628CE170D002D2AA8 /* LaunchScreen.storyboard */; };
+		13D6164C28D6224300F09B81 /* progress.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13D6164B28D6224200F09B81 /* progress.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		13235F7428CE170D002D2AA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13235F7728CE170D002D2AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13235F7928CE170D002D2AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13D6164B28D6224200F09B81 /* progress.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = progress.txt; path = ../../../progress.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				13235F7428CE170D002D2AA8 /* Assets.xcassets */,
 				13235F7628CE170D002D2AA8 /* LaunchScreen.storyboard */,
 				13235F7928CE170D002D2AA8 /* Info.plist */,
+				13D6164B28D6224200F09B81 /* progress.txt */,
 			);
 			path = UIKitApp;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 				13235F7828CE170D002D2AA8 /* LaunchScreen.storyboard in Resources */,
 				13235F7528CE170D002D2AA8 /* Assets.xcassets in Resources */,
 				13235F7328CE170C002D2AA8 /* Main.storyboard in Resources */,
+				13D6164C28D6224300F09B81 /* progress.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
