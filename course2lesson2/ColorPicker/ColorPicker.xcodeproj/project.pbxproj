@@ -13,6 +13,7 @@
 		13D6166128D624D700F09B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13D6165F28D624D700F09B81 /* Main.storyboard */; };
 		13D6166328D624D800F09B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D6166228D624D800F09B81 /* Assets.xcassets */; };
 		13D6166628D624D800F09B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13D6166428D624D800F09B81 /* LaunchScreen.storyboard */; };
+		13E2F3F728D6372F001E464B /* progress.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13E2F3F628D6372F001E464B /* progress.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		13D6166228D624D800F09B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13D6166528D624D800F09B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13D6166728D624D800F09B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E2F3F628D6372F001E464B /* progress.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = progress.txt; path = ../../../progress.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				13D6166228D624D800F09B81 /* Assets.xcassets */,
 				13D6166428D624D800F09B81 /* LaunchScreen.storyboard */,
 				13D6166728D624D800F09B81 /* Info.plist */,
+				13E2F3F628D6372F001E464B /* progress.txt */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 				13D6166628D624D800F09B81 /* LaunchScreen.storyboard in Resources */,
 				13D6166328D624D800F09B81 /* Assets.xcassets in Resources */,
 				13D6166128D624D700F09B81 /* Main.storyboard in Resources */,
+				13E2F3F728D6372F001E464B /* progress.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
