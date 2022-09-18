@@ -33,10 +33,15 @@ class ViewController: UIViewController {
         updateColors()
     }
     
-    @IBAction func sliderAction() {
+    @IBAction func sliderActionWithSender(_ sender: UISlider) {
         setColor()
         
-        setLabelsTexts()
+        switch sender.tag {
+        case 0: redLabel.text = formatFloat(sender.value)
+        case 1: greenLabel.text = formatFloat(sender.value)
+        case 2: blueLabel.text = formatFloat(sender.value)
+        default: break
+        }
     }
     
     private func updateColors() {
