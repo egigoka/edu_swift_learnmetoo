@@ -4,21 +4,22 @@
  Создайте коллекцию типа [Any], включающую несколько вещественных чисел, целых, строк и булевых значений.  Распечатайте содержимое коллекции.
  */
 
-let list: [Any] = [1, 1.1, true, false, "funky sheet", 2, 3, 4, 42, 6.999, 0.3]
+let list: [Any] = [2, 5, 3.1, "String", true]
+
+for item in list {
+    print(item)
+}
 
 /*:
  Пройдите по всем элементам коллекции.  Для каждого целого, напечайте "Целое число " и его значение.  Повторите то же самое для вещественных чисел, строк и булевых значений.
  */
 
 for item in list {
-    if let int = item as? Int {
-        print("Целое число \(int)")
-    } else if let double = item as? Double {
-        print("Вещественное число \(double)")
-    } else if let string = item as? String {
-        print("Строка \"\(string)\"")
-    } else if let bool = item as? Bool {
-        print("Булево значение \(bool)")
+    switch item {
+    case if is Int: print("Целое число \(int)")
+    case if is Double: print("Вещественное число \(double)")
+    case if is String: print("Строка \"\(string)\"")
+    case if is Bool: print("Булево значение \(bool)")
     }
 }
 
@@ -26,11 +27,12 @@ for item in list {
  Создайте словарь [String : Any], где все значения — это смесь вещественных и целых чисел, строк и булевых значений.  Выведите пары ключ/значения для всех элементов коллекции.
  */
 
-let dict: [String: Any] = ["Answer to question of life, universe and everything": 42,
-                          "Is something true?": true,
-                          "Name of George Washington": "George",
-                          "0.1 + 0.2 =": 0.1 + 0.2,
-                          "√10": "3.333333333333333333333333333333333333333333"]
+let dict: [String: Any] = ["Answer to question of life, "
+                           + "universe and everything": 42,
+                           "Is something true?": true,
+                           "Name of George Washington": "George",
+                           "0.1 + 0.2 =": 0.1 + 0.2,
+                           "√10": "3.33333333333333333333333333333333333333333"]
 
 
 for (key, value) in dict {
