@@ -48,11 +48,13 @@ var workouts: [Workout] = [
  */
 
 func describeRun(runningWorkout run: Run) {
-    print("Забег со скоростью \(run.cadence) шагов в минуту продолжительностью \(run.time) секунд и расстоянием в \(run.distance) метров")
+    print("Забег со скоростью \(run.cadence) шагов в минуту продолжительностью"
+          + " \(run.time) секунд и расстоянием в \(run.distance) метров")
 }
 
 func describeSwim(swimmingWorkout swim: Swim) {
-    print("Заплыв в стиле \(swim.stroke) продолжительностью \(swim.time) секунд и расстоянием в \(swim.distance) метров")
+    print("Заплыв в стиле \(swim.stroke) продолжительностью \(swim.time) "
+          + "секунд и расстоянием в \(swim.distance) метров")
 }
 
 /*:

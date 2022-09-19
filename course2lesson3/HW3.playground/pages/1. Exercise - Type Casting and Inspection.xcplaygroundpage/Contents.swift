@@ -16,10 +16,11 @@ for item in list {
 
 for item in list {
     switch item {
-    case if is Int: print("Целое число \(int)")
-    case if is Double: print("Вещественное число \(double)")
-    case if is String: print("Строка \"\(string)\"")
-    case if is Bool: print("Булево значение \(bool)")
+    case is Int: print("\(item) is Int")
+    case is Double: print("\(item) is Double")
+    case is String: print("\"\(item)\" is String")
+    case is Bool: print("\(item) is Bool")
+    default: print("Unowed value: \(item)")
     }
 }
 
@@ -27,24 +28,17 @@ for item in list {
  Создайте словарь [String : Any], где все значения — это смесь вещественных и целых чисел, строк и булевых значений.  Выведите пары ключ/значения для всех элементов коллекции.
  */
 
-let dict: [String: Any] = ["Answer to question of life, "
-                           + "universe and everything": 42,
-                           "Is something true?": true,
-                           "Name of George Washington": "George",
-                           "0.1 + 0.2 =": 0.1 + 0.2,
-                           "√10": "3.33333333333333333333333333333333333333333"]
+let dict: [String: Any] = [
+    "Integer": 23,
+    "Double": 3.14,
+    "String": "String",
+    "Bool true": true,
+    "Bool false": false
+]
 
 
 for (key, value) in dict {
-    if let int = value as? Int {
-        print("\(key): \(int)")
-    } else if let double = value as? Double {
-        print("\(key): \(double)")
-    } else if let string = value as? String {
-        print("\(key): \"\(string)\"")
-    } else if let bool = value as? Bool {
-        print("\(key): \(bool)")
-    }
+    print("Key \(key), value: \(value)")
 }
 /*:
  Создайте переменную `total` типа `Double`, равную 0.  Переберите все значения словаря, и добавьте значение каждого целого и вещественного числа к значению вашей переменной.  Для каждой строки добавьте 1.  Для каждого булева значения, добавьте 2, в случае, если значение равно `true`, либо вычтите 3, если оно `false`.  Напечатайте значение `total`.
@@ -52,12 +46,12 @@ for (key, value) in dict {
 
 var total = 0.0
 
-for (key, value) in dict {
+for value in dict.values {
     if let int = value as? Int {
        total += Double(int)
     } else if let double = value as? Double {
         total += double
-    } else if let string = value as? String {
+    } else if value is String {
         total += 1
     } else if let bool = value as? Bool {
         total += bool ? 2 : -3
@@ -72,7 +66,7 @@ print(total)
 
 total = 0
 
-for (key, value) in dict {
+for value in dict.values {
     if let int = value as? Int {
        total += Double(int)
     } else if let double = value as? Double {
