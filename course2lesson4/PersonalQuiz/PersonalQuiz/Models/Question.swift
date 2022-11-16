@@ -5,4 +5,15 @@
 //  Created by egigoka on 16/11/2022.
 //
 
-import Foundation
+enum ResponseType {
+    case single
+    case multiple
+    case ranged
+}
+
+struct Question {
+    let text: String
+    let type: ResponseTime
+    let answers: [Answer]
+    
+}
