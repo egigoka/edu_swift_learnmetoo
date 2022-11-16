@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -95,7 +95,13 @@
                         <viewLayoutGuide key="safeArea" id="jR1-Ch-Qq4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="G1B-0S-Det"/>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="G1B-0S-Det">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="3gD-37-xqG">
+                            <connections>
+                                <segue destination="c0u-Hg-ngO" kind="show" id="diC-em-sdV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="c0u-Hg-ngO" kind="show" identifier="showResult" id="wu9-6I-bSS"/>
                     </connections>
@@ -112,8 +118,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-B6-XFg">
-                                <rect key="frame" x="16" y="140" width="288" height="141.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-B6-XFg">
+                                <rect key="frame" x="16" y="209.5" width="288" height="149.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы - 🐶!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-p7-aPa">
                                         <rect key="frame" x="57" y="0.0" width="174.5" height="60"/>
@@ -121,8 +127,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вам нравится быть с друзьями. Вы окружаете себя людьми, которые Вам нравятся и всегда готовы помочь" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-UB-0bN">
-                                        <rect key="frame" x="2.5" y="60" width="283" height="81.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вам нравится быть с друзьями. Вы окружаете себя людьми, которые Вам нравятся и всегда готовы помочь" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-UB-0bN">
+                                        <rect key="frame" x="0.0" y="68" width="288" height="81.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -133,7 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="s6K-Dh-eoo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="U3K-B6-XFg" firstAttribute="top" secondItem="s6K-Dh-eoo" secondAttribute="top" constant="47.5" id="MN2-78-9Ed"/>
+                            <constraint firstItem="U3K-B6-XFg" firstAttribute="centerY" secondItem="9VL-Hj-43w" secondAttribute="centerY" id="aQK-z2-6GH"/>
                             <constraint firstAttribute="trailing" secondItem="U3K-B6-XFg" secondAttribute="trailing" constant="16" id="dRM-uq-bD6"/>
                             <constraint firstItem="U3K-B6-XFg" firstAttribute="leading" secondItem="s6K-Dh-eoo" secondAttribute="leading" constant="16" id="isQ-bx-LrB"/>
                         </constraints>
@@ -165,6 +171,9 @@
             <point key="canvasLocation" x="761.25" y="-29.577464788732396"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="diC-em-sdV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
