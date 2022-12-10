@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButtionsStackView: UIStackView!
     
     private var keyboardIsShown = false
+    private var constraintMagicNumber: CGFloat = 175
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mainStackViewHeightConstraint?.constant = self.view.frame.height - 135
+        self.mainStackViewHeightConstraint?.constant = self.view.frame.height - constraintMagicNumber
         //self.mainStackView.spacing -= self.view.frame.height - 362
         //self.bottomButtionsStackView.spacing -= self.view.frame.width - 0
         
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
                            delay: 0,
                            options: [.curveEaseInOut],
                            animations: {
-                self.mainStackViewHeightConstraint?.constant = self.view.frame.height - 135
+                self.mainStackViewHeightConstraint?.constant = self.view.frame.height - self.constraintMagicNumber
                 self.view.layoutIfNeeded()
                 //self.bottomButtonsStackViewBottomConstraint.constant -= keyboardHeight
                 //self.view.frame = newFrame
