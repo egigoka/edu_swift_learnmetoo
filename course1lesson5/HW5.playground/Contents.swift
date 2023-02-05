@@ -25,7 +25,7 @@ let games = [
 ]
 
 for (name, results) in games {
-    for result in results{
+    for result in results {
         print("Game with \(name) - \(result)")
     }
 }
@@ -35,13 +35,13 @@ for (name, results) in games {
  2.1 Создайте функцию, которая считает общую сумму денег, хранящихся в кошельке. В кошельке имеются купюры различного достоинства от 50 до 5000 рублей
  */
 
-func totalMoneyInWallet(bills: [Int:Int]) -> Int {
+func totalMoneyInWallet(bills: [Int: Int]) -> Int {
     var total = 0
-    
+
     for (value, count) in bills {
         total += value * count
     }
-    
+
     return total
 }
 
@@ -68,7 +68,7 @@ totalMoneyInWallet(bills: wallet)
  3.1 Создайте функцию, которая определяет является ли число четным или нет. В случае, если число является четным, функция должна возвращать `true`. Иначе - `false`. Подумайте над названием функции, оно должно быть ёмким и в то же время не очень длинным
  */
 
-func isEven(_ int:Int) -> Bool {
+func isEven(_ int: Int) -> Bool {
     int % 2 == 0
 }
 
@@ -86,16 +86,16 @@ func isDividableByThree(_ int: Int) -> Bool {
 
 func createArrayOfInts(from start: Int, to end: Int) -> [Int] {
     var output: [Int] = []
-    
+
     var currentPosition = start
-    
+
     while currentPosition <= end {
         output.insert(currentPosition, at: Int.random(in: 0...output.count))
         currentPosition += 1
     }
-    
+
     return output
-    
+
 }
 
 /*:
@@ -110,13 +110,13 @@ let arrayOfints = createArrayOfInts(from: 1, to: 100)
 
 func filterArrayWithClosure(_ input: [Int], closure: (Int) -> Bool) -> [Int] {
     var output: [Int] = []
-    
+
     for number in input {
         if !closure(number) {
             output.append(number)
         }
     }
-    
+
     return output
 }
 

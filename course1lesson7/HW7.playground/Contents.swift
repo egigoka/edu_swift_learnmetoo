@@ -7,7 +7,7 @@ import UIKit
  1.1 Создайте перечисление `CalculationType`, содержащее четыре математических действия — *сложение*, *вычитание*, *умножение* и *деление* (если не знаете английские наименования — [translate.google.com](http://translate.google.com))
  */
 
-enum CalculationType{
+enum CalculationType {
     case addtiton
     case subtraction
     case multiplication
@@ -20,7 +20,7 @@ func calculate(operation: CalculationType,
                for numberOne: Int,
                and numberTwo: Int) -> Int? {
     var result = numberOne
-    
+
     switch operation {
     case .addtiton: result += numberTwo
     case .subtraction: result -= numberTwo
@@ -32,10 +32,10 @@ func calculate(operation: CalculationType,
         }
         result /= numberTwo
     }
-    
+
     print("Result of \(operation) with numbers \(numberOne)"
           + "and \(numberTwo) is \(result)")
-    
+
     return result
 }
 
@@ -67,20 +67,19 @@ print()
  */
 
 enum CurrencyUnit {
-    
+
     enum DollarCountries: String {
         case usa = "USA"
         case canada = "Canada"
         case australia = "Australia"
     }
-    
+
     case hryvnia(countriesUsing: [String], currencyCode: String)
     case dollar(countriesUsing: [String],
                 currencyCode: String,
                 countryEmitent: DollarCountries)
     case euro(countriesUsing: [String], currencyCode: String)
-    
-    
+
 }
 
 /*:
@@ -96,8 +95,6 @@ let hryvniaCurrency = CurrencyUnit.hryvnia(countriesUsing: ["Ukraine"],
 let someCurrency = CurrencyUnit.dollar(countriesUsing: ["USA", "Puerto Rico"],
                                        currencyCode: "USD",
                                        countryEmitent: .usa)
-
-
 
 //: 2.7 Используя ветвление `switch` выведите на коносль сообщение в котором описано что за валюта, в каких странах катируется, короткое наименование.
 
@@ -169,14 +166,14 @@ for car in [honda, hondaCivic] {
  4.4 Вызвите данный метод из экземпляра структуры
   */
 
-struct PlayerInChess{
+struct PlayerInChess {
     let name: String
     var wins: Int
-    
+
     mutating func addWins(count: Int) {
         wins += count
     }
-    
+
     func printDescription() {
         print("Player \"\(name)\" has won \(wins) games")
     }

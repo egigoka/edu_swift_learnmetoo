@@ -6,7 +6,6 @@ import UIKit
 
 //: ## Кортежи
 
-
 /*:
  
     (valueOne, ValueTwo, ValueThree,…)
@@ -15,10 +14,10 @@ import UIKit
 
 var currentWeather = (22, "Sunny")
 
-class Weather{
+class Weather {
     var currentWeather: (Int, String)
-    
-    init(currentWeather: (Int, String)){
+
+    init(currentWeather: (Int, String)) {
         self.currentWeather = currentWeather
     }
 }
@@ -33,7 +32,7 @@ weather.currentWeather.1 = "Rainy"
 
 let (temperature, _) = weather.currentWeather
 temperature
-//atmos
+// atmos
 
 //: ### Именование элементов кортежа
 
@@ -69,7 +68,6 @@ for cityTemp in cityList {
 }
 print()
 
-
 func getTemp(in city: String) -> (city: String, temp: Int) {
     let temp = Int.random(in: -2...16)
     return (city, temp)
@@ -90,38 +88,38 @@ var surname = ""
 var email = ""
 var age = 0
 
-func createNewUserV1(name: String, surname: String, email: String, age:Int) {
+func createNewUserV1(name: String, surname: String, email: String, age: Int) {
     if name != "" {
         print(name)
     } else {
         print("Enter your name")
     }
-    
+
     if surname != "" {
         print(surname)
     } else {
         print("Enter your surname")
     }
-    
+
     if email != "" {
         print(email)
     } else {
         print("Enter your email")
     }
-    
+
     if age >= 18 {
         print(age)
     } else {
         print("Enter for adult only")
     }
-    
+
     print("\(name) \(surname), welcome!")
 }
 
 createNewUserV1(name: name, surname: surname, email: email, age: age)
 print()
 
-func createNewUserV2(name: String, surname: String, email: String, age:Int) {
+func createNewUserV2(name: String, surname: String, email: String, age: Int) {
     if name != "" {
         print(name)
         if surname != "" {
@@ -152,37 +150,37 @@ age = 18
 createNewUserV2(name: name, surname: surname, email: email, age: age)
 print()
 
-func createNewUserV3(name: String, surname: String, email: String, age:Int) {
+func createNewUserV3(name: String, surname: String, email: String, age: Int) {
     if name == "" {
         print("Enter your name")
         return
     }
-    
+
     print(name)
-    
+
     if surname == "" {
         print("Enter your surname")
         return
     }
-    
+
     print(surname)
-    
+
     if email == "" {
         print("Enter your email")
         return
     }
-    
+
     print(email)
-    
+
     if age < 18 {
         print("Enter for adult only")
     }
-    
+
     print("\(name) \(surname), welcome!")
 }
 
-//surname = ""
-//age = 16
+// surname = ""
+// age = 16
 
 createNewUserV3(name: name, surname: surname, email: email, age: age)
 print()
@@ -190,37 +188,35 @@ print()
 func createNewUserV4(name: String?,
                      surname: String?,
                      email: String?,
-                     age:Int?) {
-    
+                     age: Int?) {
+
     if name == nil || name?.count == 0 {
         print("Enter your name")
         return
     }
-    
+
     print(name!)
-    
+
     if surname == nil || surname?.count == 0 {
         print("Enter your surname")
         return
     }
-    
+
     print(surname!)
-    
+
     if email == nil || email?.count == 0 {
         print("Enter your email")
         return
     }
-    
+
     print(email!)
-    
+
     if age == nil || age! < 18 {
         print("Enter for adult only")
     }
-    
+
     print("\(name!) \(surname!), welcome!")
 }
-
-
 
 createNewUserV4(name: name, surname: surname, email: email, age: age)
 print()
@@ -235,12 +231,12 @@ print()
 func createNewUserV5(name: String?,
                      surname: String?,
                      email: String?,
-                     age:Int?) {
+                     age: Int?) {
     guard let name = name, name.count > 0 else { return }
     guard let surname = surname, surname.count > 0 else { return }
     guard let email = email, email.count > 0 else { return }
     guard let age = age, age >= 18 else { return }
-    
+
     print("\(name) \(surname), welcome!")
 }
 
@@ -263,7 +259,6 @@ class Adress {
     var building: String?
     var apartment: String?
 }
-
 
 var person: Person?
 

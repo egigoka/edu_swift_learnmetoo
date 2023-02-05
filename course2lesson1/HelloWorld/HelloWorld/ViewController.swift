@@ -9,10 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
     @IBOutlet var helloWorldLabel: UILabel!
     @IBOutlet var toggleTextButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         helloWorldLabel.isHidden = true
@@ -27,8 +26,5 @@ class ViewController: UIViewController {
         }
         helloWorldLabel.isHidden.toggle()
     }
-    
-    
 
 }
-

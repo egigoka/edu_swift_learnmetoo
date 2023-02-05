@@ -15,7 +15,7 @@ struct Question {
     let text: String
     let type: ResponseType
     let answers: [Answer]
-    
+
 }
 
 extension Question {

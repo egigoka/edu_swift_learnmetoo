@@ -14,18 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     @IBOutlet var textField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Label
         mainLabel.font = mainLabel.font.withSize(35)
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 2
-        
+
         // Segmented Control
         segmentedContol.insertSegment(withTitle: "Third", at: 2, animated: false)
-        
+
         // Slider
         slider.value = 1
         slider.minimumValue = 0
@@ -33,9 +33,9 @@ class ViewController: UIViewController {
         slider.minimumTrackTintColor = .yellow
         slider.maximumTrackTintColor = .red
         slider.thumbTintColor = .blue
-        
+
         mainLabel.text = String(slider.value)
-        
+
         // Date Picker
 //        datePicker.locale = Locale.current
         datePicker.locale = Locale(identifier: "uk_UA")
@@ -56,38 +56,38 @@ class ViewController: UIViewController {
             break
         }
     }
-    
+
     @IBAction func sliderAction() {
         let currentValue = CGFloat(slider.value)
         mainLabel.text = String(slider.value)
         view.backgroundColor = view.backgroundColor?.withAlphaComponent(currentValue)
-        
+
     }
-    
+
     @IBAction func doneButtonPressed() {
         guard let inputText = textField.text, !inputText.isEmpty else {
             print("The field text is empty")
             showAlert(with: "The field text is empty", and: "Please, enter your name")
             return
         }
-        
+
         if let _ = Double(inputText) {
             print("Wrong format")
             showAlert(with: "Wrong format", and: "Please, enter your name")
             return
         }
-        
+
         mainLabel.text = textField.text
     }
-    
+
     @IBAction func datePickerAction() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.locale = Locale(identifier: "uk_UA")
-        
+
         mainLabel.text = dateFormatter.string(from: datePicker.date)
     }
-    
+
 }
 
 // MARK: - Alert Controller

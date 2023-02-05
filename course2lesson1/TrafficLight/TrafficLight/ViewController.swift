@@ -18,33 +18,33 @@ class ViewController: UIViewController {
     @IBOutlet var redSignalView: UIView!
     @IBOutlet var yellowSignalView: UIView!
     @IBOutlet var greenSignalView: UIView!
-    
+
     @IBOutlet var startNextButton: UIButton!
-    
+
     private var status = Status.green
     private var lightIsOn: CGFloat = 1
     private var lightIsOff: CGFloat = 0.3
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         startNextButton.layer.cornerRadius = 10
-        
+
         turnOffTheLights()
-        
+
     }
-    
+
     override func viewWillLayoutSubviews() {
-        
+
         circlifySignalViews()
     }
-    
+
     func circlifySignalViews() {
         for view: UIView in [redSignalView, yellowSignalView, greenSignalView] {
             view.layer.cornerRadius = view.bounds.height / 2
         }
     }
-    
+
     func turnOffTheLights() {
         for view: UIView in [redSignalView, yellowSignalView, greenSignalView] {
             view.alpha = lightIsOff
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
 //        startNextButton.setTitle("NEXT", for: .normal)
 //        startNextButton.titleLabel?.font = UIFont.systemFont(ofSize: 280.0)
         startNextButton.setAttributedTitle(attributedString, for: .normal)
-        
-        switch status{
+
+        switch status {
         case .green:
             status = .red
             greenSignalView.alpha = lightIsOff
@@ -75,6 +75,5 @@ class ViewController: UIViewController {
             break
         }
     }
-    
-}
 
+}

@@ -10,7 +10,7 @@
 class Workout {             // тренировка
     let time: Double        // время
     let distance: Double    // дистанция
-    
+
     init(time: Double, distance: Double) {
         self.time = time
         self.distance = distance
@@ -19,7 +19,7 @@ class Workout {             // тренировка
 
 class Run: Workout {    // бег
     let cadence: Double // темп
-    
+
     init(cadence: Double, time: Double, distance: Double) {
         self.cadence = cadence
         super.init(time: time, distance: distance)
@@ -28,7 +28,7 @@ class Run: Workout {    // бег
 
 class Swim: Workout {   // плавание
     let stroke: String  // стиль
-    
+
     init(stroke: String, time: Double, distance: Double) {
         self.stroke = stroke
         super.init(time: time, distance: distance)

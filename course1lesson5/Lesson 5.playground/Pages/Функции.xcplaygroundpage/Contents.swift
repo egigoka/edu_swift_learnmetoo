@@ -1,4 +1,3 @@
-
 import Foundation
 //: # Lesson 5
 
@@ -16,14 +15,13 @@ func addingTwoNumbersWithoutArgumentsAndWithoutReturn() {
     let a = 3
     let b = 2
     let c = a + b
-    
+
     print(c)
 }
 
 addingTwoNumbersWithoutArgumentsAndWithoutReturn()
 
 //: ### Функции с возвращаемыми значениями
-
 
 /*:
     func nameOfFunction() -> Data Type {
@@ -36,7 +34,7 @@ addingTwoNumbersWithoutArgumentsAndWithoutReturn()
 func addingTwoNumbers() -> Int {
     let a = 3
     let b = 2
-    
+
     return a + b
 }
 
@@ -44,8 +42,6 @@ var result = addingTwoNumbers()
 print(result)
 
 //: ### Функции с параметрами
-
-
 
 /*:
     func name(argumentOne parameterOne: Data Type, argumentTwo parameterTwo: Data Type) {

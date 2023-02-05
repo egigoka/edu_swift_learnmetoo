@@ -102,14 +102,14 @@ var aboutCourse = """
 Автор и ведущий курса Алексей Ефимов
 """
 
-//print(aboutCourse)
+// print(aboutCourse)
 
 //: ### Конкатенация строк:
 
 let fullName = name + " " + surname
 var myName = "My name is "
 
-//myName = myName + fullName
+// myName = myName + fullName
 myName += fullName
 
 //: ### Интерполяция строк
@@ -129,4 +129,3 @@ print(aboutCourse)
 let exclamationMark: Character = "!"
 
 myName.append(exclamationMark)
-

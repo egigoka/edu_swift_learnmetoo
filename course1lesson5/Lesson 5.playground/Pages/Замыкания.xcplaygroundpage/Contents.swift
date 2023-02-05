@@ -4,14 +4,12 @@ import Foundation
 
 //: ### Функции как замыкания
 
-
-
 //: Отбираем числа меньше заданного значения
 
 func filterLessThanValue(value: Int, numbers: [Int]) -> [Int] {
-    
+
     var fileteredSetOfNumbers: [Int] = []
-    
+
     for number in numbers {
         if number < value {
             fileteredSetOfNumbers.append(number)
@@ -28,9 +26,9 @@ filterLessThanValue(value: someValue, numbers: numbers)
 //: Отбираем числа больше заданного значения
 
 func filterGreaterThanValue(value: Int, numbers: [Int]) -> [Int] {
-    
+
     var fileteredSetOfNumbers: [Int] = []
-    
+
     for number in numbers {
         if number > value {
             fileteredSetOfNumbers.append(number)
@@ -47,13 +45,13 @@ func filterWithPredicateClosure(value: Int,
                                 numbers: [Int],
                                 closure: (Int, Int) -> Bool) -> [Int] {
     var filteredNumbers: [Int] = []
-    
+
     for number in numbers {
         if closure(number, value) {
             filteredNumbers.append(number)
         }
     }
-    
+
     return filteredNumbers
 }
 
@@ -140,8 +138,6 @@ filterWithPredicateClosure(
 )
 
 //: Неявные возвращаемые значения из замыканий с одним выражением
-
-
 
 //: Сокращенные имена параметров
 

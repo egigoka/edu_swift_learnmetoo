@@ -18,14 +18,13 @@ class Post {
     var description: Int {
         numberOfComments
     }
-   
+
     private var numberOfComments = 0
-    
+
     func addComent() {
         numberOfComments += 1
     }
-    
-    
+
 }
 
 let firstPost = Post()
@@ -35,10 +34,10 @@ firstPost.body = "Hello"
 firstPost.author = "Efimov Alexey"
 firstPost.addComent()
 firstPost.addComent()
-//firstPost.numberOfComments = 60
-//firstPost.description = 60
+// firstPost.numberOfComments = 60
+// firstPost.description = 60
 
-//let secondPost = firstPost
+// let secondPost = firstPost
 let secondPost = Post()
 
 secondPost.title = "Second post"
@@ -55,32 +54,29 @@ print("The number of comments for the post '\(secondPost.title)' is \(secondPost
 
 print()
 
-
 firstPost === secondPost
 
 //: ### Методы классов
-
-
 
 //: ### Инициализация
 
 class Human {
     var name = ""
     var age = 0
-    
+
     init(name: String = "", age: Int = 0) {
         self.name = name
         self.age = age
     }
-    
+
     func walk() {
         print("I can walk")
     }
-    
+
     func sleep() {
         print("I need sleep")
     }
-    
+
     func eat() {
         print("I need food")
     }
@@ -95,11 +91,10 @@ somePerson.age
 human.name
 human.age
 
-
 //: ### Наследовение
 
 class Child: Human {
-    
+
     func nursing() {
         if age <= 5 {
             print("I need care")
@@ -107,7 +102,7 @@ class Child: Human {
             print("I can eat independently")
         }
     }
-    
+
     func parenting() {
         if age >= 5 && age <= 13 {
             print("I need an education")
@@ -117,7 +112,7 @@ class Child: Human {
             print("It's too late for education")
         }
     }
-    
+
 }
 
 let littleBoy = Child(name: "Tom", age: 4)
@@ -128,7 +123,7 @@ littleBoy.parenting()
 print()
 
 class SchoolChild: Child {
-    
+
     func schooling() {
         if age >= 6 && age <= 17 {
             print("I have to go to school")
@@ -173,17 +168,17 @@ class Circle: Shape {
     }
 }
 
-//func drawRectangle(_ rectangle: Rectangle) {
+// func drawRectangle(_ rectangle: Rectangle) {
 //    rectangle.draw()
-//}
+// }
 //
-//func drawTriangle(_ triangle: Triangle) {
+// func drawTriangle(_ triangle: Triangle) {
 //    triangle.draw()
-//}
+// }
 //
-//func drawCircle(_ circle: Circle) {
+// func drawCircle(_ circle: Circle) {
 //    circle.draw()
-//}
+// }
 
 func drawShape(_ shape: Shape) {
     shape.draw()
@@ -197,6 +192,6 @@ drawShape(rectangle)
 drawShape(triangle)
 drawShape(circle)
 
-//drawRectangle(rectangle)
-//drawTriangle(triangle)
-//drawCircle(circle)
+// drawRectangle(rectangle)
+// drawTriangle(triangle)
+// drawCircle(circle)
