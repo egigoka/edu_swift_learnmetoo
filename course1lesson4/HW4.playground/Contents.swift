@@ -70,7 +70,7 @@ for number in numbers {
 
 for counter in 1...10 {
     let randomNumber = Int.random(in: 1...10)
-    
+
     if randomNumber == 5 {
         print("Чтобы выпало 5 понадобилось \(counter) итерации.")
         break

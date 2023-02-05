@@ -8,23 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var bottomButtonsStackViewBottomConstraint:
                     NSLayoutConstraint!
     @IBOutlet weak var mainStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var bottomButtionsStackView: UIStackView!
-    
+
     private var keyboardIsShown = false
     private var constraintMagicNumber: CGFloat = 175
-    
+
     @IBOutlet var passwordTextField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
         self.mainStackViewHeightConstraint?.constant = self.view.frame.height - constraintMagicNumber
-        
+
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow),
             name: UIResponder.keyboardWillShowNotification,
@@ -35,12 +35,12 @@ class ViewController: UIViewController {
             object: nil)
         print("added observers")
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
         self.view.endEditing(true)
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         let keyboardHeight = getKeyboardHeight(notification: notification)
 
-        if keyboardIsShown{
+        if keyboardIsShown {
             let previousFrame = view.frame
             var newFrame: CGRect = view.frame
             newFrame.size.height = previousFrame.height + keyboardHeight
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         }
         keyboardIsShown = false
     }
-    
+
     // Called when the keyboard is about to be shown
     @objc func keyboardWillShow(notification: NSNotification) {
         // Get the keyboard height
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         if !keyboardIsShown {
             let previousFrame = view.frame
             var newFrame: CGRect = self.view.frame
-            
+
             newFrame.size.height = previousFrame.height - keyboardHeight
             UIView.animate(withDuration: 0.2,
                            delay: 0,
@@ -94,8 +94,7 @@ class ViewController: UIViewController {
         let userInfo = notification.userInfo
         if let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             return keyboardSize.cgRectValue.height
-        }
-        else {
+        } else {
             return CGFloat(0)
         }
     }
@@ -103,8 +102,7 @@ class ViewController: UIViewController {
     @IBAction func usernameTextFieldPrimaryAction() {
         passwordTextField.becomeFirstResponder()
     }
-    
-    
+
     @IBAction func forgotUsernameButtonPrimaryAction() {
         let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"root\"", preferredStyle: .alert)
 
@@ -113,7 +111,7 @@ class ViewController: UIViewController {
 
         self.present(alertController, animated: true)
     }
-    
+
     @IBAction func forgotPasswordButtonPrimaryAction() {
         let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"toor\"", preferredStyle: .alert)
 
@@ -123,4 +121,3 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true)
     }
 }
-

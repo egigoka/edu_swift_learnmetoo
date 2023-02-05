@@ -6,12 +6,12 @@ import Foundation
  
  */
 
-//let color = "red"
-//let color = "yellow"
+// let color = "red"
+// let color = "yellow"
 let color = "brown"
-//let color = "green"
+// let color = "green"
 let filling = "choco"
-//let filling = "nuts"
+// let filling = "nuts"
 
 switch color {
 case "red" where filling == "choco":

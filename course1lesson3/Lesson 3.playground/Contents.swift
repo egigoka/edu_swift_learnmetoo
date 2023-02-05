@@ -1,8 +1,6 @@
-//Урок 3
+// Урок 3
 
 import UIKit
-
-
 
 //: ## Конструкция if
 /*:
@@ -104,10 +102,7 @@ if a < 10 {
 
 c = a < 10 ? a - b : a + b
 
-
-
 //: ## Switch statement
-
 
 /*:
     switch значение для сопоставления {
@@ -157,8 +152,6 @@ default:
     print("Don't know what is it")
 }
 
-
-
 //: ### Соответствие диапазону
 
 print("\n====СООТВЕТСТВИЕ ДИАПАЗОНУ====")
@@ -199,7 +192,6 @@ var convertedNumber = Int(possibleNumber)
 convertedNumber = 16
 convertedNumber = nil
 
-
 //: ### Извлечение опционалов
 
 print("\n====ИЗВЛЕЧЕНИЕ ОПЦИОНАЛОВ====")
@@ -224,7 +216,7 @@ if convertedNumber != nil {
 
 print("\n====ПРИВЯЗКА ОПЦИОНАЛОВ====")
 
-//convertedNumber = nil
+// convertedNumber = nil
 
 if let number = convertedNumber {
     print("convertedNumber has an integer value of \(number)")
@@ -239,7 +231,6 @@ print("\n====НЕЯВНО ИЗВЛЕЧЕННЫЕ ОПЦИОНАЛЫ====")
 var name = ""
 var userName: String! = "Tim"
 
-//userName = nil // creates a fuckup
+// userName = nil // creates a fuckup
 
 name = userName // fuckup
-

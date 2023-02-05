@@ -21,17 +21,17 @@ class Orange {
     var color: String
     var taste: String
     var radius: Double
-    
+
     var orangeVolume: Double {
         calculateOrangeVolume()
     }
-    
+
     init(radius: Double, color: String = "", taste: String = "") {
         self.radius = radius
         self.color = color
         self.taste = taste
     }
-    
+
     private func calculateOrangeVolume() -> Double {
         4 / 3 * Double.pi * pow(radius, 3)
     }
@@ -57,7 +57,7 @@ orange.taste = "Sweet"
 
 print("Orange has \(orange.color) color and \(orange.taste) taste. The volume "
       + "of organe is \(orange.orangeVolume).")
- 
+
 /*:
  ## Задание 2
  2.1 Создайте класс `Shape` (родительский класс) со следующими свойствами:
@@ -79,38 +79,37 @@ class Shape {
     var height: Float = 0
     var width: Float = 0
     var radius: Float = 0
-    
+
     var square: Float? {
         squareOfShape()
     }
-    
+
     var perimeter: Float? {
         perimeterOfShape()
     }
-    
+
     init(height: Float, width: Float) {
         self.height = height
         self.width = width
     }
-    
+
     init(radius: Float) {
         self.radius = radius
     }
-    
+
     func squareOfShape() -> Float? {
         nil
     }
-    
+
     func perimeterOfShape() -> Float? {
         nil
     }
-    
+
     func description() {
         print("Square of \(Self.self) is \(square ?? 0). "
               + "Perimeter - \(perimeter ?? 0)")
     }
-    
-    
+
 }
 
 /*:
@@ -123,7 +122,7 @@ class Circle: Shape {
     override func squareOfShape() -> Float? {
         Float.pi * pow(radius, 2)
     }
-    
+
     override func perimeterOfShape() -> Float? {
         2 * Float.pi * radius
     }
@@ -133,7 +132,7 @@ class Rectangle: Shape {
     override func squareOfShape() -> Float? {
         height * width
     }
-    
+
     override func perimeterOfShape() -> Float? {
         (height + width) * 2
     }
@@ -143,7 +142,7 @@ class Ellipse: Shape {
     override func squareOfShape() -> Float? {
         Float.pi * (height / 2) * (width / 2)
     }
-    
+
     override func perimeterOfShape() -> Float? {
         let lineA = height / 2
         let lineB = width / 2
@@ -175,18 +174,18 @@ print()
  */
 
 class Employee {
-    
+
     let name: String
     let surname: String
     let salary: Int
-    
+
     init(name: String, surname: String, salary: Int) {
         self.name = name
         self.surname = surname
         self.salary = salary
     }
 }
- 
+
 //: 3.2 Создайте массив из 5 объектов под названием `names` со следующими элементами: *John*, *Aaron*, *Tim*, *Ted*, *Steven*. И еще один массив `surnames` с элементами: *Smith*, *Dow*, *Isaacson*, *Pennyworth*, *Jankins*
 
 let names = ["John", "Aaron", "Tim", "Ted", "Steven"]

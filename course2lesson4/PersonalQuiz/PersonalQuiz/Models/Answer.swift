@@ -5,20 +5,18 @@
 //  Created by egigoka on 16/11/2022.
 //
 
-
-
 struct Answer {
     let text: String
     let type: AnimalType
 }
 
-enum AnimalType: Character{
+enum AnimalType: Character {
     case dog = "🐶"
     case cat = "🐱"
     case rabbit = "🐰"
     case turtle = "🐢"
-    
-    var definition: String{
+
+    var definition: String {
         switch self {
         case .dog:
             return "Вам нравится быть с друзьями. Вы окружаете себя людьми, которые вам нравятся и всегда готовы помочь. "

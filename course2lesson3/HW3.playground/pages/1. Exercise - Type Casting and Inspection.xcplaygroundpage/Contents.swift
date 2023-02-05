@@ -36,7 +36,6 @@ let dict: [String: Any] = [
     "Bool false": false
 ]
 
-
 for (key, value) in dict {
     print("Key \(key), value: \(value)")
 }

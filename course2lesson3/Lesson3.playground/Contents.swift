@@ -2,12 +2,12 @@ import Foundation
 
 class Animal {
     var name = ""
-    var description: String{
+    var description: String {
         "Animal"
     }
-    
+
     init() {}
-    
+
     init(name: String) {
         self.name = name
     }
@@ -50,38 +50,38 @@ if pet is Dog {
     print("The animal is Bird")
 }
 
-//animal is Animal // true
-//animal is Dog // false
-//animal is Cat // false
-//animal is Bird // false
+// animal is Animal // true
+// animal is Dog // false
+// animal is Cat // false
+// animal is Bird // false
 //
-//dog is Animal // true
-//dog is Dog // true
-//dog is Cat // false
-//dog is Bird // false
+// dog is Animal // true
+// dog is Dog // true
+// dog is Cat // false
+// dog is Bird // false
 
 func getPets() -> [Animal] {
     var pets: [Animal] = []
-    
+
     let numberOfDogs = Int.random(in: 1...10)
     let numberOfCats = Int.random(in: 1...10)
     let numberOfBirds = Int.random(in: 1...10)
-    
+
     for _ in 1...numberOfDogs {
         let dog = Dog()
         pets.append(dog)
     }
-    
+
     for _ in 1...numberOfCats {
         let cat = Cat()
         pets.append(cat)
     }
-    
+
     for _ in 1...numberOfBirds {
         let bird = Bird()
         pets.append(bird)
     }
-    
+
     return pets
 }
 
@@ -137,7 +137,7 @@ var cards: [Any] = [2, 3, 5, "Queen", "King"]
 
 func getSum(cards: [Any]) -> Int {
     var total = 0
-    
+
     for card in cards {
         if let cardWithNumber = card as? Int {
             total += cardWithNumber
@@ -145,7 +145,7 @@ func getSum(cards: [Any]) -> Int {
             total += 10
         }
     }
-    
+
     return total
 }
 

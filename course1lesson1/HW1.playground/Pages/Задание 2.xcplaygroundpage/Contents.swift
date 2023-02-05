@@ -23,5 +23,4 @@ let daysPassed = Float(myAgeInTenYears) * Float(daysInYear)
  */
 print("Мой возраст \(myAge) лет. Через 10 лет мне будет \(myAgeInTenYears) лет, с момента моего рождения пройдет \(daysPassed) дней.")
 
-
 //: [Ранее: Задание 1](@previous) | Задание 2 из 3 | [Далее: Задание 3](@next)
