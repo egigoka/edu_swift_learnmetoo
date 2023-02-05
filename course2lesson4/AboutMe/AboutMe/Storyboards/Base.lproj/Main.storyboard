@@ -31,6 +31,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
+                                                <connections>
+                                                    <action selector="usernameTextFieldPrimaryAction" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Y03-zg-2HE"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-Wt-W2Y">
                                                 <rect key="frame" x="0.0" y="42" width="398" height="34"/>
@@ -58,11 +61,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="20"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Forgot username?"/>
+                                                        <connections>
+                                                            <action selector="forgotUsernameButtonPrimaryAction" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="P2m-2G-rr0"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHK-ot-m35">
                                                         <rect key="frame" x="199" y="0.0" width="199" height="20"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
+                                                        <connections>
+                                                            <action selector="forgotPasswordButtonPrimaryAction" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="4z2-L5-mWq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -89,6 +98,7 @@
                         <outlet property="bottomButtionsStackView" destination="rFC-EJ-YYb" id="J2K-wM-n7Y"/>
                         <outlet property="mainStackView" destination="njS-Bl-0HX" id="dgp-1O-0Fj"/>
                         <outlet property="mainStackViewHeightConstraint" destination="eH6-4w-rnW" id="jaZ-6f-J5b"/>
+                        <outlet property="passwordTextField" destination="xhb-Wt-W2Y" id="A1e-cw-f0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

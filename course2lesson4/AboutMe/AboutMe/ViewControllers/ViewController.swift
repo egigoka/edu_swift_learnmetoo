@@ -18,8 +18,11 @@ class ViewController: UIViewController {
     private var keyboardIsShown = false
     private var constraintMagicNumber: CGFloat = 175
     
+    @IBOutlet var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         self.mainStackViewHeightConstraint?.constant = self.view.frame.height - constraintMagicNumber
         
         NotificationCenter.default.addObserver(self,
@@ -97,6 +100,27 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func usernameTextFieldPrimaryAction() {
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    
+    @IBAction func forgotUsernameButtonPrimaryAction() {
+        let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"root\"", preferredStyle: .alert)
 
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
+
+        self.present(alertController, animated: true)
+    }
+    
+    @IBAction func forgotPasswordButtonPrimaryAction() {
+        let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"toor\"", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
+
+        self.present(alertController, animated: true)
+    }
 }
 
