@@ -139,7 +139,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func forgotUsernameButtonPrimaryAction() {
-        let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"root\"", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"\(User.getDefaultUser().username)\"", preferredStyle: .alert)
 
         let action = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(action)
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func forgotPasswordButtonPrimaryAction() {
-        let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"toor\"", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Sorry about that", message: "Your password is \"\(User.getDefaultUser().password)\"", preferredStyle: .alert)
 
         let action = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(action)
@@ -178,15 +178,20 @@ class ViewController: UIViewController {
     
     @IBAction func logInButtonPrimaryAction() {
         
-        if let usernameTextFieldText = usernameTextField?.text, let passwordTextFieldText = passwordTextField?.text{
-            if usernameTextFieldText == "root" && passwordTextFieldText == "toor" {
-                loginSuccess()
-            } else {
-                loginFailed()
-            }
+        guard let usernameTextField = usernameTextField?.text,
+              let passwordTextField = passwordTextField?.text else {
+            loginFailed()
+            return
+        }
+        
+        let defaultUser = User.getDefaultUser()
+       
+        if usernameTextField == defaultUser.username && passwordTextField == defaultUser.password {
+            loginSuccess()
         } else {
             loginFailed()
         }
+        
         
     }
 }
