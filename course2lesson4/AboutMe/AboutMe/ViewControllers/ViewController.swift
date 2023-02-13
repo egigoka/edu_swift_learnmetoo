@@ -15,9 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var bottomButtionsStackView: UIStackView!
 
+    @IBOutlet var debugLabel: UILabel!
     private var keyboardIsShown = false
     private var constraintMagicNumber: CGFloat = 175
 
+    @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
 
     override func viewDidLoad() {
@@ -45,15 +47,36 @@ class ViewController: UIViewController {
         super .touchesBegan(touches, with: event)
         self.view.endEditing(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarController = segue.destination as? UITabBarController
+        else {
+            return
+        }
+        guard let tabBarControllerCount = tabBarController.viewControllers?.count else {
+            return
+        }
+        guard tabBarControllerCount >= 2 else {
+            return
+        }
+        guard let secondViewController = tabBarController.viewControllers?[1] else {
+            return
+        }
+        guard let destinationViewController = secondViewController as? DestinationViewController else {
+            return
+        }
+        
+        tabBarController.selectedViewController = destinationViewController
+        
+        
+        
+    }
 
     // Called when the keyboard is about to be hidden
     @objc func keyboardWillHide(notification: NSNotification) {
         let keyboardHeight = getKeyboardHeight(notification: notification)
 
         if keyboardIsShown {
-            let previousFrame = view.frame
-            var newFrame: CGRect = view.frame
-            newFrame.size.height = previousFrame.height + keyboardHeight
             UIView.animate(withDuration: 0.2,
                            delay: 0,
                            options: [.curveEaseInOut],
@@ -64,19 +87,24 @@ class ViewController: UIViewController {
             }, completion: nil)
         }
         keyboardIsShown = false
+        print("kis", keyboardIsShown,
+              "self.mainStackViewHeightConstraint?.constant", self.mainStackViewHeightConstraint?.constant ?? 0,
+              "self.view.frame.height",
+              self.view.frame.height,
+              "self.constraintMagicNumber",
+              self.constraintMagicNumber,
+              "keyboardHeight", keyboardHeight)
     }
 
     // Called when the keyboard is about to be shown
     @objc func keyboardWillShow(notification: NSNotification) {
         // Get the keyboard height
         let keyboardHeight = getKeyboardHeight(notification: notification)
-
+        
+        print(notification)
+        
         // Move your elements up by the keyboard height
         if !keyboardIsShown {
-            let previousFrame = view.frame
-            var newFrame: CGRect = self.view.frame
-
-            newFrame.size.height = previousFrame.height - keyboardHeight
             UIView.animate(withDuration: 0.2,
                            delay: 0,
                            options: [.curveEaseInOut],
@@ -86,14 +114,17 @@ class ViewController: UIViewController {
             }, completion: nil)
         }
         keyboardIsShown = true
-        print()
+        print("kis", keyboardIsShown,
+              "self.mainStackViewHeightConstraint?.constant", self.mainStackViewHeightConstraint?.constant ?? 0,
+              "keyboardHeight", keyboardHeight)
     }
 
     // Helper method to get the keyboard height from a notification
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         if let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            return keyboardSize.cgRectValue.height
+        //if let keyboardSize = userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue {
+          return keyboardSize.cgRectValue.height - self.view.safeAreaInsets.bottom
         } else {
             return CGFloat(0)
         }
@@ -102,7 +133,11 @@ class ViewController: UIViewController {
     @IBAction func usernameTextFieldPrimaryAction() {
         passwordTextField.becomeFirstResponder()
     }
-
+    
+    @IBAction func passwordTextFieldPrimaryAction() {
+        logInButtonPrimaryAction()
+    }
+    
     @IBAction func forgotUsernameButtonPrimaryAction() {
         let alertController = UIAlertController(title: "Sorry about that", message: "Your username is \"root\"", preferredStyle: .alert)
 
@@ -119,5 +154,46 @@ class ViewController: UIViewController {
         alertController.addAction(action)
 
         self.present(alertController, animated: true)
+    }
+    
+    func loginFailed() {
+        let alertController = UIAlertController(title: "Sorry about that", message: "Username and password pair is incorrect.", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
+
+        self.present(alertController, animated: true)
+        
+        passwordTextField.text = ""
+    }
+    
+    func loginSuccess() {
+        performSegue(withIdentifier: "logIn", sender: self)
+        
+        passwordTextField.text = ""
+        usernameTextField.text = ""
+        usernameTextField.becomeFirstResponder()
+        
+    }
+    
+    @IBAction func logInButtonPrimaryAction() {
+        
+        if let usernameTextFieldText = usernameTextField?.text, let passwordTextFieldText = passwordTextField?.text{
+            if usernameTextFieldText == "root" && passwordTextFieldText == "toor" {
+                loginSuccess()
+            } else {
+                loginFailed()
+            }
+        } else {
+            loginFailed()
+        }
+        
+    }
+}
+
+class DestinationViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("viewDidLoad DestinationViewController")
     }
 }
