@@ -95,12 +95,36 @@ var email = ""
 name = "Alexey"
 surname = "Efimov"
 
-var aboutCourse = "We"
+var aboutCourse = """
+We are attending a course "Basics of programming on Swift".
+Now we're on 2nd lesson.
+Author and lector is Alexey Efimov
+"""
+
+//print(aboutCourse)
 
 //: ### Конкатенация строк:
 
+let fullName = name + " " + surname
 
+var myName = "My name is "
+
+myName += fullName
 
 //: ### Интерполяция строк
 
+let lessonNumber = 2
+let numberOfLessons = 8
 
+aboutCourse = """
+We are attending a course "Basics of programming on Swift".
+Now we're on \(lessonNumber) lesson.
+Until end of the course \(numberOfLessons - lessonNumber) lessons left.
+Author and lector is \(fullName)
+"""
+
+print(aboutCourse)
+
+let exclamationMark: Character = "!"
+
+myName.append(exclamationMark)
