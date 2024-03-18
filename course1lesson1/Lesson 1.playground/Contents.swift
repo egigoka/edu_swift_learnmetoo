@@ -52,29 +52,47 @@ print("Hello, \(userName)")
  #### Int
 */
 
-var age = 0
-print()
+var age = 38
+print("My name is \(userName), I am \(age) years old.")
 
 /*:
  #### Double
 */
 
-
+var someNumber = 10.99999
 
 /*:
  #### Float
 */
 
+var someFloat: Float = 0.0
 
+someFloat = 121.123444
+someFloat = 1221.123444
+someFloat = 12321.123444
+someFloat = 123421.123444
+someFloat = 1234521.123444
 
 /*:
  ### Булево значения
 */
 
-
+let boolean = true
 
 /*:
  ### Приведение типов
 */
 
+// New constant with type Double
+let castIntToDouble = Double(age) + someNumber
 
+// New constant with type Int
+let castDoubleToInt = age + Int(someNumber)
+
+// Casting numeric values to strings
+let myAge = "I am "
+let castIntToString = myAge + String(age) + " years old."
+
+// Casting string values to numeric
+let someString = "10"
+let castStringToInt = age + (Int(someString) ?? 0)
