@@ -47,19 +47,55 @@ a <= b // true
 
 //: ### Оператор логического НЕ:
 
+let accessDeniedMessage = "ACCESS DENIED"
+let welcomeMessage = "Welcome!"
 
+let allowedEntry = false
+
+if !allowedEntry {
+    print(accessDeniedMessage)
+}
 
 //: ### Оператор логического И:
 
+let enteredDoorCode = true
+let passedRetinaScan = false
 
+if enteredDoorCode && passedRetinaScan {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
 
 //: ### Оператор логического ИЛИ:
 
+let hasDoorKey = false
+let knowsOverridePassword = true
 
+if hasDoorKey || knowsOverridePassword {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
+
+// Combining of logical operators
+
+if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
+    print(welcomeMessage)
+} else {
+    print(accessDeniedMessage)
+}
 
 //: ### Строки и символы:
 
+let name: String
+var surname = String()
+var email = ""
 
+name = "Alexey"
+surname = "Efimov"
+
+var aboutCourse = "We"
 
 //: ### Конкатенация строк:
 
