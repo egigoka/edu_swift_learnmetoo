@@ -85,8 +85,10 @@ if monthOfBirth >= 1 && monthOfBirth <= 3 {
     print("I've been born in 2nd quarter of the year")
 } else if monthOfBirth >= 7 && monthOfBirth <= 9 {
     print("I've been born in 3rd quarter of the year")
-} else {
+} else if monthOfBirth >= 10 && monthOfBirth <= 12 {
     print("I've been born in 4th quarter of the year")
+} else {
+    print("Error")
 }
 
 /*:
