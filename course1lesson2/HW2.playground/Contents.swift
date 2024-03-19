@@ -12,11 +12,11 @@ import UIKit
  */
  
 let floatOne: Float = 3.14
-let floatTwo: Float = 42.0
+let floatTwo: Float = 42
 
-let sum = Double (floatOne + floatTwo)
+let sum = Double(floatOne + floatTwo)
 
-print(sum)
+print("Sum of \(floatOne) and \(floatTwo) is \(sum)")
 
 /*:
  ### Задание 2
@@ -34,8 +34,8 @@ print(sum)
  
  */
 
-let numberOne = 11
-let numberTwo = 5
+let numberOne = 15
+let numberTwo = 11
 
 let result = numberOne / numberTwo
 let remainder = numberOne % numberTwo
@@ -61,25 +61,32 @@ let dayOfBirth = 30
 let monthOfBirth = 12
 let yearOfBirth = 1987
 
-let dayCurrent = 19
-let monthCurrent = 3
+let dayCurrent = 31
+let monthCurrent = 12
 let yearCurrent = 2024
 
-let deltaYears = yearCurrent - yearOfBirth
-let deltaMonths = deltaYears * 12 + monthCurrent - monthOfBirth
-let deltaDays = deltaMonths * 30 + dayCurrent - dayOfBirth
-let deltaSeconds = deltaDays * 86400
+let daysPerYear = 360
+let daysPerMonth = 30
+let secondsPerDay = 86400
+
+var deltaDays = (yearCurrent - yearOfBirth) * daysPerYear
+deltaDays += (monthCurrent - monthOfBirth) * daysPerMonth
+deltaDays += dayCurrent - dayOfBirth
+
+let deltaMonths = deltaDays / daysPerMonth
+let deltaYears = deltaDays / daysPerYear
+let deltaSeconds = deltaDays * secondsPerDay
 
 print("\(deltaYears) years, \(deltaMonths) months, \(deltaDays) days and \(deltaSeconds) secons have passed since my birth")
 
 if monthOfBirth >= 1 && monthOfBirth <= 3 {
-    print("I've been born in 1st quadrant of the year")
+    print("I've been born in 1st quarter of the year")
 } else if monthOfBirth >= 4 && monthOfBirth <= 6 {
-    print("I've been born in 2nd quadrant of the year")
+    print("I've been born in 2nd quarter of the year")
 } else if monthOfBirth >= 7 && monthOfBirth <= 9 {
-    print("I've been born in 3rd quadrant of the year")
+    print("I've been born in 3rd quarter of the year")
 } else {
-    print("I've been born in 4th quadrant of the year")
+    print("I've been born in 4th quarter of the year")
 }
 
 /*:
