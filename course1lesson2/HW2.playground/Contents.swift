@@ -11,6 +11,13 @@ import UIKit
  1.3 Выведите результат при помощи `print()`
  */
  
+let floatOne: Float = 3.14
+let floatTwo: Float = 42.0
+
+let sum = Double (floatOne + floatTwo)
+
+print(sum)
+
 /*:
  ### Задание 2
  2.1 Создайте переменную `numberOne` и присвойте ей любое целочисленное значение
@@ -27,6 +34,13 @@ import UIKit
  
  */
 
+let numberOne = 11
+let numberTwo = 5
+
+let result = numberOne / numberTwo
+let remainder = numberOne % numberTwo
+
+print("Result of devision \(numberOne) by \(numberTwo) is \(result) \(remainder)/\(numberTwo)")
 
 /*:
  ### Задание 3
@@ -42,6 +56,31 @@ import UIKit
  
  3.6 Выведите на консоль сообщение о том в каком квартале вы родились. Для этого используейте операторы сравнения, что бы сравнить номер месяца вашего рождения с одним из четрырех кварталов. Например если номер месяца больше 0 и меньше или равно 3, то это будет первый квартал. Для получения результата используйте конструкцию if
  */
+
+let dayOfBirth = 30
+let monthOfBirth = 12
+let yearOfBirth = 1987
+
+let dayCurrent = 19
+let monthCurrent = 3
+let yearCurrent = 2024
+
+let deltaYears = yearCurrent - yearOfBirth
+let deltaMonths = deltaYears * 12 + monthCurrent - monthOfBirth
+let deltaDays = deltaMonths * 30 + dayCurrent - dayOfBirth
+let deltaSeconds = deltaYears * 86400
+
+print("\(deltaYears) years, \(months) months, \(days) days and \(seconds) secons have passed since my birth")
+
+if monthOfBirth >= 1 && monthOfBirth <= 3 {
+    print("I've been born in 1st quadrant of the year")
+} else if monthOfBirth >= 4 && monthOfBirth <= 6 {
+    print("I've been born in 2nd quadrant of the year")
+} else if monthOfBirth >= 7 && monthOfBirth <= 9 {
+    print("I've been born in 3rd quadrant of the year")
+} else {
+    print("I've been born in 4th quadrant of the year")
+}
 
 /*:
  ### Задание 4
