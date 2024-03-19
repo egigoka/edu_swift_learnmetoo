@@ -68,9 +68,9 @@ let yearCurrent = 2024
 let deltaYears = yearCurrent - yearOfBirth
 let deltaMonths = deltaYears * 12 + monthCurrent - monthOfBirth
 let deltaDays = deltaMonths * 30 + dayCurrent - dayOfBirth
-let deltaSeconds = deltaYears * 86400
+let deltaSeconds = deltaDays * 86400
 
-print("\(deltaYears) years, \(months) months, \(days) days and \(seconds) secons have passed since my birth")
+print("\(deltaYears) years, \(deltaMonths) months, \(deltaDays) days and \(deltaSeconds) secons have passed since my birth")
 
 if monthOfBirth >= 1 && monthOfBirth <= 3 {
     print("I've been born in 1st quadrant of the year")
@@ -88,4 +88,6 @@ if monthOfBirth >= 1 && monthOfBirth <= 3 {
  > Подсказка: в результате должно получиться 0.841
  */
 
+let resultSin: Double = sin(1)
 
+print(String(format: "sin: %.3f", resultSin))
