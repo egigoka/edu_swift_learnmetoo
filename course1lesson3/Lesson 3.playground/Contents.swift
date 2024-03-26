@@ -88,11 +88,29 @@ if someNumber < 4 { // false
 
 print("\n====ТЕРНАРНЫЙ ОПЕРАТОР====")
 
+// condition ? some code : some code
 
+let a = 5
+let b = 10
+var c = 0
+
+if a < 10 {
+    print("The condition is true")
+} else {
+    print("The condition is false")
+}
+
+a < 10 ? print("The condition is true") : print("The condition is false")
+
+if a < 10 {
+    c = a - b
+} else {
+    c = a + b
+}
+
+c = a < 10 ? a - b : a + b
 
 //: ## Switch statement
-
-
 
 /*:
     switch значение для сопоставления {
@@ -107,7 +125,17 @@ print("\n====ТЕРНАРНЫЙ ОПЕРАТОР====")
 
 print("\n====SWITCH STATEMENT====")
 
+let someCharacter: Character = "a"
 
+if someCharacter == "a" {
+    print("It's an A")
+} else if someCharacter == "b" {
+    print("It's a B")
+} else if someCharacter == "c" {
+    print("It's a C")
+} else {
+    print("Don't know what it is")
+}
 
 //: ### Соответствие диапазону
 
