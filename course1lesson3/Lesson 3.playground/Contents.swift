@@ -72,7 +72,17 @@ if someNumber < 8 { // true
 
 print("\n====КОНСТРУКЦИЯ if-else====")
 
+someNumber = 10
 
+if someNumber < 4 { // false
+    print("The first condition is true")
+} else if someNumber < 8 { // false
+    print("The second condition is true")
+} else if someNumber < 10 { // false
+    print("The third condition is true")
+} else {
+    print("Nothing was true")
+}
 
 //: ### Тернарный оператор
 
