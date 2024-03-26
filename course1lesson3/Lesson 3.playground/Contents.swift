@@ -190,20 +190,43 @@ print("There are \(naturalCount) \(countedThings)")
 //: ## Опциональные типы
 
 var someString = ""
-var optionalString: String
+var optionalString: String?
+
+var possibleNumber = "12345e"
+var convertedNumber = Int(possibleNumber)
+
+convertedNumber = 16
+convertedNumber = nil
 
 //: ### Извлечение опционалов
 
-
+if convertedNumber == nil {
+    print("convertedNumber doesn't contains integer value")
+}
 
 //: ### Принудительное извлечение опционалов
 
+convertedNumber = 16
 
+if convertedNumber != nil {
+//    convertedNumber = nil
+    print("convertedNumber has integer value of \(convertedNumber!)")
+}
 
 //: ### Привязка опционалов
 
+convertedNumber = nil
 
+if let convertedNumber = convertedNumber {
+    print("convertedNumber has integer value of \(convertedNumber)")
+} else {
+    print("convertedNumber doesn't contains integer value")
+}
 
 //: ### Неявно извлеченные опционалы
 
+var name = ""
+var userName: String! = "Tim"
 
+//userName = nil
+name = userName
