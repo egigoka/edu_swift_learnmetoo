@@ -125,7 +125,7 @@ c = a < 10 ? a - b : a + b
 
 print("\n====SWITCH STATEMENT====")
 
-let someCharacter: Character = "a"
+var someCharacter: Character = "a"
 
 if someCharacter == "a" {
     print("It's an A")
@@ -137,15 +137,60 @@ if someCharacter == "a" {
     print("Don't know what it is")
 }
 
+someCharacter = "B"
+
+if someCharacter == "a" || someCharacter == "A" {
+    print("It's an A")
+} else if someCharacter == "b" || someCharacter == "B" {
+    print("It's a B")
+} else if someCharacter == "c" || someCharacter == "C" {
+    print("It's a C")
+} else {
+    print("Don't know what it is")
+}
+
+switch someCharacter {
+case "a", "A":
+    print("It's an A")
+case "b", "B":
+    print("It's a B")
+case "c", "C":
+    print("It's a C")
+default:
+    print("Don't know what it is")
+}
+
 //: ### Соответствие диапазону
 
 print("\n====СООТВЕТСТВИЕ ДИАПАЗОНУ====")
 
+let approximateCount = 62
+let countedThings = "moons orbiting Saturn"
+var naturalCount = ""
 
+switch approximateCount {
+case ..<0:
+    print("Error")
+case 0:
+    naturalCount = "no"
+case 1:
+    naturalCount = "one"
+case 2..<5:
+    naturalCount = "a few"
+case 5...11:
+    naturalCount = "several"
+case 12...99:
+    naturalCount = "dozens of"
+default:
+    naturalCount = "many"
+}
+
+print("There are \(naturalCount) \(countedThings)")
 
 //: ## Опциональные типы
 
-
+var someString = ""
+var optionalString: String
 
 //: ### Извлечение опционалов
 
