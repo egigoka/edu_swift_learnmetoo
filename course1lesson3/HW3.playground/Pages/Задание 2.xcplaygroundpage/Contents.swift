@@ -12,9 +12,7 @@ import Foundation
  */
 
 var userInputAge = "34e"
-//var userAge = 0
-
-//userAge = Int(userInputAge)
+//var userAge: Int = Int(userInputAge)
 // cannot assign optional Int value to an Int variable
 
 /*:
@@ -37,6 +35,7 @@ userInputAge = "34"
 userAge = Int(userInputAge)
 
 print(userAge)
+// prints that value is optional
 
 print(userAge!)
 
@@ -46,8 +45,6 @@ print(userAge!)
 
 if let userAge = userAge {
     print("User entered age of \(userAge)")
-} else {
-    print("User entered age is in wrong format")
 }
 
 /*:
