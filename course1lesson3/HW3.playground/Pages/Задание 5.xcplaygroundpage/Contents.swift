@@ -14,7 +14,8 @@ case "red" where filling == "chocolate":
     print("Goes to first pile")
 case "yellow" where filling == "nuts":
     print("Goes to second pile")
-case "brown" where filling == "chocolate", "green" where filling == "chocolate":
+case "brown" where filling == "chocolate", 
+     "green" where filling == "chocolate":
     print("Goes to third pile")
 default:
     print("Doesn't go to any pile")
