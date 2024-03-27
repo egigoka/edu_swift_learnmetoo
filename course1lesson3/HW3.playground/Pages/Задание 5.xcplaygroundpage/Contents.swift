@@ -6,4 +6,6 @@ import Foundation
  
  */
 
+
+
 //: [Ранее: Задание 3](@previous)  |  задание 4 из 4  |

@@ -210,7 +210,8 @@ convertedNumber = 16
 
 if convertedNumber != nil {
 //    convertedNumber = nil
-    print("convertedNumber has integer value of \(convertedNumber!)")
+    print("convertedNumber has integer value of \(convertedNumber!)") // wrong
+    print("convertedNumber has integer value of \(convertedNumber ?? 0)") // right
 }
 
 //: ### Привязка опционалов
