@@ -12,7 +12,7 @@ import Foundation
  
  */
 
-
+for counter
 
 //: ### Итерация по массиву
 
