@@ -71,6 +71,8 @@ integers
 
 //: ### Использование логического свойства isEmpty
 
-
+if !integers.isEmpty {
+    print(integers)
+}
 
 //: [Next](@next)
