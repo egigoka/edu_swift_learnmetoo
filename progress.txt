@@ -11,8 +11,8 @@ course 1 lesson 3 theory  - done
 course 1 lesson 3 homework  - done
 
 course 1 lesson 4 homework review  - done
-course 1 lesson 4 theory  - 2:50:43
-course 1 lesson 4 homework  - 
+course 1 lesson 4 theory  - done
+course 1 lesson 4 homework  - in progress
 
 10%
 
