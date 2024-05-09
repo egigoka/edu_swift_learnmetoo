@@ -45,10 +45,18 @@ print("The number of apples is \(appleCount) pieces")
 
 //: ### Итерация по словарю
 
+let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 
+for (animalName, legCount) in numberOfLegs {
+    print("\(animalName)s have \(legCount) legs")
+}
 
 //: ### Итерация по тексту
 
+let someText = "Hello"
 
+for char in someText {
+    print(char)
+}
 
 //: [Next](@next)

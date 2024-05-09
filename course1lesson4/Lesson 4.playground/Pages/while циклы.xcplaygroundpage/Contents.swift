@@ -12,7 +12,12 @@ import Foundation
  
  */
 
+var counter = 5
 
+while counter > 0 {
+    counter -= 1
+    print(counter)
+}
 
 /*:
  
@@ -22,6 +27,9 @@ import Foundation
  
  */
 
-
+repeat {
+    counter -= 1
+    print(counter)
+} while counter > 0
 
 //: [Next](@next)
