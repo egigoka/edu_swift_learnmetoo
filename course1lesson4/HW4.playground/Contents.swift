@@ -51,7 +51,7 @@ let numbers = [1,69,42,420]
 
 for number in numbers {
     if number % 2 == 0 {
-        print(number)
+        print("even \(number)")
     }
 }
 
@@ -61,7 +61,7 @@ for number in numbers {
     if number % 2 == 0 {
         continue
     }
-    print(number)
+    print("odd \(number)")
 }
 
 //: ### Задание 4
@@ -71,6 +71,7 @@ for counter in 1...10 {
     let randomNumber = Int.random(in: 1...10)
     if randomNumber == 5 {
         print("To get random number equal 5 we tried \(counter) times")
+        break
     }
 }
 
@@ -91,4 +92,4 @@ while progress < 10 {
     progress -= 1
 }
 
-print("To get to the top of the pole ")
+print("To get to the top of the pole tutel wasted \(daysPassed) days")

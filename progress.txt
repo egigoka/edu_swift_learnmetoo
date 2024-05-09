@@ -12,11 +12,11 @@ course 1 lesson 3 homework  - done
 
 course 1 lesson 4 homework review  - done
 course 1 lesson 4 theory  - done
-course 1 lesson 4 homework  - in progress
+course 1 lesson 4 homework  - done
 
 10%
 
-course 1 lesson 5 homework review  - 
+course 1 lesson 5 homework review  - 0:26:48
 course 1 lesson 5 theory  - 
 course 1 lesson 5 homework  - 
 
