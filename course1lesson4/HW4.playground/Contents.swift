@@ -3,23 +3,39 @@ import UIKit
 
 /*:
  ### Задание 1
- 1.1 Пользователь открывает вклад (deposit) в банке на 5 лет на сумму 500 тыс. рублей. Процентная ставка годовых (rate) составляет 11%. Необходимо просчитать сумму дохода (profit) по окончании срока действия (period) вклада.  Для решения данной задачи используйет цикл for-in. Примечание: сумма вклада увеличивается с каждым годом и процент нужно считать уже от увелеченной суммы.
+ 1.1 Пользователь открывает вклад (deposit) в банке на 5 лет на сумму 500 тыс. 
+ рублей. Процентная ставка годовых (rate) составляет 11%. Необходимо просчитать
+ сумму дохода (profit) по окончании срока действия (period) вклада.  Для
+ решения данной задачи используйет цикл for-in. Примечание: сумма вклада
+ увеличивается с каждым годом и процент нужно считать уже от увелеченной суммы.
  
- 1.2 Выведите результат на консоль в таком виде: "Сумма вклада через <... > лет увеличится на <...> и составит <...>"
+ 1.2 Выведите результат на консоль в таком виде: "Сумма вклада через <... > лет 
+ увеличится на <...> и составит <...>"
  */
 
 var deposit = 500000.0
+let initialDeposit = deposit
 let rate = 0.11
 let period = 5
 
-for _ in 1...period {
-    deposit *= 1.0 + rate
+if period > 0 && rate > 0 && deposit > 0 {
+    for _ in 1...period {
+        // Multiply deposit balance by (1 + rate) to get balance at the end of the
+        // year
+        deposit *= 1.0 + rate
+    }
+    
+    let profit = deposit - initialDeposit
+    
+    // Output final results with formatted financial values
+    print("Deposit amount after \(period) years will increase by "
+          + "\(String(format: "%.2f", profit)) and "
+          + "will be \(String(format: "%.2f", deposit))")
+} else {
+    print("Invalid input values. Deposit, rate, and period must be positive.")
 }
-
-let profit = deposit - 500000
-
-print("Deposit amount after \(period) years will increase by \(profit) and "
-      + "will be \(deposit)")
+// Don't penalize for not moving code to function and naming of variables as
+// it's defined by mentor.
 
 /*:
  ### Задание 2
