@@ -18,10 +18,12 @@ let initialDeposit = deposit
 let rate = 0.11
 let period = 5
 
+// Ensure input values are valid
 if period > 0 && rate > 0 && deposit > 0 {
+    // Compute the final deposit using for-in loop
     for _ in 1...period {
-        // Multiply deposit balance by (1 + rate) to get balance at the end of the
-        // year
+        // Multiply deposit balance by (1 + rate) to get balance at the end of 
+        // the year
         deposit *= 1.0 + rate
     }
     
@@ -48,13 +50,17 @@ if period > 0 && rate > 0 && deposit > 0 {
 
 let base = 2
 let power = 10
-var result = base
+var result = 1
 
-for _ in 2...power {
-    result *= base
+if power < 0 {
+    print("Negative powers are not supported.")
+} else {
+    for _ in 1...power {
+        result *= base
+    }
 }
 
-print("\(base) in power of \(power) equal \(result)")
+print("\(base) to the power of \(power) equals \(result)")
 
 /*:
  ### Задание 3
