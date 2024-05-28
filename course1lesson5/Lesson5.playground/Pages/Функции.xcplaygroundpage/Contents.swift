@@ -12,7 +12,15 @@ import Foundation
  
  */
 
+func addingTwoNumbers() {
+    let a = 3
+    let b = 2
+    let c = a + b
+    
+    print(c)
+}
 
+addingTwoNumbers()
 
 //: ### Функции с возвращаемыми значениями
 
@@ -24,7 +32,16 @@ import Foundation
  
  */
 
+func addingTwoNumbersWithReturn() -> Int {
+    let a = 3
+    let b = 2
+    let c = a + b
+    
+    print(c)
+    return c
+}
 
+var result = addingTwoNumbersWithReturn()
 
 //: ### Функции с параметрами
 
