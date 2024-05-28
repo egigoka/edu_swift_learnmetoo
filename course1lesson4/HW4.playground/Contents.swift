@@ -64,7 +64,7 @@ if power < 0 {
  3.1 Создайте целочисленный массив данных с любым набором чисел.
 */
 
-let numbers = [1,69,42,420]
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 //: 3.2 Выведите на консоль все четные числа из массива
 
@@ -86,10 +86,10 @@ for number in numbers {
 //: ### Задание 4
 //: 4.1 Создайте цикл (интревал можно задать от 1 до 10) в котором будет случайным образом вычисляться число в пределах от 1 до 10. Если число будет равно 5, выведите на коносль сообщение с номером итерации, например (Что бы выпало число 5 понадобилось 3 итерации) и остановите цикл. Для остановки цикла используйте оператор breack. Оператор break предназначен для досрочного завершения работы цикла. При этом весь последующий код в теле цикла игнорируется.
 
-for counter in 1...10 {
+for iteration in 1...10 {
     let randomNumber = Int.random(in: 1...10)
     if randomNumber == 5 {
-        print("To get random number equal 5 we tried \(counter) times")
+        print("To get random number equal 5 we tried \(iteration) times")
         break
     }
 }
@@ -99,16 +99,16 @@ for counter in 1...10 {
   5.1 На 10 метровый столб лезет черепашка. За день она забирается на два метра, за ночь съезжает на 1. Определите при помощи цикла, через сколько дней она заберетсья на столб. Подумайте над тем, какой цикл использовать в этой ситуации.
  */
 
-var progress = 0
+var distance = 0
 var daysPassed = 0
 
-while progress < 10 {
+while distance < 10 {
     daysPassed += 1
-    progress += 2
-    if progress >= 10 {
+    distance += 2
+    if distance >= 10 {
         break
     }
-    progress -= 1
+    distance -= 1
 }
 
 print("To get to the top of the pole turtle wasted \(daysPassed) days")
