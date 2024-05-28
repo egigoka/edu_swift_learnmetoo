@@ -36,8 +36,6 @@ if period > 0 && rate > 0 && deposit > 0 {
 } else {
     print("Invalid input values. Deposit, rate, and period must be positive.")
 }
-// Don't penalize for not moving code to function and naming of variables as
-// it's defined by mentor.
 
 /*:
  ### Задание 2
@@ -48,8 +46,8 @@ if period > 0 && rate > 0 && deposit > 0 {
  2.3 Выведите результат на консоль в следующем виде: «<…> в <…> степени равно <…>»
  */
 
-let base = 2
-let power = 10
+let base = 3
+let power = 2
 var result = 1
 
 if power < 0 {
@@ -58,9 +56,8 @@ if power < 0 {
     for _ in 1...power {
         result *= base
     }
+    print("\(base) to the power of \(power) equals \(result)")
 }
-
-print("\(base) to the power of \(power) equals \(result)")
 
 /*:
  ### Задание 3
@@ -114,4 +111,4 @@ while progress < 10 {
     progress -= 1
 }
 
-print("To get to the top of the pole tutel wasted \(daysPassed) days")
+print("To get to the top of the pole turtle wasted \(daysPassed) days")
