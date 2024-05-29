@@ -7,7 +7,20 @@ import Foundation
 
 //: Отбираем числа меньше заданного значения
 
+func filterLessThanValue(value: Int, numbers: [Int]) -> [Int] {
+    var filteredListOfNumbers: [Int] = []
+    for number in numbers {
+        if number < value {
+            filteredListOfNumbers.append(number)
+        }
+    }
+    return filteredListOfNumbers
+}
 
+let someValue = 5
+let numbers = [5, 8, 20, 13, 1, 4, 3, 6]
+
+filterLessThanValue(value: someValue, numbers: numbers)
 
 //: Отбираем числа больше заданного значения
 
