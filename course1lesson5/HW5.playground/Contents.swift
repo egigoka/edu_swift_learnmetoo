@@ -35,39 +35,75 @@ for (clubName, gameResults) in games {
  2.1 Создайте функцию, которая считает общую сумму денег, хранящихся в кошельке. В кошельке имеются купюры различного достоинства от 50 до 5000 рублей
  */
 
-func 
+func countMoney(_ currency: [Int: Int]) -> Int {
+    var total = 0
+    
+    for (value, count) in currency {
+        total += value * count
+    }
+    return total
+}
 
 //: 2.2 Заполните массив различными купюрами и подсчитайте общую сумму
 
+let cash = [1: 7, 10: 1, 50: 3, 200: 3, 1000: 3, 2000: 1, 5000:60]
 
+countMoney(cash)
 
 /*:
  ### Задание 3
  3.1 Создайте функцию, которая определяет является ли число четным или нет. В случае, если число является четным, функция должна возвращать `true`. Иначе - `false`. Подумайте над названием функции, оно должно быть ёмким и в то же время не очень длинным
  */
 
-
+func isEven(number: Int) -> Bool {
+    number % 2 == 0
+}
 
 /*:
 3.2 Создайте функцию, которая определяет делится ли число на *3* без остатка. Функция так же должна возвращать булево значение. Так же подумайте над названием функции
 */
 
-
+func isDivisibleByThree(number: Int) -> Bool {
+    number % 3 == 0
+}
 
 /*:
  3.3 Создайте функцию, которая создает возрастающий массив чисел в интервале от *x* до *y*. Данный интервал должен определять пользователь при вызове функции. Если хотите усложить задание, то пусть данная функция создает массив случайных чисел в заданном интервале с уникальными значениями
  */
 
-
+func createArray(from: Int, to: Int) -> [Int] {
+    var arrayOfNumbers: [Int] = []
+    
+    for currentNumber in from...to {
+        arrayOfNumbers.append(currentNumber)
+    }
+    arrayOfNumbers.shuffle()
+    
+    return arrayOfNumbers
+}
 
 /*:
 3.4 Создайте массив чисел от *1* до *100*, используя для этого вышесозданную функцию
  */
 
-
+var arrayOfNumbers = createArray(from: 1, to: 100)
 
 /*:
  3.5 Создайте функции для удаления всех четных чисел из массива и чисел, которые делятся на *3*. Для определения четного числа и числа которое делится на *3* используейте ранее созданные функции из задания **3.1** и **3.2**.
  */
 
+func removeByClosure(numbers: [Int], closure: (Int) -> Bool) -> [Int] {
+    var output: [Int] = []
+    
+    for number in numbers {
+        if !closure(number){
+            output.append(number)
+        }
+    }
+    return output
+}
 
+arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers, closure: isEven)
+arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers,
+                                 closure: isDivisibleByThree)
+print(arrayOfNumbers)
