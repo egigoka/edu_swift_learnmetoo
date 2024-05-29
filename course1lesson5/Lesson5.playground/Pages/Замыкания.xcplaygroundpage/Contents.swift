@@ -145,12 +145,25 @@ filterWithPredicateClosure(
 
 //: Сокращенные имена параметров
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: { $0 < $1 }
+)
 
+filterWithPredicateClosure(
+    value: someValue,
+    numbers: numbers,
+    closure: { $0 > $1 }
+)
 
 //: Последующее замыкание
 
+filterWithPredicateClosure(value: someValue, numbers: numbers) { $0 < $1 }
 
+filterWithPredicateClosure(value: someValue, numbers: numbers) { $0 > $1 }
 
 //: Операторные функции
 
-
+filterWithPredicateClosure(value: someValue, numbers: numbers, closure: <)
+filterWithPredicateClosure(value: someValue, numbers: numbers, closure: >)
