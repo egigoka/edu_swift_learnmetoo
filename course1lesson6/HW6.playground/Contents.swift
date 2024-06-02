@@ -145,10 +145,9 @@ class Ellipse: Shape {
         // are you kidding?
         let a = height / 2
         let b = width / 2
-        
-        return Float.pi * (3 * (a + b) - sqrt((3 * a + b) * (a + 3 * b)))
-        
-        return Float.pi * (a + b) * ((1 + 3 * pow(a - b, 2) / pow(a + b, 2)) / (10 + sqrt(4 - 3 * pow(a - b, 2) / pow(a + b, 2))))
+        let h = pow((a - b), 2) / pow((a + b), 2)
+
+        return Float.pi * (a + b) * (1 + 3 * h / (10 + sqrt(4 - 3 * h)))
     }
     
     func description() {
@@ -161,7 +160,7 @@ class Ellipse: Shape {
 
 let circle = Circle(radius: 2.5)
 let rectangle = Rectangle(height: 7, width: 12)
-let ellipse = Ellipse(height: 5, width: 5)
+let ellipse = Ellipse(height: 5, width: 10)
 
 circle.description()
 rectangle.description()
@@ -178,15 +177,33 @@ ellipse.description()
  - `surname`
  */
 
-
+class Employee {
+    let salary: Int
+    let name: String
+    let surname: String
+    
+    init(salary: Int, name: String, surname: String) {
+        self.salary = salary
+        self.name = name
+        self.surname = surname
+    }
+    
+}
  
 //: 3.2 Создайте массив из 5 объектов под названием `names` со следующими элементами: *John*, *Aaron*, *Tim*, *Ted*, *Steven*. И еще один массив `surnames` с элементами: *Smith*, *Dow*, *Isaacson*, *Pennyworth*, *Jankins*
 
-
+let names = ["John", "Aaron", "Tim", "Ted", "Steven"]
+let surnames = ["Smith", "Dow", "Isaacson", "Pennyworth", "Jankins"]
 
 //: 3.3 Объявите массив `employees` и создайте цикл, в котором он заполняется десятью объектами класса `Employee` таким образом, что свойства `name` и `surname` инициализируются случайными именами и фамилиями из массивов `names` и `surnames`, соответственно. Свойство `salary` (зарплата) тоже должно генерироваться в случайном диапазоне от *$1000* до *$2000*
 
+var employees: [Employee] = []
 
+for _ in 1...10 {
+    if let name = names.randomElement(), let surname = surnames.randomElement() {
+        employees.append(Employee(salary: Int.random(in: 1000...2000), name: name, surname: surname))
+    }
+}
 
 //: 3.4 Пройдитесь по массиву `employees` при помощи `for-in` и выведите информацию по каждому объекту в виде: «<имя> <фимилия>’s salary is $<... >»
 
