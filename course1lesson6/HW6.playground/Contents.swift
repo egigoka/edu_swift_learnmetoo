@@ -146,10 +146,9 @@ class Ellipse: Shape {
         let a = height / 2
         let b = width / 2
         
-        let aPlusBSquared = pow(a + b, 2)
-        let aMinusBSquared = pow(a - b, 2)
+        return Float.pi * (3 * (a + b) - sqrt((3 * a + b) * (a + 3 * b)))
         
-        return Float.pi * (a + b) * ((1 + 3 * aMinusBSquared / aPlusBSquared) / 10 + sqrt(4 - 3 * aMinusBSquared / aPlusBSquared))
+        return Float.pi * (a + b) * ((1 + 3 * pow(a - b, 2) / pow(a + b, 2)) / (10 + sqrt(4 - 3 * pow(a - b, 2) / pow(a + b, 2))))
     }
     
     func description() {
