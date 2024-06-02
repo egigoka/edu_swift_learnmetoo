@@ -71,10 +71,10 @@ func isDivisibleByThree(number: Int) -> Bool {
  3.3 Создайте функцию, которая создает возрастающий массив чисел в интервале от *x* до *y*. Данный интервал должен определять пользователь при вызове функции. Если хотите усложить задание, то пусть данная функция создает массив случайных чисел в заданном интервале с уникальными значениями
  */
 
-func createArray(from: Int, to: Int) -> [Int] {
+func createArray(from start: Int, to end: Int) -> [Int] {
     var arrayOfNumbers: [Int] = []
     
-    for currentNumber in from...to {
+    for currentNumber in start...end {
         arrayOfNumbers.append(currentNumber)
     }
     arrayOfNumbers.shuffle()
@@ -93,17 +93,22 @@ var arrayOfNumbers = createArray(from: 1, to: 100)
  */
 
 func removeByClosure(numbers: [Int], closure: (Int) -> Bool) -> [Int] {
-    var output: [Int] = []
+    var outputNumbers: [Int] = []
     
     for number in numbers {
         if !closure(number){
-            output.append(number)
+            outputNumbers.append(number)
         }
     }
-    return output
+    return outputNumbers
 }
+
+var someNumbers = arrayOfNumbers
 
 arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers, closure: isEven)
 arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers,
                                  closure: isDivisibleByThree)
 print(arrayOfNumbers)
+
+someNumbers = removeByClosure(numbers: someNumbers) { $0 % 2 == 0 }
+someNumbers = removeByClosure(numbers: someNumbers) { $0 % 3 == 0 }
