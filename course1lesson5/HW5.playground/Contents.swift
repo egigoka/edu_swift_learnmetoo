@@ -18,13 +18,13 @@ import UIKit
  - Игра с АкБарс - 1:2
  */
 
-let games = [
+let teamsGamesResults = [
     "Toronto Maple Leafs": ["1:2", "3:2"],
     "Chicago Blackhawks": ["2:0"],
     "Montreal Canadiens": ["7:16", "8:3", "0:0"]
 ]
 
-for (clubName, gameResults) in games {
+for (clubName, gameResults) in teamsGamesResults {
     for gameResult in gameResults {
         print("Game with \(clubName) - \(gameResult)")
     }
@@ -48,7 +48,7 @@ func countMoney(_ currency: [Int: Int]) -> Int {
 
 let cash = [1: 7, 10: 1, 50: 3, 200: 3, 1000: 3, 2000: 1, 5000:60]
 
-countMoney(cash)
+print(countMoney(cash))
 
 /*:
  ### Задание 3
