@@ -147,9 +147,9 @@ class Ellipse: Shape {
         let b = width / 2
         
         let aPlusBSquared = pow(a + b, 2)
-        let aMinusBSquared
+        let aMinusBSquared = pow(a - b, 2)
         
-        return Float.pi * (a + b) * ((1 + 3 * pow(a - b, 2) / aPlusBSquared) / 10 + sqrt(4 - 3 * pow(a - b, 2) / pow(a + b, 2)))
+        return Float.pi * (a + b) * ((1 + 3 * aMinusBSquared / aPlusBSquared) / 10 + sqrt(4 - 3 * aMinusBSquared / aPlusBSquared))
     }
     
     func description() {
@@ -160,9 +160,9 @@ class Ellipse: Shape {
 
 //: 2.4 Создайте по экземпляру каждого класса, кроме `Shape`, проинициализируйте свойства `height` и `width` или `radius` для каждого класса в любые значения и вызовите у каждого экземпляра класса метод `description`
 
-let circle = Circle(radius: 5)
+let circle = Circle(radius: 2.5)
 let rectangle = Rectangle(height: 7, width: 12)
-let ellipse = Ellipse(height: 5, width: 10)
+let ellipse = Ellipse(height: 5, width: 5)
 
 circle.description()
 rectangle.description()
