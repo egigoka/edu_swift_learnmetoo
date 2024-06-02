@@ -139,3 +139,9 @@ func removeByClosureV3(numbers: [Int], closure: (Int) -> Bool) -> [Int] {
 
 anotherArrayOfNumbers = removeByClosureV3(numbers: anotherArrayOfNumbers) { $0 % 2 == 0}
 print(anotherArrayOfNumbers.count)
+
+anotherArrayOfNumbers = anotherArrayOfNumbers.filter() { $0 % 5 != 0}
+print(anotherArrayOfNumbers.count)
+
+anotherArrayOfNumbers.removeAll() { $0 % 7 == 0 }
+print(anotherArrayOfNumbers.count)
