@@ -15,6 +15,11 @@ class Post {
     var title = ""
     var body = ""
     var author = ""
+    var numberOfComments = 0
+    
+    func addComment() {
+        numberOfComments += 1
+    }
 }
 
 let firstPost = Post()
@@ -22,17 +27,28 @@ let firstPost = Post()
 firstPost.title = "This is my first post"
 firstPost.body = "Hello"
 firstPost.author = "Efimov Alexey"
+firstPost.addComment()
+firstPost.addComment()
 
-print("Author \(firstPost.author) has published  new post '\(firstPost.title)'"
-      + " with text '\(firstPost.body)'")
-
-let secondPost = firstPost
+//let secondPost = firstPost
+let secondPost = Post()
 
 secondPost.title = "Second post"
 secondPost.body = "A lot of text"
 secondPost.author
 
-print("Author \(secondPost.author) has published a new post")
+print("Author \(firstPost.author) has published a new post '\(firstPost.title)'"
+      + " with text '\(firstPost.body)'")
+print("The number of comments for the post '\(firstPost.title)' is"
+      + " \(firstPost.numberOfComments)")
+
+print("Author \(secondPost.author) has published a new post"
+      + " '\(secondPost.title)' with text '\(secondPost.body)'")
+print("The number of comments for the post '\(secondPost.title)' is"
+      + " \(secondPost.numberOfComments)")
+
+firstPost === secondPost
+
 
 //: ### Методы классов
 
@@ -40,7 +56,15 @@ print("Author \(secondPost.author) has published a new post")
 
 //: ### Инициализация
 
+class Human {
+    var name = ""
+    var age = 0
+}
 
+let somePerson = Human()
+
+somePerson.name
+somePerson.age
 
 //: ### Наследовение
 
