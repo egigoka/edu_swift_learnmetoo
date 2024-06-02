@@ -69,6 +69,18 @@ class Human {
         self.name = name
         self.age = age
     }
+    
+    func walk() {
+        print("I can walk")
+    }
+    
+    func sleep() {
+        print("I need sleep")
+    }
+    
+    func eat() {
+        print("I need food")
+    }
 }
 
 let somePerson = Human(name: "Ron", age: 24)
@@ -81,8 +93,90 @@ human.age
 
 //: ### Наследовение
 
+class Child: Human {
+    
+    func nursing() {
+        if age <= 5 {
+            print("I need care")
+        } else {
+            print("I can eat independently")
+        }
+    }
+    
+    func parenting() {
+        if age >= 5 && age <= 13 {
+            print("I need an education")
+        } else if age < 5 {
+            print("I'm too small for education")
+        } else {
+            print("It's too late to educate me")
+        }
+    }
+    
+}
 
+let littleBoy = Child(name: "Tom", age: 4)
+littleBoy.sleep()
+littleBoy.eat()
+littleBoy.nursing()
+littleBoy.parenting()
+
+class SchoolChild: Child {
+    
+    func schooling() {
+        if age >= 6 && age <= 17 {
+            print("I have to go to school")
+        } else {
+            print("I don't need school")
+        }
+    }
+    
+}
+
+let schoolGirl = SchoolChild(name: "Sara", age: 8)
+schoolGirl.schooling()
+schoolGirl.nursing()
+schoolGirl.parenting()
+schoolGirl.sleep()
 
 //: ### Полиморфизм
 
+class Shape {
+    func draw() {
+        print("Drow some shape")
+    }
+}
 
+class Rectangle {
+    func draw() {
+        print("Drow Rectangle")
+    }
+}
+
+class Triangle {
+    func draw() {
+        print("Drow Triangle")
+    }
+}
+
+class Circle {
+    func draw() {
+        print("Drow Circle")
+    }
+}
+
+func drawRectangle(_ rectangle: Rectangle) {
+    rectangle.draw()
+}
+
+func drawTriangle(_ triangle: Triangle) {
+    triangle.draw()
+}
+
+func drawCircle(_ circle: Circle) {
+    circle.draw()
+}
+
+drawRectangle(Rectangle())
+drawTriangle(Triangle())
+drawCircle(Circle())
