@@ -104,6 +104,8 @@ func removeByClosure(numbers: [Int], closure: (Int) -> Bool) -> [Int] {
 }
 
 var someNumbers = arrayOfNumbers
+var someAnotherNumbers = arrayOfNumbers
+var anotherArrayOfNumbers = arrayOfNumbers
 
 arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers, closure: isEven)
 arrayOfNumbers = removeByClosure(numbers: arrayOfNumbers,
@@ -112,3 +114,28 @@ print(arrayOfNumbers)
 
 someNumbers = removeByClosure(numbers: someNumbers) { $0 % 2 == 0 }
 someNumbers = removeByClosure(numbers: someNumbers) { $0 % 3 == 0 }
+
+someAnotherNumbers = removeByClosure(numbers: someAnotherNumbers) { number in
+    number % 2 == 0
+}
+
+// inout parameter
+
+func removeByClosureV2(numbers: inout [Int], closure: (Int) -> Bool) {
+    for number in numbers {
+        if closure(number), let index = numbers.firstIndex(of: number) {
+            numbers.remove(at: index)
+        }
+    }
+}
+
+print(anotherArrayOfNumbers.count)
+removeByClosureV2(numbers: &anotherArrayOfNumbers) { $0 % 3 == 0 }
+print(anotherArrayOfNumbers.count)
+
+func removeByClosureV3(numbers: [Int], closure: (Int) -> Bool) -> [Int] {
+    numbers.filter { !closure($0) }
+}
+
+anotherArrayOfNumbers = removeByClosureV3(numbers: anotherArrayOfNumbers) { $0 % 2 == 0}
+print(anotherArrayOfNumbers.count)
