@@ -17,6 +17,23 @@ class Post {
     var author = ""
 }
 
+let firstPost = Post()
+
+firstPost.title = "This is my first post"
+firstPost.body = "Hello"
+firstPost.author = "Efimov Alexey"
+
+print("Author \(firstPost.author) has published  new post '\(firstPost.title)'"
+      + " with text '\(firstPost.body)'")
+
+let secondPost = firstPost
+
+secondPost.title = "Second post"
+secondPost.body = "A lot of text"
+secondPost.author
+
+print("Author \(secondPost.author) has published a new post")
+
 //: ### Методы классов
 
 
