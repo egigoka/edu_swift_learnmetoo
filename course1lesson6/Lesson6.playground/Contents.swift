@@ -15,7 +15,12 @@ class Post {
     var title = ""
     var body = ""
     var author = ""
-    var numberOfComments = 0
+    
+    var description: Int {
+        numberOfComments
+    }
+    
+    private var numberOfComments = 0
     
     func addComment() {
         numberOfComments += 1
@@ -35,17 +40,17 @@ let secondPost = Post()
 
 secondPost.title = "Second post"
 secondPost.body = "A lot of text"
-secondPost.author
+secondPost.author = firstPost.author
 
 print("Author \(firstPost.author) has published a new post '\(firstPost.title)'"
       + " with text '\(firstPost.body)'")
 print("The number of comments for the post '\(firstPost.title)' is"
-      + " \(firstPost.numberOfComments)")
+      + " \(firstPost.description)")
 
 print("Author \(secondPost.author) has published a new post"
       + " '\(secondPost.title)' with text '\(secondPost.body)'")
 print("The number of comments for the post '\(secondPost.title)' is"
-      + " \(secondPost.numberOfComments)")
+      + " \(secondPost.description)")
 
 firstPost === secondPost
 
@@ -59,12 +64,20 @@ firstPost === secondPost
 class Human {
     var name = ""
     var age = 0
+    
+    init(name: String = "", age: Int = 0) {
+        self.name = name
+        self.age = age
+    }
 }
 
-let somePerson = Human()
+let somePerson = Human(name: "Ron", age: 24)
+let human = Human(name: "Tim Cook")
 
 somePerson.name
 somePerson.age
+human.name
+human.age
 
 //: ### Наследовение
 
