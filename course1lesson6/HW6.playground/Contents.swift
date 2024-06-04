@@ -26,7 +26,7 @@ class Orange {
         return calculateOrangeVolume()
     }
     
-    init(color: String = "Unknown", taste: String = "Unknown", radius: Double) {
+    init(color: String = "", taste: String = "", radius: Double) {
         self.color = color
         self.taste = taste
         self.radius = radius
@@ -40,7 +40,7 @@ class Orange {
 
 //: 1.2 Создайте экземпляр класса `Orange`, вызвав при этом инициализатор  только для радиуса
 
-let orange = Orange(radius: 5)
+let orange = Orange(radius: 95)
 
 /*: 1.3 Присвойте остальным свойствам, созданного экземпляра класса, следующие значения:
  
@@ -81,8 +81,19 @@ class Shape {
     var height: Float = 0
     var width: Float = 0
     var radius: Float = 0
-    var square: Float = 0
-    var perimeter: Float = 0
+    
+    var square: Float {
+        squareOfShape()
+    }
+    
+    var perimeter: Float {
+        perimeterOfShape()
+    }
+    
+    func description() {
+        print("Area of \(Self.self) is \(square), perimeter is "
+              + "\(perimeter)")
+    }
     
     init(height: Float, width: Float) {
         self.height = height
@@ -119,10 +130,6 @@ class Circle: Shape {
         2.0 * Float.pi * radius
     }
     
-    func description() {
-        print("Area of Circle is \(squareOfShape()), perimeter is "
-              + "\(perimeterOfShape())")
-    }
 }
 
 class Rectangle: Shape {
@@ -134,10 +141,6 @@ class Rectangle: Shape {
         2 * (height + width)
     }
     
-    func description() {
-        print("Area of Rectangle is \(squareOfShape()), perimeter is "
-              + "\(perimeterOfShape())")
-    }
 }
 
 class Ellipse: Shape {
@@ -146,7 +149,7 @@ class Ellipse: Shape {
     }
     
     override func perimeterOfShape() -> Float {
-        // are you kidding?
+        // Approximation
         let a = height / 2
         let b = width / 2
         let h = pow((a - b), 2) / pow((a + b), 2)
@@ -154,10 +157,6 @@ class Ellipse: Shape {
         return Float.pi * (a + b) * (1 + 3 * h / (10 + sqrt(4 - 3 * h)))
     }
     
-    func description() {
-        print("Area of Ellipse is \(squareOfShape()), perimeter is "
-              + "\(perimeterOfShape())")
-    }
 }
 
 //: 2.4 Создайте по экземпляру каждого класса, кроме `Shape`, проинициализируйте свойства `height` и `width` или `radius` для каждого класса в любые значения и вызовите у каждого экземпляра класса метод `description`
