@@ -203,11 +203,9 @@ let surnames = ["Smith", "Dow", "Isaacson", "Pennyworth", "Jankins"]
 var employees: [Employee] = []
 
 for _ in 1...10 {
-    if let name = names.randomElement(), let surname = surnames.randomElement() {
-        employees.append(Employee(salary: Int.random(in: 1000...2000), 
-                                  name: name,
-                                  surname: surname))
-    }
+    employees.append(Employee(salary: Int.random(in: 1000...2000),
+                              name: names.randomElement() ?? "",
+                              surname: surnames.randomElement() ?? ""))
 }
 
 //: 3.4 Пройдитесь по массиву `employees` при помощи `for-in` и выведите информацию по каждому объекту в виде: «<имя> <фимилия>’s salary is $<... >»
@@ -223,7 +221,7 @@ printEmployeesInfo(employees)
 
 //: 3.5 Создайте отдельный массив на основании `employees`, который включает только тех работников, зарплата которых чётная. Выведите информацию по каждому сотруднику с четной зарплатой, как в пункте 3.4
 
-let employeesWithEvenSalary = employees.filter { $0.salary % 2 == 0 }
+let employeesWithEvenSalary = employees.filter { $0.salary.isMultiple(of: 2) }
 
 print("Even salary:")
 
