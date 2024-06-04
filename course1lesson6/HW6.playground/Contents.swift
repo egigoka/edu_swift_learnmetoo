@@ -22,14 +22,18 @@ class Orange {
     var taste: String
     let radius: Double
     
+    var orangeVolume: Double {
+        return calculateOrangeVolume()
+    }
+    
     init(color: String = "Unknown", taste: String = "Unknown", radius: Double) {
         self.color = color
         self.taste = taste
         self.radius = radius
     }
     
-    func orangeVolume() -> Double {
-        4 / 3 * Double.pi * pow(radius, 3)
+    private func calculateOrangeVolume() -> Double {
+        4.0 / 3.0 * Double.pi * pow(radius, 3)
     }
     
 }
@@ -53,7 +57,7 @@ orange.taste = "Sweet"
  */
 
 print("Orange have \(orange.color) color and \(orange.taste) taste. The volume "
-      + "of orange is \(String(format: "%.2f", orange.orangeVolume()))")
+      + "of orange is \(String(format: "%.2f", orange.orangeVolume))")
  
 /*:
  ## Задание 2
@@ -108,15 +112,15 @@ class Shape {
 class Circle: Shape {
     
     override func squareOfShape() -> Float {
-        2 * Float.pi * radius
-    }
-    
-    override func perimeterOfShape() -> Float {
         Float.pi * pow(radius, 2)
     }
     
+    override func perimeterOfShape() -> Float {
+        2.0 * Float.pi * radius
+    }
+    
     func description() {
-        print("Volume of Circle equal \(squareOfShape()), perimeter equal "
+        print("Area of Circle is \(squareOfShape()), perimeter is "
               + "\(perimeterOfShape())")
     }
 }
@@ -127,11 +131,11 @@ class Rectangle: Shape {
     }
     
     override func perimeterOfShape() -> Float {
-        pow(height, 2) + pow(width, 2)
+        2 * (height + width)
     }
     
     func description() {
-        print("Volume of Rectangle equal \(squareOfShape()), perimeter equal "
+        print("Area of Rectangle is \(squareOfShape()), perimeter is "
               + "\(perimeterOfShape())")
     }
 }
@@ -151,7 +155,7 @@ class Ellipse: Shape {
     }
     
     func description() {
-        print("Volume of Ellipse equal \(squareOfShape()), perimeter equal "
+        print("Area of Ellipse is \(squareOfShape()), perimeter is "
               + "\(perimeterOfShape())")
     }
 }
@@ -201,14 +205,28 @@ var employees: [Employee] = []
 
 for _ in 1...10 {
     if let name = names.randomElement(), let surname = surnames.randomElement() {
-        employees.append(Employee(salary: Int.random(in: 1000...2000), name: name, surname: surname))
+        employees.append(Employee(salary: Int.random(in: 1000...2000), 
+                                  name: name,
+                                  surname: surname))
     }
 }
 
 //: 3.4 Пройдитесь по массиву `employees` при помощи `for-in` и выведите информацию по каждому объекту в виде: «<имя> <фимилия>’s salary is $<... >»
 
+func printEmployeesInfo(_ employees: [Employee]) {
+    for employee in employees {
+        print("\(employee.name) \(employee.surname)'s salary is "
+              + "$\(employee.salary)")
+    }
+}
 
+printEmployeesInfo(employees)
 
 //: 3.5 Создайте отдельный массив на основании `employees`, который включает только тех работников, зарплата которых чётная. Выведите информацию по каждому сотруднику с четной зарплатой, как в пункте 3.4
 
+let employeesWithEvenSalary = employees.filter { $0.salary % 2 == 0 }
+
+print("Even salary:")
+
+printEmployeesInfo(employeesWithEvenSalary)
 
