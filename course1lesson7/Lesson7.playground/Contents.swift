@@ -97,20 +97,36 @@ enum WeekdayV2: String {
 var weekdayV2 = WeekdayV2.sunday
 print(weekdayV2.rawValue)
 
-enum Planet: Int {
-    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune, pluton
+if let taiwan = Countries(rawValue: "Taiwan"){
+    print(taiwan.rawValue)
 }
 
 
+enum Planet: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto
+}
+
+let somePlanet = Planet.earth
+print("Earth is the \(somePlanet.rawValue) planet of the Solar system")
 
 //: ### Инициализация
 
-
+if let possiblePlanet = Planet(rawValue: 7) {
+    print("The seventh planet is \(possiblePlanet)")
+}
 
 //: ### Связанные значения (ассоциированные параметры)
 
+enum WeekdayV3 {
+    case workday(message: String, time: Int)
+    case weekend(message: String)
+}
 
+let weekDayV3 = WeekdayV3.workday(message: "Set the alarm to", time: 8)
 
+func setupAlarmV3 {
+    
+}
 //: ### Сравение классов и структур
 
 
