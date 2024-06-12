@@ -174,7 +174,7 @@ playerOnePosition.printPlayerPosition()
 //: ### Сравение классов и структур
 
 class MacBook {
-    let name: String
+    var name: String
     let year: Int
     let color: String
     
@@ -183,7 +183,44 @@ class MacBook {
         self.year = year
         self.color = color
     }
+    
+    func printDescription() {
+        print("\(name) \(year) \(color)")
+    }
 }
+
+let macBookPro = MacBook(name: "MacBook Pro", year: 2020, color: "Space Gray")
+macBookPro.printDescription()
+
+let macBookAir = macBookPro
+macBookAir.name = "MacBook Air"
+
+macBookPro.printDescription()
+macBookAir.printDescription()
+
+struct IPhone {
+    var name: String
+    let color: String
+    let capacity: Int
+    
+    func printDescription() {
+        print("\(name) \(color) \(capacity)GiB")
+    }
+}
+
+let iPhoneXR = IPhone(name: "iPhone XR", color: "Coral", capacity: 128)
+var iPhone11 = iPhoneXR
+
+iPhone11.name = "iPhone 11"
+
+iPhoneXR.printDescription()
+iPhone11.printDescription()
+
+var someInt = 10
+var anotherInt = 15
+
+someInt = anotherInt
+anotherInt = 20
 
 //: ### Методы в структурах
 
