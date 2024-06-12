@@ -48,11 +48,58 @@ func setupAlarm(for weekday: Weekday) {
     }
 }
 
+setupAlarm(for: weekday)
+
 //: ### Использование инструкции Switch
 
+func setupAlarmV2(for weekday: Weekday) {
+    switch weekday {
+    case .monday:
+        print("The alarm is set to 8 am.")
+    case .tuesday:
+        print("The alarm is set to 8-30 am.")
+    case .wednesday:
+        print("The alarm is set to 9 am.")
+    case .thursday:
+        print("The alarm is set to 7-30 am.")
+    case .friday:
+        print("Yay! Friday!")
+    default:
+        print("Weekend. The alarm is not set")
+    }
+}
 
+setupAlarmV2(for: weekday)
 
 //: ### Исходные значения
+
+enum Countries: String {
+    case usa = "USA"
+    case ukraine = "Ukraine"
+    case taiwan = "Taiwan"
+}
+
+let usa = Countries.usa
+
+print("Case name: \(usa)")
+print("Case value: \(usa.rawValue)")
+
+enum WeekdayV2: String {
+    case monday = "The alarm is set to 8 am"
+    case tuesday = "The alarm is set to 8:30 am"
+    case wednesday = "The alarm is set to 9 am"
+    case thursday = "The alarm is set to 7:30 am"
+    case friday = "Yay! Friday!"
+    case saturday
+    case sunday
+}
+
+var weekdayV2 = WeekdayV2.sunday
+print(weekdayV2.rawValue)
+
+enum Planet: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune, pluton
+}
 
 
 
