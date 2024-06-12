@@ -124,12 +124,66 @@ enum WeekdayV3 {
 
 let weekDayV3 = WeekdayV3.workday(message: "Set the alarm to", time: 8)
 
-func setupAlarmV3 {
-    
+func setupAlarmV3(for weekday: WeekdayV3) {
+    switch weekday {
+    case let .workday(message, time):
+        print("\(message) \(time)")
+    case let .weekend(message):
+        print("\(message)")
+    }
 }
+
+setupAlarmV3(for: weekDayV3)
+
+
+//: # Structures
+
+let playerOne = "Player One"
+let player1XPosition = 10
+let player1YPosition = 5
+
+let playerTwo = "Player Two"
+let player2XPosition = 8
+let player2YPosition = 3
+
+func playersPosition(player: String, x: Int, y: Int) {
+    print("The position of \(player): X: \(x), Y: \(y)")
+}
+
+playersPosition(player: playerOne, x: player1XPosition, y: player1YPosition)
+playersPosition(player: playerTwo, x: player2XPosition, y: player2YPosition)
+
+struct PositionOnMap {
+    let player: String
+    var x: Int
+    let y: Int
+    
+    func printPlayerPosition() {
+        print("The position of \(player): X: \(x), Y: \(y)")
+    }
+}
+
+var playerOnePosition = PositionOnMap(player: playerOne, x: 10, y: 8)
+var playerTwoPosition = PositionOnMap(player: playerTwo, x: 7, y: 5)
+
+playerOnePosition.player
+playerOnePosition.x = 7
+playerOnePosition.y
+playerOnePosition.printPlayerPosition()
+
 //: ### Сравение классов и структур
 
-
+class MacBook {
+    let name: String
+    let year: Int
+    let color: String
+    
+    init(name: String, year: Int, color: String) {
+        self.name = name
+        self.year = year
+        self.color = color
+    }
+}
 
 //: ### Методы в структурах
 
