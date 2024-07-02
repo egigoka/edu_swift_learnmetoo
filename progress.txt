@@ -25,8 +25,8 @@ course 1 lesson 6 theory  - done
 course 1 lesson 6 homework  - done
 
 course 1 lesson 7 homework review  - done
-course 1 lesson 7 theory  - 2:34:43
-course 1 lesson 7 homework  - 
+course 1 lesson 7 theory  - done
+course 1 lesson 7 homework  - in progress
 
 course 1 lesson 8 homework review  - 
 course 1 lesson 8 theory  - 
