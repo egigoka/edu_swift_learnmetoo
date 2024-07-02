@@ -38,7 +38,8 @@ func calculate(_ numberOne: Int,
         operationDescription = "division"
     }
     
-    print("Result of \(operationDescription) of \(numberOne) and \(numberTwo) is \(result)")
+    print("Result of \(operationDescription) of \(numberOne) and \(numberTwo) "
+          + "is \(result)")
     
     return result
 }
@@ -64,6 +65,19 @@ calculate(50, and: 5, operation: .division)
  2.4 Доллар должен иметь на один ассоциативный параметр больше, в соответствии с перечислением `DollarCountrys`. Например если взять доллар США, то список стран, где использоуется данная валюта может быть таким: США, Доминиканская республика и т.д. Сокращенное наименование валюты: USD. Страна где печатается валюта: USA. Тогда как для рубля и евро нужно будет определить только список стран и аббривиатуру валюты.
  */
 
+enum CurrencyUnit {
+    
+    enum DollarCountries: String {
+        case usa = "USA"
+        case canada = "Canada"
+        case australia = "Australia"
+        case dominicanRepublic = "Dominican republic"
+    }
+    
+    case hryvnia ([String], String)
+    case dollar ([String], String, DollarCountries)
+    case euro ([String], String)
+}
 
 
 /*:
@@ -74,11 +88,26 @@ calculate(50, and: 5, operation: .division)
  2.6 Создайте переменную someCurrency и присвойете ей значения относящиеся к доллару
  */
 
-
+let hryvniaCurrency = CurrencyUnit.hryvnia(["Ukraine"], "UAH")
+let someCurrency = CurrencyUnit.dollar(["USA", "Panama", "Zimbabwe"], "USD", .usa)
 
 //: 2.7 Используя ветвление `switch` выведите на коносль сообщение в котором описано что за валюта, в каких странах катируется, короткое наименование.
 
+func currencyDescription(currency: CurrencyUnit) {
+    switch currency {
+    case .hryvnia(let countries, let abbreviation),
+            .euro(let countries, let abbreviation):
+        print("Currency \(abbreviation) is used in this countries: "
+              + "\(countries.joined(separator: ", "))")
+    case .dollar(let countries, let abbreviation, let dollarCountry):
+        print("Currency \(dollarCountry.rawValue) dollar is "
+              + "used in this countries: "
+              + "\(countries.joined(separator: ", "))")
+    }
+}
 
+currencyDescription(currency: hryvniaCurrency)
+currencyDescription(currency: someCurrency)
  
 /*:
  ## Задание 3
@@ -88,27 +117,36 @@ calculate(50, and: 5, operation: .division)
  - `horsePower: Int`
  */
 
-
+struct Car {
+    var name: String
+    let productionYear: Int
+    var horsePower: Int
+}
 
 //: 3.2 Создайте экземпляр структуры `Car` с названием какого либо автомобильного бренда, например `honda`.
 
+let honda = Car(name: "Honda", productionYear: 2010, horsePower: 150)
 
 
 //: 3.3 Создайте копию экземпляра `honda`, например, `hondaCivic`
 
-
+var hondaCivic = honda
 
 //: 3.4 Присвойте новое значение переменной name структуры `hondaCivic`
 
-
+hondaCivic.name = "Honda Civic"
 
 //: 3.5 Создайте цикл с пятью итерациями, в котором в каждой итерации необходимо увеличивать значение horsePower у структуры hondaCivic на единицу
 
-
+for _ in 1...5 {
+    hondaCivic.horsePower += 1
+}
 
 //: 3.6 Выведите значения структур `honda` и `hondaCivic` на консоль в следующем виде: "Мощность двигателя <..> составляет <...> л.с."
 
-
+for car in [honda, hondaCivic] {
+    print("Engine power of \(car.name) is \(car.horsePower) hp")
+}
  
 /*:
  ## Задание 4
@@ -121,7 +159,17 @@ calculate(50, and: 5, operation: .division)
  4.4 Вызвите данный метод из экземпляра структуры
   */
 
+struct PlayerInChess {
+    let name: String
+    let wins: String
+    
+    func description() {
+        print("")
+    }
+    
+}
 
+let playerOne = PlayerInChess(name: "Igor", wins: 0)
 
 /*:
 4.5 Расширте структуру методом addWins, который должен принимать целочисленное значение и увеличивать количество побед на это значение.
