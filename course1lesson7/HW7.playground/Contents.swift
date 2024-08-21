@@ -9,7 +9,7 @@ import UIKit
 
 enum CalculationType {
     case addition
-    case subtraciton
+    case subtraction
     case multiplication
     case division
 }
@@ -18,36 +18,35 @@ enum CalculationType {
 
 func calculate(_ numberOne: Int, 
                and numberTwo: Int,
-               operation: CalculationType) -> Int {
+               operation: CalculationType) -> Int? {
     
-    let result: Int
-    let operationDescription: String
+    let result: Int?
     
     switch operation {
     case .addition:
         result = numberOne + numberTwo
-        operationDescription = "addition"
-    case .subtraciton:
+    case .subtraction:
         result = numberOne - numberTwo
-        operationDescription = "subtraction"
     case .multiplication:
         result = numberOne * numberTwo
-        operationDescription = "multiplication"
     case .division:
+        if numberTwo == 0 {
+            return nil
+        }
         result = numberOne / numberTwo
-        operationDescription = "division"
     }
     
-    print("Result of \(operationDescription) of \(numberOne) and \(numberTwo) "
-          + "is \(result)")
-    
+    if let result = result {
+        print("Result of \(operation) of \(numberOne) and \(numberTwo) "
+              + "is \(result)")
+    }
     return result
 }
 
 //: 1.3 Вызовите эту функцию четыре раза для каждого математического оператора в отдельности. Постарайтесь сделать реализацию максимально гибкой — такой, что бы результат вывода можно было легко изменить, поменяв значения переменных. Доработайте функцию так, что бы при каждом её вызове на консоль выводился результат следующего содержания: «Результат сложения (вычитания, деления, умножения) <…> и <…> равен <…>» для каждого отдельного случая.
 
 calculate(7, and: 3, operation: .addition)
-calculate(10, and: 3, operation: .subtraciton)
+calculate(10, and: 3, operation: .subtraction)
 calculate(5, and: 2, operation: .multiplication)
 calculate(50, and: 5, operation: .division)
 
@@ -67,7 +66,7 @@ calculate(50, and: 5, operation: .division)
 
 enum CurrencyUnit {
     
-    enum DollarCountries: String {
+    enum DollarCountrys: String {
         case usa = "USA"
         case canada = "Canada"
         case australia = "Australia"
@@ -75,7 +74,7 @@ enum CurrencyUnit {
     }
     
     case hryvnia ([String], String)
-    case dollar ([String], String, DollarCountries)
+    case dollar ([String], String, DollarCountrys)
     case euro ([String], String)
 }
 
@@ -99,7 +98,7 @@ func currencyDescription(currency: CurrencyUnit) {
             .euro(let countries, let abbreviation):
         print("Currency \(abbreviation) is used in this countries: "
               + "\(countries.joined(separator: ", "))")
-    case .dollar(let countries, let abbreviation, let dollarCountry):
+    case .dollar(let countries, _, let dollarCountry):
         print("Currency \(dollarCountry.rawValue) dollar is "
               + "used in this countries: "
               + "\(countries.joined(separator: ", "))")
@@ -161,15 +160,17 @@ for car in [honda, hondaCivic] {
 
 struct PlayerInChess {
     let name: String
-    let wins: String
+    let wins: Int
     
     func description() {
-        print("")
+        print("Player name is \(name) and number of wins is \(wins)")
     }
     
 }
 
-let playerOne = PlayerInChess(name: "Igor", wins: 0)
+let playerOne = PlayerInChess(name: "Igor", wins: 3)
+
+playerOne.description()
 
 /*:
 4.5 Расширте структуру методом addWins, который должен принимать целочисленное значение и увеличивать количество побед на это значение.
