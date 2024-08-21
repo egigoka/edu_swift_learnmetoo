@@ -102,17 +102,25 @@ func currencyDescription(currency: CurrencyUnit) {
     switch currency {
     case let .hryvnia(countries, abbreviation),
          let .euro(countries, abbreviation):
-        print("Currency \(abbreviation) is used in this countries: "
-              + "\(countries.joined(separator: ", "))")
+        print("""
+              
+              Currency \(abbreviation).
+              Used in this countries:
+              \(countries.joined(separator: ", "))
+              """)
     case let .dollar(countries, abbreviation, dollarCountry):
-        print("Currency \(dollarCountry.rawValue) dollar (\(abbreviation)) is "
-              + "used in this countries: "
-              + "\(countries.joined(separator: ", "))")
+        print("""
+              
+              Currency \(dollarCountry.rawValue) dollar (\(abbreviation)).
+              Used in this countries:
+              \(countries.joined(separator: ", "))
+              """)
     }
 }
 
 currencyDescription(currency: hryvniaCurrency)
 currencyDescription(currency: someCurrency)
+print()
  
 /*:
  ## Задание 3
@@ -168,14 +176,13 @@ struct PlayerInChess {
     let name: String
     var wins: Int
     
+    mutating func addWins(countOfWins: Int) {
+        wins += countOfWins
+    }
+    
     func description() {
         print("Player name is \(name) and number of wins is \(wins)")
     }
-    
-    mutating func addWins(wins: Int) {
-        self.wins += wins
-    }
-    
 }
 
 var playerOne = PlayerInChess(name: "Igor", wins: 3)
@@ -188,6 +195,6 @@ playerOne.description()
 4.6 Вызовите метода addWins из экземпляра структуры, затем вызовите метод description
 */
 
-playerOne.addWins(wins: 5)
+playerOne.addWins(countOfWins: 5)
 
 playerOne.description()
