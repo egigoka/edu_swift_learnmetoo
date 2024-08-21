@@ -16,28 +16,28 @@ enum CalculationType {
 
 //: 1.2 Напишите функцию возвращающую `Int` и принимающую в качестве аргументов три переменные: число один, число два и тип математической операции. Внутри функции, в зависимости от значения переменной типа `CalculationType` выполните соответствующую математическую операцию с константами и верните результат. Для перебора всех возможных результатов используйте конструкцию `switch`. Присвойте своей функции такое название, что бы из него было понятно для чего служит эта функция, но при этом сделайте это имя максимально лаконичным.
 
-func calculate(_ numberOne: Int, 
-               and numberTwo: Int,
-               operation: CalculationType) -> Int? {
+func calculate(between firstNumber: Int,
+               and secondNumber: Int,
+               using operation: CalculationType) -> Int? {
     
     let result: Int?
     
     switch operation {
     case .addition:
-        result = numberOne + numberTwo
+        result = firstNumber + secondNumber
     case .subtraction:
-        result = numberOne - numberTwo
+        result = firstNumber - secondNumber
     case .multiplication:
-        result = numberOne * numberTwo
+        result = firstNumber * secondNumber
     case .division:
-        if numberTwo == 0 {
+        if secondNumber == 0 {
             return nil
         }
-        result = numberOne / numberTwo
+        result = firstNumber / secondNumber
     }
     
     if let result = result {
-        print("Result of \(operation) of \(numberOne) and \(numberTwo) "
+        print("Result of \(operation) of \(firstNumber) and \(secondNumber) "
               + "is \(result)")
     }
     return result
@@ -45,10 +45,10 @@ func calculate(_ numberOne: Int,
 
 //: 1.3 Вызовите эту функцию четыре раза для каждого математического оператора в отдельности. Постарайтесь сделать реализацию максимально гибкой — такой, что бы результат вывода можно было легко изменить, поменяв значения переменных. Доработайте функцию так, что бы при каждом её вызове на консоль выводился результат следующего содержания: «Результат сложения (вычитания, деления, умножения) <…> и <…> равен <…>» для каждого отдельного случая.
 
-calculate(7, and: 3, operation: .addition)
-calculate(10, and: 3, operation: .subtraction)
-calculate(5, and: 2, operation: .multiplication)
-calculate(50, and: 5, operation: .division)
+calculate(between: 10, and: 5, using: .addition)
+calculate(between: 10, and: 5, using: .subtraction)
+calculate(between: 10, and: 5, using: .multiplication)
+calculate(between: 10, and: 5, using: .division)
 
 /*:
  ## Задание 2
@@ -160,15 +160,19 @@ for car in [honda, hondaCivic] {
 
 struct PlayerInChess {
     let name: String
-    let wins: Int
+    var wins: Int
     
     func description() {
         print("Player name is \(name) and number of wins is \(wins)")
     }
     
+    mutating func addWins(wins: Int) {
+        self.wins += wins
+    }
+    
 }
 
-let playerOne = PlayerInChess(name: "Igor", wins: 3)
+var playerOne = PlayerInChess(name: "Igor", wins: 3)
 
 playerOne.description()
 
@@ -178,4 +182,6 @@ playerOne.description()
 4.6 Вызовите метода addWins из экземпляра структуры, затем вызовите метод description
 */
 
+playerOne.addWins(wins: 5)
 
+playerOne.description()
