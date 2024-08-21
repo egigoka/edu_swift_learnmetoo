@@ -28,7 +28,7 @@ course 1 lesson 7 homework review  - done
 course 1 lesson 7 theory  - done
 course 1 lesson 7 homework  - done
 
-course 1 lesson 8 homework review  - 0:21:16
+course 1 lesson 8 homework review  - 0:38:02
 course 1 lesson 8 theory  - 
 course 1 lesson 8 homework - none
 

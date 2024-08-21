@@ -20,26 +20,27 @@ func calculate(between firstNumber: Int,
                and secondNumber: Int,
                using operation: CalculationType) -> Int? {
     
-    let result: Int?
+    var result = firstNumber
     
     switch operation {
     case .addition:
-        result = firstNumber + secondNumber
+        result += secondNumber
     case .subtraction:
-        result = firstNumber - secondNumber
+        result -= secondNumber
     case .multiplication:
-        result = firstNumber * secondNumber
+        result *= secondNumber
     case .division:
-        if secondNumber == 0 {
+        
+        guard secondNumber != 0 else {
+            print("Division by zero is unsupported")
             return nil
         }
-        result = firstNumber / secondNumber
+        
+        result /= secondNumber
     }
     
-    if let result = result {
-        print("Result of \(operation) of \(firstNumber) and \(secondNumber) "
-              + "is \(result)")
-    }
+    print("Result of \(operation) between \(firstNumber) and \(secondNumber) "
+          + "is \(result)")
     return result
 }
 
@@ -66,16 +67,18 @@ calculate(between: 10, and: 5, using: .division)
 
 enum CurrencyUnit {
     
-    enum DollarCountrys: String {
+    enum DollarCountries: String {
         case usa = "USA"
         case canada = "Canada"
         case australia = "Australia"
         case dominicanRepublic = "Dominican republic"
     }
     
-    case hryvnia ([String], String)
-    case dollar ([String], String, DollarCountrys)
-    case euro ([String], String)
+    case hryvnia (countries: [String],  abbreviation: String)
+    case dollar (countries: [String],
+                 abbreviation: String,
+                 national: DollarCountries)
+    case euro (countries: [String], abbreviation: String)
 }
 
 
@@ -87,19 +90,22 @@ enum CurrencyUnit {
  2.6 Создайте переменную someCurrency и присвойете ей значения относящиеся к доллару
  */
 
-let hryvniaCurrency = CurrencyUnit.hryvnia(["Ukraine"], "UAH")
-let someCurrency = CurrencyUnit.dollar(["USA", "Panama", "Zimbabwe"], "USD", .usa)
+let hryvniaCurrency = CurrencyUnit.hryvnia(countries: ["Ukraine"],
+                                           abbreviation: "UAH")
+let someCurrency = CurrencyUnit.dollar(countries: ["USA", "Panama", "Zimbabwe"],
+                                       abbreviation: "USD",
+                                       national: .usa)
 
 //: 2.7 Используя ветвление `switch` выведите на коносль сообщение в котором описано что за валюта, в каких странах катируется, короткое наименование.
 
 func currencyDescription(currency: CurrencyUnit) {
     switch currency {
-    case .hryvnia(let countries, let abbreviation),
-            .euro(let countries, let abbreviation):
+    case let .hryvnia(countries, abbreviation),
+         let .euro(countries, abbreviation):
         print("Currency \(abbreviation) is used in this countries: "
               + "\(countries.joined(separator: ", "))")
-    case .dollar(let countries, _, let dollarCountry):
-        print("Currency \(dollarCountry.rawValue) dollar is "
+    case let .dollar(countries, abbreviation, dollarCountry):
+        print("Currency \(dollarCountry.rawValue) dollar (\(abbreviation)) is "
               + "used in this countries: "
               + "\(countries.joined(separator: ", "))")
     }
