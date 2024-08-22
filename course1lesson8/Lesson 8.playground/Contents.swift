@@ -84,6 +84,22 @@ for cityTemp in cityList {
     print("\(cityTemp.key) - \(cityTemp.value)")
 }
 
+func getTemp(in city: String) -> (String, Int) {
+    let temp = Int.random(in: -2...16)
+    return (city, temp)
+}
+
+let (city, temp) = getTemp(in: "Kherson")
+print("Temperature in city \(city) is \(temp) degrees C")
+
+func getTempNew(in city: String) -> (city: String, temp: Int) {
+    let temp = Int.random(in: -2...16)
+    return (city, temp)
+}
+
+let tempInCity = getTempNew(in: "Irpin")
+print("Temperature in city \(tempInCity.city) is \(tempInCity.temp) degrees C")
+
 //: ## Guard
 
 
