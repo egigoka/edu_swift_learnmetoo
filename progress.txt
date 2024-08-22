@@ -28,13 +28,13 @@ course 1 lesson 7 homework review  - done
 course 1 lesson 7 theory  - done
 course 1 lesson 7 homework  - done
 
-course 1 lesson 8 homework review  - 0:48:35
-course 1 lesson 8 theory  - 
-course 1 lesson 8 homework - none
+course 1 lesson 8 homework review  - done
+course 1 lesson 8 theory  - 1:23:22
+course 1 lesson 8 homework - 
 
 20%
 
-course 2 lesson 1 homework review - none
+course 2 lesson 1 homework review - 
 course 2 lesson 1 theory  - 
 course 2 lesson 1 homework  - 
 
