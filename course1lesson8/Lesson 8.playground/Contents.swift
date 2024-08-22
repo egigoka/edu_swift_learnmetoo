@@ -102,6 +102,106 @@ print("Temperature in city \(tempInCity.city) is \(tempInCity.temp) degrees C")
 
 //: ## Guard
 
+var name = ""
+var surname = ""
+var email = ""
+var age = 0
+
+func createNewUserV1(name: String, surname: String, email: String, age: Int) {
+    if name != "" {
+        print(name)
+    } else {
+        print("Enter your name")
+    }
+    
+    if surname != "" {
+        print(surname)
+    } else {
+        print("Enter your surname")
+    }
+    
+    if email != "" {
+        print(email)
+    } else {
+        print("Enter your email")
+    }
+    
+    if age >= 18 {
+        print(age)
+    } else {
+        print("Enter for adults only")
+    }
+    
+    print("\(name) \(surname), Welcome!")
+}
+
+createNewUserV1(name: name, surname: surname, email: email, age: age)
+
+
+print()
+
+func createNewUserV2(name: String, surname: String, email: String, age: Int) {
+    if name != "" {
+        print(name)
+        if surname != "" {
+            print(surname)
+            if email != "" {
+                print(email)
+                if age >= 18 {
+                    print(age)
+                    print("\(name) \(surname), Welcome!")
+                } else {
+                    print("Enter for adults only")
+                }
+            } else {
+                print("Enter your email")
+            }
+        } else {
+            print("Enter your surname")
+        }
+    } else {
+        print("Enter your name")
+    }
+}
+
+name = "Alexey"
+surname = "Efimov"
+email = "lex.efimov@swiftbook.ru"
+age = 18
+
+createNewUserV2(name: name, surname: surname, email: email, age: age)
+
+print()
+
+func createNewUserV3(name: String, surname: String, email: String, age: Int) {
+    if name == "" {
+        
+        print(name)
+    } else {
+        print("Enter your name")
+    }
+    
+    if surname != "" {
+        print(surname)
+    } else {
+        print("Enter your surname")
+    }
+    
+    if email != "" {
+        print(email)
+    } else {
+        print("Enter your email")
+    }
+    
+    if age >= 18 {
+        print(age)
+    } else {
+        print("Enter for adults only")
+    }
+    
+    print("\(name) \(surname), Welcome!")
+}
+
 
 
 //: ### Синтаксис
