@@ -249,4 +249,47 @@ func createNewUserV4(name: String?,
 
  */
 
+func createNewUserV5(name: String?,
+                     surname: String?,
+                     email: String?,
+                     age: Int?) {
+    guard let name = name, name.count > 0 else { return }
+    guard let surname = surname, surname.count > 0 else { return }
+    guard let email = email, email.count > 0 else { return }
+    guard let age = age, age >= 18 else { return }
+    
+    print("\(name) \(surname), Welcome!")
+}
 
+createNewUserV5(name: name, surname: surname, email: email, age: age)
+
+//: ### Опциональная последовательность
+
+class Person {
+    var id: String?
+    var residence: Residence?
+}
+
+class Residence {
+    var address: Address?
+}
+
+class Address {
+    var street: String?
+    var building: String?
+    var apartment: String?
+}
+
+var person: Person?
+
+if let residence = person?.residence {
+    if let address = residence.address {
+        if let apartment = address.apartment {
+            print("The apartment number is \(apartment)")
+        }
+    }
+}
+
+if let apartment = person?.residence?.address?.apartment {
+    print("The apartment number is \(apartment)")
+}

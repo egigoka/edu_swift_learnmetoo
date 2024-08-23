@@ -29,8 +29,8 @@ course 1 lesson 7 theory  - done
 course 1 lesson 7 homework  - done
 
 course 1 lesson 8 homework review  - done
-course 1 lesson 8 theory  - 2:01:49
-course 1 lesson 8 homework - 
+course 1 lesson 8 theory  - done
+course 1 lesson 8 homework - in progress
 
 20%
 
