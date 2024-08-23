@@ -7,9 +7,9 @@ let book = ("1984", "George Orwell", 1949, 4.19)
 
 print(book)
 
-print("The book \"\(book.0)\" by \(book.1) is "
-      + "published in \(book.2) "
-      + "and received rating of \(book.3)")
+print("The book \"\(book.0)\" by \(book.1) is",
+      "published in \(book.2)",
+      "and received rating of \(book.3)")
 
 //2. Accessing tuple elements:
 //   Using the book tuple from the previous task, print out the title and author of the book using dot notation.
@@ -21,8 +21,8 @@ print("The book \"\(book.0)\" is written by \(book.1)")
 
 let rectangle = (width: 10, height: 20)
 
-print("area of rectangle of \(rectangle.width)x\(rectangle.height) "
-      + "is \(rectangle.width * rectangle.height)")
+print("area of rectangle of \(rectangle.width)x\(rectangle.height)",
+      "is \(rectangle.width * rectangle.height)")
 
 //4. Tuple decomposition:
 //   Write a function that takes a tuple containing a first name (string) and last name (string) and returns a new tuple with the full name (concatenated first and last name) and the length of the full name. Decompose the returned tuple into separate constants and print them out.
@@ -41,7 +41,12 @@ print("Full name: \"\(fullName)\", length is \(length)")
 //   Create a function that takes in a radius (double) and returns a tuple containing the circumference and area of a circle with that radius. Call the function with a sample radius and print out the circumference and area.
 
 func getCircleProperties(radius: Double)
--> (circumference: Double, area: Double) {
+-> (circumference: Double, area: Double)? {
+    
+    guard radius > 0 else {
+        return nil
+    }
+    
     let circumference = 2 * Double.pi * radius
     let area = Double.pi * pow(radius, 2)
     
@@ -50,11 +55,13 @@ func getCircleProperties(radius: Double)
 
 let radius = 12.0
 
-let (circumference, area) = getCircleProperties(radius: radius)
+let properties = getCircleProperties(radius: radius)
 
-print("The circle of radius \(radius) have "
-      + "circumference of \(String(format: "%.3f", circumference)) "
-      + "and area of \(String(format: "%.3f", area))")
+if let(circumference, area) = properties {
+    print("The circle of radius \(radius) have",
+          "circumference of \(String(format: "%.3f", circumference))",
+          "and area of \(String(format: "%.3f", area))")
+}
 
 //6. Guard statement:
 //   Write a function that takes an optional integer array and calculates the average of the elements. Use a guard statement to check if the array is not nil and has at least one element. If the guard condition fails, print an error message and return nil. If the guard condition passes, calculate and return the average.
@@ -99,13 +106,14 @@ class Address {
     var zipCode: String?
 }
 
-let student: Student?
+var student: Student?
 
 if let name = student?.name,
    let grade = student?.grade,
    let zipCode = student?.address?.zipCode
     {
-    print("yay")
+    print("The student \(name) is in \(grade) grade",
+          "and have zip code \(zipCode)")
 }
 
 

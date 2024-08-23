@@ -30,11 +30,11 @@ course 1 lesson 7 homework  - done
 
 course 1 lesson 8 homework review  - done
 course 1 lesson 8 theory  - done
-course 1 lesson 8 homework - in progress
+course 1 lesson 8 homework - done
 
 20%
 
-course 2 lesson 1 homework review - 
+course 2 lesson 1 homework review - in progress
 course 2 lesson 1 theory  - 
 course 2 lesson 1 homework  - 
 
