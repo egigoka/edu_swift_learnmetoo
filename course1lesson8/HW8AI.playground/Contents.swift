@@ -68,7 +68,7 @@ if let(circumference, area) = properties {
 
 func average(numbers: [Int]?) -> Double? {
     guard let numbers = numbers, numbers.count > 0 else {
-        print("Error")
+        print("Error: empty or nil argument \"numbers\"")
         return nil
     }
     
@@ -107,6 +107,12 @@ class Address {
 }
 
 var student: Student?
+student = Student()
+//student = nil
+student?.name = "John Doe"
+student?.grade = 12
+student?.address = Address()
+student?.address?.zipCode = "123123"
 
 if let name = student?.name,
    let grade = student?.grade,
