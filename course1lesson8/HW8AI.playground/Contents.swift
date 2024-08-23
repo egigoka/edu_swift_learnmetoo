@@ -1,3 +1,5 @@
+import UIKit
+
 //1. Tuples:
 //   Create a tuple that represents a book, containing its title (string), author (string), publication year (integer), and rating (double). Print out the book's information using the tuple elements.
 
@@ -46,18 +48,64 @@ func getCircleProperties(radius: Double)
     return (circumference, area)
 }
 
-let radius = 12
+let radius = 12.0
 
 let (circumference, area) = getCircleProperties(radius: radius)
 
-print("")
+print("The circle of radius \(radius) have "
+      + "circumference of \(String(format: "%.3f", circumference)) "
+      + "and area of \(String(format: "%.3f", area))")
 
 //6. Guard statement:
 //   Write a function that takes an optional integer array and calculates the average of the elements. Use a guard statement to check if the array is not nil and has at least one element. If the guard condition fails, print an error message and return nil. If the guard condition passes, calculate and return the average.
 
+func average(numbers: [Int]?) -> Double? {
+    guard let numbers = numbers, numbers.count > 0 else {
+        print("Error")
+        return nil
+    }
+    
+    var average = 0.0
+    
+    for number in numbers {
+        average += Double(number)
+    }
+    
+    average /= Double(numbers.count)
+    
+    return average
+}
 
+let numbers = [1, 5, 32, 42, 69]
+
+let numbersAverage = average(numbers: numbers)
+
+if let numbersAverage = numbersAverage {
+    print("The average of \(numbers) is \(numbersAverage)")
+}
 
 //7. Optional chaining:
 //   Create a Student class with optional properties: name (string), grade (integer), and address (Address class). The Address class should have optional properties: street (string), city (string), and zipCode (string). Instantiate a Student object and use optional chaining to print out the student's name, grade, and zip code (if available).
+
+class Student {
+    var name: String?
+    var grade: Int?
+    var address: Address?
+}
+
+class Address {
+    var street: String?
+    var city: String?
+    var zipCode: String?
+}
+
+let student: Student?
+
+if let name = student?.name,
+   let grade = student?.grade,
+   let zipCode = student?.address?.zipCode
+    {
+    print("yay")
+}
 
 
