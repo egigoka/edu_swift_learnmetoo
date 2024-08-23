@@ -175,34 +175,69 @@ print()
 
 func createNewUserV3(name: String, surname: String, email: String, age: Int) {
     if name == "" {
-        
-        print(name)
-    } else {
         print("Enter your name")
+        return
     }
+    print(name)
     
-    if surname != "" {
-        print(surname)
-    } else {
+    if surname == "" {
         print("Enter your surname")
+        return
     }
+    print(surname)
     
-    if email != "" {
-        print(email)
-    } else {
+    if email == "" {
         print("Enter your email")
+        return
     }
+    print(email)
     
-    if age >= 18 {
-        print(age)
-    } else {
+    if age < 18 {
         print("Enter for adults only")
+        return
     }
+    print(age)
     
     print("\(name) \(surname), Welcome!")
 }
 
+//surname = ""
+//age = 16
 
+createNewUserV3(name: name, surname: surname, email: email, age: age)
+
+print()
+
+func createNewUserV4(name: String?,
+                     surname: String?,
+                     email: String?,
+                     age: Int?) {
+    if name == nil || name?.count == 0 {
+        print("Enter your name")
+        return
+    }
+    print(name!)
+    
+    if surname == nil || surname?.count == 0 {
+        print("Enter your surname")
+        return
+    }
+    print(surname!)
+    
+    if email == nil || email?.count == 0 {
+        print("Enter your email")
+        return
+    }
+    print(email!)
+    
+    if age == nil || age! < 18 {
+        print("Enter for adults only")
+        return
+    }
+    print(age!)
+    
+    print("\(name!) \(surname!), Welcome!")
+}
 
 //: ### Синтаксис
 
