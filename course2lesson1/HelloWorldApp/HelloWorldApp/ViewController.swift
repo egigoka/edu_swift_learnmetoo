@@ -15,10 +15,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        helloWorldLabel.isHidden = true
         
+        toggleButton.layer.cornerRadius = 10
     }
 
-    @IBAction func ToggleTextButtonPressed() {
+    @IBAction func toggleTextButtonPressed() {
+        if helloWorldLabel.isHidden {
+            helloWorldLabel.isHidden = false
+            toggleButton.setTitle("Hide text", for: .normal)
+        } else {
+            helloWorldLabel.isHidden.toggle()
+            toggleButton.setTitle("Show text", for: .normal)
+            
+        }
     }
     
 }
