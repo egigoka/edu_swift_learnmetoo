@@ -67,6 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doSomethingButton" destination="rYd-23-deK" id="6ue-29-n1S"/>
                         <outlet property="helloWorldLabel" destination="NUO-UO-7DD" id="O67-9g-OJz"/>
                         <outlet property="toggleButton" destination="dpK-IR-xGF" id="qjg-1b-7jK"/>
                     </connections>
