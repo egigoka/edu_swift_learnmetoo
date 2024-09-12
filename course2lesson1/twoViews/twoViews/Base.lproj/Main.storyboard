@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-bJ-IkA">
-                                <rect key="frame" x="10" y="10" width="373" height="832"/>
+                                <rect key="frame" x="10" y="69" width="373" height="739"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-e0-eyz">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="411"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="364.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2I-sM-raL">
-                                        <rect key="frame" x="0.0" y="421" width="373" height="411"/>
+                                        <rect key="frame" x="0.0" y="374.66666666666674" width="373" height="364.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                     </view>
                                 </subviews>
@@ -33,10 +33,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Phc-bJ-IkA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="JzO-Pl-9iH"/>
-                            <constraint firstAttribute="bottom" secondItem="Phc-bJ-IkA" secondAttribute="bottom" constant="10" id="mYu-wq-aIS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Phc-bJ-IkA" secondAttribute="trailing" constant="10" id="r9P-eI-caT"/>
-                            <constraint firstItem="Phc-bJ-IkA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ujP-52-emC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Phc-bJ-IkA" secondAttribute="trailing" constant="10" id="EeD-tP-5WB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Phc-bJ-IkA" secondAttribute="top" constant="-10" id="Lr5-tj-374"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Phc-bJ-IkA" secondAttribute="bottom" constant="10" id="MH6-o7-nOc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Phc-bJ-IkA" secondAttribute="leading" constant="-10" id="Z26-z9-fld"/>
                         </constraints>
                     </view>
                 </viewController>
