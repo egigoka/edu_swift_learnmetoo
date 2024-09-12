@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var helloWorldLabel: UILabel!
     
+    @IBOutlet var doSomethingButton: UIButton!
     @IBOutlet var toggleButton: UIButton!
     
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
         helloWorldLabel.isHidden = true
         helloWorldLabel.textColor = .red
         toggleButton.layer.cornerRadius = 10
+        doSomethingButton.layer.cornerRadius = 10
     }
 
     @IBAction func toggleTextButtonPressed() {
