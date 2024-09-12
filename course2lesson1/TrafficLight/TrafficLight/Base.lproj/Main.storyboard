@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,27 +43,40 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="9Ra-Zl-vbe"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="9Ra-Zl-vbe"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeK-kS-Ybl">
-                                <rect key="frame" x="16" y="738" width="361" height="50"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="16" y="740" width="361" height="48"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="mainButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOP-Qx-L03"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerX" secondItem="uDR-pB-zjU" secondAttribute="centerX" id="2Au-eY-9hk"/>
-                            <constraint firstAttribute="bottom" secondItem="WeK-kS-Ybl" secondAttribute="bottom" constant="64" id="MYX-eb-p9C"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WeK-kS-Ybl" secondAttribute="trailing" constant="16" id="UB7-BA-G6g"/>
+                            <constraint firstItem="uDR-pB-zjU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Au-eY-9hk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="uDR-pB-zjU" secondAttribute="bottom" constant="-546" id="BLw-ud-rV3"/>
+                            <constraint firstItem="WeK-kS-Ybl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="MYX-eb-p9C"/>
+                            <constraint firstItem="WeK-kS-Ybl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="UB7-BA-G6g"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tAF-FP-Gge"/>
                             <constraint firstItem="uDR-pB-zjU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="zDc-iB-pPG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenView" destination="fqK-TJ-9Gs" id="ff6-zk-4sk"/>
+                        <outlet property="mainButton" destination="WeK-kS-Ybl" id="5bE-zo-8Wi"/>
+                        <outlet property="redView" destination="2dl-E0-kYC" id="wEq-5w-vRw"/>
+                        <outlet property="yellowView" destination="lle-Hd-zAe" id="Buq-ZH-5pH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +84,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
