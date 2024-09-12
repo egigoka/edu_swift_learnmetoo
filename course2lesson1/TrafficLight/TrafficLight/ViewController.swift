@@ -26,14 +26,37 @@ class ViewController: UIViewController {
     
     func makeViewRound(_ view: UIView) {
         view.layer.cornerRadius = view.frame.height / 2
+        print(view.frame.height)
     }
+    
+    func roundColoredViews(){
+        makeViewRound(redView)
+        makeViewRound(yellowView)
+        makeViewRound(greenView)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 10
-        makeViewRound(redView)
-        makeViewRound(yellowView)
-        makeViewRound(greenView)
+        roundColoredViews()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        // Animate corner radius after rotation completes
+        coordinator.animate(alongsideTransition: nil) { [weak self] _ in
+            // Adding animation block for corner radius
+            UIView.animate(withDuration: coordinator.transitionDuration) {
+                self?.roundColoredViews()
+            }
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //roundColoredViews()  // This ensures proper layout during regular layout events
     }
 
     @IBAction func mainButtonPressed() {
