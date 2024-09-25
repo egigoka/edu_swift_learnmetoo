@@ -43,13 +43,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="482" id="Hcl-qW-aoa"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="hg2-U9-9Sk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="482" id="jxQ-fu-Saq"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="xBF-Nz-GQ2"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeK-kS-Ybl">
-                                <rect key="frame" x="16" y="581" width="343" height="48"/>
+                                <rect key="frame" x="16" y="589" width="343" height="48"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qxS-Ot-hfS"/>
@@ -69,7 +69,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uDR-pB-zjU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Au-eY-9hk"/>
-                            <constraint firstItem="uDR-pB-zjU" firstAttribute="bottom" secondItem="WeK-kS-Ybl" secondAttribute="top" constant="-63" id="Jgu-yQ-CzW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uDR-pB-zjU" secondAttribute="bottom" constant="149" id="4Tf-Tr-SA9"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="MYX-eb-p9C"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="UB7-BA-G6g"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tAF-FP-Gge"/>
