@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,24 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uDR-pB-zjU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uDR-pB-zjU">
                                 <rect key="frame" x="112.5" y="36" width="150" height="482"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dl-E0-kYC">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dl-E0-kYC">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="2dl-E0-kYC" secondAttribute="height" multiplier="1:1" id="T2v-ML-m4M"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lle-Hd-zAe">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lle-Hd-zAe">
                                         <rect key="frame" x="0.0" y="166" width="150" height="150"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lle-Hd-zAe" secondAttribute="height" multiplier="1:1" id="jqy-6k-EbI"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-TJ-9Gs">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-TJ-9Gs">
                                         <rect key="frame" x="0.0" y="332" width="150" height="150"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
@@ -44,11 +44,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="hg2-U9-9Sk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="482" id="jxQ-fu-Saq"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="xBF-Nz-GQ2"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeK-kS-Ybl">
-                                <rect key="frame" x="16" y="589" width="343" height="48"/>
+                                <rect key="frame" x="16" y="581" width="343" height="48"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qxS-Ot-hfS"/>
@@ -68,7 +69,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uDR-pB-zjU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Au-eY-9hk"/>
-                            <constraint firstItem="WeK-kS-Ybl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uDR-pB-zjU" secondAttribute="bottom" constant="63" id="Jgu-yQ-CzW"/>
+                            <constraint firstItem="uDR-pB-zjU" firstAttribute="bottom" secondItem="WeK-kS-Ybl" secondAttribute="top" constant="-63" id="Jgu-yQ-CzW"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="MYX-eb-p9C"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="UB7-BA-G6g"/>
                             <constraint firstItem="WeK-kS-Ybl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tAF-FP-Gge"/>
