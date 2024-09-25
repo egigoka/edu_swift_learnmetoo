@@ -43,8 +43,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="482" id="Hcl-qW-aoa"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="hg2-U9-9Sk"/>
+                                    <constraint firstAttribute="height" constant="482" id="lQo-RI-o07"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="xBF-Nz-GQ2"/>
                                 </constraints>
                             </stackView>
