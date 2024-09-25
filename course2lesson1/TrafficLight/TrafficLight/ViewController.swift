@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     
     func makeViewRound(_ view: UIView) {
         view.layer.cornerRadius = view.frame.height / 2
-        print(view.frame.height)
     }
     
     func roundColoredViews(){
@@ -39,6 +38,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 10
+        roundColoredViews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         roundColoredViews()
     }
     
