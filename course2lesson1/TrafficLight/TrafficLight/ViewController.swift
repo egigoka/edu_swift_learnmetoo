@@ -45,18 +45,10 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        // Animate corner radius after rotation completes
-        coordinator.animate(alongsideTransition: nil) { [weak self] _ in
-            // Adding animation block for corner radius
-            UIView.animate(withDuration: coordinator.transitionDuration) {
-                self?.roundColoredViews()
-            }
-        }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        //roundColoredViews()  // This ensures proper layout during regular layout events
+        // Animate corner radius during rotation
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.roundColoredViews()
+        }, completion: nil) // No need to use the completion block unless you want to do something after rotation
     }
 
     @IBAction func mainButtonPressed() {
