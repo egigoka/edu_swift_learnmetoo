@@ -61,6 +61,9 @@ class ViewController: UIViewController {
         redView.alpha = lightIsOff
         yellowView.alpha = lightIsOff
         greenView?.alpha = lightIsOff
+        
+        
+        
         switch status {
         case .started:
             status = .red
