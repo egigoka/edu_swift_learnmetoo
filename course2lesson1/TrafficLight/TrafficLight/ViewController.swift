@@ -16,25 +16,20 @@ enum Status {
 
 class ViewController: UIViewController {
 
-    var status = Status.started
-    
+    // MARK: - IB Outlets
+
     @IBOutlet var mainButton: UIButton!
     
     @IBOutlet var redView: UIView!
     @IBOutlet var yellowView: UIView!
     @IBOutlet var greenView: UIView!
     
-    func makeViewRound(_ view: UIView) {
-        view.layer.cornerRadius = view.frame.height / 2
-    }
+    // MARK: - Private Properties
+
+    private var status = Status.started
     
-    func roundColoredViews(){
-        makeViewRound(redView)
-        makeViewRound(yellowView)
-        makeViewRound(greenView)
-    }
-    
-    
+    // MARK: - Override Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 10
@@ -54,6 +49,8 @@ class ViewController: UIViewController {
             self?.roundColoredViews()
         }, completion: nil) // No need to use the completion block unless you want to do something after rotation
     }
+    
+    // MARK: - IB Actions
 
     @IBAction func mainButtonPressed() {
         redView.alpha = 0.3
@@ -74,6 +71,18 @@ class ViewController: UIViewController {
             status = .red
             redView.alpha = 1
         }
+    }
+    
+    // MARK: - Private Methods
+
+    private func makeViewRound(_ view: UIView) {
+        view.layer.cornerRadius = view.frame.height / 2
+    }
+    
+    private func roundColoredViews(){
+        makeViewRound(redView)
+        makeViewRound(yellowView)
+        makeViewRound(greenView)
     }
     
 }
