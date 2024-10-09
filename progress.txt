@@ -36,9 +36,9 @@ course 1 lesson 8 homework - done
 
 course 2 lesson 1 homework review - done
 course 2 lesson 1 theory  - done
-course 2 lesson 1 homework  - in progress
+course 2 lesson 1 homework  - done
 
-course 2 lesson 2 homework review  - 
+course 2 lesson 2 homework review  - 20:14
 course 2 lesson 2 theory  - 
 course 2 lesson 2 homework  - 
 
