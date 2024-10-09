@@ -27,13 +27,18 @@ class ViewController: UIViewController {
     // MARK: - Private Properties
 
     private var status = Status.started
+    private var lightIsOn: CGFloat = 1
+    private var lightIsOff: CGFloat = 0.3
     
     // MARK: - Override Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 10
-        roundColoredViews()
+        
+        redView.alpha = lightIsOff
+        yellowView.alpha = lightIsOff
+        greenView.alpha = lightIsOff
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,23 +58,23 @@ class ViewController: UIViewController {
     // MARK: - IB Actions
 
     @IBAction func mainButtonPressed() {
-        redView.alpha = 0.3
-        yellowView.alpha = 0.3
-        greenView?.alpha = 0.3
+        redView.alpha = lightIsOff
+        yellowView.alpha = lightIsOff
+        greenView?.alpha = lightIsOff
         switch status {
         case .started:
             status = .red
-            redView.alpha = 1
+            redView.alpha = lightIsOn
             mainButton.setTitle("NEXT", for: .normal)
         case .red:
             status = .yellow
-            yellowView.alpha = 1
+            yellowView.alpha = lightIsOn
         case .yellow:
             status = .green
-            greenView.alpha = 1
+            greenView.alpha = lightIsOn
         case .green:
             status = .red
-            redView.alpha = 1
+            redView.alpha = lightIsOn
         }
     }
     
