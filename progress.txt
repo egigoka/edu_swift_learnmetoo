@@ -38,8 +38,8 @@ course 2 lesson 1 homework review - done
 course 2 lesson 1 theory  - done
 course 2 lesson 1 homework  - done
 
-course 2 lesson 2 homework review  - 1:03:35
-course 2 lesson 2 theory  - 
+course 2 lesson 2 homework review  - done
+course 2 lesson 2 theory  - 1:16:32
 course 2 lesson 2 homework  - 
 
 course 2 lesson 3 homework review  - 

@@ -8,7 +8,6 @@
 import UIKit
 
 enum Status {
-    case started
     case red
     case yellow
     case green
@@ -26,7 +25,7 @@ class ViewController: UIViewController {
     
     // MARK: - Private Properties
 
-    private var status = Status.started
+    private var status = Status.green
     private var lightIsOn: CGFloat = 1
     private var lightIsOff: CGFloat = 0.3
     
@@ -58,26 +57,24 @@ class ViewController: UIViewController {
     // MARK: - IB Actions
 
     @IBAction func mainButtonPressed() {
-        redView.alpha = lightIsOff
-        yellowView.alpha = lightIsOff
-        greenView?.alpha = lightIsOff
         
-        
+        if mainButton.titleLabel?.text == "START" {
+            mainButton.setTitle("NEXT", for: .normal)
+        }
         
         switch status {
-        case .started:
-            status = .red
-            redView.alpha = lightIsOn
-            mainButton.setTitle("NEXT", for: .normal)
         case .red:
             status = .yellow
             yellowView.alpha = lightIsOn
+            redView.alpha = lightIsOff
         case .yellow:
             status = .green
             greenView.alpha = lightIsOn
+            yellowView.alpha = lightIsOff
         case .green:
             status = .red
             redView.alpha = lightIsOn
+            greenView.alpha = lightIsOff
         }
     }
     
