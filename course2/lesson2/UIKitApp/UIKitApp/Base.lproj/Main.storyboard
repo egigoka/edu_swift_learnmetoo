@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-e8-BHj">
-                                <rect key="frame" x="16" y="99" width="361" height="91.333333333333314"/>
+                                <rect key="frame" x="16" y="99.000000000000014" width="361" height="161.33333333333337"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rmG-ax-J1R">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="32"/>
@@ -35,6 +35,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-XF-V5L">
+                                        <rect key="frame" x="-2" y="131.33333333333334" width="365" height="31"/>
+                                        <connections>
+                                            <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="Gl8-xx-VIh"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -50,6 +56,7 @@
                     <connections>
                         <outlet property="mainLabel" destination="yoz-XS-Z7B" id="21Y-vK-Ro4"/>
                         <outlet property="segmentedControl" destination="rmG-ax-J1R" id="IxH-TT-WQW"/>
+                        <outlet property="slider" destination="bTd-XF-V5L" id="ggJ-vn-fSu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
