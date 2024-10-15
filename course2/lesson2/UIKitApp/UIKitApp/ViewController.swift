@@ -36,6 +36,10 @@ class ViewController: UIViewController {
         slider.thumbTintColor = .blue
         
         mainLabel.text = String(slider.value)
+        
+        // Date picker
+//        datePicker.locale = Locale.current
+        datePicker.locale = Locale(identifier: "uk")
     }
 
     @IBAction func segmentedControlAction() {
@@ -77,7 +81,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func datePickerAction() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.locale = Locale(identifier: "kk_Cyrl_KZ")
         
+        mainLabel.text = dateFormatter.string(from: datePicker.date)
     }
     
 }
