@@ -17,7 +17,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Label
-        mainLabel.text = String(slider.value)
         mainLabel.font = mainLabel.font.withSize(35)
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 2
@@ -28,8 +27,8 @@ class ViewController: UIViewController {
         
         // Slider
         slider.value = 1
-        slider.minimumValue = 1
-        slider.maximumValue = 100
+        slider.minimumValue = 0
+        slider.maximumValue = 1
         slider.minimumTrackTintColor = .yellow
         slider.maximumTrackTintColor = .red
         slider.thumbTintColor = .blue
@@ -54,7 +53,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderAction() {
-        
+        let currentValue = CGFloat(slider.value)
+        mainLabel.text = String(slider.value)
+        view.backgroundColor = view.backgroundColor?.withAlphaComponent(currentValue)
     }
     
 }
