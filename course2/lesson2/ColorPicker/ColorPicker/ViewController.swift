@@ -29,24 +29,18 @@ class ViewController: UIViewController {
         
         setColor()
         
-        redLabel.text = format(from: redSlider)
-        greenLabel.text = format(from: greenSlider)
-        blueLabel.text = format(from: blueSlider)
+        setValue(for: redLabel, greenLabel, blueLabel)
     }
     
-    @IBAction func redSliderAction() {
+    @IBAction func rgbSliderAction(_ sender: UISlider) {
         setColor()
-        redLabel.text = format(from: redSlider)
-    }
-    
-    @IBAction func greenSliderAction() {
-        setColor()
-        greenLabel.text = format(from: greenSlider)
-    }
-    
-    @IBAction func blueSliderAction() {
-        setColor()
-        blueLabel.text = format(from: blueSlider)
+        
+        switch sender.tag {
+        case 0: redLabel.text = format(from: sender)
+        case 1: greenLabel.text = format(from: sender)
+        case 2: blueLabel.text = format(from: sender)
+        default: break
+        }
     }
     
     private func getCurrentColor(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
@@ -68,6 +62,17 @@ class ViewController: UIViewController {
     
     private func format(from slider: UISlider) -> String {
         String(format: "%.2f", CGFloat(slider.value))
+    }
+    
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label.tag {
+            case 0: redLabel.text = format(from: redSlider)
+            case 1: greenLabel.text = format(from: greenSlider)
+            case 2: blueLabel.text = format(from: blueSlider)
+            default: break
+            }
+        }
     }
     
 }
