@@ -1,179 +1,179 @@
-course 1 lesson 1 homework review - none
-course 1 lesson 1 theory  - done
-course 1 lesson 1 homework  - done
+course 1 lesson 1 homework review  - none
+course 1 lesson 1 theory           - done
+course 1 lesson 1 homework         - done
 
 course 1 lesson 2 homework review  - done
-course 1 lesson 2 theory  - done
-course 1 lesson 2 homework  - done
+course 1 lesson 2 theory           - done
+course 1 lesson 2 homework         - done
 
 course 1 lesson 3 homework review  - done
-course 1 lesson 3 theory  - done
-course 1 lesson 3 homework  - done
+course 1 lesson 3 theory           - done
+course 1 lesson 3 homework         - done
 
 course 1 lesson 4 homework review  - done
-course 1 lesson 4 theory  - done
-course 1 lesson 4 homework  - done
+course 1 lesson 4 theory           - done
+course 1 lesson 4 homework         - done
 
 10%
 
 course 1 lesson 5 homework review  - done
-course 1 lesson 5 theory  - done
-course 1 lesson 5 homework  - done
+course 1 lesson 5 theory           - done
+course 1 lesson 5 homework         - done
 
 course 1 lesson 6 homework review  - done
-course 1 lesson 6 theory  - done
-course 1 lesson 6 homework  - done
+course 1 lesson 6 theory           - done
+course 1 lesson 6 homework         - done
 
 course 1 lesson 7 homework review  - done
-course 1 lesson 7 theory  - done
-course 1 lesson 7 homework  - done
+course 1 lesson 7 theory           - done
+course 1 lesson 7 homework         - done
 
 course 1 lesson 8 homework review  - done
-course 1 lesson 8 theory  - done
-course 1 lesson 8 homework - done
+course 1 lesson 8 theory           - done
+course 1 lesson 8 homework         - done
 
 20%
 
-course 2 lesson 1 homework review - done
-course 2 lesson 1 theory  - done
-course 2 lesson 1 homework  - done
+course 2 lesson 1 homework review  - done
+course 2 lesson 1 theory           - done
+course 2 lesson 1 homework         - done
 
 course 2 lesson 2 homework review  - done
-course 2 lesson 2 theory  - done
-course 2 lesson 2 homework  - in progress
+course 2 lesson 2 theory           - done
+course 2 lesson 2 homework         - done
 
-course 2 lesson 3 homework review  - 
-course 2 lesson 3 theory  - 
-course 2 lesson 3 homework  - 
+course 2 lesson 3 homework review  - 23:06
+course 2 lesson 3 theory           - 
+course 2 lesson 3 homework         - 
 
 course 2 lesson 4 homework review  - 
-course 2 lesson 4 theory  - 
-course 2 lesson 4 homework - 
+course 2 lesson 4 theory           - 
+course 2 lesson 4 homework         - 
 
 30%
 
-course 2 lesson 5 homework review - 
-course 2 lesson 5 theory - 
-course 2 lesson 5 homework - 
+course 2 lesson 5 homework review  - 
+course 2 lesson 5 theory           - 
+course 2 lesson 5 homework         - 
 
-course 2 lesson 6 homework review - 
-course 2 lesson 6 theory - 
-course 2 lesson 6 homework - 
+course 2 lesson 6 homework review  - 
+course 2 lesson 6 theory           - 
+course 2 lesson 6 homework         - 
 
-course 2 lesson 7 homework review - 
-course 2 lesson 7 theory - 
-course 2 lesson 7 homework - 
+course 2 lesson 7 homework review  - 
+course 2 lesson 7 theory           - 
+course 2 lesson 7 homework         - 
 
-course 2 lesson 8 homework review - 
-course 2 lesson 8 theory - 
-course 2 lesson 8 homework - 
+course 2 lesson 8 homework review  - 
+course 2 lesson 8 theory           - 
+course 2 lesson 8 homework         - 
 
 40%
 
-course 2 lesson 9 homework review - 
-course 2 lesson 9 theory - 
-course 2 lesson 9 homework - 
+course 2 lesson 9 homework review  - 
+course 2 lesson 9 theory           - 
+course 2 lesson 9 homework         - 
 
 course 2 lesson 10 homework review - 
-course 2 lesson 10 theory - 
-course 2 lesson 10 homework - 
+course 2 lesson 10 theory          - 
+course 2 lesson 10 homework        - 
 
 course 2 lesson 11 homework review - 
-course 2 lesson 11 theory - 
-course 2 lesson 11 homework - 
+course 2 lesson 11 theory          - 
+course 2 lesson 11 homework        - 
 
 course 2 lesson 12 homework review - 
-course 2 lesson 12 theory - 
-course 2 lesson 12 homework - 
+course 2 lesson 12 theory          - 
+course 2 lesson 12 homework        - 
 
 50%
 
 course 2 lesson 13 homework review - 
-course 2 lesson 13 theory - 
-course 2 lesson 13 homework - 
+course 2 lesson 13 theory          - 
+course 2 lesson 13 homework        - 
 
 course 2 lesson 14 homework review - 
-course 2 lesson 14 theory - 
-course 2 lesson 14 homework - 
+course 2 lesson 14 theory          - 
+course 2 lesson 14 homework        - 
 
 course 2 lesson 15 homework review - 
-course 2 lesson 15 theory - 
-course 2 lesson 15 homework - 
+course 2 lesson 15 theory          - 
+course 2 lesson 15 homework        - 
 
 course 2 lesson 16 homework review - 
-course 2 lesson 16 theory - 
-course 2 lesson 16 homework - 
+course 2 lesson 16 theory          - 
+course 2 lesson 16 homework        - 
 
 60%
 
-course 3 lesson 1 homework review - 
-course 3 lesson 1 theory - 
-course 3 lesson 1 homework - 
+course 3 lesson 1 homework review  - 
+course 3 lesson 1 theory           - 
+course 3 lesson 1 homework         - 
 
-course 3 lesson 2 homework review - 
-course 3 lesson 2 theory - 
-course 3 lesson 2 homework - 
+course 3 lesson 2 homework review  - 
+course 3 lesson 2 theory           - 
+course 3 lesson 2 homework         - 
 
-course 3 lesson 3 homework review - 
-course 3 lesson 3 theory - 
-course 3 lesson 3 homework - 
+course 3 lesson 3 homework review  - 
+course 3 lesson 3 theory           - 
+course 3 lesson 3 homework         - 
 
-course 3 lesson 4 homework review - 
-course 3 lesson 4 theory - 
-course 3 lesson 4 homework - 
+course 3 lesson 4 homework review  - 
+course 3 lesson 4 theory           - 
+course 3 lesson 4 homework         - 
 
 70%
 
-course 3 lesson 5 homework review - 
-course 3 lesson 5 theory - 
-course 3 lesson 5 homework - 
+course 3 lesson 5 homework review  - 
+course 3 lesson 5 theory           - 
+course 3 lesson 5 homework         - 
 
-course 3 lesson 6 homework review - 
-course 3 lesson 6 theory - 
-course 3 lesson 6 homework - 
+course 3 lesson 6 homework review  - 
+course 3 lesson 6 theory           - 
+course 3 lesson 6 homework         - 
 
-course 3 lesson 7 homework review - 
-course 3 lesson 7 theory - 
-course 3 lesson 7 homework - 
+course 3 lesson 7 homework review  - 
+course 3 lesson 7 theory           - 
+course 3 lesson 7 homework         - 
 
-course 3 lesson 8 homework review - 
-course 3 lesson 8 theory - 
-course 3 lesson 8 homework - 
+course 3 lesson 8 homework review  - 
+course 3 lesson 8 theory           - 
+course 3 lesson 8 homework         - 
 
 80%
 
-course 4 lesson 1 homework review - 
-course 4 lesson 1 theory - 
-course 4 lesson 1 homework - 
+course 4 lesson 1 homework review  - 
+course 4 lesson 1 theory           - 
+course 4 lesson 1 homework         - 
 
-course 4 lesson 2 homework review - 
-course 4 lesson 2 theory - 
-course 4 lesson 2 homework - 
+course 4 lesson 2 homework review  - 
+course 4 lesson 2 theory           - 
+course 4 lesson 2 homework         - 
 
-course 4 lesson 3 homework review - 
-course 4 lesson 3 theory - 
-course 4 lesson 3 homework - 
+course 4 lesson 3 homework review  - 
+course 4 lesson 3 theory           - 
+course 4 lesson 3 homework         - 
 
-course 4 lesson 4 homework review - 
-course 4 lesson 4 theory - 
-course 4 lesson 4 homework - 
+course 4 lesson 4 homework review  - 
+course 4 lesson 4 theory           - 
+course 4 lesson 4 homework         - 
 
 90%
 
-course 4 lesson 5 homework review - 
-course 4 lesson 5 theory - 
-course 4 lesson 5 homework - 
+course 4 lesson 5 homework review  - 
+course 4 lesson 5 theory           - 
+course 4 lesson 5 homework         - 
 
-course 4 lesson 6 homework review - 
-course 4 lesson 6 theory - 
-course 4 lesson 6 homework - 
+course 4 lesson 6 homework review  - 
+course 4 lesson 6 theory           - 
+course 4 lesson 6 homework         - 
 
-course 4 lesson 7 homework review - 
-course 4 lesson 7 theory - 
-course 4 lesson 7 homework - 
+course 4 lesson 7 homework review  - 
+course 4 lesson 7 theory           - 
+course 4 lesson 7 homework         - 
 
-course 4 lesson 8 homework review - 
-course 4 lesson 8 theory - 
-course 4 lesson 8 homework - 
+course 4 lesson 8 homework review  - 
+course 4 lesson 8 theory           - 
+course 4 lesson 8 homework         - 
 
 100%
