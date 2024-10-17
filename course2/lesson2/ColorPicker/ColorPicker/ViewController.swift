@@ -21,28 +21,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         colorView.layer.cornerRadius = 10
+        
+        redSlider.minimumTrackTintColor = .red
+        greenSlider.minimumTrackTintColor = .green
+        
+        setColor()
+        
+        redLabel.text = format(from: redSlider)
+        greenLabel.text = format(from: greenSlider)
+        blueLabel.text = format(from: blueSlider)
     }
     
     @IBAction func redSliderAction() {
-        let red = CGFloat(redSlider.value)
-        let (_, green, blue) = getCurrentColor(of: colorView)
-        setColor(for: colorView, red: red, green: green, blue: blue)
-        updateTitle(for: redLabel, with: red)
+        setColor()
+        redLabel.text = format(from: redSlider)
     }
     
     @IBAction func greenSliderAction() {
-        let green = CGFloat(greenSlider.value)
-        let (red, _, blue) = getCurrentColor(of: colorView)
-        setColor(for: colorView, red: red, green: green, blue: blue)
-        updateTitle(for: greenLabel, with: green)
+        setColor()
+        greenLabel.text = format(from: greenSlider)
     }
     
     @IBAction func blueSliderAction() {
-        let blue = CGFloat(blueSlider.value)
-        let (red, green, _) = getCurrentColor(of: colorView)
-        setColor(for: colorView, red: red, green: green, blue: blue)
-        updateTitle(for: blueLabel, with: blue)
+        setColor()
+        blueLabel.text = format(from: blueSlider)
     }
     
     private func getCurrentColor(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
@@ -54,13 +58,16 @@ class ViewController: UIViewController {
         return (red, green, blue)
     }
     
-    private func setColor(for view: UIView, red: CGFloat, green: CGFloat, blue: CGFloat) {
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        colorView.backgroundColor = color
+    private func setColor() {
+        colorView.backgroundColor =
+            UIColor(red: CGFloat(redSlider.value),
+                    green: CGFloat(greenSlider.value),
+                    blue: CGFloat(blueSlider.value),
+                    alpha: 1)
     }
     
-    private func updateTitle(for label: UILabel, with value: CGFloat) {
-        label.text = String(format: "%.2f", value)
+    private func format(from slider: UISlider) -> String {
+        String(format: "%.2f", CGFloat(slider.value))
     }
     
 }
