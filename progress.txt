@@ -42,7 +42,7 @@ course 2 lesson 2 homework review  - done
 course 2 lesson 2 theory           - done
 course 2 lesson 2 homework         - done
 
-course 2 lesson 3 homework review  - 26:51
+course 2 lesson 3 homework review  - 40:10
 course 2 lesson 3 theory           - 
 course 2 lesson 3 homework         - 
 
