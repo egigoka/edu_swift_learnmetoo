@@ -33,13 +33,14 @@ class ViewController: UIViewController {
         let green = CGFloat(greenSlider.value)
         let (red, _, blue) = getCurrentColor(of: colorView)
         setColor(for: colorView, red: red, green: green, blue: blue)
-        updateTitle(for: greenLabel, with: <#T##CGFloat#>)
+        updateTitle(for: greenLabel, with: green)
     }
     
     @IBAction func blueSliderAction() {
         let blue = CGFloat(blueSlider.value)
         let (red, green, _) = getCurrentColor(of: colorView)
         setColor(for: colorView, red: red, green: green, blue: blue)
+        updateTitle(for: blueLabel, with: blue)
     }
     
     private func getCurrentColor(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
