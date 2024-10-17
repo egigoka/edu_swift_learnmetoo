@@ -44,7 +44,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hjj-oQ-bSZ">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hjj-oQ-bSZ">
                                                 <rect key="frame" x="141" y="0.0" width="222" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="999" constant="1000" id="7a0-71-Kgv"/>
@@ -76,7 +76,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HpN-5o-gEy">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HpN-5o-gEy">
                                                 <rect key="frame" x="141" y="0.0" width="222" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="999" constant="1000" id="wzM-oW-E1d"/>
@@ -108,11 +108,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E6f-TQ-Z5Y">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="E6f-TQ-Z5Y">
                                                 <rect key="frame" x="141" y="0.0" width="222" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="999" constant="1000" id="lLO-mG-Dei"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="UNs-0Y-iES"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -132,9 +135,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueLabel" destination="jdc-ii-S2s" id="yOY-0t-UVD"/>
                         <outlet property="blueSlider" destination="E6f-TQ-Z5Y" id="iAk-EG-mml"/>
                         <outlet property="colorView" destination="yBb-zi-FVE" id="sm0-an-pCK"/>
+                        <outlet property="greenLabel" destination="G0s-nB-ciG" id="edf-D1-RSS"/>
                         <outlet property="greenSlider" destination="HpN-5o-gEy" id="68a-4m-UEc"/>
+                        <outlet property="redLabel" destination="rtQ-Qq-iS0" id="bdN-Na-ClI"/>
                         <outlet property="redSlider" destination="hjj-oQ-bSZ" id="Lte-3P-3np"/>
                     </connections>
                 </viewController>
