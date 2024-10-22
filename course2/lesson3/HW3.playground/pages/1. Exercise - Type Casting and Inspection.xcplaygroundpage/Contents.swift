@@ -13,26 +13,26 @@ let items: [Any] = [1.1, 2.2, 3.3, 4, 5, 6, "string", "also string", true, false
  */
 
 for item in items {
-    if let item = item as? Int {
-        print("Int \(item)")
+    if let int = item as? Int {
+        print("Int \(int)")
     }
 }
 
 for item in items {
-    if let item = item as? Double {
-        print("Double \(item)")
+    if let double = item as? Double {
+        print("Double \(double)")
     }
 }
 
 for item in items {
-    if let item = item as? String {
-        print("String \"\(item)\"")
+    if let string = item as? String {
+        print("String \"\(string)\"")
     }
 }
 
 for item in items {
-    if let item = item as? Bool {
-        print("Bool \(item)")
+    if let bool = item as? Bool {
+        print("Bool \(bool)")
     }
 }
 
@@ -48,14 +48,14 @@ let jsonIGuess: [String: Any] = ["one": 1.1,
                                  "six": "6.66"]
 
 for (key, value) in jsonIGuess {
-    if let value = value as? Double {
-        print("\(key): \(String(format: "%.2f", value))")
-    } else if let value = value as? Int {
-        print("\(key): \(value)")
-    } else if let value = value as? String {
-        print("\(key): \(value)")
-    } else if let value = value as? Bool {
-        print("\(key): \(value)")
+    if let double = value as? Double {
+        print("\(key): \(String(format: "%.2f", double))")
+    } else if let int = value as? Int {
+        print("\(key): \(int)")
+    } else if let string = value as? String {
+        print("\(key): \"\(string)\"")
+    } else if let bool = value as? Bool {
+        print("\(key): \(bool)")
     }
 }
 
@@ -73,11 +73,12 @@ for (_, value) in jsonIGuess {
     } else if let _ = value as? String {
         total += 1
     } else if let value = value as? Bool {
-        total += value ? 2 : -4
+        total += value ? 2 : -3
     }
 }
 
 print(total)
+
 /*:
  Обнулите переменную total и снова пройдите по всей коллекции, прибавляя к ней все целые и вещественные числа.  Для каждой строки, встретившейся на пути, попробуйте сконвертировать её в число, и добавьте это значение к общему.  Игнорируйте булевы значения.  Распечатайте итог.
  */
