@@ -23,4 +23,17 @@ class UserListViewController: UIViewController {
         
     }
 
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        guard let contentManagerVC = segue.source as? ContactManagerViewController else {
+            return
+        }
+        
+        guard let userName = contentManagerVC.userNameTextField.text else {
+            return
+        }
+        
+        users.append(userName)
+        
+    }
+    
 }

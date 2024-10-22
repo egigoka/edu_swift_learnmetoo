@@ -20,6 +20,8 @@ class UserDetailsViewController: UIViewController {
         userNameLabel.text = userName
     }
     
-    
+    deinit {
+        print("UserDetailsViewController has been deallocated")
+    }
 
 }
