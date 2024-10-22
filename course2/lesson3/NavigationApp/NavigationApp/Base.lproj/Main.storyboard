@@ -46,7 +46,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="Th8-eK-bAl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eh9-Fa-OXO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fdx-ic-tGG">
+                            <connections>
+                                <segue destination="saj-B9-AXR" kind="presentation" id="hLI-iC-CLS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pk6-UI-6GD" id="0bQ-Bb-gmK"/>
@@ -56,6 +60,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2724" y="137.18140929535232"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jmG-Ke-Qiy">
+            <objects>
+                <viewController id="saj-B9-AXR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="696-eH-E9l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SKa-3X-4Rc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91I-sP-Wi9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3513" y="484"/>
         </scene>
         <!--User Info-->
         <scene sceneID="bR3-Va-tCP">
@@ -86,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7J-rp-hAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="137"/>
+            <point key="canvasLocation" x="3514" y="-183"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TYj-Rh-HGw">

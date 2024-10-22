@@ -13,5 +13,14 @@ class UserListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var users = ["Rick", "Morty"]
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let userDetailsVC = segue.destination as? UserDetailsViewController else {
+            return
+        }
+        
+        userDetailsVC.userName = sender as? String
+        
+    }
 
 }
