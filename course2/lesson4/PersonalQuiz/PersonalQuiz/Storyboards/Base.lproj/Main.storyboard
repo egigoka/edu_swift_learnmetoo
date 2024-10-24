@@ -94,7 +94,13 @@
                         <viewLayoutGuide key="safeArea" id="1wH-0r-eJP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="W6u-Vr-D2d"/>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="W6u-Vr-D2d">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="HrR-jf-K2Q">
+                            <connections>
+                                <segue destination="ptr-U7-EwS" kind="show" id="fhV-Kv-0Ju"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="ptr-U7-EwS" kind="show" identifier="showResult" id="VCD-Gi-m1J"/>
                     </connections>
@@ -110,8 +116,32 @@
                     <view key="view" contentMode="scaleToFill" id="L2N-kJ-gTO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="V4q-wH-PMh">
+                                <rect key="frame" x="16" y="251.5" width="288" height="157.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы - 🐶!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8l-ad-5r7">
+                                        <rect key="frame" x="57" y="0.0" width="174.5" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вам нравится быть с друзьями, Вы окружаете себя людьми, которые вам нравятся и всегда готовы помочь." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYb-9i-BIt">
+                                        <rect key="frame" x="2.5" y="76" width="283" height="81.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uTt-mo-Y4P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V4q-wH-PMh" firstAttribute="centerY" secondItem="uTt-mo-Y4P" secondAttribute="centerY" id="K10-tO-IYB"/>
+                            <constraint firstItem="uTt-mo-Y4P" firstAttribute="trailing" secondItem="V4q-wH-PMh" secondAttribute="trailing" constant="16" id="Uif-yh-2Ym"/>
+                            <constraint firstItem="V4q-wH-PMh" firstAttribute="leading" secondItem="uTt-mo-Y4P" secondAttribute="leading" constant="16" id="i6I-kP-gP7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результаты" id="j6T-zI-QYs">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="KC7-td-h5M"/>
@@ -140,6 +170,9 @@
             <point key="canvasLocation" x="855" y="809"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fhV-Kv-0Ju"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
