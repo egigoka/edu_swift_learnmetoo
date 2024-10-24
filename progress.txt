@@ -47,7 +47,7 @@ course 2 lesson 3 theory           - done
 course 2 lesson 3 homework         - done
 
 course 2 lesson 4 homework review  - done
-course 2 lesson 4 theory           - 1:33:18
+course 2 lesson 4 theory           - 1:47:25
 course 2 lesson 4 homework         - 
 
 30%
