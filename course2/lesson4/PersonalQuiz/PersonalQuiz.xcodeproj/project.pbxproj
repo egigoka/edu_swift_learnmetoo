@@ -10,9 +10,22 @@
 		1319D93F2CC9DA0600C112E9 /* PersonalQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1319D9632CC9E59800C112E9 /* Exceptions for "PersonalQuiz" folder in "PersonalQuiz" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Supporting Files/Info.plist",
+			);
+			target = 1319D93E2CC9DA0600C112E9 /* PersonalQuiz */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1319D9412CC9DA0600C112E9 /* PersonalQuiz */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1319D9632CC9E59800C112E9 /* Exceptions for "PersonalQuiz" folder in "PersonalQuiz" target */,
+			);
 			path = PersonalQuiz;
 			sourceTree = "<group>";
 		};
