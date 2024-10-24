@@ -213,26 +213,35 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y6M-ST-36A">
+                                <rect key="frame" x="0.0" y="92.5" width="320" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ8-ej-nWL">
+                                <rect key="frame" x="16" y="112.5" width="288" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1wH-0r-eJP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="y6M-ST-36A" firstAttribute="top" secondItem="1wH-0r-eJP" secondAttribute="top" id="DWQ-D1-54f"/>
                             <constraint firstItem="1wH-0r-eJP" firstAttribute="trailing" secondItem="GPT-Lx-doe" secondAttribute="trailing" constant="16" id="GBb-zs-edE"/>
                             <constraint firstItem="1wH-0r-eJP" firstAttribute="trailing" secondItem="HHa-Z5-OUK" secondAttribute="trailing" constant="16" id="LKn-Fd-Jnl"/>
                             <constraint firstItem="GPT-Lx-doe" firstAttribute="leading" secondItem="1wH-0r-eJP" secondAttribute="leading" constant="16" id="NM1-Vy-HZK"/>
                             <constraint firstItem="GPT-Lx-doe" firstAttribute="centerY" secondItem="1wH-0r-eJP" secondAttribute="centerY" id="Ybk-Ju-eCI"/>
+                            <constraint firstItem="1wH-0r-eJP" firstAttribute="trailing" secondItem="uZ8-ej-nWL" secondAttribute="trailing" constant="16" id="bfe-5z-dN1"/>
                             <constraint firstItem="HHa-Z5-OUK" firstAttribute="leading" secondItem="1wH-0r-eJP" secondAttribute="leading" constant="16" id="dIr-Yz-zJ8"/>
+                            <constraint firstItem="uZ8-ej-nWL" firstAttribute="leading" secondItem="1wH-0r-eJP" secondAttribute="leading" constant="16" id="fkm-WJ-V9m"/>
                             <constraint firstItem="HHa-Z5-OUK" firstAttribute="centerY" secondItem="1wH-0r-eJP" secondAttribute="centerY" id="h6X-Bw-KAB"/>
+                            <constraint firstItem="uZ8-ej-nWL" firstAttribute="top" secondItem="y6M-ST-36A" secondAttribute="bottom" constant="16" id="h70-qp-Iju"/>
+                            <constraint firstAttribute="trailing" secondItem="y6M-ST-36A" secondAttribute="trailing" id="n45-5H-X6n"/>
                             <constraint firstItem="1wH-0r-eJP" firstAttribute="trailing" secondItem="RE5-dM-ONQ" secondAttribute="trailing" constant="16" id="pgX-0i-XPr"/>
                             <constraint firstItem="RE5-dM-ONQ" firstAttribute="centerY" secondItem="1wH-0r-eJP" secondAttribute="centerY" id="u69-8p-nIV"/>
                             <constraint firstItem="RE5-dM-ONQ" firstAttribute="leading" secondItem="1wH-0r-eJP" secondAttribute="leading" constant="16" id="yNp-tD-AaW"/>
+                            <constraint firstItem="y6M-ST-36A" firstAttribute="leading" secondItem="EC0-2V-t2x" secondAttribute="leading" id="zdt-9a-zok"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="GPT-Lx-doe"/>
-                                <exclude reference="RE5-dM-ONQ"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Вопрос №" id="W6u-Vr-D2d">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="HrR-jf-K2Q">
