@@ -6,7 +6,14 @@
 
 import Foundation
 
-let items: [Any] = [1.1, 2.2, 3.3, 4, 5, 6, "string", "also string", true, false]
+let items: [Any] = [1.1, 2.2, 3.3,
+                    4, 5, 6,
+                    "string", "also string",
+                    true, false]
+
+for item in items {
+    print(item)
+}
 
 /*:
  Пройдите по всем элементам коллекции.  Для каждого целого, напечайте "Целое число " и его значение.  Повторите то же самое для вещественных чисел, строк и булевых значений.
@@ -15,24 +22,22 @@ let items: [Any] = [1.1, 2.2, 3.3, 4, 5, 6, "string", "also string", true, false
 for item in items {
     if let int = item as? Int {
         print("Int \(int)")
-    }
-}
-
-for item in items {
-    if let double = item as? Double {
+    } else if let double = item as? Double {
         print("Double \(double)")
-    }
-}
-
-for item in items {
-    if let string = item as? String {
+    } else if let string = item as? String {
         print("String \"\(string)\"")
+    } else if let bool = item as? Bool {
+        print("Bool \(bool)")
     }
 }
 
 for item in items {
-    if let bool = item as? Bool {
-        print("Bool \(bool)")
+    switch item {
+    case is Int: print("Int \(item)")
+    case is Double: print("Double \(item)")
+    case is Bool: print("Bool \(item)")
+    case is String: print("String \(item)")
+    default: print("Unknown type \(item)")
     }
 }
 
@@ -48,15 +53,7 @@ let jsonIGuess: [String: Any] = ["one": 1.1,
                                  "six": "6.66"]
 
 for (key, value) in jsonIGuess {
-    if let double = value as? Double {
-        print("\(key): \(String(format: "%.2f", double))")
-    } else if let int = value as? Int {
-        print("\(key): \(int)")
-    } else if let string = value as? String {
-        print("\(key): \"\(string)\"")
-    } else if let bool = value as? Bool {
-        print("\(key): \(bool)")
-    }
+    print("\(key): \(value)")
 }
 
 /*:
@@ -70,7 +67,7 @@ for (_, value) in jsonIGuess {
         total += value
     } else if let value = value as? Int {
         total += Double(value)
-    } else if let _ = value as? String {
+    } else if value is String {
         total += 1
     } else if let value = value as? Bool {
         total += value ? 2 : -3
@@ -85,7 +82,7 @@ print(total)
 
 total = 0
 
-for (_, value) in jsonIGuess {
+for value in jsonIGuess.values {
     if let value = value as? Double {
         total += value
     } else if let value = value as? Int {
