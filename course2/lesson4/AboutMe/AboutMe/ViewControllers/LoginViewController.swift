@@ -51,13 +51,14 @@ class LoginViewController: UIViewController,
         }
         
         tabBarController.user = user
+        tabBarController.delegate = self
         
         tabBarController.selectedIndex = goToIndexTabController
         
     }
     
     func didDismissWithSwipe() {
-        print("yay")
+        passwordTextField.text?.removeAll()
     }
     
     // MARK: IB Actions
