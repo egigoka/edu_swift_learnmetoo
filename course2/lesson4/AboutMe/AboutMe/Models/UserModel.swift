@@ -20,6 +20,8 @@ struct User {
     let project: String
     let projectImageName: String
     let nextTask: String
+    let learning: String
+    let learnMoreUrl: String
 }
 
 extension User {
@@ -36,7 +38,9 @@ extension User {
                 goalButton: "Walked",
                 project: "Learning Swift",
                 projectImageName: "RootProject",
-                nextTask: "Start course 2 lesson 5"
+                nextTask: "Start course 2 lesson 5",
+                learning: "Swift basics",
+                learnMoreUrl: "https://www.swift.org"
             ),
             User(
                 login: "guest",
@@ -49,7 +53,9 @@ extension User {
                 goalButton: "Done",
                 project: "Uknown",
                 projectImageName: "GuestProject",
-                nextTask: "Unknowable horrors"
+                nextTask: "Unknowable horrors",
+                learning: "Become Grand Karcist",
+                learnMoreUrl: "https://scp-wiki.wikidot.com/scp-610"
             )
         ]
     }

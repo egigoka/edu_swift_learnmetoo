@@ -128,7 +128,19 @@ class UserInfoSecondViewController: UserInfoViewController {
     private func setupLabels() {
         formatStringInLabel(projectLabel, user.project)
         formatStringInLabel(nextTaskLabel, user.nextTask)
+        
     }
+    
+    // MARK: IB Actions
+    @IBAction func learnMoreButtonAction() {
+        guard let url = URL(string: user.learnMoreUrl), UIApplication.shared.canOpenURL(url) else {
+            print("Invalid URL or Safari cannot open it")
+            return
+        }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     
 }
 
