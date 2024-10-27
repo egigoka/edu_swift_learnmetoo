@@ -42,16 +42,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabBarController = segue.destination as? UserInfoTabBarController else {
-            print("This isn't UITabBarController")
             return
         }
-//        guard let destinationVC = tabBarController.viewControllers?[goToIndexTabController]
-//                as? UserInfoViewController else {
-//            print("This isn't UserInfoViewController")
-//            return
-//        }
         guard let user = user else {
-            print("No authenticated user")
             return
         }
         
@@ -75,6 +68,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
             return
         }
+        
+        self.user = user
         
         performSegue(withIdentifier: "showUserInfo", sender: self)
     }
@@ -113,15 +108,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                   + " \(logins.joined(separator: ", "))")
     }
     
-    private func showAlert(with title: String, and message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            // nothing as for now
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
     // MARK: Public methods
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -136,4 +122,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+}
+
+// MARK: Extensions to UIViewController
+
+extension UIViewController {
+    func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            // nothing as for now
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
