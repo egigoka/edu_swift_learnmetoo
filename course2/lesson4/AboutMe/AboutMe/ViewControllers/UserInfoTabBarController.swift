@@ -16,18 +16,17 @@ class UserInfoTabBarController: UITabBarController {
     // MARK: Public Properties
     var user: User!
     
-    // MARK: Custom Delegate
-    private weak var childDelegate: ChildViewControllerDelegate? {
-        didSet {
-            super.delegate = childDelegate
-        }
+    // MARK: Override Methods
+    
+    override func viewDidLoad() {
+        setChildDelegate(delegate as? ChildViewControllerDelegate)
     }
     
-    // MARK: Override Methods
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        guard var delegate = 
         if isBeingDismissed {
-            childDelegate?.didDismissWithSwipe()
+            delegate?.didDismissWithSwipe()
         }
     }
     
