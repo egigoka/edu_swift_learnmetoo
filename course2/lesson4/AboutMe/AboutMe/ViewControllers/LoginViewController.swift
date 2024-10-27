@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     // MARK: IB Outlets
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -24,27 +24,56 @@ class LoginViewController: UIViewController {
     // MARK: IB Actions
     @IBAction func loginButtonAction() {
         
-    }
-    
-    @IBAction func forgotLoginButtonAction(_ sender: Any) {
-        let usersString = users.compactMap {$0.login} .joined(separator: ", ")
-        showAlert(with: "No problem", and: "Available users: \(usersString)")
-    }
-    
-    @IBAction func forgotPasswordButtonAction(_ sender: Any) {
-        let availableLogins = users.map { $0.login }
-        guard let login = loginTextField.text, availableLogins.contains(login) else {
-            showAlert(with: "User not found",
-                      and: "Available logins: \(availableLogins.joined(separator: ", "))")
+        
+        guard let user = users.filter({$0.login == loginTextField.text}) .first else {
+            availableLoginsAlert(with: "User not found")
             return
         }
         
-        let user = users.filter {$0.login == login} .first
+        guard user.password == passwordTextField.text else {
+            showAlert(with: "Wrong password", and: "Try again.")
+            return
+        }
         
-        showAlert(with: "No problem", and: "Your password is \(user?.password ?? "")")
+        // debug
+        showAlert(with: "Success", and: "LOGIN GRANTED !!!11!!!1337")
+        // debug END
+    }
+    
+    @IBAction func forgotLoginButtonAction(_ sender: Any) {
+        availableLoginsAlert(with: "No problem")
+    }
+    
+    @IBAction func forgotPasswordButtonAction(_ sender: Any) {
+        let availableLogins = avaliableLogins()
+        guard let login = loginTextField.text,
+              availableLogins.contains(login) else {
+            availableLoginsAlert(with: "User not found")
+            return
+        }
+        
+        guard let user = users.filter({$0.login == login}) .first else {
+            showAlert(with: "Something is seriously wrong",
+                      and: "This shouldn't happen!")
+            return
+        }
+        
+        showAlert(with: "No problem", and: "Your password is \(user.password)")
     }
     
     // MARK: Private methods
+    
+    private func avaliableLogins() -> [String] {
+        users.map { $0.login }
+    }
+    
+    private func availableLoginsAlert(with title: String) {
+        let logins = avaliableLogins()
+        showAlert(with: title,
+                  and: "Available logins:"
+                  + " \(logins.joined(separator: ", "))")
+    }
+    
     private func showAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
