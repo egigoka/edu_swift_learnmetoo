@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController,
+                            UITextFieldDelegate,
+                           ChildViewControllerDelegate {
     
     // MARK: IB Outlets
     @IBOutlet var loginTextField: UITextField!
@@ -23,11 +25,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         /// debug
-        if let user = users.first {
+        let user = users[1]
             self.user = user
             loginTextField.text = user.login
             passwordTextField.text = user.password
-        }
+        
         /// debug END
         
         loginTextField.delegate = self
@@ -54,6 +56,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func didDismissWithSwipe() {
+        print("yay")
+    }
+    
     // MARK: IB Actions
     @IBAction func loginButtonAction() {
         
@@ -63,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         guard user.password == passwordTextField.text else {
-            showAlert(with: "Wrong password", and: "Try again.")
+            showAlert(with: "Wrong password", and: "Try again.", button: "OK")
             passwordTextField.text?.removeAll()
             passwordTextField.becomeFirstResponder()
             return
@@ -88,11 +94,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         guard let user = users.filter({$0.login == login}) .first else {
             showAlert(with: "Something is seriously wrong",
-                      and: "This shouldn't happen!")
+                      and: "This shouldn't happen!",
+                      button: "Well, shit")
             return
         }
         
-        showAlert(with: "No problem", and: "Your password is \(user.password)")
+        showAlert(with: "No problem", and: "Your password is \(user.password)",
+                  button: "OK")
     }
     
     // MARK: Private methods
@@ -105,7 +113,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let logins = avaliableLogins()
         showAlert(with: title,
                   and: "Available logins:"
-                  + " \(logins.joined(separator: ", "))")
+                  + " \(logins.joined(separator: ", "))",
+                  button: "OK")
     }
     
     // MARK: Public methods
@@ -127,9 +136,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 // MARK: Extensions to UIViewController
 
 extension UIViewController {
-    func showAlert(with title: String, and message: String) {
+    func showAlert(with title: String, and message: String, button: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let okAction = UIAlertAction(title: button, style: .default) { _ in
             // nothing as for now
         }
         alert.addAction(okAction)
