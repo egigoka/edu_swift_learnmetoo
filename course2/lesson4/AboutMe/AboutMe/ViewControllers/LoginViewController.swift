@@ -27,11 +27,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotLoginButtonAction(_ sender: Any) {
-        var usersString = users.compactMap {$0.login} .joined(separator: ", ")
+        let usersString = users.compactMap {$0.login} .joined(separator: ", ")
         showAlert(with: "No problem", and: "Available users: \(usersString)")
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {
+        let availableLogins = users.map { $0.login }
+        guard let login = loginTextField.text, availableLogins.contains(login) else {
+            showAlert(with: "User not found",
+                      and: "Available logins: \(availableLogins.joined(separator: ", "))")
+            return
+        }
+        
+        let user = users.filter {$0.login == login} .first
+        
+        showAlert(with: "No problem", and: "Your password is \(user?.password ?? "")")
     }
     
     // MARK: Private methods
