@@ -24,21 +24,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case loginTextField:
-            passwordTextField.becomeFirstResponder()
-        case passwordTextField:
-            loginButtonAction()
-        default:
-            break
-        }
-        return true
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
     
     // MARK: IB Actions
     @IBAction func loginButtonAction() {
-        
         
         guard let user = users.filter({$0.login == loginTextField.text}) .first else {
             availableLoginsAlert(with: "User not found")
@@ -99,4 +91,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    // MARK: Public methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case loginTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            loginButtonAction()
+        default:
+            break
+        }
+        return true
+    }
+    
 }
