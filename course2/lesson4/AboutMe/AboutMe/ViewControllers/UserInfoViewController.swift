@@ -8,6 +8,7 @@
 import UIKit
 
 class UserInfoViewController: UIViewController {
+    
     // MARK: Public Properties
     
     var user: User!
@@ -26,7 +27,7 @@ class UserInfoViewController: UIViewController {
         user = tabBarController.user
         
         ///debug
-        self.user = User.getUsers().first!
+        ///self.user = User.getUsers()[1]
         ///debug END
 
     }
@@ -81,7 +82,9 @@ class UserInfoFirstViewController: UserInfoViewController {
     // MARK: IB Actions
     
     @IBAction func goalDoneButtonAction() {
-        showAlert(with: user.goalButton + "?", and: "Good job!\nLet's pretend that we're logged that.")
+        showAlert(with: user.goalButton + "?",
+                  and: "Good job!\nLet's pretend that we're logged that.",
+                  button: "OK")
     }
     
     // MARK: Private Methods
@@ -181,6 +184,8 @@ class UserInfoThirdViewController: UserInfoViewController {
         
     }
     @IBAction func addGoalButtonAction() {
-        showAlert(with: "Are you sure?", and: user.newGoalAlert)
+        showAlert(with: "Are you sure?",
+                  and: user.newGoalAlert,
+                  button: "I DUNNO")
     }
 }
