@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Private properties
     private let users = User.getUsers()
     private var user: User?
-    private let goToIndexTabController = 1
+    private let goToIndexTabController = 0
     
     // MARK: Override methods
     override func viewDidLoad() {
