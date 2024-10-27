@@ -18,8 +18,14 @@ struct User {
 extension User {
     static func getUsers() -> [User]{
         return [
-            User(login: "root", password: "toor", username: "EGiGoka",
-                 image: UIImage(named: "TestImage"))
+            User(login: "root",
+                 password: "toor",
+                 username: "EGiGoka",
+                 image: UIImage(named: "RootImage")),
+            User(login: "guest",
+                 password: "guestlol",
+                 username: "Guest",
+                 image: UIImage(named: "GuestImage"))
         ]
     }
 }
