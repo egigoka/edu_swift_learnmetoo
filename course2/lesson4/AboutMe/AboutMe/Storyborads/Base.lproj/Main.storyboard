@@ -95,11 +95,23 @@
         <scene sceneID="l67-8L-I98">
             <objects>
                 <viewController id="rBE-aU-Q5c" customClass="UserInfoViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.050000000000000003" contentMode="scaleToFill" id="SQK-Th-Hw1">
+                    <view key="view" contentMode="scaleToFill" id="SQK-Th-Hw1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF6-rt-98J">
+                                <rect key="frame" x="111.66666666666669" y="241.66666666666663" width="170" height="359"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WQg-Cm-Zsh"/>
-                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aF6-rt-98J" firstAttribute="centerX" secondItem="SQK-Th-Hw1" secondAttribute="centerX" id="XAa-7z-Abr"/>
+                            <constraint firstItem="aF6-rt-98J" firstAttribute="centerY" secondItem="SQK-Th-Hw1" secondAttribute="centerY" id="Yhz-tR-Rtq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="2ze-cN-Hk0"/>
                 </viewController>
@@ -110,14 +122,39 @@
         <!--Item 1-->
         <scene sceneID="A8J-zL-Cdw">
             <objects>
-                <viewController id="Y6b-da-jda" customClass="UserInfoViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.050000000000000003" contentMode="scaleToFill" id="GMV-ZH-x9G">
+                <viewController id="Y6b-da-jda" customClass="UserInfoFirstViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GMV-ZH-x9G">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-tH-GF6">
+                                <rect key="frame" x="130" y="241.66666666666663" width="133.33333333333337" height="359"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6h9-ak-kLh">
+                                <rect key="frame" x="76.666666666666686" y="147" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="TIK-0z-TVZ"/>
+                                    <constraint firstAttribute="width" secondItem="6h9-ak-kLh" secondAttribute="height" multiplier="1:1" id="lt3-5P-xsd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8Wo-wF-8Cy"/>
-                        <color key="backgroundColor" red="0.57175529749999998" green="0.17289331520000001" blue="0.88591333760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6h9-ak-kLh" firstAttribute="centerX" secondItem="8Wo-wF-8Cy" secondAttribute="centerX" id="96U-JN-K74"/>
+                            <constraint firstItem="YSl-tH-GF6" firstAttribute="centerY" secondItem="GMV-ZH-x9G" secondAttribute="centerY" id="ICq-0S-Lfx"/>
+                            <constraint firstItem="YSl-tH-GF6" firstAttribute="centerX" secondItem="GMV-ZH-x9G" secondAttribute="centerX" id="Y1v-72-fyw"/>
+                            <constraint firstItem="6h9-ak-kLh" firstAttribute="width" secondItem="GMV-ZH-x9G" secondAttribute="height" multiplier="120:421" id="uTS-Td-hzf"/>
+                            <constraint firstItem="6h9-ak-kLh" firstAttribute="top" secondItem="8Wo-wF-8Cy" secondAttribute="top" constant="147" id="zMU-Bt-lrs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="aLm-LB-zWY"/>
+                    <connections>
+                        <outlet property="imageView" destination="6h9-ak-kLh" id="KkF-l2-8yk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nb-Hd-fEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,9 +182,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

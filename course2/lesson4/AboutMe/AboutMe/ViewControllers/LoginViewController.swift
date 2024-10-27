@@ -45,11 +45,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("This isn't UITabBarController")
             return
         }
-        guard let destinationVC = tabBarController.viewControllers?[goToIndexTabController]
-                as? UserInfoViewController else {
-            print("This isn't UserInfoViewController")
-            return
-        }
+//        guard let destinationVC = tabBarController.viewControllers?[goToIndexTabController]
+//                as? UserInfoViewController else {
+//            print("This isn't UserInfoViewController")
+//            return
+//        }
         guard let user = user else {
             print("No authenticated user")
             return
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         tabBarController.user = user
         
-        tabBarController.selectedIndex = 1
+        tabBarController.selectedIndex = goToIndexTabController
         
     }
     

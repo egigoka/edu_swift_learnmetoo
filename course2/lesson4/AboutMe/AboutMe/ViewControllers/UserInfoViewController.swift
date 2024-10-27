@@ -8,8 +8,8 @@
 import UIKit
 
 class UserInfoViewController: UIViewController {
-    
     // MARK: Public Properties
+    
     var user: User!
     
     // MARK: Override Methods
@@ -30,6 +30,41 @@ class UserInfoViewController: UIViewController {
     // MARK: Deinit
     deinit {
         print("UserInfoViewController deinitialized")
+    }
+}
+
+class UserInfoFirstViewController: UserInfoViewController {
+    
+    // MARK: IB Outlets
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    // MARK: Override Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        imageView.image = UIImage(named: user.imageName)
+        imageView.layer.cornerRadius = 30
+    }
+    
+    
+}
+
+
+class UserInfoSecondViewController: UserInfoViewController {
+    
+    // MARK: IB Outlets
+    
+   
+    
+    // MARK: Override Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        
     }
     
 }
