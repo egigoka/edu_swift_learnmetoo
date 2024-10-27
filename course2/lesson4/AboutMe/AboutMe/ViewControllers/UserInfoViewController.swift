@@ -18,24 +18,12 @@ class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("UserInfoViewController loaded")
-        
         guard let tabBarController = tabBarController as? UserInfoTabBarController else {
             return
         }
         
         user = tabBarController.user
-        
-        ///debug
-        ///self.user = User.getUsers()[1]
-        ///debug END
 
-    }
-    
-    // MARK: Deinit
-    
-    deinit {
-        print("UserInfoViewController deinitialized")
     }
     
     // MARK: Public methods
@@ -142,7 +130,9 @@ class UserInfoSecondViewController: UserInfoViewController {
     
     @IBAction func learnMoreButtonAction() {
         guard let url = URL(string: user.learnMoreUrl), UIApplication.shared.canOpenURL(url) else {
-            print("Invalid URL or Safari cannot open it")
+            showAlert(with: "Something wrong",
+                      and: "Safari can't open a normal URL",
+                      button: "UH OH")
             return
         }
         
