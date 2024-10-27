@@ -13,9 +13,18 @@ class UserInfoViewController: UIViewController {
     var user: User!
     
     // MARK: Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("UserInfoViewController loaded")
+        
+        guard let tabBarController = tabBarController as? UserInfoTabBarController else {
+            return
+        }
+        
+        user = tabBarController.user
+        
     }
     
     // MARK: Deinit

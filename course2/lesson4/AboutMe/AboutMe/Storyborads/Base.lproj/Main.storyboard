@@ -84,7 +84,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="1LT-wm-jlS" id="wuG-7l-4gq"/>
                         <outlet property="passwordTextField" destination="Snd-88-Aqy" id="ulK-sg-mLV"/>
-                        <segue destination="Ufk-mH-UCn" kind="show" identifier="showUserInfo" id="zwC-1I-ngh"/>
+                        <segue destination="Ufk-mH-UCn" kind="presentation" identifier="showUserInfo" id="zwC-1I-ngh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="1535" y="-52"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--User Info Tab Bar Controller-->
         <scene sceneID="Lo8-1S-qkg">
             <objects>
-                <tabBarController id="Ufk-mH-UCn" sceneMemberID="viewController">
+                <tabBarController id="Ufk-mH-UCn" customClass="UserInfoTabBarController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Yt6-rc-3ni"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dcy-Dm-0nZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
