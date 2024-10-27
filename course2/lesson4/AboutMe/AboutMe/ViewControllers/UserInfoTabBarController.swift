@@ -17,21 +17,13 @@ class UserInfoTabBarController: UITabBarController {
     var user: User!
     
     // MARK: Override Methods
-    
-    override func viewDidLoad() {
-        setChildDelegate(delegate as? ChildViewControllerDelegate)
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        guard var delegate = 
-        if isBeingDismissed {
-            delegate?.didDismissWithSwipe()
+        guard let delegate = delegate as? ChildViewControllerDelegate else {
+            return
         }
-    }
-    
-    // MARK: Public Methods
-    func setChildDelegate(_ delegate: ChildViewControllerDelegate?) {
-        self.childDelegate = delegate
+        if isBeingDismissed {
+            delegate.didDismissWithSwipe()
+        }
     }
 }
