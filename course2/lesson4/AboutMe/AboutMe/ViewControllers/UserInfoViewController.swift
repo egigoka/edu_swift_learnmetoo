@@ -24,6 +24,10 @@ class UserInfoViewController: UIViewController {
         }
         
         user = tabBarController.user
+        
+        ///debug
+        self.user = User.getUsers().first!
+        ///debug END
 
     }
     
@@ -68,10 +72,6 @@ class UserInfoFirstViewController: UserInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ///debug
-        self.user = User.getUsers().first!
-        ///debug END
-        
         setupImage()
         formatStrings()
     }
@@ -104,14 +104,30 @@ class UserInfoSecondViewController: UserInfoViewController {
     
     // MARK: IB Outlets
     
-   
+    @IBOutlet var projectLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nextTaskLabel: UILabel!
+    
     
     // MARK: Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupImage()
+        setupLabels()
+    }
+    
+    // MARK: Private Methods
+    private func setupImage() {
+        print(user.projectImageName)
+        imageView.image = UIImage(named: user.projectImageName)
+        imageView.layer.cornerRadius = 30
+    }
+    
+    private func setupLabels() {
+        formatStringInLabel(projectLabel, user.project)
+        formatStringInLabel(nextTaskLabel, user.nextTask)
     }
     
 }

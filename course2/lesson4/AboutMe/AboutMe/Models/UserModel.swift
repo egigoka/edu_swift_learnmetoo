@@ -16,6 +16,10 @@ struct User {
     let mood: String
     let goal: String
     let goalButton: String
+    
+    let project: String
+    let projectImageName: String
+    let nextTask: String
 }
 
 extension User {
@@ -29,7 +33,10 @@ extension User {
                 moodEmoji: "😬",
                 mood: "Perpetually anxious",
                 goal: "Walk for at least an hour",
-                goalButton: "Walked"
+                goalButton: "Walked",
+                project: "Learning Swift",
+                projectImageName: "RootProject",
+                nextTask: "Start course 2 lesson 5"
             ),
             User(
                 login: "guest",
@@ -39,7 +46,10 @@ extension User {
                 moodEmoji: "🧘",
                 mood: "Chill",
                 goal: "Idk, come up with something yourself",
-                goalButton: "Done"
+                goalButton: "Done",
+                project: "Uknown",
+                projectImageName: "GuestProject",
+                nextTask: "Unknowable horrors"
             )
         ]
     }
