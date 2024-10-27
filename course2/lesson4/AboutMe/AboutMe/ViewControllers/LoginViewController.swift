@@ -16,10 +16,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Private properties
     private let users = User.getUsers()
     private var user: User?
+    private let goToIndexTabController = 1
     
     // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// debug
+        if let user = users.first {
+            self.user = user
+            loginTextField.text = user.login
+            passwordTextField.text = user.password
+        }
+        /// debug END
         
         loginTextField.delegate = self
         passwordTextField.delegate = self
@@ -32,11 +41,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarController = segue.destination as? UITabBarController else {
+        guard let tabBarController = segue.destination as? UserInfoTabBarController else {
             print("This isn't UITabBarController")
             return
         }
-        guard let destinationVC = tabBarController.viewControllers?[1] as? UserInfoViewController else {
+        guard let destinationVC = tabBarController.viewControllers?[goToIndexTabController]
+                as? UserInfoViewController else {
             print("This isn't UserInfoViewController")
             return
         }
@@ -45,7 +55,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        destinationVC.user = user
+        print("it works") ///debug
+        
+        tabBarController.user = user
+        
+        tabBarController.selectedIndex = 1
+        
     }
     
     // MARK: IB Actions
@@ -63,9 +78,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        /// debug
-        ///showAlert(with: "Success", and: "LOGIN GRANTED !!!11!!!1337")
-        /// debug END
         performSegue(withIdentifier: "showUserInfo", sender: self)
     }
     
