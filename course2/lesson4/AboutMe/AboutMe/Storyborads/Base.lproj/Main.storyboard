@@ -84,7 +84,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="1LT-wm-jlS" id="wuG-7l-4gq"/>
                         <outlet property="passwordTextField" destination="Snd-88-Aqy" id="ulK-sg-mLV"/>
-                        <segue destination="Ufk-mH-UCn" kind="presentation" identifier="showUserInfo" id="zwC-1I-ngh"/>
+                        <segue destination="Ufk-mH-UCn" kind="show" identifier="showUserInfo" id="zwC-1I-ngh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,11 +95,11 @@
         <scene sceneID="l67-8L-I98">
             <objects>
                 <viewController id="rBE-aU-Q5c" customClass="UserInfoViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SQK-Th-Hw1">
+                    <view key="view" alpha="0.050000000000000003" contentMode="scaleToFill" id="SQK-Th-Hw1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="WQg-Cm-Zsh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="2ze-cN-Hk0"/>
                 </viewController>
@@ -111,11 +111,11 @@
         <scene sceneID="A8J-zL-Cdw">
             <objects>
                 <viewController id="Y6b-da-jda" customClass="UserInfoViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GMV-ZH-x9G">
+                    <view key="view" alpha="0.050000000000000003" contentMode="scaleToFill" id="GMV-ZH-x9G">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8Wo-wF-8Cy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.57175529749999998" green="0.17289331520000001" blue="0.88591333760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="aLm-LB-zWY"/>
                 </viewController>
@@ -127,10 +127,12 @@
         <scene sceneID="Lo8-1S-qkg">
             <objects>
                 <tabBarController id="Ufk-mH-UCn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Yt6-rc-3ni"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dcy-Dm-0nZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Y6b-da-jda" kind="relationship" relationship="viewControllers" id="9HW-bW-ahk"/>
@@ -143,6 +145,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
