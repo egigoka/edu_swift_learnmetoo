@@ -175,8 +175,7 @@
                             <constraint firstItem="cjQ-18-NaO" firstAttribute="leading" secondItem="8Wo-wF-8Cy" secondAttribute="leading" constant="16" id="orS-S8-OwT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" badgeValue="asdf" id="aLm-LB-zWY">
-                        <color key="badgeColor" systemColor="systemOrangeColor"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="aLm-LB-zWY">
                         <imageReference key="selectedImage" image="person" catalog="system" symbolScale="large" renderingMode="original"/>
                     </tabBarItem>
                     <connections>
@@ -224,12 +223,10 @@
             <objects>
                 <tabBarController id="Ufk-mH-UCn" customClass="UserInfoTabBarController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Yt6-rc-3ni"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Dcy-Dm-0nZ">
+                    <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Dcy-Dm-0nZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemFillColor"/>
-                        <color key="barTintColor" systemColor="systemGreenColor"/>
-                        <color key="selectedImageTintColor" red="0.64538513330000002" green="0.19515827090000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Y6b-da-jda" kind="relationship" relationship="viewControllers" id="9HW-bW-ahk"/>
@@ -250,12 +247,6 @@
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
