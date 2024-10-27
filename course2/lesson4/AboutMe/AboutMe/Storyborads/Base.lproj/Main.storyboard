@@ -91,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
         </scene>
-        <!--Item 2-->
+        <!--Future-->
         <scene sceneID="l67-8L-I98">
             <objects>
                 <viewController id="rBE-aU-Q5c" customClass="UserInfoSecondViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-Jz-mXH">
-                                <rect key="frame" x="16" y="50" width="343" height="404.5"/>
+                                <rect key="frame" x="16" y="50" width="343" height="454"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Project: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ek-91-NpR">
                                         <rect key="frame" x="42.5" y="0.0" width="258.5" height="36"/>
@@ -121,10 +121,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learning: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3he-2S-JHz">
+                                        <rect key="frame" x="97.5" y="370" width="148" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4h-7F-cyh">
-                                        <rect key="frame" x="114" y="370" width="115.5" height="34.5"/>
+                                        <rect key="frame" x="107" y="416" width="129" height="38"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Learn More!"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Learn More!">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="learnMoreButtonAction" destination="rBE-aU-Q5c" eventType="touchUpInside" id="Tbg-0e-mXe"/>
                                         </connections>
@@ -140,9 +148,10 @@
                             <constraint firstItem="WQg-Cm-Zsh" firstAttribute="trailing" secondItem="UKI-Jz-mXH" secondAttribute="trailing" constant="16" id="WVL-Jg-eml"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="2ze-cN-Hk0"/>
+                    <tabBarItem key="tabBarItem" title="Future" image="hammer" catalog="system" id="2ze-cN-Hk0"/>
                     <connections>
                         <outlet property="imageView" destination="h9x-cO-gKi" id="xpt-fK-kHI"/>
+                        <outlet property="learningLabel" destination="3he-2S-JHz" id="tnc-tf-R0i"/>
                         <outlet property="nextTaskLabel" destination="Ey0-Qe-I1B" id="Pcw-uT-ZJE"/>
                         <outlet property="projectLabel" destination="6ek-91-NpR" id="gga-6d-jup"/>
                     </connections>
@@ -162,26 +171,26 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cjQ-18-NaO">
                                 <rect key="frame" x="16" y="50" width="343" height="418.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, %@!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uia-eB-vzC">
-                                        <rect key="frame" x="103" y="0.0" width="137.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RootImage" translatesAutoresizingMaskIntoConstraints="NO" id="6h9-ak-kLh">
-                                        <rect key="frame" x="43.5" y="44" width="256" height="256"/>
+                                        <rect key="frame" x="43.5" y="0.0" width="256" height="256"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="K8x-4c-xhe"/>
                                             <constraint firstAttribute="width" secondItem="6h9-ak-kLh" secondAttribute="height" multiplier="1:1" id="lt3-5P-xsd"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, %@!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uia-eB-vzC">
+                                        <rect key="frame" x="103" y="264" width="137.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current mood: %@ %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-6K-2Pq">
                                         <rect key="frame" x="46" y="308" width="251" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Goal: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiJ-qc-FaB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Goal: %@" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiJ-qc-FaB">
                                         <rect key="frame" x="75" y="346" width="193" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
@@ -220,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="1535" y="-52"/>
         </scene>
-        <!--Item-->
+        <!--Fun & Health-->
         <scene sceneID="4IC-Qk-WOS">
             <objects>
                 <viewController id="joT-A5-wmY" customClass="UserInfoThirdViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -228,21 +237,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnH-4R-ix6">
-                                <rect key="frame" x="98.5" y="119.5" width="178" height="359"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WJd-us-CVE">
+                                <rect key="frame" x="16" y="50" width="343" height="390"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RootEntity" translatesAutoresizingMaskIntoConstraints="NO" id="Tvw-C8-AKJ">
+                                        <rect key="frame" x="43.5" y="0.0" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Tvw-C8-AKJ" secondAttribute="height" multiplier="1:1" id="agk-Fs-6FZ"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="roC-0A-4xm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mental Health: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="taA-pc-9UO">
+                                        <rect key="frame" x="49" y="256" width="245" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCy-Wf-bLU">
+                                        <rect key="frame" x="106" y="292" width="131" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waifus: %@" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISY-tW-GnS">
+                                        <rect key="frame" x="107.5" y="322" width="128" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16z-bf-tKg">
+                                        <rect key="frame" x="92" y="352" width="159" height="38"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Add New Goal?">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addGoalButtonAction" destination="joT-A5-wmY" eventType="touchUpInside" id="F3f-qC-bET"/>
+                                            <action selector="learnMoreButtonAction" destination="rBE-aU-Q5c" eventType="touchUpInside" id="58e-yl-V0b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tvw-C8-AKJ" firstAttribute="width" secondItem="Tvw-C8-AKJ" secondAttribute="height" multiplier="1:1" id="Ucd-Ke-8Kc"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w8o-W3-eKj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WnH-4R-ix6" firstAttribute="centerX" secondItem="p7s-zb-rOW" secondAttribute="centerX" id="cPE-7O-l8a"/>
-                            <constraint firstItem="WnH-4R-ix6" firstAttribute="centerY" secondItem="p7s-zb-rOW" secondAttribute="centerY" id="q3M-s4-YpI"/>
+                            <constraint firstItem="WJd-us-CVE" firstAttribute="leading" secondItem="w8o-W3-eKj" secondAttribute="leading" constant="16" id="3MQ-FE-ADY"/>
+                            <constraint firstItem="WJd-us-CVE" firstAttribute="top" secondItem="w8o-W3-eKj" secondAttribute="top" constant="50" id="EeZ-Hr-SzE"/>
+                            <constraint firstItem="w8o-W3-eKj" firstAttribute="trailing" secondItem="WJd-us-CVE" secondAttribute="trailing" constant="16" id="Jy8-bv-0zC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dfg-kH-t9u"/>
+                    <tabBarItem key="tabBarItem" title="Fun &amp; Health" image="fireworks" catalog="system" id="dfg-kH-t9u"/>
+                    <connections>
+                        <outlet property="imageView" destination="Tvw-C8-AKJ" id="RnI-O5-n9V"/>
+                        <outlet property="mentalHealthLabel" destination="taA-pc-9UO" id="oBk-TG-xdX"/>
+                        <outlet property="waifusLabel" destination="ISY-tW-GnS" id="QIC-8k-uB9"/>
+                        <outlet property="weightLabel" destination="hCy-Wf-bLU" id="Gyf-De-w4Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQw-Mn-OF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,8 +324,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RootEntity" width="1024" height="1024"/>
         <image name="RootImage" width="460" height="460"/>
         <image name="RootProject" width="1024" height="1024"/>
+        <image name="fireworks" catalog="system" width="128" height="111"/>
+        <image name="hammer" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -22,6 +22,12 @@ struct User {
     let nextTask: String
     let learning: String
     let learnMoreUrl: String
+    
+    let entityImageName: String
+    let mentalHealthStatus: String
+    let weight: String
+    let waifus: String
+    let newGoalAlert: String
 }
 
 extension User {
@@ -40,7 +46,12 @@ extension User {
                 projectImageName: "RootProject",
                 nextTask: "Start course 2 lesson 5",
                 learning: "Swift basics",
-                learnMoreUrl: "https://www.swift.org"
+                learnMoreUrl: "https://www.swift.org",
+                entityImageName: "RootEntity",
+                mentalHealthStatus: "Kinda better",
+                weight: "115 Kg, Goal: 85 Kg",
+                waifus: "Rin Penrose, Frieren, Gigi Murin",
+                newGoalAlert: "Aren't it enough already? 😭"
             ),
             User(
                 login: "guest",
@@ -55,7 +66,12 @@ extension User {
                 projectImageName: "GuestProject",
                 nextTask: "Unknowable horrors",
                 learning: "Become Grand Karcist",
-                learnMoreUrl: "https://scp-wiki.wikidot.com/scp-610"
+                learnMoreUrl: "https://scp-wiki.wikidot.com/scp-610",
+                entityImageName: "GuestEntity",
+                mentalHealthStatus: "...",
+                weight: "120 Kg, Goal: 20 000 - 30 000 Kg",
+                waifus: "Kratos, Elisabeth, Wh40k Tyranids",
+                newGoalAlert: "Are you sure⁇﹖？"
             )
         ]
     }
