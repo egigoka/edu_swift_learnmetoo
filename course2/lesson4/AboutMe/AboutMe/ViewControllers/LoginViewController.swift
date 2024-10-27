@@ -55,8 +55,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        print("it works") ///debug
-        
         tabBarController.user = user
         
         tabBarController.selectedIndex = goToIndexTabController

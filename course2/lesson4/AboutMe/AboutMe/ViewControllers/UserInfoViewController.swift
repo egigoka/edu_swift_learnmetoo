@@ -68,3 +68,20 @@ class UserInfoSecondViewController: UserInfoViewController {
     }
     
 }
+
+class UserInfoThirdViewController: UserInfoViewController {
+    
+    // MARK: IB Outlets
+    
+   
+    
+    // MARK: Override Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        
+    }
+    
+}
