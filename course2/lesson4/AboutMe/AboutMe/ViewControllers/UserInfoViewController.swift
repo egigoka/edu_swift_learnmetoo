@@ -68,6 +68,10 @@ class UserInfoFirstViewController: UserInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ///debug
+        self.user = User.getUsers().first!
+        ///debug END
+        
         setupImage()
         formatStrings()
     }
