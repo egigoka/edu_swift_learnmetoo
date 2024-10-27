@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         /// debug
         ///showAlert(with: "Success", and: "LOGIN GRANTED !!!11!!!1337")
         /// debug END
-        
+        performSegue(withIdentifier: "showUserInfo", sender: self)
     }
     
     @IBAction func forgotLoginButtonAction(_ sender: Any) {
