@@ -119,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="2213" y="-52"/>
         </scene>
-        <!--Item 1-->
+        <!--Profile-->
         <scene sceneID="A8J-zL-Cdw">
             <objects>
                 <viewController id="Y6b-da-jda" customClass="UserInfoFirstViewController" customModule="AboutMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,21 +128,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cjQ-18-NaO">
-                                <rect key="frame" x="16" y="50" width="343" height="300"/>
+                                <rect key="frame" x="16" y="50" width="343" height="418.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, $@!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uia-eB-vzC">
-                                        <rect key="frame" x="106" y="0.0" width="131.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6h9-ak-kLh">
-                                        <rect key="frame" x="43.5" y="44" width="256" height="256"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RootImage" translatesAutoresizingMaskIntoConstraints="NO" id="6h9-ak-kLh">
+                                        <rect key="frame" x="43.5" y="0.0" width="256" height="256"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="K8x-4c-xhe"/>
                                             <constraint firstAttribute="width" secondItem="6h9-ak-kLh" secondAttribute="height" multiplier="1:1" id="lt3-5P-xsd"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, %@!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uia-eB-vzC">
+                                        <rect key="frame" x="103" y="264" width="137.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current mood: %@ %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-6K-2Pq">
+                                        <rect key="frame" x="46" y="308" width="251" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Goal: %@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiJ-qc-FaB">
+                                        <rect key="frame" x="75" y="346" width="193" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFa-ux-FMV">
+                                        <rect key="frame" x="144.5" y="384" width="54.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="%@"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -154,10 +171,11 @@
                             <constraint firstItem="cjQ-18-NaO" firstAttribute="leading" secondItem="8Wo-wF-8Cy" secondAttribute="leading" constant="16" id="orS-S8-OwT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="aLm-LB-zWY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person" catalog="system" id="aLm-LB-zWY"/>
                     <connections>
                         <outlet property="helloLabel" destination="Uia-eB-vzC" id="jV7-t4-tB1"/>
                         <outlet property="imageView" destination="6h9-ak-kLh" id="KkF-l2-8yk"/>
+                        <outlet property="moodLabel" destination="fHO-6K-2Pq" id="ca1-H1-EFM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nb-Hd-fEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,6 +233,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RootImage" width="460" height="460"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

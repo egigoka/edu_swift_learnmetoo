@@ -11,19 +11,30 @@ struct User {
     
     let username: String
     let imageName: String
+    
+    let moodEmoji: String
+    let mood: String
 }
 
 extension User {
     static func getUsers() -> [User]{
         return [
-            User(login: "root",
-                 password: "toor",
-                 username: "EGiGoka",
-                 imageName: "RootImage"),
-            User(login: "guest",
-                 password: "guestlol",
-                 username: "Guest",
-                 imageName: "GuestImage")
+            User(
+                login: "root",
+                password: "toor",
+                username: "EGiGoka",
+                imageName: "RootImage",
+                moodEmoji: "😬",
+                mood: "Perpetually anxious"
+            ),
+            User(
+                login: "guest",
+                password: "guestlol",
+                username: "Guest",
+                imageName: "GuestImage",
+                moodEmoji: "🧘",
+                mood: "Chill"
+            )
         ]
     }
 }

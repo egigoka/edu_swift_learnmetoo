@@ -37,17 +37,16 @@ class UserInfoViewController: UIViewController {
         guard let labelText = label.text else {
             return
         }
-        print(label.text ?? "")
         label.text = String(format: labelText, arguments: arguments)
-        print(label.text ?? "")
-        
-        let existingString = "Hello, %@! Welcome to %@."
-        
-        let name = "Alice"
-        let place = "Wonderland"
-        let finalString = String(format: existingString, name, place)
-        print(finalString)  // Output: "Hello, Alice! Welcome to Wonderland."
     }
+    
+    func formatStringInButton(_ label: UIButton, _ arguments: CVarArg...) {
+        guard let labelText = label.label else {
+            return
+        }
+        label.text = String(format: labelText, arguments: arguments)
+    }
+    
 }
 
 class UserInfoFirstViewController: UserInfoViewController {
@@ -56,6 +55,7 @@ class UserInfoFirstViewController: UserInfoViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var helloLabel: UILabel!
+    @IBOutlet var moodLabel: UILabel!
     
     // MARK: Override Methods
     
@@ -65,10 +65,8 @@ class UserInfoFirstViewController: UserInfoViewController {
         imageView.image = UIImage(named: user.imageName)
         imageView.layer.cornerRadius = 30
         
-        //helloLabel.text = String(format: helloLabel, <#T##arguments: any CVarArg...##any CVarArg#>)
-        
         formatStringInLabel(helloLabel, user.username)
-        helloLabel.text = String(format: helloLabel.text ?? "", user.username)
+        formatStringInLabel(moodLabel, user.moodEmoji, user.mood)
     }
     
     
