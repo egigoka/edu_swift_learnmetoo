@@ -21,7 +21,7 @@
                                 <color key="backgroundColor" red="0.57175529749999998" green="0.17289331520000001" blue="0.88591333760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-jA-sQA">
-                                <rect key="frame" x="16" y="230" width="361" height="207"/>
+                                <rect key="frame" x="16" y="209" width="361" height="207"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-wm-jlS">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
@@ -73,7 +73,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vuL-jA-sQA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8Tb-yP-e6s"/>
-                            <constraint firstItem="vuL-jA-sQA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="171" id="NNf-Ie-hC5"/>
+                            <constraint firstItem="vuL-jA-sQA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="NNf-Ie-hC5"/>
                             <constraint firstAttribute="bottom" secondItem="ZrL-Uk-QNM" secondAttribute="bottom" id="ORM-Jr-ZPr"/>
                             <constraint firstItem="ZrL-Uk-QNM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ulk-2F-rzb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vuL-jA-sQA" secondAttribute="trailing" constant="16" id="hzw-cB-rzH"/>
