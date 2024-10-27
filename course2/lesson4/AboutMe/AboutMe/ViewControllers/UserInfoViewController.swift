@@ -32,11 +32,13 @@ class UserInfoViewController: UIViewController {
     }
     
     // MARK: Deinit
+    
     deinit {
         print("UserInfoViewController deinitialized")
     }
     
     // MARK: Public methods
+    
     func formatStringInLabel(_ label: UILabel, _ arguments: CVarArg...) {
         guard let labelText = label.text else {
             return
@@ -107,6 +109,7 @@ class UserInfoSecondViewController: UserInfoViewController {
     @IBOutlet var projectLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nextTaskLabel: UILabel!
+    @IBOutlet var learningLabel: UILabel!
     
     
     // MARK: Override Methods
@@ -119,8 +122,8 @@ class UserInfoSecondViewController: UserInfoViewController {
     }
     
     // MARK: Private Methods
+    
     private func setupImage() {
-        print(user.projectImageName)
         imageView.image = UIImage(named: user.projectImageName)
         imageView.layer.cornerRadius = 30
     }
@@ -128,10 +131,12 @@ class UserInfoSecondViewController: UserInfoViewController {
     private func setupLabels() {
         formatStringInLabel(projectLabel, user.project)
         formatStringInLabel(nextTaskLabel, user.nextTask)
+        formatStringInLabel(learningLabel, user.learning)
         
     }
     
     // MARK: IB Actions
+    
     @IBAction func learnMoreButtonAction() {
         guard let url = URL(string: user.learnMoreUrl), UIApplication.shared.canOpenURL(url) else {
             print("Invalid URL or Safari cannot open it")
@@ -148,14 +153,34 @@ class UserInfoThirdViewController: UserInfoViewController {
     
     // MARK: IB Outlets
     
-   
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var mentalHealthLabel: UILabel!
+    @IBOutlet var weightLabel: UILabel!
+    @IBOutlet var waifusLabel: UILabel!
     
     // MARK: Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupImage()
+        setupLabels()
     }
     
+    // MARK: Private Methods
+    private func setupImage() {
+        imageView.image = UIImage(named: user.entityImageName)
+        imageView.layer.cornerRadius = 30
+    }
+    
+    private func setupLabels() {
+        formatStringInLabel(mentalHealthLabel, user.mentalHealthStatus)
+        formatStringInLabel(weightLabel, user.weight)
+        formatStringInLabel(waifusLabel, user.waifus)
+        
+        
+    }
+    @IBAction func addGoalButtonAction() {
+        showAlert(with: "Are you sure?", and: user.newGoalAlert)
+    }
 }
