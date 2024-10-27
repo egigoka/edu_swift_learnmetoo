@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Private properties
     private let users = User.getUsers()
+    private var user: User?
     
     // MARK: Override methods
     override func viewDidLoad() {
@@ -27,6 +28,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarController = segue.destination as? UITabBarController else {
+            print("This isn't UITabBarController")
+            return
+        }
+        guard let destinationVC = tabBarController.viewControllers?[1] as? UserInfoViewController else {
+            print("This isn't UserInfoViewController")
+            return
+        }
+        guard let user = user else {
+            print("No authenticated user")
+            return
+        }
+        
+        destinationVC.user = user
     }
     
     // MARK: IB Actions
@@ -44,9 +63,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        // debug
-        showAlert(with: "Success", and: "LOGIN GRANTED !!!11!!!1337")
-        // debug END
+        /// debug
+        ///showAlert(with: "Success", and: "LOGIN GRANTED !!!11!!!1337")
+        /// debug END
+        
     }
     
     @IBAction func forgotLoginButtonAction(_ sender: Any) {
