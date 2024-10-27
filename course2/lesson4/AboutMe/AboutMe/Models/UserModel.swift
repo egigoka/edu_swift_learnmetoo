@@ -14,6 +14,8 @@ struct User {
     
     let moodEmoji: String
     let mood: String
+    let goal: String
+    let goalButton: String
 }
 
 extension User {
@@ -25,7 +27,9 @@ extension User {
                 username: "EGiGoka",
                 imageName: "RootImage",
                 moodEmoji: "😬",
-                mood: "Perpetually anxious"
+                mood: "Perpetually anxious",
+                goal: "Walk for at least an hour",
+                goalButton: "Walked"
             ),
             User(
                 login: "guest",
@@ -33,7 +37,9 @@ extension User {
                 username: "Guest",
                 imageName: "GuestImage",
                 moodEmoji: "🧘",
-                mood: "Chill"
+                mood: "Chill",
+                goal: "Idk, come up with something yourself",
+                goalButton: "Done"
             )
         ]
     }
