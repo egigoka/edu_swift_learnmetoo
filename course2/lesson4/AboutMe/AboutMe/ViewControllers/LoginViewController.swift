@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: IB Outlets
     @IBOutlet var loginTextField: UITextField!
@@ -19,6 +19,21 @@ class LoginViewController: UIViewController {
     // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case loginTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            loginButtonAction()
+        default:
+            break
+        }
+        return true
     }
     
     // MARK: IB Actions
@@ -32,6 +47,8 @@ class LoginViewController: UIViewController {
         
         guard user.password == passwordTextField.text else {
             showAlert(with: "Wrong password", and: "Try again.")
+            passwordTextField.text?.removeAll()
+            passwordTextField.becomeFirstResponder()
             return
         }
         
