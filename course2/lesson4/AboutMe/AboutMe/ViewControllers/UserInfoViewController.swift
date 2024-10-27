@@ -33,9 +33,20 @@ class UserInfoViewController: UIViewController {
     }
     
     // MARK: Public methods
-    func formatStringInLabel(_ label: UILabel, arguments: CVarArg) {
-        guard let labelText
-        label.text = String(format: label.text, arguments)
+    func formatStringInLabel(_ label: UILabel, _ arguments: CVarArg...) {
+        guard let labelText = label.text else {
+            return
+        }
+        print(label.text ?? "")
+        label.text = String(format: labelText, arguments: arguments)
+        print(label.text ?? "")
+        
+        let existingString = "Hello, %@! Welcome to %@."
+        
+        let name = "Alice"
+        let place = "Wonderland"
+        let finalString = String(format: existingString, name, place)
+        print(finalString)  // Output: "Hello, Alice! Welcome to Wonderland."
     }
 }
 
@@ -54,7 +65,10 @@ class UserInfoFirstViewController: UserInfoViewController {
         imageView.image = UIImage(named: user.imageName)
         imageView.layer.cornerRadius = 30
         
-        helloLabel.text = String(format: helloLabel, <#T##arguments: any CVarArg...##any CVarArg#>)
+        //helloLabel.text = String(format: helloLabel, <#T##arguments: any CVarArg...##any CVarArg#>)
+        
+        formatStringInLabel(helloLabel, user.username)
+        helloLabel.text = String(format: helloLabel.text ?? "", user.username)
     }
     
     
