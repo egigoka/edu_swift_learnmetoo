@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController,
-                            UITextFieldDelegate,
+                           UITextFieldDelegate,
                            ChildViewControllerDelegate {
     
     // MARK: IB Outlets
@@ -26,9 +26,9 @@ class LoginViewController: UIViewController,
         
         /// debug
         let user = users[1]
-            self.user = user
-            loginTextField.text = user.login
-            passwordTextField.text = user.password
+        self.user = user
+        loginTextField.text = user.login
+        passwordTextField.text = user.password
         
         /// debug END
         
