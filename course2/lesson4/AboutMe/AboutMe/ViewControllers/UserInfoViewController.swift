@@ -48,7 +48,8 @@ class UserInfoViewController: UIViewController {
 
 class UserInfoFirstViewController: UserInfoViewController {
     
-    // MARK: IB Outlets
+    // MARK: - IB Outlets
+    
     
     @IBOutlet var imageView: UIImageView!
     
@@ -58,7 +59,7 @@ class UserInfoFirstViewController: UserInfoViewController {
     
     @IBOutlet var goalDoneButton: UIButton!
     
-    // MARK: Override Methods
+    // MARK: - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
