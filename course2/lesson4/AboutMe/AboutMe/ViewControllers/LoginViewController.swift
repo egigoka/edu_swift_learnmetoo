@@ -20,19 +20,6 @@ class LoginViewController: UIViewController,
     private var user: User?
     private let goToIndexTabController = 0
     
-    // MARK: Override methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
-    }
-    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabBarController = segue.destination as? UserInfoTabBarController else {
@@ -51,6 +38,19 @@ class LoginViewController: UIViewController,
     
     func didDismissWithSwipe() {
         passwordTextField.text?.removeAll()
+    }
+    
+    // MARK: Override methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
     
     // MARK: IB Actions
@@ -96,18 +96,9 @@ class LoginViewController: UIViewController,
                   button: "OK")
     }
     
-    // MARK: Private methods
-    
-    private func avaliableLogins() -> [String] {
-        users.map { $0.login }
-    }
-    
-    private func availableLoginsAlert(with title: String) {
-        let logins = avaliableLogins()
-        showAlert(with: title,
-                  and: "Available logins:"
-                  + " \(logins.joined(separator: ", "))",
-                  button: "OK")
+    @IBAction func unwindToThisViewController(_ segue: UIStoryboardSegue) {
+        // Optional: Add any code you want to execute upon returning to this screen.
+        print("Unwound to this view controller!")
     }
     
     // MARK: Public methods
@@ -123,6 +114,22 @@ class LoginViewController: UIViewController,
         }
         return true
     }
+    
+    // MARK: Private methods
+    
+    private func avaliableLogins() -> [String] {
+        users.map { $0.login }
+    }
+    
+    private func availableLoginsAlert(with title: String) {
+        let logins = avaliableLogins()
+        showAlert(with: title,
+                  and: "Available logins:"
+                  + " \(logins.joined(separator: ", "))",
+                  button: "OK")
+    }
+    
+    
     
 }
 
