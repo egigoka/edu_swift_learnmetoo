@@ -24,14 +24,6 @@ class LoginViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// debug
-        let user = users[1]
-        self.user = user
-        loginTextField.text = user.login
-        passwordTextField.text = user.password
-        
-        /// debug END
-        
         loginTextField.delegate = self
         passwordTextField.delegate = self
     }
