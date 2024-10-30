@@ -265,6 +265,8 @@
                         <outletCollection property="multipleLabels" destination="s81-bi-vot" collectionClass="NSMutableArray" id="Dpt-g9-i72"/>
                         <outletCollection property="multipleLabels" destination="chb-kE-t0Z" collectionClass="NSMutableArray" id="xZT-OF-UCY"/>
                         <outletCollection property="multipleLabels" destination="ra1-EQ-1DV" collectionClass="NSMutableArray" id="k9w-Sq-hWa"/>
+                        <outletCollection property="rangedLabels" destination="4fw-kl-IlU" collectionClass="NSMutableArray" id="YDd-FI-lOn"/>
+                        <outletCollection property="rangedLabels" destination="f3v-QC-75X" collectionClass="NSMutableArray" id="7UH-2o-Cg5"/>
                         <segue destination="ptr-U7-EwS" kind="show" identifier="showResult" id="VCD-Gi-m1J"/>
                     </connections>
                 </viewController>

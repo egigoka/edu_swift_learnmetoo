@@ -9,6 +9,7 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var rangedSlider: UISlider!
@@ -19,5 +20,35 @@ class QuestionsViewController: UIViewController {
     
     @IBOutlet var singleButtons: [UIButton]!
     @IBOutlet var multipleLabels: [UILabel]!
+    @IBOutlet var rangedLabels: [UILabel]!
+    
+    // MARK: - Private Properties
+    private let questions = Question.getQuestions()
+    private var questionIndex = 0
+    
+    // MARK: - Override Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUI()
+    }
+    
+}
+
+// MARK: - Private Methods
+
+extension QuestionsViewController {
+    private func updateUI() {
+        // Hide stacks
+        for stackView in [singleStackView, multipleStackView, rangedStackView] {
+            stackView?.isHidden = true
+        }
+        
+        // Get current question
+        let currentQuestion = questions[questionIndex]
+        
+        // Set current question for question label
+        questionLabel.text = currentQuestion?.text
+    }
+    
     
 }
