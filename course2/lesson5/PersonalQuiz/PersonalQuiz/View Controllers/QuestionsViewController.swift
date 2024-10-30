@@ -8,8 +8,6 @@
 import UIKit
 
 class QuestionsViewController: UIViewController {
-    
-    @IBOutlet var questionNumberLabel: UILabel!
     // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressView: UIProgressView!
