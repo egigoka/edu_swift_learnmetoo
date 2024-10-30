@@ -9,9 +9,7 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
-<<<<<<< HEAD
     @IBOutlet var questionNumberLabel: UILabel!
-=======
     // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressView: UIProgressView!
@@ -50,9 +48,7 @@ extension QuestionsViewController {
         let currentQuestion = questions[questionIndex]
         
         // Set current question for question label
-        questionLabel.text = currentQuestion?.text
+        questionLabel.text = currentQuestion.text
     }
-    
->>>>>>> master
     
 }
