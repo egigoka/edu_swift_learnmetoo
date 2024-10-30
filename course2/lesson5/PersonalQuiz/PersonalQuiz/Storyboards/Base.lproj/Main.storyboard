@@ -251,7 +251,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="questionNumberLabel" destination="uZ8-ej-nWL" id="WQ2-cD-JkC"/>
+                        <outlet property="multipleStackView" destination="RE5-dM-ONQ" id="Vwr-ns-odS"/>
+                        <outlet property="progressView" destination="y6M-ST-36A" id="5IR-vb-fqm"/>
+                        <outlet property="questionLabel" destination="uZ8-ej-nWL" id="WQ2-cD-JkC"/>
+                        <outlet property="rangedSlider" destination="dLB-G1-GlT" id="xEx-El-gw8"/>
+                        <outlet property="rangedStackView" destination="HHa-Z5-OUK" id="v7B-hF-ZVf"/>
+                        <outlet property="singleStackView" destination="GPT-Lx-doe" id="YkF-u6-QUo"/>
+                        <outletCollection property="singleButtons" destination="vzf-yY-FOY" collectionClass="NSMutableArray" id="pQf-LD-6UF"/>
+                        <outletCollection property="singleButtons" destination="ERz-Ub-XPQ" collectionClass="NSMutableArray" id="oct-VI-iMQ"/>
+                        <outletCollection property="singleButtons" destination="kmK-sd-RcY" collectionClass="NSMutableArray" id="txO-gU-nA2"/>
+                        <outletCollection property="singleButtons" destination="04f-Us-2aW" collectionClass="NSMutableArray" id="3Xi-nC-XYK"/>
+                        <outletCollection property="multipleLabels" destination="wjD-MV-P6O" collectionClass="NSMutableArray" id="2wq-Em-zdR"/>
+                        <outletCollection property="multipleLabels" destination="s81-bi-vot" collectionClass="NSMutableArray" id="Dpt-g9-i72"/>
+                        <outletCollection property="multipleLabels" destination="chb-kE-t0Z" collectionClass="NSMutableArray" id="xZT-OF-UCY"/>
+                        <outletCollection property="multipleLabels" destination="ra1-EQ-1DV" collectionClass="NSMutableArray" id="k9w-Sq-hWa"/>
                         <segue destination="ptr-U7-EwS" kind="show" identifier="showResult" id="VCD-Gi-m1J"/>
                     </connections>
                 </viewController>
