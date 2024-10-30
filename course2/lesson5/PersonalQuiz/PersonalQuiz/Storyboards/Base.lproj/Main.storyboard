@@ -251,9 +251,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="questionNumberLabel" destination="uZ8-ej-nWL" id="WQ2-cD-JkC"/>
-=======
                         <outlet property="multipleStackView" destination="RE5-dM-ONQ" id="Vwr-ns-odS"/>
                         <outlet property="progressView" destination="y6M-ST-36A" id="5IR-vb-fqm"/>
                         <outlet property="questionLabel" destination="uZ8-ej-nWL" id="WQ2-cD-JkC"/>
@@ -270,7 +267,6 @@
                         <outletCollection property="multipleLabels" destination="ra1-EQ-1DV" collectionClass="NSMutableArray" id="k9w-Sq-hWa"/>
                         <outletCollection property="rangedLabels" destination="4fw-kl-IlU" collectionClass="NSMutableArray" id="YDd-FI-lOn"/>
                         <outletCollection property="rangedLabels" destination="f3v-QC-75X" collectionClass="NSMutableArray" id="7UH-2o-Cg5"/>
->>>>>>> master
                         <segue destination="ptr-U7-EwS" kind="show" identifier="showResult" id="VCD-Gi-m1J"/>
                     </connections>
                 </viewController>
