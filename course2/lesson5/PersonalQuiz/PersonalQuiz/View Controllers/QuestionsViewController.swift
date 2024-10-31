@@ -24,6 +24,7 @@ class QuestionsViewController: UIViewController {
     // MARK: - Private Properties
     private let questions = Question.getQuestions()
     private var questionIndex = 0
+    private var answersChosen: [Answer] = []
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
@@ -34,9 +35,14 @@ class QuestionsViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - IB Actions
+    
+    @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
+    }
+    
+    
+    
 }
-
-// MARK: - Private Methods
 
 extension QuestionsViewController {
     private func updateUI() {
@@ -61,14 +67,14 @@ extension QuestionsViewController {
         title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
         
         // Show current StackView
-        
+        showCurrentStackView(for: currentQuestion.type)
     }
     
     private func showCurrentStackView(for type: ResponseType) {
         switch type {
         case .single: showSingleStackView(with: currentAnswers)
-        case .multiple: break
-        case .ranged: break
+        case .multiple: showMultipleStackView(with: currentAnswers)
+        case .ranged: showRangedStackViewr(with: currentAnswers)
         }
     }
     
@@ -80,4 +86,18 @@ extension QuestionsViewController {
         }
     }
     
+    private func showMultipleStackView(with answers: [Answer]) {
+        multipleStackView.isHidden = false
+        
+        for (label, answer) in zip(multipleLabels, answers) {
+            label.text = answer.text
+        }
+    }
+    
+    private func showRangedStackViewr(with answers: [Answer]) {
+        rangedStackView.isHidden = false
+        
+        rangedLabels.first?.text = answers.first?.text
+        rangedLabels.last?.text = answers.last?.text
+    }
 }
