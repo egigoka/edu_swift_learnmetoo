@@ -24,6 +24,9 @@ class QuestionsViewController: UIViewController {
     // MARK: - Private Properties
     private let questions = Question.getQuestions()
     private var questionIndex = 0
+    private var currentAnswers: [Answer] {
+        questions[questionIndex].answers
+    }
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -47,6 +50,34 @@ extension QuestionsViewController {
         
         // Set current question for question label
         questionLabel.text = currentQuestion.text
+        
+        // Calculate progress
+        let totalProgress = Float(questionIndex) / Float(questions.count)
+        
+        // Set progress for progressView
+        progressView.setProgress(totalProgress, animated: true)
+        
+        // Set title
+        title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
+        
+        // Show current StackView
+        
+    }
+    
+    private func showCurrentStackView(for type: ResponseType) {
+        switch type {
+        case .single: showSingleStackView(with: currentAnswers)
+        case .multiple: break
+        case .ranged: break
+        }
+    }
+    
+    private func showSingleStackView(with answers: [Answer]) {
+        singleStackView.isHidden = false
+        
+        for (button, answer) in zip(singleButtons, answers) {
+            button.setTitle(answer.text, for: .normal)
+        }
     }
     
 }
