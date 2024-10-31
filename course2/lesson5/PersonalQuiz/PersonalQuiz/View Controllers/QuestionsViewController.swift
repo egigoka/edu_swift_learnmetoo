@@ -11,7 +11,12 @@ class QuestionsViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressView: UIProgressView!
-    @IBOutlet var rangedSlider: UISlider!
+    @IBOutlet var rangedSlider: UISlider! {
+        didSet {
+            let answerCount = Float(currentAnswers.count - 1)
+            rangedSlider.maximumValue = answerCount
+        }
+    }
     
     @IBOutlet var singleStackView: UIStackView!
     @IBOutlet var multipleStackView: UIStackView!
@@ -20,6 +25,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var singleButtons: [UIButton]!
     @IBOutlet var multipleLabels: [UILabel]!
     @IBOutlet var rangedLabels: [UILabel]!
+    @IBOutlet var multipleSwitches: [UISwitch]!
     
     // MARK: - Private Properties
     private let questions = Question.getQuestions()
@@ -38,9 +44,29 @@ class QuestionsViewController: UIViewController {
     // MARK: - IB Actions
     
     @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
+        guard let currentIndex = singleButtons.firstIndex(of: sender) else {
+            return
+        }
+        
+        let currentAnswer = currentAnswers[currentIndex]
+        
+        answersChosen.append(currentAnswer)
+     
+        nextQuestion()
     }
     
+    @IBAction func multipleAnswerPressed() {
+        for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
+            if multipleSwitch.isOn {
+                answersChosen.append(answer)
+            }
+        }
+        nextQuestion()
+    }
     
+    @IBAction func rangedActionButtonPressed() {
+        
+    }
     
 }
 
@@ -99,5 +125,16 @@ extension QuestionsViewController {
         
         rangedLabels.first?.text = answers.first?.text
         rangedLabels.last?.text = answers.last?.text
+    }
+    
+    private func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+            return
+        }
+        
+        performSegue(withIdentifier: "showResult", sender: nil)
     }
 }
