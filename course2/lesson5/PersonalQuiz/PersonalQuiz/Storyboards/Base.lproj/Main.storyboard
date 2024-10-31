@@ -293,7 +293,7 @@
         <!--Результаты-->
         <scene sceneID="dED-FO-zHT">
             <objects>
-                <viewController id="ptr-U7-EwS" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ptr-U7-EwS" customClass="ResultsViewController" customModule="PersonalQuiz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L2N-kJ-gTO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -324,13 +324,17 @@
                             <constraint firstItem="V4q-wH-PMh" firstAttribute="leading" secondItem="uTt-mo-Y4P" secondAttribute="leading" constant="16" id="i6I-kP-gP7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Результаты" id="j6T-zI-QYs">
+                    <navigationItem key="navigationItem" title="Результаты" largeTitleDisplayMode="always" id="j6T-zI-QYs">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="KC7-td-h5M">
                             <connections>
                                 <segue destination="KHh-Uz-Yx3" kind="unwind" unwindAction="unwindWithSegue:" id="8Sk-KE-3Ca"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="animalEmojiLabel" destination="h8l-ad-5r7" id="t9W-au-uwZ"/>
+                        <outlet property="descriptionLabel" destination="mYb-9i-BIt" id="9LO-zR-9YY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAa-HD-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="KHh-Uz-Yx3" userLabel="Exit" sceneMemberID="exit"/>
