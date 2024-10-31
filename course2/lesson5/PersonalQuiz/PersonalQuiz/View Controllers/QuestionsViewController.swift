@@ -14,7 +14,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var rangedSlider: UISlider! {
         didSet {
             let answerCount = Float(currentAnswers.count - 1)
-            rangedSlider.maximumValue = answerCount
+            rangedSlider.value = answerCount
         }
     }
     
@@ -28,6 +28,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var multipleSwitches: [UISwitch]!
     
     // MARK: - Private Properties
+    
     private let questions = Question.getQuestions()
     private var questionIndex = 0
     private var answersChosen: [Answer] = []
@@ -39,6 +40,11 @@ class QuestionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     // MARK: - IB Actions
@@ -65,7 +71,9 @@ class QuestionsViewController: UIViewController {
     }
     
     @IBAction func rangedActionButtonPressed() {
-        
+        let index = lrintf(rangedSlider.value)
+        answersChosen.append(currentAnswers[index])
+        nextQuestion()
     }
     
 }
