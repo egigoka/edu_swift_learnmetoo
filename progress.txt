@@ -54,7 +54,7 @@ course 2 lesson 4 homework         - done
 
 course 2 lesson 5 homework review  - done
 course 2 lesson 5 theory           - done
-course 2 lesson 5 homework         - in progress
+course 2 lesson 5 homework         - done
 
 course 2 lesson 6 homework review  - 
 course 2 lesson 6 theory           - 

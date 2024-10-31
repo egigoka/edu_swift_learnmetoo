@@ -39,6 +39,7 @@ class QuestionsViewController: UIViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateUI()
     }
     
@@ -111,7 +112,7 @@ extension QuestionsViewController {
         switch type {
         case .single: showSingleStackView(with: currentAnswers)
         case .multiple: showMultipleStackView(with: currentAnswers)
-        case .ranged: showRangedStackViewr(with: currentAnswers)
+        case .ranged: showRangedStackView(with: currentAnswers)
         }
     }
     
@@ -129,13 +130,19 @@ extension QuestionsViewController {
         for (label, answer) in zip(multipleLabels, answers) {
             label.text = answer.text
         }
+        
+        for multipleSwitch in multipleSwitches {
+            multipleSwitch.isOn = false
+        }
     }
     
-    private func showRangedStackViewr(with answers: [Answer]) {
+    private func showRangedStackView(with answers: [Answer]) {
         rangedStackView.isHidden = false
         
         rangedLabels.first?.text = answers.first?.text
         rangedLabels.last?.text = answers.last?.text
+        
+        rangedSlider.value = 0.5
     }
     
     private func nextQuestion() {
