@@ -9,6 +9,11 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    // MARK: - Public Properties
+    var chosenAnswers: [Answer] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
 }
