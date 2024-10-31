@@ -6,22 +6,7 @@
 //
 
 import UIKit
-// MARK: - Class/Struct Declaration
-// MARK: - IB Outlets
-// MARK: - Public Properties
-// MARK: - Private Properties
-// MARK: - Initializers
-// MARK: - Lifecycle Methods
-// MARK: - Deinitializer
-// MARK: - Override Methods
-// MARK: - Navigation
-// MARK: - IB Actions
-// MARK: - Public Methods
-// MARK: - Private Methods
-// MARK: - Error Handling
-// MARK: - Protocol Conformance
-// MARK: - Static Methods
-// MARK: - Closures and Callbacks
+
 class ResultsViewController: UIViewController {
     
     // MARK: - IB Outlets
@@ -39,14 +24,16 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(answersChosen.count)
-        countAnswers()
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
+        countAnswers()
+        updateUI()
     }
     
     // MARK: - Private Methods
     private func countAnswers() {
         var results: [String: Int] = [:]
+        var maxValue = 0
         for answer in answersChosen {
             let animal = "\(answer.type)"
             if results.keys.contains(animal) {
@@ -54,10 +41,18 @@ class ResultsViewController: UIViewController {
             } else {
                 results[animal] = 1
             }
+            
+            if results[animal] ?? 0 >= maxValue {
+                maxValue = results[animal] ?? 0
+                result = answer.type
+            }
         }
     }
     
     private func updateUI() {
-        
+        if let result = result {
+            animalEmojiLabel.text = "Вы - \(result.rawValue)"
+            descriptionLabel.text = result.definition
+        }
     }
 }
