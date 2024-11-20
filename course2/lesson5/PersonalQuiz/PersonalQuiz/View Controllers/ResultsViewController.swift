@@ -13,12 +13,8 @@ class ResultsViewController: UIViewController {
     @IBOutlet var animalEmojiLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
-    
     // MARK: - Public Properties
     var answersChosen: [Answer]!
-    
-    // MARK: - Private Properties
-    private var result: AnimalType?
     
     // MARK: - Ovverride Methods
     override func viewDidLoad() {
@@ -27,32 +23,27 @@ class ResultsViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         
         countAnswers()
-        updateUI()
     }
     
     // MARK: - Private Methods
     private func countAnswers() {
-        var results: [String: Int] = [:]
-        var maxValue = 0
-        for answer in answersChosen {
-            let animal = "\(answer.type)"
-            if results.keys.contains(animal) {
-                results.updateValue((results[animal] ?? 0) + 1, forKey: animal)
+        var results: [AnimalType: Int] = [:]
+        let animals = answersChosen.map { $0.type }
+        for animal in animals {
+            if let animalCount = results[animal] {
+                results.updateValue(animalCount + 1, forKey: animal)
             } else {
                 results[animal] = 1
             }
-            
-            if results[animal] ?? 0 >= maxValue {
-                maxValue = results[animal] ?? 0
-                result = answer.type
-            }
         }
+        let sortedResults = results.sorted { $0.value > $1.value }
+        guard let mostFrequent = sortedResults.first?.key else { return }
+        
+        updateUI(with: mostFrequent)
     }
     
-    private func updateUI() {
-        if let result = result {
-            animalEmojiLabel.text = "Вы - \(result.rawValue)"
-            descriptionLabel.text = result.definition
-        }
+    private func updateUI(with animal: AnimalType) {
+        animalEmojiLabel.text = "Вы - \(animal.rawValue)"
+        descriptionLabel.text = animal.definition
     }
 }
