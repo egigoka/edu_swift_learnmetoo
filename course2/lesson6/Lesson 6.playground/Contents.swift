@@ -100,7 +100,31 @@ for employee in sortedEmployees {
 
 //: ### Создание собственного протокола
 
+protocol FullyNameProtocol {
+    var fullName: String { get }
+    func sayHello()
+}
 
+class Person: FullyNameProtocol {
+    let firstName: String
+    let lastName: String
+    
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    func sayHello() {
+        print("Hello, \(fullName)!")
+    }
+}
+
+let person = Person(firstName: "Tim", lastName: "Cook")
+person.sayHello()
 
 //: ### Делегирование
 
