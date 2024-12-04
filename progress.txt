@@ -57,7 +57,7 @@ course 2 lesson 5 theory           - done
 course 2 lesson 5 homework         - done
 
 course 2 lesson 6 homework review  - done anki++++
-course 2 lesson 6 theory           - 1:36:09
+course 2 lesson 6 theory           - 1:57:21
 course 2 lesson 6 homework         - 
 
 course 2 lesson 7 homework review  - 
