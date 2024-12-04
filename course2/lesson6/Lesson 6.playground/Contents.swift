@@ -105,6 +105,10 @@ protocol FullyNameProtocol {
     func sayHello()
 }
 
+extension FullyNameProtocol {
+    func doSomething() {}
+}
+
 class Person: FullyNameProtocol {
     let firstName: String
     let lastName: String
