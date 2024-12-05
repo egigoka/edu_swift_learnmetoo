@@ -18,6 +18,11 @@ class ContactListViewController: UIViewController {
     
     private(set) var contacts: [String] = ["Tim Cook"]
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newContactVC = segue.destination as! NewContactViewController
+        newContactVC.delegate = self
+    }
+    
 }
 
 extension ContactListViewController: NewContactViewControllerDelegate {
