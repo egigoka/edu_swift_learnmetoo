@@ -51,6 +51,8 @@ class ColorPickerViewController: UIViewController {
         if let color = colorView.backgroundColor {
             delegate.updateColor(color)
         }
+        print("fuck me")
+        dismiss(animated: true)
     }
     
     private func getCurrentColor(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
