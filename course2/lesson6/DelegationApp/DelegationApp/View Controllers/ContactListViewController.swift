@@ -8,10 +8,20 @@
 
 import UIKit
 
+protocol NewContactViewControllerDelegate {
+    func savePerson(_ person: String)
+}
+
 class ContactListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
     private(set) var contacts: [String] = ["Tim Cook"]
     
+}
+
+extension ContactListViewController: NewContactViewControllerDelegate {
+    func savePerson(_ person: String) {
+        contacts.append(person)
+    }
 }
