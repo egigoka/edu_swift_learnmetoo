@@ -7,6 +7,19 @@
 
 import UIKit
 
+protocol ColorPickerViewControllerDelegate {
+    func updateColor(_ color: UIColor)
+}
+
 class MainViewController: UIViewController {
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let colorPickerVC = segue.destination as! ColorPickerViewController
+        colorPickerVC.delegate = self
+    }
+}
+
+extension MainViewController: ColorPickerViewControllerDelegate {
+    func updateColor(_ color: UIColor) {
+        self.view.backgroundColor = color
+    }
 }
