@@ -19,8 +19,12 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
     
+    var delegate: ColorPickerViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
         
         colorView.layer.cornerRadius = 10
         
@@ -40,6 +44,12 @@ class ColorPickerViewController: UIViewController {
         case 1: greenLabel.text = format(from: sender)
         case 2: blueLabel.text = format(from: sender)
         default: break
+        }
+    }
+    
+    @IBAction func doneButtonAction(_ sender: Any) {
+        if let color = colorView.backgroundColor {
+            delegate.updateColor(color)
         }
     }
     
@@ -74,6 +84,7 @@ class ColorPickerViewController: UIViewController {
             }
         }
     }
+    
     
 }
 
