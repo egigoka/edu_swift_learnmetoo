@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let colorPickerVC = segue.destination as! ColorPickerViewController
         colorPickerVC.delegate = self
-        colorPickerVC.colorView.backgroundColor = view.backgroundColor
+        colorPickerVC.color = view.backgroundColor
     }
 }
 
