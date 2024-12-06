@@ -19,6 +19,10 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
     
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
+    
     var delegate: ColorPickerViewControllerDelegate!
     var color: UIColor!
     
