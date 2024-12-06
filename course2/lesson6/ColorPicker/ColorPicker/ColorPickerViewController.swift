@@ -31,13 +31,11 @@ class ColorPickerViewController: UIViewController {
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         
-        setColor()
-        
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
     @IBAction func rgbSliderAction(_ sender: UISlider) {
-        setColor()
+        setColor(getCurrentColorFromSliders())
         
         switch sender.tag {
         case 0: redLabel.text = format(from: sender)
@@ -51,11 +49,24 @@ class ColorPickerViewController: UIViewController {
         if let color = colorView.backgroundColor {
             delegate.updateColor(color)
         }
-        print("fuck me")
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
-    private func getCurrentColor(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
+    private func setSliders() {
+        guard let color = view.backgroundColor else {
+            return
+        }
+        redSlider.value = 
+    }
+    
+    private func getCurrentColorFromSliders() -> UIColor {
+        UIColor(red: CGFloat(redSlider.value),
+                green: CGFloat(greenSlider.value),
+                blue: CGFloat(blueSlider.value),
+                alpha: 1)
+    }
+    
+    private func getColorValuesView(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -64,12 +75,8 @@ class ColorPickerViewController: UIViewController {
         return (red, green, blue)
     }
     
-    private func setColor() {
-        colorView.backgroundColor =
-            UIColor(red: CGFloat(redSlider.value),
-                    green: CGFloat(greenSlider.value),
-                    blue: CGFloat(blueSlider.value),
-                    alpha: 1)
+    private func setColor(_ color: UIColor) {
+        colorView.backgroundColor = color
     }
     
     private func format(from slider: UISlider) -> String {
