@@ -20,6 +20,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet var blueLabel: UILabel!
     
     var delegate: ColorPickerViewControllerDelegate!
+    var color: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,9 @@ class ColorPickerViewController: UIViewController {
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         
+        setColor(color)
+        
+        setSliders()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
@@ -49,14 +53,14 @@ class ColorPickerViewController: UIViewController {
         if let color = colorView.backgroundColor {
             delegate.updateColor(color)
         }
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     private func setSliders() {
-        guard let color = view.backgroundColor else {
-            return
-        }
-        redSlider.value = 
+        let colorValues = getColorValuesView(of: colorView)
+        redSlider.value = Float(colorValues.red)
+        greenSlider.value = Float(colorValues.green)
+        blueSlider.value = Float(colorValues.blue)
     }
     
     private func getCurrentColorFromSliders() -> UIColor {
