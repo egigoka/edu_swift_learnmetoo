@@ -39,7 +39,8 @@ class ColorPickerViewController: UIViewController {
         setColor(color)
         
         setSliders()
-        setValue(for: redLabel, greenLabel, blueLabel)
+        setValueForLabels(for: redLabel, greenLabel, blueLabel)
+        setValueForTextFields(for: redTextField, greenTextField, blueTextField)
     }
     
     @IBAction func rgbSliderAction(_ sender: UISlider) {
@@ -91,7 +92,7 @@ class ColorPickerViewController: UIViewController {
         String(format: "%.2f", CGFloat(slider.value))
     }
     
-    private func setValue(for labels: UILabel...) {
+    private func setValueForLabels(for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
             case 0: redLabel.text = format(from: redSlider)
@@ -100,6 +101,17 @@ class ColorPickerViewController: UIViewController {
             default: break
             }
         }
+    }
+    
+    private func setValueForTextFields(for textFields: UITextField...) {
+        textFields.forEach( { textField in
+            switch textField.tag {
+            case 0: redTextField.text = format(from: redSlider)
+            case 1: greenTextField.text = format(from: greenSlider)
+            case 2: blueTextField.text = format(from: blueSlider)
+            default: break
+            }
+        })
     }
     
     
