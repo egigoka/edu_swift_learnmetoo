@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorPickerViewController: UIViewController {
+class ColorPickerViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var colorView: UIView!
     
@@ -26,6 +26,11 @@ class ColorPickerViewController: UIViewController {
     var delegate: ColorPickerViewControllerDelegate!
     var color: UIColor!
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,15 +46,38 @@ class ColorPickerViewController: UIViewController {
         setSliders()
         setValueForLabels(for: redLabel, greenLabel, blueLabel)
         setValueForTextFields(for: redTextField, greenTextField, blueTextField)
+        
+        redTextField.delegate = self
+        addDoneButtonToKeyboard(for: redTextField)
+    }
+    
+    func addDoneButtonToKeyboard(for textFields: UITextField...) {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        for textField in textFields {
+            <#body#>
+        }
+    }
+    
+    @objc func doneButtonTapped() {
+        for textField in (redTextField, greenTextField, )
     }
     
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setColor(getCurrentColorFromSliders())
         
         switch sender.tag {
-        case 0: redLabel.text = format(from: sender)
-        case 1: greenLabel.text = format(from: sender)
-        case 2: blueLabel.text = format(from: sender)
+        case 0:
+            redLabel.text = format(from: sender)
+            redTextField.text = format(from: sender)
+        case 1:
+            greenLabel.text = format(from: sender)
+            greenTextField.text = format(from: sender)
+        case 2:
+            blueLabel.text = format(from: sender)
+            blueTextField.text = format(from: sender)
         default: break
         }
     }
