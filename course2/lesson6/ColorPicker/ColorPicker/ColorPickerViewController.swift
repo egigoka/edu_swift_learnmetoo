@@ -95,15 +95,16 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func rgbTextFieldAction(_ sender: UITextField) {
         
         guard let floatValueOfSender = Float(sender.text ?? "0") else {
+            showAlert(with: "Error", and: "How do you enter non-number value?", button: "IDK")
             return
         }
         
-        guard floatValueOfSender < 1 else {
+        guard floatValueOfSender <= 1 else {
             showAlert(with: "Error", and: "Value should be less or equal to 1", button: "OK")
             return
         }
                 
-        guard floatValueOfSender > 0 else {
+        guard floatValueOfSender >= 0 else {
             showAlert(with: "Error", and: "Value should be more or equal to 0", button: "OK")
             return
         }
@@ -112,14 +113,19 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         case 0:
             redLabel.text = sender.text
             redSlider.value = floatValueOfSender
+            redTextField.text = format(from: redSlider)
         case 1:
             greenLabel.text = sender.text
             greenSlider.value = floatValueOfSender
+            greenTextField.text = format(from: greenSlider)
         case 2:
             blueLabel.text = sender.text
             blueSlider.value = floatValueOfSender
+            blueTextField.text = format(from: blueSlider)
         default: break
         }
+        
+        setColor(getCurrentColorFromSliders())
         
     }
     
