@@ -53,34 +53,77 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     
     func addDoneButtonToKeyboard(for textFields: UITextField...) {
         let toolbar = UIToolbar()
+        let textFields = [redTextField, greenTextField, blueTextField]
         toolbar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        
+        toolbar.items = [doneButton]
+        
         for textField in textFields {
-            <#body#>
+            textField?.inputAccessoryView = toolbar
         }
     }
     
     @objc func doneButtonTapped() {
-        for textField in (redTextField, greenTextField, )
+        let textFields = [redTextField, greenTextField, blueTextField]
+        for textField in textFields {
+            textField?.resignFirstResponder()
+        }
     }
     
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setColor(getCurrentColorFromSliders())
         
+        let formattedValue = format(from: sender)
+        
         switch sender.tag {
         case 0:
-            redLabel.text = format(from: sender)
-            redTextField.text = format(from: sender)
+            redLabel.text = formattedValue
+            redTextField.text = formattedValue
         case 1:
-            greenLabel.text = format(from: sender)
-            greenTextField.text = format(from: sender)
+            greenLabel.text = formattedValue
+            greenTextField.text = formattedValue
         case 2:
-            blueLabel.text = format(from: sender)
-            blueTextField.text = format(from: sender)
+            blueLabel.text = formattedValue
+            blueTextField.text = formattedValue
         default: break
         }
     }
+    
+    
+    @IBAction func rgbTextFieldAction(_ sender: UITextField) {
+        
+        guard let floatValueOfSender = Float(sender.text ?? "0") else {
+            return
+        }
+        
+        guard floatValueOfSender < 1 else {
+            showAlert(with: "Error", and: "Value should be less or equal to 1", button: "OK")
+            return
+        }
+                
+        guard floatValueOfSender > 0 else {
+            showAlert(with: "Error", and: "Value should be more or equal to 0", button: "OK")
+            return
+        }
+        
+        switch sender.tag {
+        case 0:
+            redLabel.text = sender.text
+            redSlider.value = floatValueOfSender
+        case 1:
+            greenLabel.text = sender.text
+            greenSlider.value = floatValueOfSender
+        case 2:
+            blueLabel.text = sender.text
+            blueSlider.value = floatValueOfSender
+        default: break
+        }
+        
+    }
+    
+    
     
     @IBAction func doneButtonAction(_ sender: Any) {
         if let color = colorView.backgroundColor {
@@ -145,3 +188,13 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     
 }
 
+extension ColorPickerViewController {
+    func showAlert(with title: String, and message: String, button: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: button, style: .default) { _ in
+            // nothing as for now, button just closes alert
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}

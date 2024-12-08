@@ -133,16 +133,25 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <connections>
+                                                            <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="KZP-Ej-L7O"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-YU-hJM">
                                                         <rect key="frame" x="0.0" y="46" width="45" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="DEw-Ua-3e9"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOO-hZ-qTi">
                                                         <rect key="frame" x="0.0" y="92" width="45" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="rgbTextFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Sk9-U3-grt"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
