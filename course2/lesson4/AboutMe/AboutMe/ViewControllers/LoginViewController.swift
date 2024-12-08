@@ -134,7 +134,7 @@ extension UIViewController {
     func showAlert(with title: String, and message: String, button: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: button, style: .default) { _ in
-            // nothing as for now
+            // nothing as for now, button just closes alert
         }
         alert.addAction(okAction)
         present(alert, animated: true)
