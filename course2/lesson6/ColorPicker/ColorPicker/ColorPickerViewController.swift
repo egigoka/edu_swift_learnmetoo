@@ -44,8 +44,8 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         setColor(color)
         
         setSliders()
-        setValueForLabels(for: redLabel, greenLabel, blueLabel)
-        setValueForTextFields(for: redTextField, greenTextField, blueTextField)
+        setValue(for: redLabel, greenLabel, blueLabel)
+        setValue(for: redTextField, greenTextField, blueTextField)
         
         redTextField.delegate = self
         addDoneButtonToKeyboard(for: redTextField)
@@ -75,18 +75,16 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func rgbSliderAction(_ sender: UISlider) {
         setColor(getCurrentColorFromSliders())
         
-        let formattedValue = format(from: sender)
-        
         switch sender.tag {
         case 0:
-            redLabel.text = formattedValue
-            redTextField.text = formattedValue
+            setValue(for: redLabel)
+            setValue(for: redTextField)
         case 1:
-            greenLabel.text = formattedValue
-            greenTextField.text = formattedValue
+            setValue(for: greenLabel)
+            setValue(for: greenTextField)
         case 2:
-            blueLabel.text = formattedValue
-            blueTextField.text = formattedValue
+            setValue(for: blueLabel)
+            setValue(for: blueTextField)
         default: break
         }
     }
@@ -133,7 +131,7 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doneButtonAction(_ sender: Any) {
         if let color = colorView.backgroundColor {
-            delegate.updateColor(color)
+            delegate.setColor(color)
         }
         dismiss(animated: true)
     }
@@ -169,7 +167,7 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         String(format: "%.2f", CGFloat(slider.value))
     }
     
-    private func setValueForLabels(for labels: UILabel...) {
+    private func setValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
             case 0: redLabel.text = format(from: redSlider)
@@ -180,7 +178,7 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    private func setValueForTextFields(for textFields: UITextField...) {
+    private func setValue(for textFields: UITextField...) {
         textFields.forEach( { textField in
             switch textField.tag {
             case 0: redTextField.text = format(from: redSlider)
@@ -190,8 +188,6 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
             }
         })
     }
-    
-    
 }
 
 extension ColorPickerViewController {
