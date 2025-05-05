@@ -21,6 +21,6 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ColorPickerViewControllerDelegate {
     func updateColor(_ color: UIColor) {
-        self.view.backgroundColor = color
+        view.backgroundColor = color
     }
 }
