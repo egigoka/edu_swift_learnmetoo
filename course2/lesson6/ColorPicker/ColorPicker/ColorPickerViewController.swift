@@ -46,22 +46,22 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         setSliders()
         setValue(for: redLabel, greenLabel, blueLabel)
         setValue(for: redTextField, greenTextField, blueTextField)
-        
-        redTextField.delegate = self
-        addDoneButtonToKeyboard(for: redTextField)
+        addDoneButton(for: redTextField, greenTextField, blueTextField)
     }
     
-    func addDoneButtonToKeyboard(for textFields: UITextField...) {
+    func addDoneButton(for textFields: UITextField...) {
         let toolbar = UIToolbar()
-        let textFields = [redTextField, greenTextField, blueTextField]
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(doneButtonTapped))
         
         toolbar.items = [doneButton]
         
         for textField in textFields {
-            textField?.inputAccessoryView = toolbar
+            textField.inputAccessoryView = toolbar
         }
     }
     
@@ -110,15 +110,15 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         switch sender.tag {
         case 0:
             redLabel.text = sender.text
-            redSlider.value = floatValueOfSender
+            redSlider.setValue(floatValueOfSender, animated: true)
             redTextField.text = format(from: redSlider)
         case 1:
             greenLabel.text = sender.text
-            greenSlider.value = floatValueOfSender
+            greenSlider.setValue(floatValueOfSender, animated: true)
             greenTextField.text = format(from: greenSlider)
         case 2:
             blueLabel.text = sender.text
-            blueSlider.value = floatValueOfSender
+            blueSlider.setValue(floatValueOfSender, animated: true)
             blueTextField.text = format(from: blueSlider)
         default: break
         }
@@ -130,17 +130,16 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        if let color = colorView.backgroundColor {
-            delegate.setColor(color)
-        }
+        delegate?.setColor(colorView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
     
     private func setSliders() {
-        let colorValues = getColorValuesView(of: colorView)
-        redSlider.value = Float(colorValues.red)
-        greenSlider.value = Float(colorValues.green)
-        blueSlider.value = Float(colorValues.blue)
+        let ciColor = CIColor(color: color)
+        
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
     }
     
     private func getCurrentColorFromSliders() -> UIColor {
@@ -148,15 +147,6 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
                 green: CGFloat(greenSlider.value),
                 blue: CGFloat(blueSlider.value),
                 alpha: 1)
-    }
-    
-    private func getColorValuesView(of view: UIView) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        view.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: nil)
-        
-        return (red, green, blue)
     }
     
     private func setColor(_ color: UIColor) {
