@@ -100,19 +100,17 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func rgbTextFieldAction(_ sender: UITextField) {
         
-        guard let floatValueOfSender = Float(sender.text ?? "0") else {
+        guard let text = sender.text else { return } // no text in input
+        
+        guard var floatValueOfSender = Float(text) else {
             showAlert(with: "Error", and: "How do you enter non-number value?", button: "IDK")
             return
         }
         
-        guard floatValueOfSender <= 1 else {
-            showAlert(with: "Error", and: "Value should be less or equal to 1", button: "OK")
-            return
-        }
-                
-        guard floatValueOfSender >= 0 else {
-            showAlert(with: "Error", and: "Value should be more or equal to 0", button: "OK")
-            return
+        if floatValueOfSender > 1 {
+            floatValueOfSender = 1
+        } else if floatValueOfSender < 0 {
+            floatValueOfSender = 0
         }
         
         switch sender.tag {
