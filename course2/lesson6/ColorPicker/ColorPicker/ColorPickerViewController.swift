@@ -46,10 +46,10 @@ class ColorPickerViewController: UIViewController, UITextFieldDelegate {
         setSliders()
         setValue(for: redLabel, greenLabel, blueLabel)
         setValue(for: redTextField, greenTextField, blueTextField)
-        addDoneButton(for: redTextField, greenTextField, blueTextField)
+        addDoneButton(to: redTextField, greenTextField, blueTextField)
     }
     
-    func addDoneButton(for textFields: UITextField...) {
+    func addDoneButton(to textFields: UITextField...) {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
