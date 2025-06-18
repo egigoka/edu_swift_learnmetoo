@@ -25,7 +25,11 @@ class TrackListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
 
-        cell.
+        let track = trackList[indexPath.row]
+        
+        cell.textLabel?.text = track.song
+        cell.detailTextLabel?.text = track.artist
+        cell.imageView?.image = imoge
         
         return cell
     }

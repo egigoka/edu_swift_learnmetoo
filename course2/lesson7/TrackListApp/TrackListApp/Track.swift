@@ -26,7 +26,7 @@ extension Track {
             Track(artist: "Lane 8", song: "Fingerprint (Original Mix)"),
             Track(artist: "Mac Vaughn", song: "Pink Is My Favorite Color (Alex Stein Remix)"),
             Track(artist: "Metodi Hristov, Gallya", song: "Badmash (Original Mix)"),
-            Track(artist: "Veerus, Maxie Devine", song: "Nightmare (Original Mix)")
+            Track(artist: "Veerus, Maxie Devine", song: "Nightmare (Original Mix)"),
             Track(artist: "Infected Mushroom", song: "Becoming Insane")
         ]
     }
