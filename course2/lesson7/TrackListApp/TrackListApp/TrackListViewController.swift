@@ -14,7 +14,7 @@ class TrackListViewController: UITableViewController {
     // MARK: - Main View Controller methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 80
     }
     
     // MARK: - Navigation
@@ -35,9 +35,22 @@ extension TrackListViewController {
         let track = trackList[indexPath.row]
         
         cell.textLabel?.text = track.song
+        cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+        cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = track.artist
+        cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(15)
+        cell.detailTextLabel?.numberOfLines = 0
         cell.imageView?.image = UIImage(named: "7elements")
         
         return cell
     }
+}
+
+// MARK: - Table view delegate
+extension TrackListViewController {
+    /*
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
+    */
 }
