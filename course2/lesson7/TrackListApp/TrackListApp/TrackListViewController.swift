@@ -16,8 +16,15 @@ class TrackListViewController: UITableViewController {
         super.viewDidLoad()
         
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    }
 
-    // MARK: - Table view data source
+}
+
+// MARK: - Table view data source
+extension TrackListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         trackList.count
     }
@@ -29,13 +36,8 @@ class TrackListViewController: UITableViewController {
         
         cell.textLabel?.text = track.song
         cell.detailTextLabel?.text = track.artist
-        cell.imageView?.image = imoge
+        cell.imageView?.image = UIImage(named: "7elements")
         
         return cell
     }
-
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-
 }
