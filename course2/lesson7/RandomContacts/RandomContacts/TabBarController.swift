@@ -9,13 +9,23 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    let persons = Person.getRandomItems()
+    let people = Person.getRandomItems()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var tableViewViewControllers: [UITableViewController] = []
+        
+        for tableViewVC in viewControllers ?? [] {
+            if let tableViewVC = tableViewVC as? ContactsTableViewController {
+                tableViewViewControllers.append(tableViewVC)
+                tableViewVC.people = people
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

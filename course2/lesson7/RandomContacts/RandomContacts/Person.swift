@@ -21,9 +21,9 @@ extension Person {
             persons.append(
                 Person(
                     name: DataManager.names.remove(at: Int.random(in: 0..<max)),
-                    surname: DataManager.names.remove(at: Int.random(in: 0..<max)),
-                    email: DataManager.names.remove(at: Int.random(in: 0..<max)),
-                    phoneNumber: DataManager.names.remove(at: Int.random(in: 0..<max))
+                    surname: DataManager.surnames.remove(at: Int.random(in: 0..<max)),
+                    email: DataManager.emails.remove(at: Int.random(in: 0..<max)),
+                    phoneNumber: DataManager.phoneNumbers.remove(at: Int.random(in: 0..<max))
                 )
             )
         }
