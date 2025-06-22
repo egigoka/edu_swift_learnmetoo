@@ -9,16 +9,12 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController {
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let people: [Person]!
+    var people: [Person]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        print("people.count \(people.count)")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
