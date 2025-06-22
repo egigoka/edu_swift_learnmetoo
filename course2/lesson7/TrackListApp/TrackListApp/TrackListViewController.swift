@@ -40,7 +40,7 @@ extension TrackListViewController {
         cell.detailTextLabel?.text = track.artist
         cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(15)
         cell.detailTextLabel?.numberOfLines = 0
-        cell.imageView?.image = UIImage(named: "7elements")
+        cell.imageView?.image = UIImage(named: track.track)
         
         return cell
     }
