@@ -23,7 +23,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactDetail" id="v31-ZE-3dY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contact" id="v31-ZE-3dY">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v31-ZE-3dY" id="4JA-SB-71U">
@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="2350" y="-1"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Persons Details-->
         <scene sceneID="uhK-9d-RcV">
             <objects>
                 <tableViewController id="ktg-CN-vYa" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contact" id="MRX-yC-GmQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactDetail" id="MRX-yC-GmQ">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MRX-yC-GmQ" id="MDE-x6-w8a">
@@ -66,7 +66,7 @@
                             <outlet property="delegate" destination="ktg-CN-vYa" id="Gkm-60-Olx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ogW-oA-ptv"/>
+                    <navigationItem key="navigationItem" title="Persons Details" id="ogW-oA-ptv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHI-jU-RNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,7 +76,7 @@
         <scene sceneID="bkc-FN-At4">
             <objects>
                 <navigationController id="oYx-Ma-CAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Details" id="Rvp-7C-gFc"/>
+                    <tabBarItem key="tabBarItem" title="Details" image="person.crop.circle.badge.questionmark" catalog="system" id="Rvp-7C-gFc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9GM-i2-xR4">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,8 +94,8 @@
             <objects>
                 <navigationController id="dJg-Sg-O2L" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.circle" catalog="system" id="ExD-VX-LZv"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CF6-Qj-ZzG">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="CF6-Qj-ZzG">
+                        <rect key="frame" x="0.0" y="118" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -110,10 +110,10 @@
         <scene sceneID="ey5-If-Mc6">
             <objects>
                 <tabBarController id="ZZI-2L-WIi" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RRs-z9-LHW">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="RRs-z9-LHW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.49853012242268047" green="0.49853012242268047" blue="0.49853012242268047" alpha="0.19618941326530612" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="dJg-Sg-O2L" kind="relationship" relationship="viewControllers" id="OpM-OB-cvt"/>
@@ -127,6 +127,7 @@
     </scenes>
     <resources>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="person.crop.circle.badge.questionmark" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
