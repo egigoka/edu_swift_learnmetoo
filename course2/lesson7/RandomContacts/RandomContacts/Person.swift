@@ -17,20 +17,34 @@ extension Person {
     static func getRandomItems() -> [Person] {
         var persons: [Person] = []
         for _ in 0..<10 {
-            
-            let name = DataManager.names.
-            
-            persons.append(Person(name: DataManager.names.randomElement() ?? , surname: <#T##String#>, email: <#T##String#>, phoneNumber: <#T##String#>
+            persons.append(
+                Person(
+                    name: DataManager.names.remove(at: Int.random(in: 0..<10)),
+                    surname: DataManager.names.remove(at: Int.random(in: 0..<10)),
+                    email: DataManager.names.remove(at: Int.random(in: 0..<10)),
+                    phoneNumber: DataManager.names.remove(at: Int.random(in: 0..<10))
+                )
+            )
         }
+        return persons
     }
     
 }
 
 class DataManager {
     
-    let names = ["John", "Jane", "Robert", "Michael", "William", "David", "Richard", "Charles", "Joseph", "Thomas"]
-    let surnames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"]
-    let emails = ["accountant@gmail.com", "engineer@gmail.com", "designer@gmail.com", "developer@gmail.com", "tester@gmail.com", "manager@gmail.com", "sales@gmail.com", "writer@gmail.com", "artist@gmail.com", "coder@gmail.com"]
-    let phoneNumbers = ["+79123456789", "+79876543210", "+79012345678", "+79987654321", "+79567891234", "+79456789123", "+79345678912", "+79234567891", "+79145678912", "+79056789123"]
+    static var names = ["John", "Jane", "Robert", "Michael", "William",
+                        "David", "Richard", "Charles", "Joseph", "Thomas"]
+    static var surnames = ["Smith", "Johnson", "Williams", "Jones", "Brown",
+                           "Davis", "Miller", "Wilson", "Moore", "Taylor"]
+    static var emails = ["accountant@gmail.com", "engineer@gmail.com",
+                         "designer@gmail.com", "developer@gmail.com",
+                         "tester@gmail.com", "manager@gmail.com",
+                         "sales@gmail.com", "writer@gmail.com",
+                         "artist@gmail.com", "coder@gmail.com"]
+    static var phoneNumbers = ["+77123456789", "+77876543210", "+77012345678",
+                               "+77987654321", "+77567891234", "+77456789123",
+                               "+77345678912", "+77234567891", "+77145678912",
+                               "+77056789123"]
     
 }
