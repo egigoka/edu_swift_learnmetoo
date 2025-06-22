@@ -19,18 +19,26 @@ class TrackListViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let trackDetailsVC = segue.destination as! TrackDetailsViewController
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        trackDetailsVC.track = trackList[indexPath.row]
     }
 
 }
 
 // MARK: - Table view data source
 extension TrackListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         trackList.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "trackName",
+                                                 for: indexPath)
 
         let track = trackList[indexPath.row]
         
@@ -49,8 +57,9 @@ extension TrackListViewController {
 // MARK: - Table view delegate
 extension TrackListViewController {
     /*
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView,
+     heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
-    }
+    } // defined in viewDidLoad
     */
 }
