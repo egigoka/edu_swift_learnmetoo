@@ -59,7 +59,7 @@
         <!--Track Info-->
         <scene sceneID="PMD-1e-i2e">
             <objects>
-                <viewController id="gie-CP-eYy" sceneMemberID="viewController">
+                <viewController id="gie-CP-eYy" customClass="TrackDetailsViewController" customModule="TrackListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DCo-FL-ewh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +91,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Track Info" id="xUF-SZ-dzE"/>
+                    <connections>
+                        <outlet property="artCoverImageView" destination="hcY-t3-B0a" id="Psq-Te-Qa5"/>
+                        <outlet property="trackLabel" destination="Hzu-Vz-Yst" id="F2y-5K-eNX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45J-sL-3cA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
