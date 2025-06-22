@@ -69,6 +69,8 @@ extension TrackListViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let currentTrack = trackList.remove(at: sourceIndexPath.row)
+        print("\(currentTrack.track) moved to \(destinationIndexPath.row)")
+        trackList.insert(currentTrack, at: destinationIndexPath.row)
     }
     
     /*
