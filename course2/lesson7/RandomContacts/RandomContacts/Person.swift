@@ -17,12 +17,13 @@ extension Person {
     static func getRandomItems() -> [Person] {
         var persons: [Person] = []
         for _ in 0..<10 {
+            let max = DataManager.names.count
             persons.append(
                 Person(
-                    name: DataManager.names.remove(at: Int.random(in: 0..<10)),
-                    surname: DataManager.names.remove(at: Int.random(in: 0..<10)),
-                    email: DataManager.names.remove(at: Int.random(in: 0..<10)),
-                    phoneNumber: DataManager.names.remove(at: Int.random(in: 0..<10))
+                    name: DataManager.names.remove(at: Int.random(in: 0..<max)),
+                    surname: DataManager.names.remove(at: Int.random(in: 0..<max)),
+                    email: DataManager.names.remove(at: Int.random(in: 0..<max)),
+                    phoneNumber: DataManager.names.remove(at: Int.random(in: 0..<max))
                 )
             )
         }
