@@ -14,12 +14,21 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tableViewViewControllers: [UITableViewController] = []
+        var tableViewControllers: [UITableViewController] = []
         
-        for tableViewVC in viewControllers ?? [] {
-            if let tableViewVC = tableViewVC as? ContactsTableViewController {
-                tableViewViewControllers.append(tableViewVC)
-                tableViewVC.people = people
+        print("lmao even")
+        
+        print(viewControllers == nil)
+        print(viewControllers?.count ?? 999)
+        print(type(of: viewControllers?[0]))
+        
+        for navigationController in viewControllers ?? [] {
+            if let navigationController = navigationController as? UINavigationController {
+                if let tableVC = navigationController.viewControllers[0] as? ContactsTableViewController {
+                    tableViewControllers.append(tableVC)
+                    tableVC.people = people
+                    print("lal")
+                }
             }
         }
         
