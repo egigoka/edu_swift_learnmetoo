@@ -14,12 +14,9 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tableViewControllers: [UITableViewController] = []
-        
         for navigationController in viewControllers ?? [] {
             if let navigationController = navigationController as? UINavigationController {
-                if let tableVC = navigationController.viewControllers[0] as? ContactsTableViewController {
-                    tableViewControllers.append(tableVC)
+                if var tableVC = navigationController.viewControllers[0] as? PeopleReceiving {
                     tableVC.people = people
                 }
             }
