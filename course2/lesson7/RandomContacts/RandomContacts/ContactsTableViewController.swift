@@ -14,7 +14,7 @@ class ContactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("people.count = \(people.count)")
+        print("people.count contacts = \(people.count)")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -97,9 +97,7 @@ class ContactsTableViewController: UITableViewController {
 
 }
 
-extension ContactsTableViewController : PeopleReceiving {
-    
-}
+extension ContactsTableViewController : PeopleReceiving { }
 
 // MARK: - Table view data source
 
