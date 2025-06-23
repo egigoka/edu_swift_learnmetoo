@@ -9,7 +9,7 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController {
     
-    var people: [Person]! = []
+    var people: [Person] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +95,10 @@ class ContactsTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension ContactsTableViewController : PeopleReceiving {
+    
 }
 
 // MARK: - Table view data source

@@ -16,23 +16,14 @@ class TabBarController: UITabBarController {
         
         var tableViewControllers: [UITableViewController] = []
         
-        print("lmao even")
-        
-        print(viewControllers == nil)
-        print(viewControllers?.count ?? 999)
-        print(type(of: viewControllers?[0]))
-        
         for navigationController in viewControllers ?? [] {
             if let navigationController = navigationController as? UINavigationController {
                 if let tableVC = navigationController.viewControllers[0] as? ContactsTableViewController {
                     tableViewControllers.append(tableVC)
                     tableVC.people = people
-                    print("lal")
                 }
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     
