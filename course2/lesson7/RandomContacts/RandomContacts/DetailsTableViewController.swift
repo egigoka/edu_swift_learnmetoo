@@ -9,21 +9,31 @@ import UIKit
 
 class DetailsTableViewController: UITableViewController {
     
-    let a = print("GRUG HERE")
-    
     var people: [Person] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("grug here")
-
-        print("people.count detail = \(people.count)")
-        
     }
+    
+    /*
+    // MARK: - Navigation
 
-    // MARK: - Table view data source
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+}
 
+// MARK: - Protocol subscription
+extension DetailsTableViewController : PeopleReceiving { }
+
+// MARK: - Table view data source
+extension DetailsTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -54,8 +64,4 @@ class DetailsTableViewController: UITableViewController {
         
         return cell
     }
-    
 }
-
-extension DetailsTableViewController : PeopleReceiving { }
-
