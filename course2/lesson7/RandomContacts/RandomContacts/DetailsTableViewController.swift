@@ -71,4 +71,17 @@ extension DetailsTableViewController {
         
         return cell
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? PersonViewController else { return }
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+        destination.person = people[selectedIndexPath.row]
+    }
 }
+
+
+// MARK: - Table view data source
+
+
