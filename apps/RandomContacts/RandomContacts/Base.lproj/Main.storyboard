@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Persons List-->
+        <!--Contacts-->
         <scene sceneID="M2j-hV-IFI">
             <objects>
-                <tableViewController id="Kqg-AM-3IW" customClass="ContactsTableViewController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Contacts" id="Kqg-AM-3IW" customClass="ContactsTableViewController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LTn-ig-iML">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,17 +34,17 @@
                             <outlet property="delegate" destination="Kqg-AM-3IW" id="pYO-Tq-KyZ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="HnN-WA-Sqa"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="person.circle" catalog="system" selectedImage="person.circle" id="HnN-WA-Sqa"/>
                     <navigationItem key="navigationItem" title="Persons List" id="HIs-8l-vR4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPM-n4-00s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="-1"/>
+            <point key="canvasLocation" x="2347" y="32"/>
         </scene>
-        <!--Persons Details-->
+        <!--Contacts Details-->
         <scene sceneID="uhK-9d-RcV">
             <objects>
-                <tableViewController id="ktg-CN-vYa" customClass="DetailsTableViewController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Contacts Details" id="ktg-CN-vYa" customClass="DetailsTableViewController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zrl-3t-Ttv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,12 +67,12 @@
                             <outlet property="delegate" destination="ktg-CN-vYa" id="Gkm-60-Olx"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="zJK-Ho-q3e"/>
+                    <tabBarItem key="tabBarItem" title="Details" image="person.crop.circle.badge.questionmark" catalog="system" id="zJK-Ho-q3e"/>
                     <navigationItem key="navigationItem" title="Persons Details" id="ogW-oA-ptv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHI-jU-RNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349" y="738"/>
+            <point key="canvasLocation" x="2349" y="700"/>
         </scene>
         <!--Person View Controller-->
         <scene sceneID="UaU-CV-2bg">
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcW-NY-jbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234" y="372"/>
+            <point key="canvasLocation" x="3175" y="370"/>
         </scene>
         <!--Details-->
         <scene sceneID="bkc-FN-At4">
@@ -133,13 +133,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnZ-ds-wL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144" y="325"/>
+            <point key="canvasLocation" x="738" y="332"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Persons List-->
         <scene sceneID="ey5-If-Mc6">
             <objects>
-                <tabBarController id="ZZI-2L-WIi" customClass="TabBarController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="07C-3R-xce"/>
+                <tabBarController title="Persons List" id="ZZI-2L-WIi" customClass="TabBarController" customModule="RandomContacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Persons List" id="07C-3R-xce"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="RRs-z9-LHW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -152,13 +152,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4c-7v-aWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="326"/>
+            <point key="canvasLocation" x="1485" y="332"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="acS-bz-MQU"/>
+        <segue reference="uMN-Al-Bfs"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.badge.questionmark" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
