@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    let people = Person.getRandomItems()
+    let people = DataManager.shared.getRandomPeople()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,3 +22,4 @@ class TabBarController: UITabBarController {
     }
 
 }
+ 
