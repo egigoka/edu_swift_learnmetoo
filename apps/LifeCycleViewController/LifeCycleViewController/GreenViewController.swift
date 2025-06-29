@@ -10,9 +10,17 @@ import UIKit
 
 class GreenViewController: UIViewController {
     
-    @IBOutlet var openThirdVC: UIButton!
+    @IBOutlet var openThirdVC: UIButton! {
+        didSet {
+            print("\(openThirdVC.currentTitle ?? "nil")")
+        }
+    }
     
-    var someProperties: String!
+    var someProperties: String! {
+        didSet {
+            print(someProperties ?? "nil")
+        }
+    }
     
     // Срабатывает после загрузки View
     override func viewDidLoad() {
@@ -34,16 +42,33 @@ class GreenViewController: UIViewController {
     }
     
     // Срабатывает перед тем, как размер вью поменяется под размер экрана
+    override func viewWillLayoutSubviews() {
+        printMessage()
+    }
     
     // Тут срабатывает Auto Layout
     
     // Срабатывает после того, как размер вью изменился под размер эрана
+    override func viewDidLayoutSubviews() {
+        printMessage()
+    }
     
     // Срабатывает после появления вью на экране
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        printMessage()
+    }
     
     // Срабатывает при повороте экрана
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        printMessage()
+    }
     
     // Срабатывает перед тем, как вью закроется
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        printMessage()
+    }
     
     // Срабатывает после закрытия вью
 }

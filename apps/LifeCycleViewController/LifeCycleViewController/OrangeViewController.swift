@@ -10,7 +10,7 @@ import UIKit
 
 class OrangeViewController: UIViewController {
 
-    /*
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         printMessage()
@@ -46,6 +46,5 @@ class OrangeViewController: UIViewController {
     @IBAction func close(_ sender: UIButton) {
         dismiss(animated: true)
     }
-     */
 
 }
