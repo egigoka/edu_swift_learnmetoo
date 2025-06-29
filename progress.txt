@@ -65,7 +65,7 @@ course 2 lesson 7 theory           - done
 course 2 lesson 7 homework         - done
 
 course 2 lesson 8 homework review  - done
-course 2 lesson 8 theory           - 1:27:03
+course 2 lesson 8 theory           - 1:40:42
 course 2 lesson 8 homework         - 
 
 40%
