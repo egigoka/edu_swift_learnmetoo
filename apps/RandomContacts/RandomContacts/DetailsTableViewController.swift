@@ -45,7 +45,7 @@ extension DetailsTableViewController {
 //    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "\(people[section].name) \(people[section].surname)"
+        people[section].fullName
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

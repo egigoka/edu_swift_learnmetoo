@@ -44,7 +44,7 @@ extension ContactsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
         let person = people[indexPath.row]
-        cell.textLabel?.text = "\(person.name) \(person.surname)"
+        cell.textLabel?.text = person.fullName
         cell.textLabel?.font = UIFont(name: "Impact", size: 20)
         cell.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.05)
         return cell
