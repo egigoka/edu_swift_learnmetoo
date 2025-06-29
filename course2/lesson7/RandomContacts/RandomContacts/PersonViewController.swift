@@ -17,8 +17,8 @@ class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(person.name) \(person.surname)"
-        phoneLabel.text = person.phoneNumber
-        emailLabel.text = person.email
+        phoneLabel.text = "Phone: \(person.phoneNumber)"
+        emailLabel.text = "Email: \(person.email)"
     }
 
 }
