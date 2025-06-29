@@ -13,6 +13,7 @@ class DetailsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "section")
     }
     
     // MARK: - Navigation
@@ -38,9 +39,24 @@ extension DetailsTableViewController {
         2
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "\(people[section].name) \(people[section].surname)"
+    // 3. Make sure you specify a non-zero height:
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50 // or any height you want
     }
+    
+    //override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //    "\(people[section].name) \(people[section].surname)"
+    //}
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let section = tableView.dequeueReusableHeaderFooterView(withIdentifier: "section")
+        
+        section?.backgroundColor = UIColor(.red)
+        
+        return section
+    }
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let personIndex = indexPath.section
@@ -54,9 +70,11 @@ extension DetailsTableViewController {
         case 0:
             detailText = person.phoneNumber
             image = UIImage(systemName: "phone")?.withTintColor(.green, renderingMode: .alwaysOriginal)
+            cell.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.05)
         case 1:
             detailText = person.email
             image = UIImage(systemName: "tray")?.withTintColor(.blue, renderingMode: .alwaysOriginal)
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.05)
         default:
             break
         }
