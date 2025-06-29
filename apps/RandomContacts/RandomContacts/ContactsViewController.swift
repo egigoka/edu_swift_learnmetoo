@@ -7,14 +7,9 @@
 
 import UIKit
 
-class ContactsTableViewController: UITableViewController {
+class ContactsViewController: UITableViewController {
     
     var people: [Person] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     // MARK: - Navigation
 
@@ -27,10 +22,10 @@ class ContactsTableViewController: UITableViewController {
 }
 
 // MARK: - Protocol subscription
-extension ContactsTableViewController : PeopleReceiving { }
+extension ContactsViewController : PeopleReceiving { }
 
 // MARK: - Table view data source
-extension ContactsTableViewController {
+extension ContactsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -43,10 +38,17 @@ extension ContactsTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
+        var content = cell.defaultContentConfiguration()
         let person = people[indexPath.row]
-        cell.textLabel?.text = person.fullName
-        cell.textLabel?.font = UIFont(name: "Impact", size: 20)
+        
+        content.text = person.fullName
+        if let font = UIFont(name: "Impact", size: 20) {
+            content.textProperties.font = font
+        }
+        cell.contentConfiguration = content
+        
         cell.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.05)
+        
         return cell
     }
 }
