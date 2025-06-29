@@ -41,7 +41,7 @@ extension ContactsTableViewController {
         people.count
     }
 
-    tableview(section)
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)

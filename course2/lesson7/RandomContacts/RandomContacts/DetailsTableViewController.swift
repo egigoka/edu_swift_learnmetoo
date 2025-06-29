@@ -35,27 +35,34 @@ extension DetailsTableViewController : PeopleReceiving { }
 extension DetailsTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        people.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        people.count * 3
+        2
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "\(people[section].name) \(people[section].surname)"
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let personIndex = indexPath.row / 3
-        let cellType = indexPath.row % 3
+//        let personIndex = indexPath.row / 3
+//        let cellType = indexPath.row % 3
+        let personIndex = indexPath.section
+        let cellType = indexPath.row % 2
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactDetail", for: indexPath)
         let person = people[personIndex]
         
         var detailText = ""
         switch cellType {
         case 0:
-            detailText = "\(person.name) \(person.surname)"
-        case 1:
+            //detailText = "\(person.name) \(person.surname)"
             detailText = person.email
-        case 2:
+        case 1:
             detailText = person.phoneNumber
+//        case 2:
+//            detailText = person.phoneNumber
         default:
             break
         }
