@@ -7,7 +7,7 @@
 
 class DataManager {
     
-    static let shared = DataManager()
+    static let shared = DataManager() // singleton
     
     var names = ["John", "Jane", "Robert", "Michael", "William",
                         "David", "Richard", "Charles", "Joseph", "Thomas"]
@@ -23,21 +23,5 @@ class DataManager {
                                "+77345678912", "+77234567891", "+77145678912",
                                "+77056789123"]
     
-    func getRandomPeople() -> [Person] {
-        var persons: [Person] = []
-        for _ in 0..<10 {
-            let max = names.count
-            persons.append(
-                Person(
-                    name: names.remove(at: Int.random(in: 0..<max)),
-                    surname: surnames.remove(at: Int.random(in: 0..<max)),
-                    email: emails.remove(at: Int.random(in: 0..<max)),
-                    phoneNumber: phoneNumbers.remove(at: Int.random(in: 0..<max))
-                )
-            )
-        }
-        return persons
-    }
-    
-    private init() {}
+    private init() {} // singleton
 }
