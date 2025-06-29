@@ -74,32 +74,24 @@ extension DetailsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let personIndex = indexPath.section
-        let cellType = indexPath.row % 2
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactDetail", for: indexPath)
-        let person = people[personIndex]
         
-        var detailText = ""
-        var image = UIImage(systemName: "person.fill.questionmark")
-        
-        switch cellType {
-        case 0:
-            detailText = person.phoneNumber
-            image = UIImage(systemName: "phone")?.withTintColor(.green, renderingMode: .alwaysOriginal)
-            cell.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.05)
-        case 1:
-            detailText = person.email
-            image = UIImage(systemName: "tray")?.withTintColor(.blue, renderingMode: .alwaysOriginal)
-            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.05)
-        default:
-            break
-        }
-        
+        let person = people[indexPath.section]
         var content = cell.defaultContentConfiguration()
-        content.text = detailText
-        content.image = image
-        cell.contentConfiguration = content
         
+        switch indexPath.row {
+        case 0:
+            content.text = person.phoneNumber
+            content.image = UIImage(systemName: "phone")?.withTintColor(.green, renderingMode: .alwaysOriginal)
+            cell.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.05)
+        default:
+            content.text = person.email
+            content.image = UIImage(systemName: "tray")?.withTintColor(.blue, renderingMode: .alwaysOriginal)
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.05)
+        }
+
+        cell.contentConfiguration = content
+
         return cell
     }
 }
