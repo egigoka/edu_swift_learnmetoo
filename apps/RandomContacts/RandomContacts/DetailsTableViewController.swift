@@ -44,23 +44,33 @@ extension DetailsTableViewController {
 //        return 50 // or any height you want
 //    }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        people[section].fullName
-    }
+    //override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //    people[section].fullName
+    //}
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section =
+        let sectionView =
             tableView
                 .dequeueReusableHeaderFooterView(
                     withIdentifier: "section"
                 )
-        if section?.backgroundView == nil {
-            section?.backgroundView = UIView()
-            }
-        section?.backgroundView?.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.05)
-        section?.textLabel?.font = UIFont(name: "Marker Felt", size: 23)
+        guard let sectionView = sectionView else { return nil }
         
-        return section
+        if sectionView.backgroundView == nil {
+            sectionView.backgroundView = UIView()
+            }
+        sectionView.backgroundView?.backgroundColor = .systemBackground
+        sectionView.contentView.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.05)
+        
+        var content = sectionView.defaultContentConfiguration()
+        content.text = people[section].fullName
+        if let font = UIFont(name: "Marker Felt", size: 23) {
+            content.textProperties.font = font
+        }
+        
+        sectionView.contentConfiguration = content
+        
+        return sectionView
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,6 +81,7 @@ extension DetailsTableViewController {
         
         var detailText = ""
         var image = UIImage(systemName: "person.fill.questionmark")
+        
         switch cellType {
         case 0:
             detailText = person.phoneNumber
@@ -84,8 +95,10 @@ extension DetailsTableViewController {
             break
         }
         
-        cell.textLabel?.text = detailText
-        cell.imageView?.image = image
+        var content = cell.defaultContentConfiguration()
+        content.text = detailText
+        content.image = image
+        cell.contentConfiguration = content
         
         return cell
     }
