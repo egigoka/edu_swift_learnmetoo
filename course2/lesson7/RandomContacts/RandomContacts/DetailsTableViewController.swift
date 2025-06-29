@@ -14,6 +14,7 @@ class DetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "section")
+        tableView.sectionHeaderTopPadding = 0
     }
     
     // MARK: - Navigation
@@ -43,19 +44,24 @@ extension DetailsTableViewController {
 //        return 50 // or any height you want
 //    }
     
-    //override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //    "\(people[section].name) \(people[section].surname)"
-    //}
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "\(people[section].name) \(people[section].surname)"
+    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section = tableView.dequeueReusableHeaderFooterView(withIdentifier: "section")
-        
-        section?.contentView.backgroundColor = UIColor(.red)
+        let section =
+            tableView
+                .dequeueReusableHeaderFooterView(
+                    withIdentifier: "section"
+                )
+        if section?.backgroundView == nil {
+            section?.backgroundView = UIView()
+            }
+        section?.backgroundView?.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.05)
+        section?.textLabel?.font = UIFont(name: "Marker Felt", size: 23)
         
         return section
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let personIndex = indexPath.section
