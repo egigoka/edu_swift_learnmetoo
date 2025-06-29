@@ -38,6 +38,7 @@ extension ContactsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
+        
         var content = cell.defaultContentConfiguration()
         let person = people[indexPath.row]
         
