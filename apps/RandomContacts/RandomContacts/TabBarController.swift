@@ -13,7 +13,10 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupViewControllers(with: people)
+    }
+    
+    private func setupViewControllers(with people: [Person]) {
         for tableVC in viewControllers ?? [] {
             if var tableVC = tableVC as? PeopleReceiving {
                 tableVC.people = people
