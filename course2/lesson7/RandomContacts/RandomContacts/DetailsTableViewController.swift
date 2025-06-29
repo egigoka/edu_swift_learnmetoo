@@ -39,10 +39,9 @@ extension DetailsTableViewController {
         2
     }
     
-    // 3. Make sure you specify a non-zero height:
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50 // or any height you want
-    }
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50 // or any height you want
+//    }
     
     //override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     //    "\(people[section].name) \(people[section].surname)"
@@ -51,7 +50,7 @@ extension DetailsTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section = tableView.dequeueReusableHeaderFooterView(withIdentifier: "section")
         
-        section?.backgroundColor = UIColor(.red)
+        section?.contentView.backgroundColor = UIColor(.red)
         
         return section
     }
