@@ -22,6 +22,17 @@ class GreenViewController: UIViewController {
         }
     }
     
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        //printMessage()
+        print("GreenVC: awakeFromNib")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        printMessage()
+    }
+    
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +82,10 @@ class GreenViewController: UIViewController {
     }
     
     // Срабатывает после закрытия вью
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        printMessage()
+    }
 }
 
 extension UIViewController {
