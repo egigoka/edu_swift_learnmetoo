@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Загрузка приложения завершена
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        window?.rootViewController = UINavigationController(rootViewController: RootViewController())
+        //window?.rootViewController = UINavigationController(rootViewController: RootViewController())
         window?.tintColor = .red
         UINavigationBar.appearance().barTintColor = .green
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
