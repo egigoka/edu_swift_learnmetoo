@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A84B3D2D2554839200D8F896 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84B3D2C2554839200D8F896 /* RootViewController.swift */; };
+		13443C592E15F8160051285A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13443C582E15F8160051285A /* RootViewController.swift */; };
 		A862706A20A05CE60030ADA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862706920A05CE60030ADA3 /* AppDelegate.swift */; };
 		A862706C20A05CE60030ADA3 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862706B20A05CE60030ADA3 /* YellowViewController.swift */; };
 		A862706F20A05CE60030ADA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A862706D20A05CE60030ADA3 /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A84B3D2C2554839200D8F896 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		13443C582E15F8160051285A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A862706620A05CE60030ADA3 /* LifeCycleViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeCycleViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A862706920A05CE60030ADA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A862706B20A05CE60030ADA3 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
@@ -61,9 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				A862706920A05CE60030ADA3 /* AppDelegate.swift */,
+				13443C582E15F8160051285A /* RootViewController.swift */,
 				A862706B20A05CE60030ADA3 /* YellowViewController.swift */,
 				A862707B20A061760030ADA3 /* GreenViewController.swift */,
-				A84B3D2C2554839200D8F896 /* RootViewController.swift */,
 				A8B8EC7E20BC0C2F00B59315 /* OrangeViewController.swift */,
 				A862706D20A05CE60030ADA3 /* Main.storyboard */,
 				A862707020A05CF30030ADA3 /* Assets.xcassets */,
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A84B3D2D2554839200D8F896 /* RootViewController.swift in Sources */,
+				13443C592E15F8160051285A /* RootViewController.swift in Sources */,
 				A862707C20A061760030ADA3 /* GreenViewController.swift in Sources */,
 				A862706C20A05CE60030ADA3 /* YellowViewController.swift in Sources */,
 				A8B8EC7F20BC0C2F00B59315 /* OrangeViewController.swift in Sources */,

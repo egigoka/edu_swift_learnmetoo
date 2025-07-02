@@ -2,8 +2,8 @@
 //  RootViewController.swift
 //  LifeCycleViewController
 //
-//  Created by Alexey Efimov on 05.11.2020.
-//  Copyright © 2020 swiftbook.ru. All rights reserved.
+//  Created by egigoka on 03.07.2025.
+//  Copyright © 2025 swiftbook.ru. All rights reserved.
 //
 
 import UIKit
