@@ -14,6 +14,7 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        modifyBubble()
         roundBubble()
         // Do any additional setup after loading the view.
     }
@@ -36,6 +37,21 @@ class SplashScreenViewController: UIViewController {
     private func roundBubble() {
         print(ratioConstraint.multiplier)
         bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
+    }
+    
+    private func modifyBubble(){
+        let newConstraint = ratioConstraint.constraintWithMultiplier(6)
+        bubbleView.removeConstraint(ratioConstraint)
+        bubbleView.addConstraint(newConstraint)
+        bubbleView.layoutIfNeeded()
+        ratioConstraint = newConstraint
+        
+        for constraint in bubbleView.constraints {
+            print("bubble", constraint)
+        }
+        for constraint in view.constraints {
+            print("main view", constraint)
+        }
     }
 
 }
