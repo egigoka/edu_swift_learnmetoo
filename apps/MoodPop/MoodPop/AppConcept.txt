@@ -1,0 +1,31 @@
+App Concept: “Mood Pop!”
+
+Description:
+A light-hearted app that shows a surprise mood message or goofy daily pep talk each time you tap a big bubble icon. It’s like a digital “mood popper.” There’s no storage or backend—just an array of silly, encouraging, or weird messages coded in. The user taps → bubble pops with an animation → a mood or pep talk appears.
+
+Specific Plan:
+    •    Person A: Builds the home screen with a big bubble graphic. Adds tap detection.
+    •    Person B: Adds the array of moods/pep talks. Handles random selection and displaying the message.
+    •    Person C: Adds a popping animation and a silly sound effect (SwiftUI’s built-in audio or simple system sound).
+
+How to Build:
+    1.    Create ContentView with an Image or Circle representing the “bubble.”
+    2.    Add onTapGesture to trigger NavigationLink or show a Sheet.
+    3.    Show a random mood message from an array when bubble is tapped.
+    4.    Add withAnimation for pop effect (scale down, fade, etc.).
+    5.    Add a sound effect if time allows (AVFoundation or basic system sound).
+
+Example Message:
+    •    “You’re secretly a superhero today. Act accordingly.”
+    •    “Your inner sloth says: nap is good.”
+    •    “Dance break: 5 seconds. Go!”
+
+Bonus:
+Let each teammate write 5–10 funny messages. No need for local storage—hardcode them.
+
+Demo Line:
+“Tap the bubble, pop your stress—get a goofy mood boost.”
+
+⸻
+
+This Mood Pop! app is 100% achievable for 3 total beginners in 7 days, fully offline, fun to demo, and requires only SwiftUI basics.
