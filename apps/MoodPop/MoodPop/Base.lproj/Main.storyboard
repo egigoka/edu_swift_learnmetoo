@@ -16,13 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-ZJ-MVP">
-                                <rect key="frame" x="16" y="117.99999999999999" width="361" height="63.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-XL-EEK">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-XL-EEK">
                                 <rect key="frame" x="-277" y="-22.333333333333314" width="947" height="946.66666666666652"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
@@ -30,7 +24,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erk-Qh-mNq" userLabel="Tap View">
-                                <rect key="frame" x="-89.333333333333314" y="165.33333333333331" width="571.66666666666663" height="571.33333333333348"/>
+                                <rect key="frame" x="-277" y="-22.333333333333314" width="947" height="946.66666666666652"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="erk-Qh-mNq" secondAttribute="height" multiplier="1:1" id="fvg-XY-gFX"/>
@@ -42,14 +36,10 @@
                         <constraints>
                             <constraint firstItem="erk-Qh-mNq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Fw3-mY-87W" userLabel="tap center y"/>
                             <constraint firstItem="4a9-XL-EEK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCp-Hm-dDF" userLabel="bubble center x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ooA-ZJ-MVP" secondAttribute="trailing" constant="16" id="HsS-g6-j7b" userLabel="pep talk trailing"/>
-                            <constraint firstItem="ooA-ZJ-MVP" firstAttribute="bottom" secondItem="erk-Qh-mNq" secondAttribute="top" constant="16" id="Kw1-4T-RCE" userLabel="pep talk bottom"/>
-                            <constraint firstItem="ooA-ZJ-MVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Q1d-bd-0OR" userLabel="pep talk leading"/>
                             <constraint firstItem="4a9-XL-EEK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X0t-Le-tfg" userLabel="bubble center y"/>
                             <constraint firstItem="erk-Qh-mNq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z6W-q9-Fjw" userLabel="tap center x"/>
                             <constraint firstAttribute="height" secondItem="erk-Qh-mNq" secondAttribute="height" multiplier="0.9" id="bkO-E9-ABk" userLabel="tap height"/>
                             <constraint firstAttribute="height" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="0.9" id="mGq-Ql-wVA" userLabel="bubble height"/>
-                            <constraint firstItem="ooA-ZJ-MVP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zKJ-C5-lHm" userLabel="pep talk top"/>
                         </constraints>
                     </view>
                     <connections>
