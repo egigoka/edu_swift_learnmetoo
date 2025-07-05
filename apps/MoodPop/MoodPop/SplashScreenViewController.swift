@@ -12,6 +12,9 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet var bubbleView: UIView!
     @IBOutlet var ratioConstraint: NSLayoutConstraint!
     
+    var debugBubbleTapCounter = 0
+    var bubbleEnlarged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +27,7 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        modifyBubble()
+        modifyBubble(to: 3)
         roundBubble()
     }
     
@@ -47,36 +50,47 @@ class SplashScreenViewController: UIViewController {
         bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
     }
     
-    private func modifyBubble(){
+    private func modifyBubble(to multiplier: CGFloat){
         guard let constraintView = ratioConstraint.firstItem as? UIView else {
             return
         }
         
-        let newConstraintRatio = ratioConstraint.constraintWithMultiplier(6)
-        constraintView.removeConstraint(ratioConstraint)
-        view.addConstraint(newConstraintRatio)
-        UIView.animate(withDuration: 3.0,
+        //let newConstraintRatio = ratioConstraint.constraintWithMultiplier(multiplier)
+        //constraintView.removeConstraint(ratioConstraint)
+        //view.addConstraint(newConstraintRatio)
+        UIView.animate(withDuration: 1.0,
                            delay: 0,
                            usingSpringWithDamping: 0.7,
                            initialSpringVelocity: 0.5,
                            options: [.curveEaseInOut]) {
-            self.view.layoutIfNeeded()
-            self.bubbleView.layoutIfNeeded()
+            //self.view.layoutIfNeeded()
+            //self.bubbleView.layoutIfNeeded()
+            self.bubbleView.transform = CGAffineTransform(
+                scaleX: 1/multiplier,
+                y: 1/multiplier)
         }
         
-        ratioConstraint = newConstraintRatio
+        //ratioConstraint = newConstraintRatio
         
-        for constraint in bubbleView.constraints {
-            print("bubble", constraint)
-        }
-        for constraint in view.constraints {
-            print("main view", constraint)
-        }
+        // debug
+//        for constraint in bubbleView.constraints {
+//            print("bubble", constraint)
+//        }
+//        for constraint in view.constraints {
+//            print("main view", constraint)
+//        }
     }
     
 
     @objc func bubbleTapped() {
-        print("Bubble tapped!")
+        debugBubbleTapCounter += 1
+        print("Bubble tapped! \(debugBubbleTapCounter)")
+        bubbleEnlarged = !bubbleEnlarged
+        if bubbleEnlarged {
+            modifyBubble(to: 3)
+        } else {
+            modifyBubble(to: 2)
+        }
     }
     
 }
