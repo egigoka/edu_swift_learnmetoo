@@ -29,7 +29,7 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        modifyBubble(to: 3)
+        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 1)
         roundBubble()
     }
     
@@ -52,7 +52,11 @@ class SplashScreenViewController: UIViewController {
         tapView.layer.cornerRadius = tapView.frame.height / 2
     }
     
-    private func modifyBubble(to multiplier: CGFloat){
+    private func modifyBubble(
+        toSize multiplier: CGFloat,
+        toAlpha alpha: CGFloat,
+        withDuration duration: TimeInterval
+    ) {
         guard let ratioBubbleConstraintFirstItem = ratioBubbleConstraint.firstItem as? UIView else {
             return
         }
@@ -63,14 +67,19 @@ class SplashScreenViewController: UIViewController {
         let newRatioBubbleConstraint = ratioBubbleConstraint.constraintWithMultiplier(multiplier)
         ratioBubbleConstraintFirstItem.removeConstraint(ratioBubbleConstraint)
         view.addConstraint(newRatioBubbleConstraint)
-        UIView.animate(withDuration: 3,
-                           delay: 0,
-                           usingSpringWithDamping: 0.7,
-                           initialSpringVelocity: 0.5,
-                           options: [.curveEaseInOut]) {
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.5,
+                       options: [.curveEaseInOut],
+                       animations: {
             self.view.layoutIfNeeded()
-            
+            self.bubbleView.alpha = alpha
+        },
+                       completion: {finished in
+            self.bubblePopped(finished)
         }
+        )
         
         let newRatioTapConstraint = ratioTapConstraint.constraintWithMultiplier(multiplier)
         ratioTapConstraintFirstItem.removeConstraint(ratioTapConstraint)
@@ -88,16 +97,19 @@ class SplashScreenViewController: UIViewController {
 //        }
     }
     
+    func bubblePopped (_ finished: Bool) {
+        print(finished)
+    }
 
     @objc func bubbleTapped() {
         debugBubbleTapCounter += 1
         print("Bubble tapped! \(debugBubbleTapCounter)")
-        bubbleEnlarged = !bubbleEnlarged
         if bubbleEnlarged {
-            modifyBubble(to: 3)
+            modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.3)
         } else {
-            modifyBubble(to: 2)
+            modifyBubble(toSize: 0.9, toAlpha: 1, withDuration: 0.3)
         }
+        bubbleEnlarged = !bubbleEnlarged
     }
     
 }
