@@ -54,7 +54,6 @@
                     </view>
                     <connections>
                         <outlet property="bubbleView" destination="4a9-XL-EEK" id="RLY-li-TiA"/>
-                        <outlet property="pepTalkLabel" destination="ooA-ZJ-MVP" id="raT-Bj-6Ut"/>
                         <outlet property="ratioBubbleConstraint" destination="mGq-Ql-wVA" id="7dB-dY-JFq"/>
                         <outlet property="ratioTapConstraint" destination="bkO-E9-ABk" id="GkM-Uj-e3f"/>
                         <outlet property="tapView" destination="erk-Qh-mNq" id="M5c-DP-I1f"/>
