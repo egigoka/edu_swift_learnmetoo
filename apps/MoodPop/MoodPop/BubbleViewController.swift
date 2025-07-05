@@ -14,21 +14,15 @@ class BubbleViewController: UIViewController {
     @IBOutlet var ratioBubbleConstraint: NSLayoutConstraint!
     @IBOutlet var tapView: UIView!
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
-    @IBOutlet var pepTalkLabel: UILabel!
     
     var debugBubbleTapCounter = 0
     let pepTalks = PepTalk.getPepTalks()
+    var pepTalkLabel: UILabel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tap = UITapGestureRecognizer(
-            target: self,
-            action: #selector(bubbleTapped))
-        tapView.isUserInteractionEnabled = true
-        tapView.addGestureRecognizer(tap)
-        
-        pepTalkLabel.text = ""
+        addTapGesture()
+        addLabel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +45,14 @@ class BubbleViewController: UIViewController {
         }, completion: nil) // No need to use the completion block unless you want to do something after rotation
     }
     
+    private func addTapGesture() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(bubbleTapped))
+        tapView.isUserInteractionEnabled = true
+        tapView.addGestureRecognizer(tap)
+    }
+    
     @objc func bubbleTapped() {
         bubbleWillPop()
         changePepTalk()
@@ -60,11 +62,29 @@ class BubbleViewController: UIViewController {
 
 // Label logic
 extension BubbleViewController {
+    private func addLabel() {
+        let pepTalkLabel = UILabel()
+        pepTalkLabel.font = UIFont.systemFont(ofSize: 53)
+        pepTalkLabel.textColor = .black
+        view.insertSubview(pepTalkLabel, belowSubview: bubbleView)
+        
+        NSLayoutConstraint.activate([
+            pepTalkLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pepTalkLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        self.pepTalkLabel = pepTalkLabel
+    }
+    
     private func changePepTalk() {
         guard let pepTalk = pepTalks.randomElement() else {
             return
         }
+        guard let pepTalkLabel = pepTalkLabel else {
+            print("")
+            return
+        }
         pepTalkLabel.text = pepTalk.text
+        print(pepTalkLabel.text ?? "")
     }
 }
 
