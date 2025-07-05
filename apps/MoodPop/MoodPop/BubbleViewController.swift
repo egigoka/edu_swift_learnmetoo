@@ -16,6 +16,7 @@ class BubbleViewController: UIViewController {
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
     
     var debugBubbleTapCounter = 0
+    let pepTalks = PepTalk.getPepTalks()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,9 @@ class BubbleViewController: UIViewController {
         }, completion: nil) // No need to use the completion block unless you want to do something after rotation
     }
     
-    
+    @objc func bubbleTapped() {
+        bubbleWillPop()
+    }
     
 }
 
@@ -149,7 +152,7 @@ extension BubbleViewController {
         }
     }
 
-    @objc func bubbleTapped() {
+    private func bubbleWillPop() {
         debugBubbleTapCounter += 1
         print("Bubble tapped! \(debugBubbleTapCounter)")
         
@@ -161,4 +164,6 @@ extension BubbleViewController {
         playPopSound()
         modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.15)
     }
+    
+    
 }
