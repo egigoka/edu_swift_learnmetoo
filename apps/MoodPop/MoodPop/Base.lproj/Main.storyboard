@@ -16,12 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-XL-EEK">
-                                <rect key="frame" x="-229.66666666666666" y="-17.666666666666686" width="852.33333333333337" height="937.33333333333348"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-XL-EEK">
+                                <rect key="frame" x="-37" y="235" width="467" height="383"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="1:1.1" id="1wa-D5-MFf"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -30,16 +27,17 @@
                             <constraint firstItem="4a9-XL-EEK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCp-Hm-dDF"/>
                             <constraint firstItem="4a9-XL-EEK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X0t-Le-tfg"/>
                             <constraint firstItem="4a9-XL-EEK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:1" id="b4o-e3-4lg"/>
+                            <constraint firstAttribute="height" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="2.22454" id="mGq-Ql-wVA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bubbleView" destination="4a9-XL-EEK" id="RLY-li-TiA"/>
-                        <outlet property="ratioConstraint" destination="1wa-D5-MFf" id="XxC-FG-E3h"/>
+                        <outlet property="ratioConstraint" destination="mGq-Ql-wVA" id="7dB-dY-JFq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="5"/>
+            <point key="canvasLocation" x="136.64122137404578" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>
