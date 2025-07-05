@@ -11,6 +11,7 @@ class SplashScreenViewController: UIViewController {
 
     @IBOutlet var bubbleView: UIView!
     @IBOutlet var ratioConstraint: NSLayoutConstraint!
+    @IBOutlet var widthConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,21 @@ class SplashScreenViewController: UIViewController {
     }
     
     private func modifyBubble(){
-        let newConstraint = ratioConstraint.constraintWithMultiplier(6)
-        bubbleView.removeConstraint(ratioConstraint)
-        bubbleView.addConstraint(newConstraint)
+        guard let constraintView = ratioConstraint.firstItem as? UIView else {
+            return
+        }
+        
+        let newConstraintRatio = ratioConstraint.constraintWithMultiplier(6)
+        constraintView.removeConstraint(ratioConstraint)
+        view.addConstraint(newConstraintRatio)
+        view.layoutIfNeeded()
         bubbleView.layoutIfNeeded()
-        ratioConstraint = newConstraint
+        ratioConstraint = newConstraintRatio
+        
+        let newConstraintWidth = widthConstraint.constraintWithConstant(bubbleView.frame.height)
+        bubbleView.removeConstraint(widthConstraint)
+        bubbleView.addConstraint(newConstraintWidth)
+        bubbleView.layoutIfNeeded()
         
         for constraint in bubbleView.constraints {
             print("bubble", constraint)
