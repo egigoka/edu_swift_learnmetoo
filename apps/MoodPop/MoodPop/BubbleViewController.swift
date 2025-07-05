@@ -186,7 +186,7 @@ extension BubbleViewController {
     }
 
     private func bubbleWillPop() {
-        var bubbleSize: CGFloat = 0.9
+        var bubbleSize: CGFloat = 0.8
         if view.frame.width > view.frame.height {
             bubbleSize /= view.frame.width / view.frame.height
         }
