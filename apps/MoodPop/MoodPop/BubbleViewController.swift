@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class BubbleViewController: UIViewController {
 
@@ -137,6 +138,16 @@ extension BubbleViewController {
         // animating "new" bubble expansion
         modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.2, recursive: true)
     }
+    
+    private func playPopSound() {
+        if let soundURL = Bundle.main.url(forResource: "pop", withExtension: "wav") {
+            var soundID: SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        } else {
+            print("🔇 Pop sound file not found!")
+        }
+    }
 
     @objc func bubbleTapped() {
         debugBubbleTapCounter += 1
@@ -147,6 +158,7 @@ extension BubbleViewController {
             bubbleSize /= view.frame.width / view.frame.height
         }
         
+        playPopSound()
         modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.15)
     }
 }
