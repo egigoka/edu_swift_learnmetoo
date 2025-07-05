@@ -68,7 +68,6 @@ extension BubbleViewController {
     private func addLabel() {
         let pepTalkLabel = UILabel()
         pepTalkLabel.font = UIFont.systemFont(ofSize: 53)
-        pepTalkLabel.textColor = .black
         pepTalkLabel.textAlignment = .center
         pepTalkLabel.numberOfLines = 0
         pepTalkLabel.translatesAutoresizingMaskIntoConstraints = false
