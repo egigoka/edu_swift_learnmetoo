@@ -15,7 +15,6 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
     
     var debugBubbleTapCounter = 0
-//    var bubbleEnlarged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,19 +62,16 @@ class SplashScreenViewController: UIViewController {
         print("debug END")
     }
     
-    private func updateBubbleConstraint(toSize multiplier: CGFloat) -> NSLayoutConstraint {
+    private func updateBubbleConstraint(toSize multiplier: CGFloat){
         guard let ratioBubbleConstraintFirstItem = ratioBubbleConstraint.firstItem as? UIView else {
-            return ratioBubbleConstraint
+            return
         }
         
         let newRatioBubbleConstraint = ratioBubbleConstraint.constraintWithMultiplier(multiplier)
         ratioBubbleConstraintFirstItem.removeConstraint(ratioBubbleConstraint)
         view.addConstraint(newRatioBubbleConstraint)
         
-        //debug
-        debugBubbleConstraints()
-        
-        return newRatioBubbleConstraint
+        ratioBubbleConstraint = newRatioBubbleConstraint
     }
     
     private func modifyBubble(
@@ -88,14 +84,14 @@ class SplashScreenViewController: UIViewController {
             return
         }
         
-        let newRatioBubbleConstraint = updateBubbleConstraint(toSize: multiplier)
+        updateBubbleConstraint(toSize: multiplier)
         
         // animation with resizing and alpha changing
         UIView.animate(withDuration: duration,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.5,
-                       options: [.curveEaseOut],
+                       options: [.curveLinear],
                        animations: {
                 self.view.layoutIfNeeded()
                 self.bubbleView.alpha = alpha
@@ -111,39 +107,30 @@ class SplashScreenViewController: UIViewController {
         ratioTapConstraintFirstItem.removeConstraint(ratioTapConstraint)
         view.addConstraint(newRatioTapConstraint)
         
-        //debug
-        debugBubbleConstraints()
-        
         // update constraint class variables
-        ratioBubbleConstraint = newRatioBubbleConstraint
         ratioTapConstraint = newRatioTapConstraint
         
     }
     
     private func bubblePopped (_ finished: Bool) {
-        //if bubbleEnlarged {
+        // changing main view and bubble colors
         bubbleView.alpha = 0
         let mainBackgroundColor = view.backgroundColor
         view.backgroundColor = bubbleView.backgroundColor
         bubbleView.backgroundColor = mainBackgroundColor
-        let _ = updateBubbleConstraint(toSize: 30)
+        
+        // make bubble small
+        updateBubbleConstraint(toSize: 999)
         self.view.layoutIfNeeded()
-        //modifyBubble(toSize: 0.1, toAlpha: 1, withDuration: 0.0, recursive: true)
-        modifyBubble(toSize: 3.01, toAlpha: 1, withDuration: 0.3, recursive: true)
-            
-        //}
-        print(finished)
+        
+        // animating "new" bubble expansion
+        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.2, recursive: true)
     }
 
     @objc func bubbleTapped() {
         debugBubbleTapCounter += 1
         print("Bubble tapped! \(debugBubbleTapCounter)")
-//        if bubbleEnlarged {
-//            modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.2)
-//        } else {
-            modifyBubble(toSize: 0.9, toAlpha: 1, withDuration: 0.15)
-//        }
-//        bubbleEnlarged = !bubbleEnlarged
+        modifyBubble(toSize: 0.3, toAlpha: 1, withDuration: 0.5)
     }
     
 }
