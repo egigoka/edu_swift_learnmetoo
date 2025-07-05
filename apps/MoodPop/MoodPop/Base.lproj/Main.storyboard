@@ -23,9 +23,9 @@
                                     <constraint firstAttribute="width" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="1:1" id="iBZ-Qo-qvY"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erk-Qh-mNq" userLabel="Tap View">
+                            <view alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erk-Qh-mNq" userLabel="Tap View">
                                 <rect key="frame" x="-277" y="-22.333333333333314" width="947" height="946.66666666666652"/>
-                                <color key="backgroundColor" red="0.084525431075645585" green="0.0" blue="1" alpha="0.21792623299319727" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="erk-Qh-mNq" secondAttribute="height" multiplier="1:1" id="fvg-XY-gFX"/>
                                 </constraints>
@@ -57,6 +57,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
