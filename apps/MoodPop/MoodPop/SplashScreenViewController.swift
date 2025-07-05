@@ -15,7 +15,7 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
     
     var debugBubbleTapCounter = 0
-    var bubbleEnlarged = false
+//    var bubbleEnlarged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,8 @@ class SplashScreenViewController: UIViewController {
     private func modifyBubble(
         toSize multiplier: CGFloat,
         toAlpha alpha: CGFloat,
-        withDuration duration: TimeInterval
+        withDuration duration: TimeInterval,
+        recursive: Bool = false
     ) {
         guard let ratioBubbleConstraintFirstItem = ratioBubbleConstraint.firstItem as? UIView else {
             return
@@ -67,18 +68,20 @@ class SplashScreenViewController: UIViewController {
         let newRatioBubbleConstraint = ratioBubbleConstraint.constraintWithMultiplier(multiplier)
         ratioBubbleConstraintFirstItem.removeConstraint(ratioBubbleConstraint)
         view.addConstraint(newRatioBubbleConstraint)
+        
         UIView.animate(withDuration: duration,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.5,
-                       options: [.curveEaseInOut],
+                       options: [.curveEaseOut],
                        animations: {
-            self.view.layoutIfNeeded()
-            self.bubbleView.alpha = alpha
-        },
-                       completion: {finished in
-            self.bubblePopped(finished)
-        }
+                self.view.layoutIfNeeded()
+                self.bubbleView.alpha = alpha
+            },
+                           completion: {finished in
+                guard !recursive else { return }
+                self.bubblePopped(finished)
+            }
         )
         
         let newRatioTapConstraint = ratioTapConstraint.constraintWithMultiplier(multiplier)
@@ -97,19 +100,28 @@ class SplashScreenViewController: UIViewController {
 //        }
     }
     
-    func bubblePopped (_ finished: Bool) {
+    private func bubblePopped (_ finished: Bool) {
+        //if bubbleEnlarged {
+        bubbleView.alpha = 0
+        let mainBackgroundColor = view.backgroundColor
+        view.backgroundColor = bubbleView.backgroundColor
+        bubbleView.backgroundColor = mainBackgroundColor
+        modifyBubble(toSize: 0.1, toAlpha: 1, withDuration: 0, recursive: true)
+        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.3, recursive: true)
+            
+        //}
         print(finished)
     }
 
     @objc func bubbleTapped() {
         debugBubbleTapCounter += 1
         print("Bubble tapped! \(debugBubbleTapCounter)")
-        if bubbleEnlarged {
-            modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.3)
-        } else {
-            modifyBubble(toSize: 0.9, toAlpha: 1, withDuration: 0.3)
-        }
-        bubbleEnlarged = !bubbleEnlarged
+//        if bubbleEnlarged {
+//            modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.2)
+//        } else {
+            modifyBubble(toSize: 0.9, toAlpha: 1, withDuration: 0.15)
+//        }
+//        bubbleEnlarged = !bubbleEnlarged
     }
     
 }
