@@ -29,7 +29,7 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 1)
+        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 1, recursive: true)
         roundBubble()
     }
     
@@ -52,23 +52,45 @@ class SplashScreenViewController: UIViewController {
         tapView.layer.cornerRadius = tapView.frame.height / 2
     }
     
-    private func modifyBubble(
-        toSize multiplier: CGFloat,
-        toAlpha alpha: CGFloat,
-        withDuration duration: TimeInterval,
-        recursive: Bool = false
-    ) {
-        guard let ratioBubbleConstraintFirstItem = ratioBubbleConstraint.firstItem as? UIView else {
-            return
+    private func debugBubbleConstraints() {
+        print("debug")
+        for constraint in bubbleView.constraints {
+            print("bubble", constraint)
         }
-        guard let ratioTapConstraintFirstItem = ratioTapConstraint.firstItem as? UIView else {
-            return
+        for constraint in view.constraints {
+            print("main view", constraint)
+        }
+        print("debug END")
+    }
+    
+    private func updateBubbleConstraint(toSize multiplier: CGFloat) -> NSLayoutConstraint {
+        guard let ratioBubbleConstraintFirstItem = ratioBubbleConstraint.firstItem as? UIView else {
+            return ratioBubbleConstraint
         }
         
         let newRatioBubbleConstraint = ratioBubbleConstraint.constraintWithMultiplier(multiplier)
         ratioBubbleConstraintFirstItem.removeConstraint(ratioBubbleConstraint)
         view.addConstraint(newRatioBubbleConstraint)
         
+        //debug
+        debugBubbleConstraints()
+        
+        return newRatioBubbleConstraint
+    }
+    
+    private func modifyBubble(
+        toSize multiplier: CGFloat,
+        toAlpha alpha: CGFloat,
+        withDuration duration: TimeInterval,
+        recursive: Bool = false
+    ) {
+        guard let ratioTapConstraintFirstItem = ratioTapConstraint.firstItem as? UIView else {
+            return
+        }
+        
+        let newRatioBubbleConstraint = updateBubbleConstraint(toSize: multiplier)
+        
+        // animation with resizing and alpha changing
         UIView.animate(withDuration: duration,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
@@ -84,20 +106,18 @@ class SplashScreenViewController: UIViewController {
             }
         )
         
+        // update tap area view
         let newRatioTapConstraint = ratioTapConstraint.constraintWithMultiplier(multiplier)
         ratioTapConstraintFirstItem.removeConstraint(ratioTapConstraint)
         view.addConstraint(newRatioTapConstraint)
         
+        //debug
+        debugBubbleConstraints()
+        
+        // update constraint class variables
         ratioBubbleConstraint = newRatioBubbleConstraint
         ratioTapConstraint = newRatioTapConstraint
         
-        // debug
-//        for constraint in bubbleView.constraints {
-//            print("bubble", constraint)
-//        }
-//        for constraint in view.constraints {
-//            print("main view", constraint)
-//        }
     }
     
     private func bubblePopped (_ finished: Bool) {
@@ -106,8 +126,10 @@ class SplashScreenViewController: UIViewController {
         let mainBackgroundColor = view.backgroundColor
         view.backgroundColor = bubbleView.backgroundColor
         bubbleView.backgroundColor = mainBackgroundColor
-        modifyBubble(toSize: 0.1, toAlpha: 1, withDuration: 0, recursive: true)
-        modifyBubble(toSize: 3, toAlpha: 1, withDuration: 0.3, recursive: true)
+        let _ = updateBubbleConstraint(toSize: 30)
+        self.view.layoutIfNeeded()
+        //modifyBubble(toSize: 0.1, toAlpha: 1, withDuration: 0.0, recursive: true)
+        modifyBubble(toSize: 3.01, toAlpha: 1, withDuration: 0.3, recursive: true)
             
         //}
         print(finished)
