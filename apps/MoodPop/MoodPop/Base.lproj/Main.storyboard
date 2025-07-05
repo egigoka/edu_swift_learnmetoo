@@ -23,18 +23,27 @@
                                     <constraint firstAttribute="width" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="1:1" id="iBZ-Qo-qvY"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erk-Qh-mNq" userLabel="Tap View">
+                                <rect key="frame" x="-277" y="-22.333333333333314" width="947" height="946.66666666666652"/>
+                                <color key="backgroundColor" red="0.084525431075645585" green="0.0" blue="1" alpha="0.21792623299319727" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4a9-XL-EEK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCp-Hm-dDF"/>
-                            <constraint firstItem="4a9-XL-EEK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X0t-Le-tfg"/>
-                            <constraint firstAttribute="height" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="0.9" id="mGq-Ql-wVA"/>
+                            <constraint firstItem="erk-Qh-mNq" firstAttribute="width" secondItem="4a9-XL-EEK" secondAttribute="width" id="3rl-1b-euE" userLabel="tap x = bubble x"/>
+                            <constraint firstItem="erk-Qh-mNq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Fw3-mY-87W" userLabel="tap center y"/>
+                            <constraint firstItem="4a9-XL-EEK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCp-Hm-dDF" userLabel="bubble center x"/>
+                            <constraint firstItem="erk-Qh-mNq" firstAttribute="height" secondItem="4a9-XL-EEK" secondAttribute="height" id="RdJ-KL-0ol" userLabel="tap y = bubble y"/>
+                            <constraint firstItem="4a9-XL-EEK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X0t-Le-tfg" userLabel="bubble center y"/>
+                            <constraint firstItem="erk-Qh-mNq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z6W-q9-Fjw" userLabel="tap center x"/>
+                            <constraint firstAttribute="height" secondItem="4a9-XL-EEK" secondAttribute="height" multiplier="0.9" id="mGq-Ql-wVA" userLabel="bubble height"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bubbleView" destination="4a9-XL-EEK" id="RLY-li-TiA"/>
                         <outlet property="ratioConstraint" destination="mGq-Ql-wVA" id="7dB-dY-JFq"/>
+                        <outlet property="tapView" destination="erk-Qh-mNq" id="M5c-DP-I1f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
