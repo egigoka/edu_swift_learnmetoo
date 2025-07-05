@@ -14,6 +14,7 @@ class BubbleViewController: UIViewController {
     @IBOutlet var ratioBubbleConstraint: NSLayoutConstraint!
     @IBOutlet var tapView: UIView!
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
+    @IBOutlet var pepTalkLabel: UILabel!
     
     var debugBubbleTapCounter = 0
     let pepTalks = PepTalk.getPepTalks()
@@ -26,6 +27,8 @@ class BubbleViewController: UIViewController {
             action: #selector(bubbleTapped))
         tapView.isUserInteractionEnabled = true
         tapView.addGestureRecognizer(tap)
+        
+        pepTalkLabel.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,13 +53,19 @@ class BubbleViewController: UIViewController {
     
     @objc func bubbleTapped() {
         bubbleWillPop()
+        changePepTalk()
     }
     
 }
 
 // Label logic
 extension BubbleViewController {
-    
+    private func changePepTalk() {
+        guard let pepTalk = pepTalks.randomElement() else {
+            return
+        }
+        pepTalkLabel.text = pepTalk.text
+    }
 }
 
 // Bubble logic
