@@ -11,6 +11,7 @@ class SplashScreenViewController: UIViewController {
 
     @IBOutlet var bubbleView: UIView!
     @IBOutlet var ratioConstraint: NSLayoutConstraint!
+    @IBOutlet var tapView: UIView!
     
     var debugBubbleTapCounter = 0
     var bubbleEnlarged = false
@@ -21,8 +22,8 @@ class SplashScreenViewController: UIViewController {
         let tap = UITapGestureRecognizer(
             target: self,
             action: #selector(bubbleTapped))
-        bubbleView.isUserInteractionEnabled = true
-        bubbleView.addGestureRecognizer(tap)
+        tapView.isUserInteractionEnabled = true
+        tapView.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,8 +47,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     private func roundBubble() {
-        //print(ratioConstraint.multiplier)
-        bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
+        //bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
     }
     
     private func modifyBubble(to multiplier: CGFloat){
@@ -55,22 +55,19 @@ class SplashScreenViewController: UIViewController {
             return
         }
         
-        //let newConstraintRatio = ratioConstraint.constraintWithMultiplier(multiplier)
-        //constraintView.removeConstraint(ratioConstraint)
-        //view.addConstraint(newConstraintRatio)
+        let newConstraintRatio = ratioConstraint.constraintWithMultiplier(multiplier)
+        constraintView.removeConstraint(ratioConstraint)
+        view.addConstraint(newConstraintRatio)
         UIView.animate(withDuration: 1.0,
                            delay: 0,
                            usingSpringWithDamping: 0.7,
                            initialSpringVelocity: 0.5,
                            options: [.curveEaseInOut]) {
-            //self.view.layoutIfNeeded()
-            //self.bubbleView.layoutIfNeeded()
-            self.bubbleView.transform = CGAffineTransform(
-                scaleX: 1/multiplier,
-                y: 1/multiplier)
+            self.view.layoutIfNeeded()
+            
         }
         
-        //ratioConstraint = newConstraintRatio
+        ratioConstraint = newConstraintRatio
         
         // debug
 //        for constraint in bubbleView.constraints {
