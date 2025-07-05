@@ -11,10 +11,15 @@ class SplashScreenViewController: UIViewController {
 
     @IBOutlet var bubbleView: UIView!
     @IBOutlet var ratioConstraint: NSLayoutConstraint!
-    @IBOutlet var widthConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(bubbleTapped))
+        bubbleView.isUserInteractionEnabled = true
+        bubbleView.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +43,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     private func roundBubble() {
-        print(ratioConstraint.multiplier)
+        //print(ratioConstraint.multiplier)
         bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
     }
     
@@ -50,14 +55,16 @@ class SplashScreenViewController: UIViewController {
         let newConstraintRatio = ratioConstraint.constraintWithMultiplier(6)
         constraintView.removeConstraint(ratioConstraint)
         view.addConstraint(newConstraintRatio)
-        view.layoutIfNeeded()
-        bubbleView.layoutIfNeeded()
-        ratioConstraint = newConstraintRatio
+        UIView.animate(withDuration: 3.0,
+                           delay: 0,
+                           usingSpringWithDamping: 0.7,
+                           initialSpringVelocity: 0.5,
+                           options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
+            self.bubbleView.layoutIfNeeded()
+        }
         
-        let newConstraintWidth = widthConstraint.constraintWithConstant(bubbleView.frame.height)
-        bubbleView.removeConstraint(widthConstraint)
-        bubbleView.addConstraint(newConstraintWidth)
-        bubbleView.layoutIfNeeded()
+        ratioConstraint = newConstraintRatio
         
         for constraint in bubbleView.constraints {
             print("bubble", constraint)
@@ -66,5 +73,10 @@ class SplashScreenViewController: UIViewController {
             print("main view", constraint)
         }
     }
+    
 
+    @objc func bubbleTapped() {
+        print("Bubble tapped!")
+    }
+    
 }
