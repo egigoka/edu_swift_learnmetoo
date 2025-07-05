@@ -9,10 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var coreAnimationView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-
+    @IBAction func coreAnimationButtonPressed(_ sender: UIButton) {
+        
+    }
+    
 }
-
