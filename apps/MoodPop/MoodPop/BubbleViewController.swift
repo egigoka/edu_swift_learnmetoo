@@ -15,7 +15,6 @@ class BubbleViewController: UIViewController {
     @IBOutlet var tapView: UIView!
     @IBOutlet var ratioTapConstraint: NSLayoutConstraint!
     
-    var debugBubbleTapCounter = 0
     let pepTalks = PepTalk.getPepTalks()
     var pepTalkLabel: UILabel? = nil
     
@@ -75,8 +74,6 @@ extension BubbleViewController {
         pepTalkLabel.translatesAutoresizingMaskIntoConstraints = false
         pepTalkLabel.adjustsFontSizeToFitWidth = true
         
-        print("inserted label")
-        
         view.insertSubview(pepTalkLabel, belowSubview: bubbleView)
         
         
@@ -101,7 +98,6 @@ extension BubbleViewController {
         UIView.animate(withDuration: 0.3) {
             pepTalkLabel.alpha = 1
         }
-        //print(pepTalkLabel.text ?? "")
     }
 }
 
@@ -124,17 +120,6 @@ extension BubbleViewController {
         
         // update constraint class variables
         ratioTapConstraint = newRatioTapConstraint
-    }
-    
-    private func debugBubbleConstraints() {
-        print("debug")
-        for constraint in bubbleView.constraints {
-            print("bubble", constraint)
-        }
-        for constraint in view.constraints {
-            print("main view", constraint)
-        }
-        print("debug END")
     }
     
     private func updateBubbleConstraint(toSize multiplier: CGFloat){
@@ -191,19 +176,16 @@ extension BubbleViewController {
     }
     
     private func playPopSound() {
-        if let soundURL = Bundle.main.url(forResource: "pop", withExtension: "wav") {
-            var soundID: SystemSoundID = 0
-            AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
-            AudioServicesPlaySystemSound(soundID)
-        } else {
-            print("🔇 Pop sound file not found!")
-        }
+        guard let soundURL = Bundle.main.url(
+            forResource: "pop", 
+            withExtension: "wav"
+        ) else { return }
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
     }
 
     private func bubbleWillPop() {
-        debugBubbleTapCounter += 1
-        //print("Bubble tapped! \(debugBubbleTapCounter)")
-        
         var bubbleSize: CGFloat = 0.9
         if view.frame.width > view.frame.height {
             bubbleSize /= view.frame.width / view.frame.height
@@ -212,6 +194,4 @@ extension BubbleViewController {
         playPopSound()
         modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.3)
     }
-    
-    
 }
