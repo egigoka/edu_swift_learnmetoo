@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashScreenViewController: UIViewController {
+class BubbleViewController: UIViewController {
 
     @IBOutlet var bubbleView: UIView!
     @IBOutlet var ratioBubbleConstraint: NSLayoutConstraint!
@@ -46,6 +46,17 @@ class SplashScreenViewController: UIViewController {
         }, completion: nil) // No need to use the completion block unless you want to do something after rotation
     }
     
+    
+    
+}
+
+// Label logic
+extension BubbleViewController {
+    
+}
+
+// Bubble logic
+extension BubbleViewController {
     private func roundBubble() {
         bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
         tapView.layer.cornerRadius = tapView.frame.height / 2
@@ -98,7 +109,7 @@ class SplashScreenViewController: UIViewController {
             },
                            completion: {finished in
                 guard !recursive else { return }
-                self.bubblePopped(finished)
+                self.bubbleDidPop()
             }
         )
         
@@ -112,7 +123,7 @@ class SplashScreenViewController: UIViewController {
         
     }
     
-    private func bubblePopped (_ finished: Bool) {
+    private func bubbleDidPop() {
         // changing main view and bubble colors
         bubbleView.alpha = 0
         let mainBackgroundColor = view.backgroundColor
@@ -130,7 +141,12 @@ class SplashScreenViewController: UIViewController {
     @objc func bubbleTapped() {
         debugBubbleTapCounter += 1
         print("Bubble tapped! \(debugBubbleTapCounter)")
-        modifyBubble(toSize: 0.3, toAlpha: 1, withDuration: 0.5)
+        
+        var bubbleSize: CGFloat = 0.9
+        if view.frame.width > view.frame.height {
+            bubbleSize /= view.frame.width / view.frame.height
+        }
+        
+        modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.15)
     }
-    
 }
