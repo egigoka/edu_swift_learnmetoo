@@ -28,6 +28,7 @@ class BubbleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         modifyBubble(toSize: 3, toAlpha: 1, withDuration: 1, recursive: true)
+        setTapView(size: 3)
         roundBubble()
     }
     
@@ -66,11 +67,20 @@ extension BubbleViewController {
         let pepTalkLabel = UILabel()
         pepTalkLabel.font = UIFont.systemFont(ofSize: 53)
         pepTalkLabel.textColor = .black
+        pepTalkLabel.textAlignment = .center
+        pepTalkLabel.numberOfLines = 0
+        pepTalkLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        print("inserted label")
+        
         view.insertSubview(pepTalkLabel, belowSubview: bubbleView)
         
+        
         NSLayoutConstraint.activate([
-            pepTalkLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pepTalkLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            pepTalkLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            pepTalkLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            pepTalkLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            pepTalkLabel.bottomAnchor.constraint(equalTo: tapView.topAnchor, constant: -16)
         ])
         self.pepTalkLabel = pepTalkLabel
     }
@@ -93,6 +103,20 @@ extension BubbleViewController {
     private func roundBubble() {
         bubbleView.layer.cornerRadius = bubbleView.frame.height / 2
         tapView.layer.cornerRadius = tapView.frame.height / 2
+    }
+    
+    private func setTapView(size multiplier: CGFloat) {
+        guard let ratioTapConstraintFirstItem = ratioTapConstraint.firstItem as? UIView else {
+            return
+        }
+        
+        // set new constraint
+        let newRatioTapConstraint = ratioTapConstraint.constraintWithMultiplier(multiplier)
+        ratioTapConstraintFirstItem.removeConstraint(ratioTapConstraint)
+        view.addConstraint(newRatioTapConstraint)
+        
+        // update constraint class variables
+        ratioTapConstraint = newRatioTapConstraint
     }
     
     private func debugBubbleConstraints() {
@@ -124,10 +148,6 @@ extension BubbleViewController {
         withDuration duration: TimeInterval,
         recursive: Bool = false
     ) {
-        guard let ratioTapConstraintFirstItem = ratioTapConstraint.firstItem as? UIView else {
-            return
-        }
-        
         updateBubbleConstraint(toSize: multiplier)
         
         // animation with resizing and alpha changing
@@ -145,14 +165,6 @@ extension BubbleViewController {
                 self.bubbleDidPop()
             }
         )
-        
-        // update tap area view
-        let newRatioTapConstraint = ratioTapConstraint.constraintWithMultiplier(multiplier)
-        ratioTapConstraintFirstItem.removeConstraint(ratioTapConstraint)
-        view.addConstraint(newRatioTapConstraint)
-        
-        // update constraint class variables
-        ratioTapConstraint = newRatioTapConstraint
         
     }
     
@@ -183,7 +195,7 @@ extension BubbleViewController {
 
     private func bubbleWillPop() {
         debugBubbleTapCounter += 1
-        print("Bubble tapped! \(debugBubbleTapCounter)")
+        //print("Bubble tapped! \(debugBubbleTapCounter)")
         
         var bubbleSize: CGFloat = 0.9
         if view.frame.width > view.frame.height {
@@ -191,7 +203,7 @@ extension BubbleViewController {
         }
         
         playPopSound()
-        modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.15)
+        modifyBubble(toSize: bubbleSize, toAlpha: 1, withDuration: 0.3)
     }
     
     
