@@ -28,7 +28,6 @@ class BubbleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         modifyBubble(toSize: 3, toAlpha: 1, withDuration: 1, recursive: true)
-        setTapView(size: 3)
         roundBubble()
     }
     
@@ -56,6 +55,10 @@ class BubbleViewController: UIViewController {
     
     @objc func bubbleTapped() {
         bubbleWillPop()
+    }
+    
+    private func bubbleDidPop() {
+        makeNewBubble()
         changePepTalk()
     }
     
@@ -70,6 +73,7 @@ extension BubbleViewController {
         pepTalkLabel.textAlignment = .center
         pepTalkLabel.numberOfLines = 0
         pepTalkLabel.translatesAutoresizingMaskIntoConstraints = false
+        pepTalkLabel.adjustsFontSizeToFitWidth = true
         
         print("inserted label")
         
@@ -90,11 +94,14 @@ extension BubbleViewController {
             return
         }
         guard let pepTalkLabel = pepTalkLabel else {
-            print("")
             return
         }
         pepTalkLabel.text = pepTalk.text
-        print(pepTalkLabel.text ?? "")
+        pepTalkLabel.alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            pepTalkLabel.alpha = 1
+        }
+        //print(pepTalkLabel.text ?? "")
     }
 }
 
@@ -168,7 +175,7 @@ extension BubbleViewController {
         
     }
     
-    private func bubbleDidPop() {
+    private func makeNewBubble() {
         // changing main view and bubble colors
         bubbleView.alpha = 0
         let mainBackgroundColor = view.backgroundColor
