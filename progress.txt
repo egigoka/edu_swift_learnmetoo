@@ -71,7 +71,7 @@ course 2 lesson 8 homework         - done
 40%
 
 course 2 lesson 9 homework review  - done
-course 2 lesson 9 theory           - 2:10:02
+course 2 lesson 9 theory           - 2:21:35
 course 2 lesson 9 homework         - 
 
 course 2 lesson 10 homework review - 
