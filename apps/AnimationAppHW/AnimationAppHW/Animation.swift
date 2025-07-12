@@ -6,6 +6,10 @@
 //
 
 struct Animation {
-    let name: String
+    let preset: String
+    let curve: String
     let duration: Double
+    let force: Double
+    let damping: Double
+    let velocity: Double
 }
