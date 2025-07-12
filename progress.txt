@@ -72,9 +72,9 @@ course 2 lesson 8 homework         - done
 
 course 2 lesson 9 homework review  - done
 course 2 lesson 9 theory           - done
-course 2 lesson 9 homework         - in progress
+course 2 lesson 9 homework         - done
 
-course 2 lesson 10 homework review - 
+course 2 lesson 10 homework review - 30:58
 course 2 lesson 10 theory          - 
 course 2 lesson 10 homework        - 
 

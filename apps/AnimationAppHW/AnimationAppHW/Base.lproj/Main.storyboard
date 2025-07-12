@@ -38,7 +38,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="wobble"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeInOut"/>
                                 </userDefinedRuntimeAttributes>

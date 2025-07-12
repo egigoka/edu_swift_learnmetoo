@@ -24,31 +24,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed() {
-        applyNextAnimation()
         updateLabel()
+        applyNextAnimation()
         updateNextAnimation()
         updateButtonText()
         animationView.animate()
     }
     
     private func updateNextAnimation() {
-        let preset = AnimationPreset.allCases.randomElement()?.rawValue ?? ""
-        let curve = AnimationCurve.allCases.randomElement()?.rawValue ?? ""
-        let duration = Double.random(in: 0.3...2)
-        let force = Double.random(in: 0.1...2)
-        let damping = Double.random(in: 0.1...1)
-        let velocity = Double.random(in: 0.1...2)
-        nextAnimation = Animation(preset: preset, curve: curve, duration: duration, force: force, damping: damping, velocity: velocity)
+        nextAnimation = Animation.random()
     }
     
     private func updateLabel() {
-        animationLabel.text = """
-        Animation: \(animationView.animation)
-        Curve: \(animationView.curve)
-        Duration: \(String(format: "%.2f", animationView.duration))
-        Force: \(String(format: "%.2f", animationView.force))
-        Damping: \(String(format: "%.2f", animationView.damping))
-        """
+        animationLabel.text = nextAnimation?.description
     }
     
     private func applyNextAnimation() {
