@@ -19,8 +19,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJL-ec-G3O" customClass="SpringView" customModule="SpringAnimation">
                                 <rect key="frame" x="80" y="134" width="233" height="131"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-dN-mkf">
-                                        <rect key="frame" x="16" y="15.999999999999998" width="201" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-dN-mkf">
+                                        <rect key="frame" x="16" y="16" width="201" height="99"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -32,6 +32,7 @@
                                     <constraint firstItem="5WJ-dN-mkf" firstAttribute="leading" secondItem="sJL-ec-G3O" secondAttribute="leading" constant="16" id="E5E-3W-IYf"/>
                                     <constraint firstItem="5WJ-dN-mkf" firstAttribute="top" secondItem="sJL-ec-G3O" secondAttribute="top" constant="16" id="fo8-sg-Jre"/>
                                     <constraint firstAttribute="trailing" secondItem="5WJ-dN-mkf" secondAttribute="trailing" constant="16" id="v5x-YU-CB8"/>
+                                    <constraint firstAttribute="bottom" secondItem="5WJ-dN-mkf" secondAttribute="bottom" constant="16" id="yY8-vX-ful"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -53,6 +54,9 @@
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="oeu-jn-Z76"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -70,6 +74,7 @@
                     <connections>
                         <outlet property="animationLabel" destination="5WJ-dN-mkf" id="hOI-og-asd"/>
                         <outlet property="animationView" destination="sJL-ec-G3O" id="hEz-2H-ewJ"/>
+                        <outlet property="button" destination="lsm-BK-fC9" id="Oac-Gk-OJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
