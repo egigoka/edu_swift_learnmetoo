@@ -11,7 +11,7 @@ enum URLExamples: String {
     case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     case exampleOne = "http://10.1.0.6:9090/fixed/api_course"
     case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
-    case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
+    case exampleThree = "http://10.1.0.6:9090/fixed/api_website_description"
     case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
 }
 
@@ -114,8 +114,8 @@ extension MainViewController {
             guard let data = data else { return }
             
             do {
-                let course = try JSONDecoder().decode(Course.self, from: data)
-                print(course)
+                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
+                print(websiteDescription)
                 DispatchQueue.main.async {
                     self.successAlert()
                 }
