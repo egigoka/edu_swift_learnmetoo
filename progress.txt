@@ -75,7 +75,7 @@ course 2 lesson 9 theory           - done
 course 2 lesson 9 homework         - done
 
 course 2 lesson 10 homework review - done
-course 2 lesson 10 theory          - 1:10:46 down+++++++++++++++++++++++++++++++++++++
+course 2 lesson 10 theory          - 1:10:46 down++++++++++++++++++++++++++++++++++++++
 course 2 lesson 10 homework        - 
 
 course network lesson 1 theory
