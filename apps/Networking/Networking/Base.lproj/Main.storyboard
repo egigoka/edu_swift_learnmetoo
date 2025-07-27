@@ -28,12 +28,12 @@
         <!--Image View Controller-->
         <scene sceneID="onR-x4-boQ">
             <objects>
-                <viewController id="dzb-gl-lSf" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController id="dzb-gl-lSf" customClass="ImageViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="me5-z4-FRQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="M8i-7o-F4K">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="M8i-7o-F4K">
                                 <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M8i-7o-F4K" secondAttribute="height" multiplier="1:1" id="tbf-Yg-GcX"/>
@@ -56,6 +56,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image View Controller" id="5CA-m7-mLf"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="M8i-7o-F4K" id="pYl-hh-bdG"/>
+                        <outlet property="imageView" destination="bWq-Yf-ooD" id="CKX-cw-97T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsW-nc-CO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
