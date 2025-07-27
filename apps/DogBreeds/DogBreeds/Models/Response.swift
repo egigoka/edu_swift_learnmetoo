@@ -5,15 +5,21 @@
 //  Created by egigoka on 27.07.2025.
 //
 
-enum Urls: String {
-    case listAllBreeds = "https://dog.ceo/api/breeds/list/all"
-    case randomImageByBreed(breed: String, subBreed: String?) -> String {
-        if let subBreed = subBreed {
+enum Url {
+    case listAllBreeds
+    case randomImage(breed: String)
+    case randomImageWithSubBreed(breed: String, subBreed: String)
+
+    var urlString: String {
+        switch self {
+        case .listAllBreeds:
+            return "https://dog.ceo/api/breeds/list/all"
+        case .randomImage(let breed):
+            return "https://dog.ceo/api/breed/\(breed)/images/random"
+        case .randomImageWithSubBreed(let breed, let subBreed):
             return "https://dog.ceo/api/breed/\(breed)/\(subBreed)/images/random"
         }
     }
-    case randomImageByBreed = "https://dog.ceo/api/breed/%@/images/random"
-    case randomImageBySubBreed =
 }
 
 struct APIResponse<T: Decodable>: Decodable {

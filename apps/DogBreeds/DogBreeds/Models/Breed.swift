@@ -5,12 +5,12 @@
 //  Created by egigoka on 27.07.2025.
 //
 
-enum BreedType {
+enum BreedType: Decodable {
     case breed
     case subBreed
 }
 
-struct Breed {
+struct Breed: Decodable {
     let name: String
     let subBreeds: [String]
 }
