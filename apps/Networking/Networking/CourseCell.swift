@@ -18,12 +18,14 @@ class CourseCell: UITableViewCell {
         numberOfLessons.text = "Number of lessons: \(course.number_of_lessons ?? 0)"
         numberOfTests.text = "Number of tests: \(course.number_of_tests ?? 0)"
         
-        guard let stringURL = course.imageUrl else { return }
-        guard let imageURL = URL(string: stringURL) else { return }
-        guard let imageData = try? Data(contentsOf: imageURL) else { return }
-        
-        DispatchQueue.main.async {
-            self.courseImage.image = UIImage(data: imageData)
+        DispatchQueue.global().async {
+            guard let stringURL = course.imageUrl else { return }
+            guard let imageURL = URL(string: stringURL) else { return }
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self.courseImage.image = UIImage(data: imageData)
+            }
         }
     }
 }
