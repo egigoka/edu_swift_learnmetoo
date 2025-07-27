@@ -18,46 +18,37 @@ class NetworkManager {
         responseType: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        DispatchQueue.global().async{
-            self.session.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                guard let data = data else {
-                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-                    return
-                }
-                
+        fetch(from: url) { result in
+            switch result {
+            case .success(let data):
                 do {
-                    let decoded = try JSONDecoder().decode(T.self, from: data)
+                    let decoded = try JSONDecoder().decode(responseType, from: data)
                     completion(.success(decoded))
                 } catch {
                     completion(.failure(error))
                 }
-            }.resume()
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
     
     func fetch(
-        from url: URL
-    ) -> Result<Data, Error> {
-        DispatchQueue.global().async {
-            self.session.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                guard let data = data else {
-                    return .failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"]))
-                }
-                
-                return .success(data)
-            }.resume()
-        }
+        from url: URL,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+        session.dataTask(with: url) { data, response, error in
+            let result: Result<Data, Error>
+            
+            if let error = error {
+                result = .failure(error)
+            } else if let data = data {
+                result = .success(data)
+            } else {
+                result = .failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"]))
+            }
+            
+            completion(result)
+        }.resume()
     }
-    
-    
 }

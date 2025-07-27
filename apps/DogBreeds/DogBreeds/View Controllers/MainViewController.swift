@@ -14,7 +14,11 @@ class MainViewController: UIViewController {
         
     }
 
-    
+    private func loadData() {
+        DispatchQueue.global().async {
+            NetworkManager.shared.fetchJson(from: <#T##URL#>, responseType: <#T##Decodable.Type#>, completion: <#T##(Result<Decodable, any Error>) -> Void#>)
+        }
+    }
 
 }
 
