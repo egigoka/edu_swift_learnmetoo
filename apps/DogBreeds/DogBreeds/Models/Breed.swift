@@ -12,6 +12,7 @@ enum BreedType: Decodable {
 
 struct Breed: Decodable {
     let name: String
-    let subBreed: String?
     let type: BreedType
+    let subBreed: String?
+    var randomPicture: String?
 }
