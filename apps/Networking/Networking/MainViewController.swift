@@ -28,6 +28,11 @@ class MainViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        URLCache.shared.removeAllCachedResponses()
+    }
+    
     // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
@@ -108,16 +113,21 @@ extension MainViewController {
             
             guard let data = data else { return }
             
-            print(String(data))
+            print(String(data: data, encoding: .utf8) ?? "not decoded")
             
             do {
                 let course = try JSONDecoder().decode(Course.self, from: data)
                 print(course)
+                DispatchQueue.main.async {
+                    self.successAlert()
+                }
             } catch let error {
                 print(error)
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
             }
             print(data)
-            
             
         }.resume()
     }
@@ -125,15 +135,93 @@ extension MainViewController {
     private func exampleTwoButtonPressed() {
         guard let url = URL(string: URLExamples.exampleTwo.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            print(String(data: data, encoding: .utf8) ?? "not decoded")
+            
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                print(course)
+                DispatchQueue.main.async {
+                    self.successAlert()
+                }
+            } catch let error {
+                print(error)
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
+            }
+            print(data)
+            
+        }.resume()
+        
     }
     
     private func exampleThreeButtonPressed() {
         guard let url = URL(string: URLExamples.exampleThree.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            print(String(data: data, encoding: .utf8) ?? "not decoded")
+            
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                print(course)
+                DispatchQueue.main.async {
+                    self.successAlert()
+                }
+            } catch let error {
+                print(error)
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
+            }
+            print(data)
+            
+        }.resume()
+        
     }
     
     private func exampleFourButtonPressed() {
         guard let url = URL(string: URLExamples.exampleFour.rawValue) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            print(String(data: data, encoding: .utf8) ?? "not decoded")
+            
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                print(course)
+                DispatchQueue.main.async {
+                    self.successAlert()
+                }
+            } catch let error {
+                print(error)
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
+            }
+            print(data)
+            
+        }.resume()
     }
 }
 
