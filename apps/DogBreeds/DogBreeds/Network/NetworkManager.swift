@@ -13,28 +13,51 @@ class NetworkManager {
     
     private init() {}
     
-    func fetch<T: Decodable>(
+    func fetchJson<T: Decodable>(
         from url: URL,
         responseType: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-                return
-            }
-            
-            do {
-                let decoded = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(decoded))
-            } catch {
-                completion(.failure(error))
-            }
-        }.resume()
+        DispatchQueue.global().async{
+            self.session.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let data = data else {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
+                    return
+                }
+                
+                do {
+                    let decoded = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(decoded))
+                } catch {
+                    completion(.failure(error))
+                }
+            }.resume()
+        }
     }
+    
+    func fetch(
+        from url: URL
+    ) -> Result<Data, Error> {
+        DispatchQueue.global().async {
+            self.session.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let data = data else {
+                    return .failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"]))
+                }
+                
+                return .success(data)
+            }.resume()
+        }
+    }
+    
+    
 }
