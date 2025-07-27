@@ -28,7 +28,7 @@ class MainViewController: UICollectionViewController {
 
     
     // MARK: - UIVollectionViewDataSource
-    override func collectionView(_ collectionView: UICollectionView, numberOfItermsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
     
@@ -37,6 +37,8 @@ class MainViewController: UICollectionViewController {
         
         return cell
     }
+    
+    // MARK: - UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
