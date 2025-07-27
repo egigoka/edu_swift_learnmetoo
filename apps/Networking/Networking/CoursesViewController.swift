@@ -50,7 +50,6 @@ extension CoursesViewController {
             
             do {
                 self.courses = try JSONDecoder().decode([Course].self, from: data)
-                print(self.courses)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
