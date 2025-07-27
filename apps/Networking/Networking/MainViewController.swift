@@ -12,7 +12,7 @@ enum URLExamples: String {
     case exampleOne = "http://10.1.0.6:9090/fixed/api_course"
     case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
     case exampleThree = "http://10.1.0.6:9090/fixed/api_website_description"
-    case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
+    case exampleFour = "http://10.1.0.6:9090/fixed/api_missing_or_wrong_fields"
 }
 
 enum UserActions: String, CaseIterable {
@@ -114,8 +114,8 @@ extension MainViewController {
             guard let data = data else { return }
             
             do {
-                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
-                print(websiteDescription)
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                print(course)
                 DispatchQueue.main.async {
                     self.successAlert()
                 }
@@ -169,8 +169,8 @@ extension MainViewController {
             guard let data = data else { return }
             
             do {
-                let course = try JSONDecoder().decode(Course.self, from: data)
-                print(course)
+                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
+                print(websiteDescription)
                 DispatchQueue.main.async {
                     self.successAlert()
                 }
@@ -197,8 +197,8 @@ extension MainViewController {
             guard let data = data else { return }
             
             do {
-                let course = try JSONDecoder().decode(Course.self, from: data)
-                print(course)
+                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
+                print(websiteDescription)
                 DispatchQueue.main.async {
                     self.successAlert()
                 }

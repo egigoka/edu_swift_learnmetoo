@@ -6,7 +6,7 @@
 //
 
 struct WebsiteDescription: Decodable {
-    let courses: [Course]
-    let websiteDescription: String
-    let websiteName: String
+    let courses: [Course]?
+    let websiteDescription: String?
+    let websiteName: String?
 }

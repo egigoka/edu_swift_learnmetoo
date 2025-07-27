@@ -1,0 +1,20 @@
+{
+	"courses":
+	[
+		{
+			"id": 1,
+			"name": "Our first iOS apps",
+			"link": "https://swiftbook.ru/contents/our-first-applications/",
+			"imageUrl": "https://swiftbook.ru/wp-content/uploads/2018/03/2-courselogo.jpg",
+			"number_of_lessons": 20
+		},
+		{
+			"id": 2,
+			"name": "Framework SpriteKit for game development",
+			"link": "https://swiftbook. ru/contents/spritekit-full-game-dev/",
+			"imageUrl": "https://swiftbook.ru/wp-content/uploads/2018/03/13-courselogo.jpg",
+			"number_of_tests": 0
+		}
+	],
+	"websiteDescription": "We are teaching app development on Swift since 2014"
+}
