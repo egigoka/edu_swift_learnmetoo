@@ -7,18 +7,26 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class RootViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadData()
     }
 
     private func loadData() {
-        DispatchQueue.global().async {
-            NetworkManager.shared.fetchJson(from: <#T##URL#>, responseType: <#T##Decodable.Type#>, completion: <#T##(Result<Decodable, any Error>) -> Void#>)
+        guard let url = URL(string: Url.listAllBreeds.urlString) else { return }
+        NetworkManager.shared.fetchJson(
+            from: url,
+            responseType: APIResponse<Dictionary<String, [String]>>.self
+        ) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
 }
-
