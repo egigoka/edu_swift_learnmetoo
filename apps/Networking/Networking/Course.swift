@@ -7,7 +7,7 @@
 
 struct Course: Decodable {
     let name: String
-    let image: String
+    let imageUrl: String
     let number_of_lessons: Int
     let number_of_tests: Int
 }
