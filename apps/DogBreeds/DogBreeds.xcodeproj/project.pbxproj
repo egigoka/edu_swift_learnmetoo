@@ -14,7 +14,7 @@
 		137A78222E368525003ED7B3 /* Exceptions for "DogBreeds" folder in "DogBreeds" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				"Supporting Files/Info.plist",
 			);
 			target = 137A780F2E368523003ED7B3 /* DogBreeds */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DogBreeds/Info.plist;
+				INFOPLIST_FILE = "DogBreeds/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -175,7 +175,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DogBreeds/Info.plist;
+				INFOPLIST_FILE = "DogBreeds/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
