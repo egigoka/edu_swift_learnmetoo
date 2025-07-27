@@ -110,8 +110,8 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Main View Controller" id="Fgs-2O-IAH"/>
                     <connections>
-                        <segue destination="FRc-L0-NF3" kind="show" id="ucv-Am-rjd"/>
-                        <segue destination="dzb-gl-lSf" kind="show" id="8qw-SJ-444"/>
+                        <segue destination="FRc-L0-NF3" kind="show" identifier="showCourses" id="ucv-Am-rjd"/>
+                        <segue destination="dzb-gl-lSf" kind="show" identifier="showImage" id="8qw-SJ-444"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zg6-MS-yOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

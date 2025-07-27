@@ -24,8 +24,20 @@ enum UserActions: String, CaseIterable {
     case ourCourses = "Our Courses"
 }
 
-class MainViewViewController: UICollectionViewController {
+class MainViewController: UICollectionViewController {
 
+    
+    // MARK: - UIVollectionViewDataSource
+    override func collectionView(_ collectionView: UICollectionView, numberOfItermsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
