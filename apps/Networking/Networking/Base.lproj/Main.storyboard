@@ -64,7 +64,7 @@
         <!--Main View Controller-->
         <scene sceneID="JoU-TE-cxS">
             <objects>
-                <collectionViewController title="Main View Controller" id="tdy-F5-QLO" customClass="MainViewController" sceneMemberID="viewController">
+                <collectionViewController title="Main View Controller" id="tdy-F5-QLO" customClass="MainViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1lH-hH-1RI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
