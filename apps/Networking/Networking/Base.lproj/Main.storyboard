@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="width" constant="60" id="z7v-A2-I3x"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWq-Yf-ooD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWq-Yf-ooD">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                             </imageView>
                         </subviews>
