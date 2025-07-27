@@ -134,10 +134,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="jW8-VL-6CH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="jW8-VL-6CH" customClass="CourseCell" customModule="Networking" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="100.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jW8-VL-6CH" id="Uzo-jY-SOg" customClass="CourseCell">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jW8-VL-6CH" id="Uzo-jY-SOg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -185,6 +185,10 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="wPF-kg-UIL" secondAttribute="trailing" id="ruO-9a-uAx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseImage" destination="1Yj-D0-f7O" id="XNz-v2-BRV"/>
+                                    <outlet property="courseNameLabel" destination="E6d-EE-NDO" id="XUt-Yr-64K"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
