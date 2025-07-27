@@ -24,8 +24,11 @@ class CoursesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = cell as? CourseCell else { return cell }
         
+        let course = courses[indexPath.row]
         
+        cell.configure(with: course)
         
         return cell
     }
@@ -47,6 +50,7 @@ extension CoursesViewController {
             
             do {
                 self.courses = try JSONDecoder().decode([Course].self, from: data)
+                print(self.courses)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -56,20 +60,5 @@ extension CoursesViewController {
             }
         }.resume()
     }
-}
-
-//
-//  CourseCell.swift
-//  Networking
-//
-//  Created by egigoka on 27.07.2025.
-//
-
-import UIKit
-
-class CourseCell: UITableViewCell {
-    
-    @IBOutlet var courseImage: UIImageView!
-    @IBOutlet var courseNameLabel: UILabel!
 }
 
