@@ -1,0 +1,8 @@
+{
+	"id" :1,
+	"name": "Our first iOS apps",
+	"link": "https://swiftbook.org/courses/467/",
+	"imageUrl": "https://swiftbook.org/system/uploads/course/image/467/promo_first_apps_v4.jpg",
+	"number_of_lessons": 18,
+	"number_of_tests": 10
+}

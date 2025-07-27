@@ -1,0 +1,23 @@
+{
+	"courses":
+	[
+		{
+			"id": 1,
+			"name": "Our first iOS apps",
+			"link": "https://swiftbook.org/courses/467/",
+			"imageUrl": "https://swiftbook.org/system/uploads/course/image/467/promo_first_apps_v4.jpg",
+			"number_of_lessons": 20,
+			"number_of_tests": 10
+		},
+		{
+			"id": 2,
+			"name": "Курс по мессенджеру iChat",
+			"link": "https://swiftbook.org/courses/82/",
+			"imageUrl": "https://swiftbook.org/system/uploads/course/image/82/promo_33._iChat_1280x720.jpg",
+			"number_of_lessons": 45,
+			"number_of_tests": 0
+		}
+	],
+	"websiteDescription": "We are teaching app development on Swift since 2014",
+	"websiteName" : "SwiftBook.org"
+}
