@@ -10,7 +10,7 @@ import UIKit
 enum URLExamples: String {
     case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     case exampleOne = "http://10.1.0.6:9090/fixed/api_course"
-    case exampleTwo = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
+    case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
     case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
     case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
 }
@@ -113,8 +113,6 @@ extension MainViewController {
             
             guard let data = data else { return }
             
-            print(String(data: data, encoding: .utf8) ?? "not decoded")
-            
             do {
                 let course = try JSONDecoder().decode(Course.self, from: data)
                 print(course)
@@ -123,12 +121,11 @@ extension MainViewController {
                 }
             } catch let error {
                 print(error)
+                print(String(data: data, encoding: .utf8) ?? "not decoded")
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
             }
-            print(data)
-            
         }.resume()
     }
     
@@ -143,22 +140,19 @@ extension MainViewController {
             
             guard let data = data else { return }
             
-            print(String(data: data, encoding: .utf8) ?? "not decoded")
-            
             do {
-                let course = try JSONDecoder().decode(Course.self, from: data)
-                print(course)
+                let courses = try JSONDecoder().decode([Course].self, from: data)
+                print(courses)
                 DispatchQueue.main.async {
                     self.successAlert()
                 }
             } catch let error {
                 print(error)
+                print(String(data: data, encoding: .utf8) ?? "not decoded")
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
             }
-            print(data)
-            
         }.resume()
         
     }
@@ -174,8 +168,6 @@ extension MainViewController {
             
             guard let data = data else { return }
             
-            print(String(data: data, encoding: .utf8) ?? "not decoded")
-            
             do {
                 let course = try JSONDecoder().decode(Course.self, from: data)
                 print(course)
@@ -184,12 +176,11 @@ extension MainViewController {
                 }
             } catch let error {
                 print(error)
+                print(String(data: data, encoding: .utf8) ?? "not decoded")
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
             }
-            print(data)
-            
         }.resume()
         
     }
@@ -205,8 +196,6 @@ extension MainViewController {
             
             guard let data = data else { return }
             
-            print(String(data: data, encoding: .utf8) ?? "not decoded")
-            
             do {
                 let course = try JSONDecoder().decode(Course.self, from: data)
                 print(course)
@@ -215,12 +204,11 @@ extension MainViewController {
                 }
             } catch let error {
                 print(error)
+                print(String(data: data, encoding: .utf8) ?? "not decoded")
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
             }
-            print(data)
-            
         }.resume()
     }
 }
