@@ -41,7 +41,7 @@
                                 </constraints>
                             </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWq-Yf-ooD">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZWL-uh-99e"/>
@@ -50,9 +50,9 @@
                             <constraint firstItem="M8i-7o-F4K" firstAttribute="centerX" secondItem="me5-z4-FRQ" secondAttribute="centerX" id="IYw-ca-jr5"/>
                             <constraint firstItem="bWq-Yf-ooD" firstAttribute="leading" secondItem="ZWL-uh-99e" secondAttribute="leading" id="eeY-fc-hx4"/>
                             <constraint firstItem="ZWL-uh-99e" firstAttribute="trailing" secondItem="bWq-Yf-ooD" secondAttribute="trailing" id="fgO-hM-NsP"/>
-                            <constraint firstItem="ZWL-uh-99e" firstAttribute="bottom" secondItem="bWq-Yf-ooD" secondAttribute="bottom" id="mbd-D1-3D2"/>
+                            <constraint firstAttribute="bottom" secondItem="bWq-Yf-ooD" secondAttribute="bottom" id="mbd-D1-3D2"/>
                             <constraint firstItem="M8i-7o-F4K" firstAttribute="centerY" secondItem="me5-z4-FRQ" secondAttribute="centerY" id="qkj-OH-bgI"/>
-                            <constraint firstItem="bWq-Yf-ooD" firstAttribute="top" secondItem="ZWL-uh-99e" secondAttribute="top" id="tsN-R3-Qw7"/>
+                            <constraint firstItem="bWq-Yf-ooD" firstAttribute="top" secondItem="me5-z4-FRQ" secondAttribute="top" id="tsN-R3-Qw7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image View Controller" id="5CA-m7-mLf"/>
