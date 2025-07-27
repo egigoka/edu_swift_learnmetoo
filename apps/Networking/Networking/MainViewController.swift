@@ -25,10 +25,14 @@ enum UserActions: String, CaseIterable {
 }
 
 class MainViewController: UICollectionViewController {
-
     
-    // MARK: - UIVollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        1
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
@@ -72,27 +76,32 @@ class MainViewController: UICollectionViewController {
         present(alert, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-
-        // Do any additional setup after loading the view.
-    }
-
-    
-
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+}
+
+// MARK: - Networking
+extension MainViewController {
+    private func exampleOneButtonPressed() {
+        
     }
+    
+    private func exampleTwoButtonPressed() {
+        
+    }
+    
+    private func exampleThreeButtonPressed() {
+        
+    }
+    
+    private func exampleFourButtonPressed() {
+        
+    }
+}
 
-
-
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: UIScreen.main.bounds.width - 48, height: 100)
+    }
 }
