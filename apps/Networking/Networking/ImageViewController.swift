@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ImageViewController: UIViewController {
+    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
 

@@ -29,11 +29,15 @@ class MainViewController: UICollectionViewController {
     let userActions = UserActions.allCases
     
     // MARK: - UICollectionViewDataSource
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
         userActions.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         guard let cell = cell as? UserActionCell else { return cell }
         
@@ -44,6 +48,20 @@ class MainViewController: UICollectionViewController {
     }
     
     // MARK: - UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) {
+        let userAction = userActions[indexPath.item]
+        
+        switch userAction {
+        case .downloadImage: performSegue(withIdentifier: "showImage", sender: nil)
+        case .exampleOne: exampleOneButtonPressed()
+        case .exampleTwo: exampleTwoButtonPressed()
+        case .exampleThree: exampleThreeButtonPressed()
+        case .exampleFour: exampleFourButtonPressed()
+        case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
+        }
+    }
     
     /*
     // MARK: - Navigation
