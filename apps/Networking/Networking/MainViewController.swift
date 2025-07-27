@@ -26,18 +26,19 @@ enum UserActions: String, CaseIterable {
 
 class MainViewController: UICollectionViewController {
     
+    let userActions = UserActions.allCases
+    
     // MARK: - UICollectionViewDataSource
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
-    }
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        userActions.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = cell as? UserActionCell else { return cell }
+        
+        let userAction = userActions[indexPath.item]
+        cell.userActionLabel.text = userAction.rawValue
         
         return cell
     }
@@ -53,7 +54,6 @@ class MainViewController: UICollectionViewController {
     */
     
     // MARK: - Private Methods
-    
     private func successAlert() {
         let alert = UIAlertController(
             title: "Success",
@@ -75,10 +75,6 @@ class MainViewController: UICollectionViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
-    // MARK: UICollectionViewDataSource
-
-    
 }
 
 // MARK: - Networking
