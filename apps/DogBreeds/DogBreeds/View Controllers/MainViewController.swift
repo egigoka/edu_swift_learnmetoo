@@ -82,7 +82,7 @@ class DogBreedCell: UITableViewCell {
     private var urlTask: URLSessionDataTask?
     private var imageTask: URLSessionDataTask?
     
-    static var urlCache: [String: URL] = [:]
+    static var urlCache: [URL: URL] = [:]
     static var picCache: [URL: UIImage] = [:]
     
     override func prepareForReuse() {
@@ -118,6 +118,12 @@ class DogBreedCell: UITableViewCell {
         guard let url = url else { return }
         
         // get url of random picture
+        
+        if let cached = DogBreedCell.urlCache[url] {
+            self.getImage(from: cached)
+            return
+        }
+        
         urlTask = NetworkManager.shared.fetchJson(
             from: url,
             responseType: APIResponse<String>.self
@@ -127,9 +133,16 @@ class DogBreedCell: UITableViewCell {
             case .success(let response):
                 guard let imageUrl = URL(string: response.message) else { return }
                 
+                DogBreedCell.urlCache[url] = imageUrl
+                if let cached = DogBreedCell.picCache[imageUrl] {
+                    self.setImage(from: cached)
+                    return
+                }
+                
                 self.getImage(from: imageUrl)
             case .failure(let error):
-                print(error)
+                guard let error = error as? URLError else { return }
+                if error.code != .cancelled { print(error) }
             }
         }
     }
@@ -140,9 +153,12 @@ class DogBreedCell: UITableViewCell {
         { result in
             switch result {
             case .success(let result):
-                self.setImage(from: UIImage(data: result) ?? nil)
+                let image = UIImage(data: result) ?? nil
+                DogBreedCell.picCache[imageUrl] = image
+                self.setImage(from: image)
             case .failure(let error):
-                print(error)
+                guard let error = error as? URLError else { return }
+                if error.code != .cancelled { print(error) }
             }
         }
     }
