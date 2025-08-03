@@ -14,6 +14,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        tableView.reloadData()
     }
 
     private func loadData() {
@@ -29,7 +30,7 @@ class RootViewController: UITableViewController {
                 print(error)
             }
         }
-        for breed in breeds {
+        for (offset, breed) in breeds.enumerated() {
             var url: URL?
             switch breed.type {
             case .breed:
@@ -43,6 +44,7 @@ class RootViewController: UITableViewController {
                 break
             }
             guard let url = url else { continue }
+            var breedWithImage = breed
             // TODO: move it to init of breed
             NetworkManager.shared.fetchJson(
                 from: url,
@@ -50,7 +52,8 @@ class RootViewController: UITableViewController {
             ) { result in
                 switch result {
                 case .success(let response):
-                    breed.randomPicture = response.message
+                    breedWithImage.randomPicture = response.message
+                    self.breeds[offset] = breedWithImage
                 case .failure(let error):
                     print(error)
                 }
@@ -76,7 +79,23 @@ class RootViewController: UITableViewController {
             }
         }
     }
-    
-    
+}
 
+// MARK: - Table view data source
+extension RootViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        breeds.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let breed = breeds[indexPath.row]
+        
+        cell.textLabel?.text = breed.name
+        cell.detailTextLabel?.text = breed.subBreed
+        cell.imageView?.image = 
+        
+        return cell
+    }
 }
