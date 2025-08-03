@@ -14,7 +14,9 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        print(breeds.count)
         tableView.reloadData()
+        print("    data reloaded")
     }
 
     private func loadData() {
@@ -41,7 +43,6 @@ class RootViewController: UITableViewController {
                     breed: breed.name,
                     subBreed: subBreed
                 ).urlString)
-                break
             }
             guard let url = url else { continue }
             var breedWithImage = breed
@@ -58,6 +59,8 @@ class RootViewController: UITableViewController {
                     print(error)
                 }
             }
+            tableView.reloadData()
+            print("    data reloaded")
         }
         
     }
@@ -78,6 +81,10 @@ class RootViewController: UITableViewController {
                 }
             }
         }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        print("    data reloaded")
     }
 }
 
@@ -94,7 +101,19 @@ extension RootViewController {
         
         cell.textLabel?.text = breed.name
         cell.detailTextLabel?.text = breed.subBreed
-        cell.imageView?.image = 
+        
+        guard let url = URL(string: breed.randomPicture ?? "") else { return cell }
+        
+        NetworkManager.shared.fetch(from: url) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         return cell
     }
