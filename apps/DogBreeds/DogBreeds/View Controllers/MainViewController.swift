@@ -31,36 +31,46 @@ class RootViewController: UITableViewController {
             case .failure(let error):
                 print(error)
             }
-        }
-        for (offset, breed) in breeds.enumerated() {
-            var url: URL?
-            switch breed.type {
-            case .breed:
-                url = URL(string: Url.randomImage(breed: breed.name).urlString)
-            case .subBreed:
-                guard let subBreed = breed.subBreed else {continue}
-                url = URL(string: Url.randomImageWithSubBreed(
-                    breed: breed.name,
-                    subBreed: subBreed
-                ).urlString)
-            }
-            guard let url = url else { continue }
-            var breedWithImage = breed
-            // TODO: move it to init of breed
-            NetworkManager.shared.fetchJson(
-                from: url,
-                responseType: APIResponse<String>.self
-            ) { result in
-                switch result {
-                case .success(let response):
-                    breedWithImage.randomPicture = response.message
-                    self.breeds[offset] = breedWithImage
-                case .failure(let error):
-                    print(error)
+            
+            print("    conunt of breeds: \(self.breeds.count)")
+            for (offset, breed) in self.breeds.enumerated() {
+                var url: URL?
+                switch breed.type {
+                case .breed:
+                    url = URL(string: Url.randomImage(breed: breed.name).urlString)
+                case .subBreed:
+                    guard let subBreed = breed.subBreed else {continue}
+                    url = URL(string: Url.randomImageWithSubBreed(
+                        breed: breed.name,
+                        subBreed: subBreed
+                    ).urlString)
+                    
+                    print("url: \(url)")
+                    guard let url = url else { continue }
+                    var breedWithImage = breed
+                    // TODO: move it to init of breed
+                    NetworkManager.shared.fetchJson(
+                        from: url,
+                        responseType: APIResponse<String>.self
+                    ) { result in
+                        switch result {
+                        case .success(let response):
+                            breedWithImage.randomPicture = response.message
+                            self.breeds[offset] = breedWithImage
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                print("    data reloaded")
+                            }
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        print("    data reloaded")
+                    }
                 }
             }
-            tableView.reloadData()
-            print("    data reloaded")
         }
         
     }
@@ -83,8 +93,9 @@ class RootViewController: UITableViewController {
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            print("    data reloaded")
         }
-        print("    data reloaded")
+        
     }
 }
 
