@@ -30,41 +30,7 @@ class RootViewController: UITableViewController {
             }
             
             for (offset, breed) in self.breeds.enumerated() {
-                var url: URL?
-                switch breed.type {
-                case .breed:
-                    url = URL(string: Url.randomImage(breed: breed.name).urlString)
-                case .subBreed:
-                    guard let subBreed = breed.subBreed else {continue}
-                    url = URL(string: Url.randomImageWithSubBreed(
-                        breed: breed.name,
-                        subBreed: subBreed
-                    ).urlString)
-                    
-                    guard let url = url else { continue }
-                    var breedWithImage = breed
-                    // TODO: move it to init of breed
-                    NetworkManager.shared.fetchJson(
-                        from: url,
-                        responseType: APIResponse<String>.self
-                    ) { result in
-                        switch result {
-                        case .success(let response):
-                            breedWithImage.randomPicture = response.message
-                            self.breeds[offset] = breedWithImage
-                            //DispatchQueue.main.async {
-                            //    self.tableView.reloadRows(at: indexPath, with: .none)
-                            //}
-                        case .failure(let error):
-                            print(error)
-                        }
-                        
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                            print("    1 data reloaded")
-                        }
-                    }
-                }
+                
             }
         }
         
@@ -136,8 +102,54 @@ class DogBreedCell: UITableViewCell {
     @IBOutlet var breedLabel: UILabel!
     @IBOutlet var subBreedLabel: UILabel!
     
+    private var urlTask: URLSessionDataTask?
+    private var imageTask: URLSessionDataTask?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        urlTask?.cancel()
+        imageTask?.cancel()
+        urlTask = nil
+        imageTask = nil
+        dogImage.image = nil
+      }
+    
     func configure(with breed: Breed) {
+        var breed = breed
+        
+        // getting
         
     }
+    
+    private func getRandomImageURL(for breed: Breed) -> URL? {
+        var url: URL?
+        switch breed.type {
+        case .breed:
+            url = URL(string: Url.randomImage(breed: breed.name).urlString)
+        case .subBreed:
+            guard let subBreed = breed.subBreed else { return nil }
+            url = URL(string: Url.randomImageWithSubBreed(
+                breed: breed.name,
+                subBreed: subBreed
+            ).urlString)
+            break
+        }
+        guard let url = url else { return nil }
+        // TODO: move it to init of breed
+        let response = try await NetworkManager.shared.fetchJson(
+            from: url,
+            responseType: APIResponse<String>.self
+        ) { result in
+            switch result {
+            case .success(let response):
+                return URL(string: response.message) ?? nil
+            case .failure(let error):
+                print(error)
+                return nil
+            }
+        }
+    }
+    
+    
 }
 

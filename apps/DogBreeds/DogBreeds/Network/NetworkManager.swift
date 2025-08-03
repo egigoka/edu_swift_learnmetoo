@@ -17,7 +17,7 @@ class NetworkManager {
         from url: URL,
         responseType: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
-    ) {
+    ) -> URLSessionDataTask {
         fetch(from: url) { result in
             switch result {
             case .success(let data):
@@ -36,8 +36,8 @@ class NetworkManager {
     func fetch(
         from url: URL,
         completion: @escaping (Result<Data, Error>) -> Void
-    ) {
-        session.dataTask(with: url) { data, response, error in
+    ) -> URLSessionDataTask {
+        let dataTask = session.dataTask(with: url) { data, response, error in
             let result: Result<Data, Error>
             
             if let error = error {
@@ -49,6 +49,8 @@ class NetworkManager {
             }
             
             completion(result)
-        }.resume()
+        }
+        dataTask.resume()
+        return dataTask
     }
 }
