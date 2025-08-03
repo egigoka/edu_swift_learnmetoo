@@ -12,6 +12,6 @@ struct PixabayResponse: Decodable {
 }
 
 struct PixabayImage: Decodable {
-    let imageURL: String
+    let largeImageURL: String
     let user: String
 }

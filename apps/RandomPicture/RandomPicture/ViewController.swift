@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
+    
+    private let networkManager = NetworkManager.shared
 
     @IBAction func showNextAction() {
         fetchImage(key: "sea")
@@ -27,28 +29,37 @@ extension ViewController {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data, error == nil else { return }
             
-            var imageInfo: PixabayResponse?
+            let imageInfo: PixabayResponse?
             
             do {
-                let imageInfo = try JSONDecoder().decode(PixabayResponse.self, from: data)
+                imageInfo = try JSONDecoder().decode(PixabayResponse.self, from: data)
             } catch {
+                print(String(data: data, encoding: .utf8) ?? "Data not decoded in utf8")
                 print("Error decoding JSON: \(error)")
                 return
             }
             
-            let pictureUrl = imageInfo?.hits.first?.imageURL
+            let pictureUrl = imageInfo?.hits.randomElement()?.largeImageURL
             
             guard let pictureUrl = pictureUrl else {
-                print("\(pictureUrl)")
+                print("\(pictureUrl ?? "No URL")")
                 return
             }
             
-            URLSession.shared.dataTask(with: <#T##URLRequest#>)
-            
-            let image = UIImage(data: data)
-            DispatchQueue.main.async { [weak self] in
-                self?.photoImageView.image = image
+            guard let pictureUrl = URL(string: pictureUrl) else {
+                print("not an URL")
+                return
             }
+            
+            URLSession.shared.dataTask(with: pictureUrl) { data, _, error in
+                guard let data, error == nil else { return }
+                let image = UIImage(data: data)
+                DispatchQueue.main.async { [weak self] in
+                    self?.photoImageView.image = image
+                }
+            }.resume()
+            
+            
         }.resume()
     }
     
