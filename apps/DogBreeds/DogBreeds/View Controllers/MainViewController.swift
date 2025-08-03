@@ -29,6 +29,12 @@ class RootViewController: UITableViewController {
                 print(error)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let breedVC = segue.destination as? BreedViewController else { return }
+        guard let breedCell = sender as? DogBreedCell else { return }
+        
         
     }
     
@@ -46,12 +52,7 @@ class RootViewController: UITableViewController {
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            print("    2 data reloaded")
         }
-        
-    }
-    
-    private func updateImage(for indexPath: IndexPath) {
         
     }
 }
