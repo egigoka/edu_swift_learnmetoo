@@ -18,7 +18,7 @@ class RootViewController: UITableViewController {
 
     private func loadData() {
         guard let url = URL(string: Url.listAllBreeds.urlString) else { return }
-        NetworkManager.shared.fetchJson(
+        let _ = NetworkManager.shared.fetchJson(
             from: url,
             responseType: APIResponse<Dictionary<String, [String]>>.self
         ) { result in
@@ -28,10 +28,6 @@ class RootViewController: UITableViewController {
             case .failure(let error):
                 print(error)
             }
-            
-            for (offset, breed) in self.breeds.enumerated() {
-                
-            }
         }
         
     }
@@ -40,10 +36,6 @@ class RootViewController: UITableViewController {
     private func populateBreeds(from breedsDict: Dictionary<String, [String]>) {
         breeds = []
         for (breed, subBreeds) in breedsDict {
-            
-            
-            
-            print(breed, subBreeds)
             if subBreeds.count == 0 {
                 self.breeds.append(Breed(name: breed, type: .breed, subBreed: nil))
             } else {
@@ -73,24 +65,9 @@ extension RootViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let breed = breeds[indexPath.row]
+        guard let cell = cell as? DogBreedCell else { return cell }
         
-        cell.textLabel?.text = breed.name
-        cell.detailTextLabel?.text = breed.subBreed
-        
-        guard let url = URL(string: breed.randomPicture ?? "") else { return cell }
-        
-        NetworkManager.shared.fetch(from: url) { result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    cell.imageView?.image = UIImage(data: data)
-                }
-            case .failure(let error):
-                print(error)
-            }
-            
-        }
+        cell.configure(with: breeds[indexPath.row])
         
         return cell
     }
@@ -105,6 +82,9 @@ class DogBreedCell: UITableViewCell {
     private var urlTask: URLSessionDataTask?
     private var imageTask: URLSessionDataTask?
     
+    static var urlCache: [String: URL] = [:]
+    static var picCache: [URL: UIImage] = [:]
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         urlTask?.cancel()
@@ -115,41 +95,62 @@ class DogBreedCell: UITableViewCell {
       }
     
     func configure(with breed: Breed) {
-        var breed = breed
-        
-        // getting
-        
+        breedLabel.text = breed.name
+        subBreedLabel.text = breed.subBreed
+        startDownloadingImage(for: breed)
     }
     
-    private func getRandomImageURL(for breed: Breed) -> URL? {
+    private func startDownloadingImage(for breed: Breed) {
+        // get url of random picture endpoint
         var url: URL?
+        
         switch breed.type {
         case .breed:
             url = URL(string: Url.randomImage(breed: breed.name).urlString)
         case .subBreed:
-            guard let subBreed = breed.subBreed else { return nil }
+            guard let subBreed = breed.subBreed else { return }
             url = URL(string: Url.randomImageWithSubBreed(
                 breed: breed.name,
                 subBreed: subBreed
             ).urlString)
-            break
         }
-        guard let url = url else { return nil }
-        // TODO: move it to init of breed
-        let response = try await NetworkManager.shared.fetchJson(
+        
+        guard let url = url else { return }
+        
+        // get url of random picture
+        urlTask = NetworkManager.shared.fetchJson(
             from: url,
             responseType: APIResponse<String>.self
-        ) { result in
-            switch result {
+        )
+        { response in
+            switch response {
             case .success(let response):
-                return URL(string: response.message) ?? nil
+                guard let imageUrl = URL(string: response.message) else { return }
+                
+                self.getImage(from: imageUrl)
             case .failure(let error):
                 print(error)
-                return nil
             }
         }
     }
     
+    private func getImage(from imageUrl: URL) {
+        // get picture
+        self.imageTask = NetworkManager.shared.fetch(from: imageUrl)
+        { result in
+            switch result {
+            case .success(let result):
+                self.setImage(from: UIImage(data: result) ?? nil)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
+    private func setImage(from image: UIImage?) {
+        DispatchQueue.main.async {
+            self.dogImage.image = image
+        }
+    }
 }
 
