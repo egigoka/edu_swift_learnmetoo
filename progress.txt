@@ -84,7 +84,7 @@ course network lesson 1 testing    - done
 course network lesson 2 theory     - done
 course network lesson 2 testing    - done
 
-course network lesson 3 theory     - 05:57
+course network lesson 3 theory     - 07:27
 course network lesson 3 testing    - 
 
 course network lesson 4 theory     - 
