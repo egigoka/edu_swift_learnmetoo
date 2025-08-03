@@ -78,13 +78,13 @@ course 2 lesson 10 homework review - done
 course 2 lesson 10 theory          - done down+++++++++++++++++++++++++++++++++++++++
 course 2 lesson 10 homework        - done
 
-course network lesson 1 theory	   - 1:04
-course network lesson 1 testing    - 
+course network lesson 1 theory	   - done
+course network lesson 1 testing    - done
 
-course network lesson 2 theory     - 
-course network lesson 2 testing    - 
+course network lesson 2 theory     - done
+course network lesson 2 testing    - done
 
-course network lesson 3 theory     - 
+course network lesson 3 theory     - 00:23
 course network lesson 3 testing    - 
 
 course network lesson 4 theory     - 
