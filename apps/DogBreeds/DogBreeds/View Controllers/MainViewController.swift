@@ -100,31 +100,33 @@ class DogBreedCell: UITableViewCell {
         startDownloadingImage(for: breed)
     }
     
-    private func startDownloadingImage(for breed: Breed) {
-        // get url of random picture endpoint
+    private func getUrlOfRAndomImage(for breed: Breed) -> URL? {
         var url: URL?
         
         switch breed.type {
         case .breed:
             url = URL(string: Url.randomImage(breed: breed.name).urlString)
         case .subBreed:
-            guard let subBreed = breed.subBreed else { return }
+            guard let subBreed = breed.subBreed else { return nil }
             url = URL(string: Url.randomImageWithSubBreed(
                 breed: breed.name,
                 subBreed: subBreed
             ).urlString)
         }
-        
+        return url
+    }
+    
+    private func startDownloadingImage(for breed: Breed) {
+        let url = getUrlOfRAndomImage(for: breed)
         guard let url = url else { return }
-        
-        // get url of random picture
-        
+        getImageAndSetIt(from: url)
+    }
+    
+    private func getImageAndSetIt(from url: URL) {
         if let cached = DogBreedCell.urlCache[url] {
             self.getImage(from: cached)
-            print("url hit")
             return
         }
-        print("url miss")
         
         urlTask = NetworkManager.shared.fetchJson(
             from: url,
@@ -146,14 +148,10 @@ class DogBreedCell: UITableViewCell {
     }
     
     private func getImage(from imageUrl: URL) {
-        // get picture
-        
         if let cached = DogBreedCell.picCache[imageUrl] {
             self.setImage(from: cached)
-            print("pic hit")
             return
         }
-        print("pic miss")
         
         self.imageTask = NetworkManager.shared.fetch(from: imageUrl)
         { result in
