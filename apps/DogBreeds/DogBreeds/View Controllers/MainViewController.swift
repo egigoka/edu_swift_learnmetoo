@@ -121,8 +121,10 @@ class DogBreedCell: UITableViewCell {
         
         if let cached = DogBreedCell.urlCache[url] {
             self.getImage(from: cached)
+            print("url hit")
             return
         }
+        print("url miss")
         
         urlTask = NetworkManager.shared.fetchJson(
             from: url,
@@ -134,10 +136,6 @@ class DogBreedCell: UITableViewCell {
                 guard let imageUrl = URL(string: response.message) else { return }
                 
                 DogBreedCell.urlCache[url] = imageUrl
-                if let cached = DogBreedCell.picCache[imageUrl] {
-                    self.setImage(from: cached)
-                    return
-                }
                 
                 self.getImage(from: imageUrl)
             case .failure(let error):
@@ -149,6 +147,14 @@ class DogBreedCell: UITableViewCell {
     
     private func getImage(from imageUrl: URL) {
         // get picture
+        
+        if let cached = DogBreedCell.picCache[imageUrl] {
+            self.setImage(from: cached)
+            print("pic hit")
+            return
+        }
+        print("pic miss")
+        
         self.imageTask = NetworkManager.shared.fetch(from: imageUrl)
         { result in
             switch result {
