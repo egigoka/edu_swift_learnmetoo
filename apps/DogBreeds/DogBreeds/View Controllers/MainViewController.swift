@@ -14,9 +14,6 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        print(breeds.count)
-        tableView.reloadData()
-        print("    data reloaded")
     }
 
     private func loadData() {
@@ -32,7 +29,6 @@ class RootViewController: UITableViewController {
                 print(error)
             }
             
-            print("    conunt of breeds: \(self.breeds.count)")
             for (offset, breed) in self.breeds.enumerated() {
                 var url: URL?
                 switch breed.type {
@@ -45,7 +41,6 @@ class RootViewController: UITableViewController {
                         subBreed: subBreed
                     ).urlString)
                     
-                    print("url: \(url)")
                     guard let url = url else { continue }
                     var breedWithImage = breed
                     // TODO: move it to init of breed
@@ -57,17 +52,17 @@ class RootViewController: UITableViewController {
                         case .success(let response):
                             breedWithImage.randomPicture = response.message
                             self.breeds[offset] = breedWithImage
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                                print("    data reloaded")
-                            }
+                            //DispatchQueue.main.async {
+                            //    self.tableView.reloadRows(at: indexPath, with: .none)
+                            //}
                         case .failure(let error):
                             print(error)
                         }
-                    }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        print("    data reloaded")
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            print("    1 data reloaded")
+                        }
                     }
                 }
             }
@@ -93,8 +88,12 @@ class RootViewController: UITableViewController {
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            print("    data reloaded")
+            print("    2 data reloaded")
         }
+        
+    }
+    
+    private func updateImage(for indexPath: IndexPath) {
         
     }
 }
@@ -124,6 +123,7 @@ extension RootViewController {
             case .failure(let error):
                 print(error)
             }
+            
         }
         
         return cell
