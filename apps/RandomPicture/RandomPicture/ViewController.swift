@@ -20,6 +20,9 @@ class ViewController: UIViewController {
 // Networking
 extension ViewController {
     private func fetchImage() {
+        
+        let urlString = "https://pixabay.com/api/?key=\(Secrets.shared.pixabayKey)"
+        
         guard let url = URL(string: "https://picsum.photos/2048/2048") else { return }
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data, error == nil else { return }
