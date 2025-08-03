@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		137A78102E368523003ED7B3 /* DogBreeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		137A78102E368523003ED7B3 /* LongDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LongDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		137A78222E368525003ED7B3 /* Exceptions for "DogBreeds" folder in "DogBreeds" target */ = {
+		137A78222E368525003ED7B3 /* Exceptions for "LongDogs" folder in "LongDogs" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Supporting Files/Info.plist",
 			);
-			target = 137A780F2E368523003ED7B3 /* DogBreeds */;
+			target = 137A780F2E368523003ED7B3 /* LongDogs */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		137A78122E368523003ED7B3 /* DogBreeds */ = {
+		137A78122E368523003ED7B3 /* LongDogs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				137A78222E368525003ED7B3 /* Exceptions for "DogBreeds" folder in "DogBreeds" target */,
+				137A78222E368525003ED7B3 /* Exceptions for "LongDogs" folder in "LongDogs" target */,
 			);
-			path = DogBreeds;
+			path = LongDogs;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 		137A78072E368523003ED7B3 = {
 			isa = PBXGroup;
 			children = (
-				137A78122E368523003ED7B3 /* DogBreeds */,
+				137A78122E368523003ED7B3 /* LongDogs */,
 				137A78112E368523003ED7B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,7 +53,7 @@
 		137A78112E368523003ED7B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				137A78102E368523003ED7B3 /* DogBreeds.app */,
+				137A78102E368523003ED7B3 /* LongDogs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +61,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		137A780F2E368523003ED7B3 /* DogBreeds */ = {
+		137A780F2E368523003ED7B3 /* LongDogs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 137A78232E368525003ED7B3 /* Build configuration list for PBXNativeTarget "DogBreeds" */;
+			buildConfigurationList = 137A78232E368525003ED7B3 /* Build configuration list for PBXNativeTarget "LongDogs" */;
 			buildPhases = (
 				137A780C2E368523003ED7B3 /* Sources */,
 				137A780D2E368523003ED7B3 /* Frameworks */,
@@ -74,13 +74,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				137A78122E368523003ED7B3 /* DogBreeds */,
+				137A78122E368523003ED7B3 /* LongDogs */,
 			);
-			name = DogBreeds;
+			name = LongDogs;
 			packageProductDependencies = (
 			);
 			productName = DogBreeds;
-			productReference = 137A78102E368523003ED7B3 /* DogBreeds.app */;
+			productReference = 137A78102E368523003ED7B3 /* LongDogs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 137A780B2E368523003ED7B3 /* Build configuration list for PBXProject "DogBreeds" */;
+			buildConfigurationList = 137A780B2E368523003ED7B3 /* Build configuration list for PBXProject "LongDogs" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				137A780F2E368523003ED7B3 /* DogBreeds */,
+				137A780F2E368523003ED7B3 /* LongDogs */,
 			);
 		};
 /* End PBXProject section */
@@ -147,7 +147,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "DogBreeds/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "LongDogs/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Long dogs";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -158,7 +159,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.DogBreeds;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.LongDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -175,7 +176,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "DogBreeds/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "LongDogs/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Long dogs";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -186,7 +188,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.DogBreeds;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.LongDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -318,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		137A780B2E368523003ED7B3 /* Build configuration list for PBXProject "DogBreeds" */ = {
+		137A780B2E368523003ED7B3 /* Build configuration list for PBXProject "LongDogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137A78262E368525003ED7B3 /* Debug */,
@@ -327,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		137A78232E368525003ED7B3 /* Build configuration list for PBXNativeTarget "DogBreeds" */ = {
+		137A78232E368525003ED7B3 /* Build configuration list for PBXNativeTarget "LongDogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137A78242E368525003ED7B3 /* Debug */,

@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "137A780F2E368523003ED7B3"
-               BuildableName = "DogBreeds.app"
-               BlueprintName = "DogBreeds"
-               ReferencedContainer = "container:DogBreeds.xcodeproj">
+               BuildableName = "LongDogs.app"
+               BlueprintName = "LongDogs"
+               ReferencedContainer = "container:LongDogs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "137A780F2E368523003ED7B3"
-            BuildableName = "DogBreeds.app"
-            BlueprintName = "DogBreeds"
-            ReferencedContainer = "container:DogBreeds.xcodeproj">
+            BuildableName = "LongDogs.app"
+            BlueprintName = "LongDogs"
+            ReferencedContainer = "container:LongDogs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "137A780F2E368523003ED7B3"
-            BuildableName = "DogBreeds.app"
-            BlueprintName = "DogBreeds"
-            ReferencedContainer = "container:DogBreeds.xcodeproj">
+            BuildableName = "LongDogs.app"
+            BlueprintName = "LongDogs"
+            ReferencedContainer = "container:LongDogs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

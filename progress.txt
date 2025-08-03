@@ -76,70 +76,70 @@ course 2 lesson 9 homework         - done
 
 course 2 lesson 10 homework review - done
 course 2 lesson 10 theory          - done down+++++++++++++++++++++++++++++++++++++++
-course 2 lesson 10 homework        - in progress
+course 2 lesson 10 homework        - done
 
-course network lesson 1 theory
-course network lesson 1 testing
+course network lesson 1 theory	   - 1:04
+course network lesson 1 testing    - 
 
-course network lesson 2 theory
-course network lesson 2 testing
+course network lesson 2 theory     - 
+course network lesson 2 testing    - 
 
-course network lesson 3 theory
-course network lesson 3 testing
+course network lesson 3 theory     - 
+course network lesson 3 testing    - 
 
-course network lesson 4 theory
-course network lesson 4 testing
+course network lesson 4 theory     - 
+course network lesson 4 testing    - 
 
-course network lesson 5 theory
-course network lesson 5 testing
+course network lesson 5 theory     - 
+course network lesson 5 testing    - 
 
-course network lesson 6 theory
-course network lesson 6 testing
+course network lesson 6 theory     - 
+course network lesson 6 testing    - 
 
-course network lesson 7 theory
-course network lesson 7 testing
+course network lesson 7 theory     - 
+course network lesson 7 testing    - 
 
-course network lesson 8 theory
-course network lesson 8 testing
+course network lesson 8 theory     - 
+course network lesson 8 testing    - 
 
-course network lesson 9 theory
-course network lesson 9 testing
+course network lesson 9 theory     - 
+course network lesson 9 testing    - 
 
-course network lesson 10 theory
-course network lesson 10 testing
+course network lesson 10 theory    - 
+course network lesson 10 testing   - 
 
-course network lesson 11 theory
-course network lesson 11 testing
+course network lesson 11 theory    - 
+course network lesson 11 testing   - 
 
-course network lesson 12 theory
-course network lesson 12 testing
+course network lesson 12 theory    - 
+course network lesson 12 testing   - 
 
-course network lesson 13 theory
-course network lesson 13 testing
+course network lesson 13 theory    - 
+course network lesson 13 testing   - 
 
-course network lesson 14 theory
-course network lesson 14 testing
+course network lesson 14 theory    - 
+course network lesson 14 testing   - 
 
-course network lesson 15 theory
-course network lesson 15 testing
+course network lesson 15 theory    - 
+course network lesson 15 testing   - 
 
-course network lesson 16 theory
-course network lesson 16 testing
+course network lesson 16 theory    - 
+course network lesson 16 testing   - 
 
-course network lesson 17 theory
-course network lesson 17 testing
+course network lesson 17 theory    - 
+course network lesson 17 testing   - 
 
-course network lesson 18 theory
-course network lesson 18 testing
+course network lesson 18 theory    - 
+course network lesson 18 testing   - 
 
-course network lesson 19 theory
-course network lesson 19 testing
+course network lesson 19 theory    - 
+course network lesson 19 testing   - 
 
-course network lesson 20 theory
-course network lesson 20 testing
+course network lesson 20 theory    - 
+course network lesson 20 testing   - 
 
-course network lesson 21 theory
-course network lesson 21 testing
+course network lesson 21 theory    - 
+course network lesson 21 testing   - 
 
 course 2 lesson 11 homework review - 
 course 2 lesson 11 theory          - 

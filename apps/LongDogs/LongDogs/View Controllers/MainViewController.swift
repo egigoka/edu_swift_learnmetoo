@@ -35,11 +35,11 @@ class RootViewController: UITableViewController {
         guard let breedVC = segue.destination as? BreedViewController else { return }
         guard let breedCell = sender as? DogBreedCell else { return }
         
-        breedVC.imageView.image = breedCell.dogImage.image
-        breedVC.navigationItem.title = breedCell.breedLabel.text
+        breedVC.image = breedCell.dogImage.image
+        breedVC.breedName = breedCell.breedLabel.text
     }
     
-    // TODO: move it somewhree out of vc
+    // TODO: move it somewhree out of vc // I didn't know where to :(
     private func populateBreeds(from breedsDict: Dictionary<String, [String]>) {
         breeds = []
         for (breed, subBreeds) in breedsDict {

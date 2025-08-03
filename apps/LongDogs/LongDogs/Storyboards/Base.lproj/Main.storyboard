@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Dogs-->
         <scene sceneID="zwJ-LQ-t0T">
             <objects>
-                <tableViewController id="J3i-lx-xrE" customClass="RootViewController" customModule="DogBreeds" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="J3i-lx-xrE" customClass="RootViewController" customModule="LongDogs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PHJ-xA-6YE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="iag-Gu-1oh" customClass="DogBreedCell" customModule="DogBreeds" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="iag-Gu-1oh" customClass="DogBreedCell" customModule="LongDogs" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="100.33333587646484"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iag-Gu-1oh" id="VAH-dK-DP3">
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="J3i-lx-xrE" id="PcB-qS-lIH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="s6i-rQ-NzJ"/>
+                    <navigationItem key="navigationItem" title="Dogs" id="s6i-rQ-NzJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgg-nR-oC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +74,7 @@
         <!--Breed View Controller-->
         <scene sceneID="TRl-ho-wnJ">
             <objects>
-                <viewController id="Tdz-h6-nQO" customClass="BreedViewController" customModule="DogBreeds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tdz-h6-nQO" customClass="BreedViewController" customModule="LongDogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lwk-JW-btF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
