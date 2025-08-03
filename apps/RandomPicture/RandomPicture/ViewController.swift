@@ -9,11 +9,26 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
 
     @IBAction func showNextAction() {
-        
+        fetchImage()
+        print("uinmage")
     }
     
 }
 
+// Networking
+extension ViewController {
+    private func fetchImage() {
+        guard let url = URL(string: "https://picsum.photos/2048/2048") else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            print(error ?? "no eror")
+            guard let data, error == nil else { return }
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self.photoImageView.image = image
+            }
+        }.resume()
+    }
+}
