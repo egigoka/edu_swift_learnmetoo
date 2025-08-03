@@ -15,4 +15,12 @@ struct Breed: Decodable {
     let type: BreedType
     let subBreed: String?
     var randomPicture: String?
+    
+    var fullName: String {
+        var name = name
+        if let subBreed = subBreed {
+            name = "\(subBreed) \(name)"
+        }
+        return name
+    }
 }

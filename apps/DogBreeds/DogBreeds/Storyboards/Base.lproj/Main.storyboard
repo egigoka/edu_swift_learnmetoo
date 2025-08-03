@@ -28,13 +28,7 @@
                                             <rect key="frame" x="133.66666666666663" y="19.000000000000004" width="239.33333333333337" height="62.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi5-QF-kak">
-                                                    <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="62.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subbreed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP2-lG-Rxc">
-                                                    <rect key="frame" x="119.66666666666669" y="0.0" width="119.66666666666669" height="62.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="239.33333333333334" height="62.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -62,7 +56,6 @@
                                 <connections>
                                     <outlet property="breedLabel" destination="Qi5-QF-kak" id="Rcq-QH-61C"/>
                                     <outlet property="dogImage" destination="UNp-oq-na6" id="LSj-mw-gVl"/>
-                                    <outlet property="subBreedLabel" destination="vP2-lG-Rxc" id="Hpi-Ir-GtO"/>
                                     <segue destination="Tdz-h6-nQO" kind="show" id="OSY-dQ-I27"/>
                                 </connections>
                             </tableViewCell>
@@ -78,17 +71,31 @@
             </objects>
             <point key="canvasLocation" x="927.48091603053433" y="513.38028169014092"/>
         </scene>
-        <!--View Controller-->
+        <!--Breed View Controller-->
         <scene sceneID="TRl-ho-wnJ">
             <objects>
-                <viewController id="Tdz-h6-nQO" sceneMemberID="viewController">
+                <viewController id="Tdz-h6-nQO" customClass="BreedViewController" customModule="DogBreeds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lwk-JW-btF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-eb-vib">
+                                <rect key="frame" x="0.0" y="162" width="393" height="690"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="r0F-H3-H09"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vTl-eb-vib" firstAttribute="top" secondItem="r0F-H3-H09" secondAttribute="top" id="Mr7-2o-i4p"/>
+                            <constraint firstAttribute="bottom" secondItem="vTl-eb-vib" secondAttribute="bottom" id="NPA-Iq-zse"/>
+                            <constraint firstItem="r0F-H3-H09" firstAttribute="trailing" secondItem="vTl-eb-vib" secondAttribute="trailing" id="OB7-f6-fAt"/>
+                            <constraint firstItem="vTl-eb-vib" firstAttribute="leading" secondItem="r0F-H3-H09" secondAttribute="leading" id="gpR-Iv-zy3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lbU-Bg-Znw"/>
+                    <connections>
+                        <outlet property="imageView" destination="vTl-eb-vib" id="AP5-6a-yma"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uf9-B6-3CQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
