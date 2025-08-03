@@ -1,8 +1,8 @@
 //
-//  Response.swift
+//  URL.swift
 //  DogBreeds
 //
-//  Created by egigoka on 27.07.2025.
+//  Created by egigoka on 03.08.2025.
 //
 
 enum Url {
@@ -20,9 +20,4 @@ enum Url {
             return "https://dog.ceo/api/breed/\(breed)/\(subBreed)/images/random"
         }
     }
-}
-
-struct APIResponse<T: Decodable>: Decodable {
-    let message: T
-    let status: String
 }

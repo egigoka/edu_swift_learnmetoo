@@ -129,3 +129,15 @@ extension RootViewController {
         return cell
     }
 }
+
+class DogBreedCell: UITableViewCell {
+    
+    @IBOutlet var dogImage: UIImageView!
+    @IBOutlet var breedLabel: UILabel!
+    @IBOutlet var subBreedLabel: UILabel!
+    
+    func configure(with breed: Breed) {
+        
+    }
+}
+
