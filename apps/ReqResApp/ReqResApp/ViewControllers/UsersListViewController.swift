@@ -47,51 +47,22 @@ extension UsersListViewController {
 
 // MARK: - UITableViewDataSource
 extension UsersListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int)
+    -> Int {
         users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserTableViewCell else {
+        guard let cell =
+                tableView.dequeueReusableCell(withIdentifier: "userCell")
+                as? UserTableViewCell else {
             return UITableViewCell()
         }
         
         // Design a cell
-        // Finding the user first
-        let user = users[indexPath.row]
-        
-        cell.configure(with: user)
-        
-//        // Creating cell content
-//        var content = cell.defaultContentConfiguration()
-//        content.text = user.firstName
-//        content.secondaryText = user.lastName
-//        
-//        content.image = UIImage(systemName: "face.smiling")
-//        
-//        cell.contentConfiguration = content
-//        
-//        networkManager.fetchAvatar(from: user.avatar) { imageData in
-//            content.image = UIImage(data: imageData)
-//            content.imageProperties.cornerRadius = tableView.rowHeight / 2
-//            
-//            cell.contentConfiguration = content
-//        }
-        
-        
+        cell.configure(with: users[indexPath.row])
         return cell
     }
-}
-
-import Kingfisher
-class UserTableViewCell: UITableViewCell {
-
-    @IBOutlet var avatarImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    
-    func configure(with user: User) {
-        nameLabel.text = "\(user.firstName) \(user.lastName)"
-        avatarImageView.kf.setImage(with: user.avatar)
-    }
-    
 }

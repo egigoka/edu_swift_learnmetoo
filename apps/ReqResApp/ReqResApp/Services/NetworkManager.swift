@@ -8,9 +8,20 @@
 import Foundation
 
 enum NetworkError: Error {
-    case invalidURL
     case decodingError
     case noData
+    case noUsers
+    
+    var title: String {
+        switch self {
+        case .decodingError:
+            return "Can't decode received data"
+        case .noData:
+            return "Can't fetch data at all"
+        case .noUsers:
+            return "No users got from API"
+        }
+    }
 }
 
 final class NetworkManager {
@@ -39,12 +50,8 @@ final class NetworkManager {
         let request = getRequest(url: Link.allUsers.url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response as? HTTPURLResponse {
-                print("response status code: \(response.statusCode)")
-            }
-            
-            guard let data else {
-                print(error ?? "No error description")
+            guard let data, let response = response as? HTTPURLResponse else {
+                print(error?.localizedDescription ?? "No error description")
                 sendFailure(with: .noData)
                 return
             }
@@ -76,11 +83,20 @@ final class NetworkManager {
 extension NetworkManager {
     enum Link {
         case allUsers
+        case withNoData
+        case withDecodingError
+        case withNoUsers
         
         var url: URL {
             switch self {
             case .allUsers:
-                return URL(string: "https://reqres.in/api/users")!
+                return URL(string: "https://reqres.in/api/users/?delay=2")!
+            case .withNoData:
+                return URL(string: "https://reqres.in_/api/users")!
+            case .withDecodingError:
+                return URL(string: "https://reqres.in/api/users/3?delay=2")!
+            case .withNoUsers:
+                return URL(string: "https://reqres.in/api/users?page=3&delay=2")!
             }
         }
     }
