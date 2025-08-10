@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBAction func showNextAction() {
         
         
-        fetchImage(key: "sea")
+        fetchImage(key: keyTextField.text ?? "sea")
     }
     
 }
