@@ -10,9 +10,22 @@
 		132C59BD2E48FA3E00E30D8B /* ReqResApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReqResApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		132C59E12E490B1F00E30D8B /* Exceptions for "ReqResApp" folder in "ReqResApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 132C59BC2E48FA3E00E30D8B /* ReqResApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		132C59BF2E48FA3E00E30D8B /* ReqResApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				132C59E12E490B1F00E30D8B /* Exceptions for "ReqResApp" folder in "ReqResApp" target */,
+			);
 			path = ReqResApp;
 			sourceTree = "<group>";
 		};

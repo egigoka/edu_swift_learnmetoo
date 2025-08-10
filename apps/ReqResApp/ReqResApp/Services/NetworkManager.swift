@@ -28,8 +28,17 @@ final class NetworkManager {
         }
     }
     
+    private func getRequest(url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.setValue("reqres-free-v1", forHTTPHeaderField: "x-api-key")
+        return request
+    }
+    
     func fetchUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: Link.allUsers.url) { data, response, error in
+        
+        let request = getRequest(url: Link.allUsers.url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse {
                 print("response status code: \(response.statusCode)")
             }
@@ -48,6 +57,7 @@ final class NetworkManager {
                     completion(.success(usersQuery.data))
                 }
             } catch {
+                print(String(data: data, encoding: .utf8) ?? "")
                 completion(.failure(.decodingError))
             }
         }.resume()

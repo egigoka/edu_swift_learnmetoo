@@ -10,7 +10,7 @@ import UIKit
 final class UsersListViewController: UITableViewController {
     
     private let networkManager = NetworkManager.shared
-    private var users: [User]!
+    private var users: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,18 @@ final class UsersListViewController: UITableViewController {
 // MARK: - Networking
 extension UsersListViewController {
     private func fetchUsers() {
-        users = [User.example]
-        tableView.reloadData()
+//        users = [User.example]
+        networkManager.fetchUsers { [weak self] result in
+            switch result {
+            case .success(let users):
+                self?.users = users
+            case .failure(let error):
+                print("Error in fetchUsers: \(error.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
