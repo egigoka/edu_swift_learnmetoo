@@ -45,7 +45,7 @@ final class NetworkManager {
             
             guard let data else {
                 print(error ?? "No error description")
-                completion(.failure(.noData))
+                sendFailure(with: .noData)
                 return
             }
             
@@ -59,8 +59,15 @@ final class NetworkManager {
                 }
             } catch {
                 print(String(data: data, encoding: .utf8) ?? "")
-                completion(.failure(.decodingError))
+                sendFailure(with: .decodingError)
             }
+            
+            func sendFailure(with error: NetworkError) {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+            
         }.resume()
     }
 }
