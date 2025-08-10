@@ -18,6 +18,14 @@ final class UsersListViewController: UITableViewController {
         fetchUsers()
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let user = users[indexPath.row]
+        let userVC = segue.destination as? UserViewController
+        userVC?.user = user
+    }
+    
 }
 
 // MARK: - Networking
@@ -31,9 +39,7 @@ extension UsersListViewController {
             case .failure(let error):
                 print("Error in fetchUsers: \(error.localizedDescription)")
             }
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+            self?.tableView.reloadData()
         }
     }
 }

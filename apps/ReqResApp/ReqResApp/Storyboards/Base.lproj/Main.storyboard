@@ -3,14 +3,15 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--ReqRes Users-->
         <scene sceneID="5kj-B1-qqN">
             <objects>
-                <tableViewController title="Title" id="uee-gG-EnY" customClass="UsersListViewController" customModule="ReqResApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="ReqRes Users" id="uee-gG-EnY" customClass="UsersListViewController" customModule="ReqResApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NvD-h5-Xqb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uls-1S-ogu" kind="show" id="DhT-tf-w9g"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,11 +34,53 @@
                             <outlet property="delegate" destination="uee-gG-EnY" id="Dzn-Ef-sRu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="TAZ-eq-QcI"/>
+                    <navigationItem key="navigationItem" title="ReqRes Users" id="TAZ-eq-QcI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmE-wj-vAw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1443.5114503816794" y="17.605633802816904"/>
+        </scene>
+        <!--User View Controller-->
+        <scene sceneID="Jhu-VU-fa3">
+            <objects>
+                <viewController id="uls-1S-ogu" customClass="UserViewController" customModule="ReqResApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w5r-zY-wzB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-HF-Ypg">
+                                <rect key="frame" x="0.0" y="214" width="393" height="393"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bkk-HF-Ypg" secondAttribute="height" multiplier="1:1" id="Ubx-th-oOQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2P-ER-E5o">
+                                <rect key="frame" x="16" y="639" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nEH-pe-sFM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nEH-pe-sFM" firstAttribute="trailing" secondItem="L2P-ER-E5o" secondAttribute="trailing" constant="16" id="1Zc-ZD-afx"/>
+                            <constraint firstItem="bkk-HF-Ypg" firstAttribute="leading" secondItem="nEH-pe-sFM" secondAttribute="leading" id="HR2-Z0-j0T"/>
+                            <constraint firstItem="L2P-ER-E5o" firstAttribute="top" secondItem="bkk-HF-Ypg" secondAttribute="bottom" constant="32" id="ME4-Ja-dKl"/>
+                            <constraint firstItem="L2P-ER-E5o" firstAttribute="leading" secondItem="nEH-pe-sFM" secondAttribute="leading" constant="16" id="X1r-ZM-SOc"/>
+                            <constraint firstItem="nEH-pe-sFM" firstAttribute="trailing" secondItem="bkk-HF-Ypg" secondAttribute="trailing" id="buW-Iy-XJd"/>
+                            <constraint firstItem="bkk-HF-Ypg" firstAttribute="top" secondItem="nEH-pe-sFM" secondAttribute="top" id="fG7-sy-Ac9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UMX-zc-TN4"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="bkk-HF-Ypg" id="Jnv-4v-rRj"/>
+                        <outlet property="nameLabel" destination="L2P-ER-E5o" id="WIh-uY-meA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tUj-w6-0Lj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2257" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TRd-EC-boE">
