@@ -36,6 +36,14 @@
                                     <action selector="showNextAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGB-ey-xwQ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sea" borderStyle="roundedRect" placeholder="Image description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIr-9l-EJc">
+                                <rect key="frame" x="16.666666666666657" y="141" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Zda-Zt-a4R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,11 +52,15 @@
                             <constraint firstItem="92R-22-yZ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Tm8-83-47Q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uO3-b6-9eX" secondAttribute="bottom" constant="40" id="dqy-OQ-k7w"/>
                             <constraint firstItem="92R-22-yZ8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ds6-T9-e9E"/>
+                            <constraint firstItem="92R-22-yZ8" firstAttribute="top" secondItem="IIr-9l-EJc" secondAttribute="bottom" constant="71" id="fuR-Wb-v2v"/>
+                            <constraint firstItem="IIr-9l-EJc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oEr-Kr-fAt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="92R-22-yZ8" secondAttribute="trailing" constant="17" id="seY-jQ-cKJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uO3-b6-9eX" secondAttribute="trailing" constant="16" id="thh-UW-wT8"/>
+                            <constraint firstItem="IIr-9l-EJc" firstAttribute="width" secondItem="92R-22-yZ8" secondAttribute="width" id="wLk-fI-pWY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keyTextField" destination="IIr-9l-EJc" id="4ti-xJ-Lcr"/>
                         <outlet property="photoImageView" destination="92R-22-yZ8" id="fA5-g2-Gn8"/>
                     </connections>
                 </viewController>
@@ -62,7 +74,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

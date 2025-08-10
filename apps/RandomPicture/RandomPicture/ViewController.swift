@@ -10,10 +10,17 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet var keyTextField: UITextField!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        keyTextField.resignFirstResponder()
+    }
     
     private let networkManager = NetworkManager.shared
 
     @IBAction func showNextAction() {
+        
+        
         fetchImage(key: "sea")
     }
     
@@ -26,8 +33,9 @@ extension ViewController {
         let urlString = "https://pixabay.com/api/?key=\(Secrets.shared.pixabayKey)&q=\(uriEncode(key))"
         
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data, error == nil else { return }
+        networkManager.downloadData(from: url) { data in
+            
+            guard let data else { return }
             
             let imageInfo: PixabayResponse?
             
@@ -51,16 +59,14 @@ extension ViewController {
                 return
             }
             
-            URLSession.shared.dataTask(with: pictureUrl) { data, _, error in
-                guard let data, error == nil else { return }
+            self.networkManager.downloadData(from: pictureUrl) { data in
+                guard let data else { return }
                 let image = UIImage(data: data)
                 DispatchQueue.main.async { [weak self] in
                     self?.photoImageView.image = image
                 }
-            }.resume()
-            
-            
-        }.resume()
+            }
+        }
     }
     
     private func uriEncode(_ string: String) -> String {
