@@ -51,7 +51,7 @@ extension UsersListViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "user") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") else {
             return UITableViewCell()
         }
         
