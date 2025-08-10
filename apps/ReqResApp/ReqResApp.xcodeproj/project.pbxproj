@@ -7,19 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		132C59A32E48F7B800E30D8B /* ReqResApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReqResApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		132C59BD2E48FA3E00E30D8B /* ReqResApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReqResApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		132C59CF2E48FA4000E30D8B /* Exceptions for "ReqResApp" folder in "ReqResApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 132C59BC2E48FA3E00E30D8B /* ReqResApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		132C59A52E48F7B800E30D8B /* ReqResApp */ = {
+		132C59BF2E48FA3E00E30D8B /* ReqResApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				132C59CF2E48FA4000E30D8B /* Exceptions for "ReqResApp" folder in "ReqResApp" target */,
+			);
 			path = ReqResApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		132C59A02E48F7B800E30D8B /* Frameworks */ = {
+		132C59BA2E48FA3E00E30D8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		132C599A2E48F7B800E30D8B = {
+		132C59B42E48FA3E00E30D8B = {
 			isa = PBXGroup;
 			children = (
-				132C59A52E48F7B800E30D8B /* ReqResApp */,
-				132C59A42E48F7B800E30D8B /* Products */,
+				132C59BF2E48FA3E00E30D8B /* ReqResApp */,
+				132C59BE2E48FA3E00E30D8B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		132C59A42E48F7B800E30D8B /* Products */ = {
+		132C59BE2E48FA3E00E30D8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				132C59A32E48F7B800E30D8B /* ReqResApp.app */,
+				132C59BD2E48FA3E00E30D8B /* ReqResApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		132C59A22E48F7B800E30D8B /* ReqResApp */ = {
+		132C59BC2E48FA3E00E30D8B /* ReqResApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 132C59AE2E48F7B900E30D8B /* Build configuration list for PBXNativeTarget "ReqResApp" */;
+			buildConfigurationList = 132C59D02E48FA4000E30D8B /* Build configuration list for PBXNativeTarget "ReqResApp" */;
 			buildPhases = (
-				132C599F2E48F7B800E30D8B /* Sources */,
-				132C59A02E48F7B800E30D8B /* Frameworks */,
-				132C59A12E48F7B800E30D8B /* Resources */,
+				132C59B92E48FA3E00E30D8B /* Sources */,
+				132C59BA2E48FA3E00E30D8B /* Frameworks */,
+				132C59BB2E48FA3E00E30D8B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				132C59A52E48F7B800E30D8B /* ReqResApp */,
+				132C59BF2E48FA3E00E30D8B /* ReqResApp */,
 			);
 			name = ReqResApp;
 			packageProductDependencies = (
 			);
 			productName = ReqResApp;
-			productReference = 132C59A32E48F7B800E30D8B /* ReqResApp.app */;
+			productReference = 132C59BD2E48FA3E00E30D8B /* ReqResApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		132C599B2E48F7B800E30D8B /* Project object */ = {
+		132C59B52E48FA3E00E30D8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					132C59A22E48F7B800E30D8B = {
+					132C59BC2E48FA3E00E30D8B = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
-			buildConfigurationList = 132C599E2E48F7B800E30D8B /* Build configuration list for PBXProject "ReqResApp" */;
+			buildConfigurationList = 132C59B82E48FA3E00E30D8B /* Build configuration list for PBXProject "ReqResApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 132C599A2E48F7B800E30D8B;
+			mainGroup = 132C59B42E48FA3E00E30D8B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 132C59A42E48F7B800E30D8B /* Products */;
+			productRefGroup = 132C59BE2E48FA3E00E30D8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				132C59A22E48F7B800E30D8B /* ReqResApp */,
+				132C59BC2E48FA3E00E30D8B /* ReqResApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		132C59A12E48F7B800E30D8B /* Resources */ = {
+		132C59BB2E48FA3E00E30D8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		132C599F2E48F7B800E30D8B /* Sources */ = {
+		132C59B92E48FA3E00E30D8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +138,63 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		132C59AC2E48F7B900E30D8B /* Debug */ = {
+		132C59D12E48FA4000E30D8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MH53GS72RV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReqResApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.ReqResApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		132C59D22E48FA4000E30D8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MH53GS72RV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReqResApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.ReqResApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		132C59D32E48FA4000E30D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -189,7 +258,7 @@
 			};
 			name = Debug;
 		};
-		132C59AD2E48F7B900E30D8B /* Release */ = {
+		132C59D42E48FA4000E30D8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,84 +315,28 @@
 			};
 			name = Release;
 		};
-		132C59AF2E48F7B900E30D8B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.ReqResApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		132C59B02E48F7B900E30D8B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.ReqResApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		132C599E2E48F7B800E30D8B /* Build configuration list for PBXProject "ReqResApp" */ = {
+		132C59B82E48FA3E00E30D8B /* Build configuration list for PBXProject "ReqResApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				132C59AC2E48F7B900E30D8B /* Debug */,
-				132C59AD2E48F7B900E30D8B /* Release */,
+				132C59D32E48FA4000E30D8B /* Debug */,
+				132C59D42E48FA4000E30D8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		132C59AE2E48F7B900E30D8B /* Build configuration list for PBXNativeTarget "ReqResApp" */ = {
+		132C59D02E48FA4000E30D8B /* Build configuration list for PBXNativeTarget "ReqResApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				132C59AF2E48F7B900E30D8B /* Debug */,
-				132C59B02E48F7B900E30D8B /* Release */,
+				132C59D12E48FA4000E30D8B /* Debug */,
+				132C59D22E48FA4000E30D8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 132C599B2E48F7B800E30D8B /* Project object */;
+	rootObject = 132C59B52E48FA3E00E30D8B /* Project object */;
 }

@@ -94,12 +94,12 @@ course network lesson 5 theory     - done
 course network lesson 5 testing    - done
 
 course network lesson 6 theory     - done
-course network lesson 6 testing    - 
+course network lesson 6 testing    - failed
 
-course network lesson 7 theory     - 
-course network lesson 7 testing    - 
+course network lesson 7 theory     - done
+course network lesson 7 testing    - done
 
-course network lesson 8 theory     - 
+course network lesson 8 theory     - 1:53
 course network lesson 8 testing    - 
 
 course network lesson 9 theory     - 
