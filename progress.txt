@@ -102,10 +102,10 @@ course network lesson 7 testing    - done
 course network lesson 8 theory     - done
 course network lesson 8 testing    - none
 
-course network lesson 9 theory     - 12:14
-course network lesson 9 testing    - 
+course network lesson 9 theory     - done
+course network lesson 9 testing    - done
 
-course network lesson 10 theory    - 
+course network lesson 10 theory    - 3:59
 course network lesson 10 testing   - 
 
 course network lesson 11 theory    - 
