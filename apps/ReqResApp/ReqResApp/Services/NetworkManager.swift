@@ -1,0 +1,69 @@
+//
+//  NetworkManager.swift
+//  ReqResApp
+//
+//  Created by egigoka on 10.08.2025.
+//
+
+import Foundation
+
+enum NetworkError: Error {
+    case invalidURL
+    case decodingError
+    case noData
+}
+
+final class NetworkManager {
+    static let shared = NetworkManager()
+    
+    private init() {}
+    
+    func fetchAvatar(from url: URL, completion: @escaping (Data) -> Void) {
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            
+            DispatchQueue.main.async {
+                completion(imageData)
+            }
+        }
+    }
+    
+    func fetchUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
+        URLSession.shared.dataTask(with: Link.allUsers.url) { data, response, error in
+            if let response = response as? HTTPURLResponse {
+                print("response status code: \(response.statusCode)")
+            }
+            
+            guard let data else {
+                print(error ?? "No error description")
+                completion(.failure(.noData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let usersQuery = try decoder.decode(UsersQuery.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(usersQuery.data))
+                }
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
+}
+
+// MARK: - Link
+extension NetworkManager {
+    enum Link {
+        case allUsers
+        
+        var url: URL {
+            switch self {
+            case .allUsers:
+                return URL(string: "https://reqres.in/api/users")!
+            }
+        }
+    }
+}

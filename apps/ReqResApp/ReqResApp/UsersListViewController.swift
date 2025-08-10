@@ -49,10 +49,15 @@ extension UsersListViewController {
         content.secondaryText = user.lastName
         
         content.image = UIImage(systemName: "face.smiling")
-        networkManager.fetchAvatar(from: <#T##URL#>, completion: <#T##(Data) -> Void#>)
-        content.image = UIImage(data: networkManager.fetchAvatar(from: <#T##URL#>, completion: <#T##(Data) -> Void#>))
         
         cell.contentConfiguration = content
+        
+        networkManager.fetchAvatar(from: user.avatar) { imageData in
+            content.image = UIImage(data: imageData)
+            content.imageProperties.cornerRadius = tableView.rowHeight / 2
+            
+            cell.contentConfiguration = content
+        }
         
         return cell
     }

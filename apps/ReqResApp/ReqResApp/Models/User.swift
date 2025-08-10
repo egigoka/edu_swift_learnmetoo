@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Decodable {
     let id: Int
     let firstName: String
     let lastName: String
@@ -22,6 +22,6 @@ struct User {
     
 }
 
-struct UsersQuery {
+struct UsersQuery: Decodable {
     let data: [User]
 }
