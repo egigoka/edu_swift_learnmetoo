@@ -111,7 +111,7 @@ course network lesson 10 testing   - done
 course network lesson 11 theory    - done
 course network lesson 11 testing   - done
 
-course network lesson 12 theory    - 2:15
+course network lesson 12 theory    - 2:16
 course network lesson 12 testing   - 
 
 course network lesson 13 theory    - 

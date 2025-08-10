@@ -78,3 +78,7 @@ extension UsersListViewController {
         return cell
     }
 }
+
+class UserTableViewCell: UITableViewCell {
+
+}
