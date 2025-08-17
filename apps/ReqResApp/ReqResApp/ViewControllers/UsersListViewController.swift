@@ -82,6 +82,21 @@ extension UsersListViewController {
             self?.tableView.reloadData()
         }
     }
+    
+    private func post(user: User) {
+        networkManager.postUser(user) { [weak self] result in
+            switch result {
+            case .success(let postUserQuery):
+                // create User in UserList
+                self?.users.append(User(postUserQuery: postUserQuery))
+                self?.tableView.reloadData()
+                print("\(postUserQuery) created")
+            case .failure(let error):
+                print("Error in post user: \(error)")
+                
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -109,8 +124,6 @@ extension UsersListViewController {
 // MARK: - NewUserViewControllerDelegate
 extension UsersListViewController: NewUserViewControllerDelegate {
     func createUser(_ user: User) {
-        print(user)
-        users.append(user)
-        tableView.reloadData()
+        post(user: user)
     }
 }

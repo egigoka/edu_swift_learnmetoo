@@ -22,6 +22,10 @@ final class UserViewController: UIViewController {
     private func composeUser(_ user: User) {
         nameLabel.text = "\(user.firstName) \(user.lastName)"
         
-        avatarImageView.kf.setImage(with: user.avatar)
+        if user.avatar != nil {
+            avatarImageView.kf.setImage(with: user.avatar)
+        } else {
+            avatarImageView.image = UIImage(systemName: "person.crop.circle")
+        }
     }
 }

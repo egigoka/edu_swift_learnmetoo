@@ -116,6 +116,15 @@ final class NetworkManager {
         }.resume()
         
     }
+    
+    func deleteUser(_ id: Int, completion: @escaping (Bool) -> Void) {
+        let userURL = Link.singleUser.url.appending(component: "\(id)")
+        var request = getRequest(url: userURL)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared
+        
+    }
 }
 
 // MARK: - Link

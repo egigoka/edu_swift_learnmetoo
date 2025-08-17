@@ -7,14 +7,12 @@
 
 import UIKit
 
-class NewUserViewController: UIViewController {
+final class NewUserViewController: UIViewController {
 
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     
     var delegate: NewUserViewControllerDelegate?
-    
-    private let networkManager = NetworkManager.shared
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         let user = User(
@@ -22,7 +20,7 @@ class NewUserViewController: UIViewController {
             firstName: firstNameTextField.text ?? "",
             lastName: lastNameTextField.text ?? ""
         )
-        post(user: user)
+        delegate?.createUser(user)
         dismiss(animated: true)
     }
     
@@ -30,21 +28,4 @@ class NewUserViewController: UIViewController {
         dismiss(animated: true)
     }
     
-}
-
-// MARK: - Networking
-extension NewUserViewController {
-    private func post(user: User) {
-        networkManager.postUser(user) { result in
-            switch result {
-            case .success(let postUserQuery):
-                // create User in UserList
-                self.delegate?.createUser(User(postUserQuery: postUserQuery))
-                print("\(postUserQuery) created")
-            case .failure(let error):
-                print("Error in post user: \(error)")
-                
-            }
-        }
-    }
 }
