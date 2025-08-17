@@ -30,7 +30,9 @@ class DogBreedCell: UITableViewCell {
     private func startSettingImage(for breed: Breed) {
         let url = networkManager.getUrlOfRAndomImage(for: breed)
         guard let url = url else { return }
-        setImage(from: imageManager.getRandomImage(from: url))
+        Task {
+            await setImage(from: imageManager.getRandomImage(from: url))
+        }
     }
     
     
