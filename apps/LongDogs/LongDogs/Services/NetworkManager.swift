@@ -54,7 +54,7 @@ class NetworkManager {
         return dataTask
     }
     
-    private func getUrlOfRAndomImage(for breed: Breed) -> URL? {
+    func getUrlOfRAndomImage(for breed: Breed) -> URL? {
         var url: URL?
         
         switch breed.type {

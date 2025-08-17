@@ -12,16 +12,13 @@ class DogBreedCell: UITableViewCell {
     @IBOutlet var dogImage: UIImageView!
     @IBOutlet var breedLabel: UILabel!
     
-    
-    
+    private let imageManager = ImageManager.shared
+    private let networkManager = NetworkManager.shared
     
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        urlTask?.cancel()
-        imageTask?.cancel()
-        urlTask = nil
-        imageTask = nil
+        imageManager.cancel()
         dogImage.image = nil
       }
     
@@ -31,15 +28,10 @@ class DogBreedCell: UITableViewCell {
     }
     
     private func startSettingImage(for breed: Breed) {
-        let url = getUrlOfRAndomImage(for: breed)
+        let url = networkManager.getUrlOfRAndomImage(for: breed)
         guard let url = url else { return }
         setImage(from: url)
     }
-    
-    
-    
-    
-    
     
     
     private func setImage(from image: UIImage?) {

@@ -13,18 +13,21 @@ class ImageManager {
     private var urlCache: [URL: URL] = [:]
     private var picCache: [URL: UIImage] = [:]
     
-    private var urlTask: URLSessionDataTask?
-    private var imageTask: URLSessionDataTask?
+    private var urlTasks: [URLSessionDataTask] = []
+    private var imageTasks: [URLSessionDataTask] = []
     
     private init() {}
     
-    private func setImage(from url: URL) {
-        if let cached = urlCache[url] {
-            self.getImage(from: cached)
-            return
+    private func getRandomImage(from url: URL) -> UIImage? {
+        if let cachedUrl = urlCache[url] {
+            return getImage(from: cachedUrl)
         }
         
-        urlTask = NetworkManager.shared.fetchJson(
+        Task {
+            URL
+        }
+        
+        let urlTask = NetworkManager.shared.fetchJson(
             from: url,
             responseType: APIResponse<String>.self
         )
@@ -43,23 +46,19 @@ class ImageManager {
         }
     }
     
-    private func getImage(from imageUrl: URL) {
+    private func getImage(from imageUrl: URL) -> UIImage? {
         if let cached = picCache[imageUrl] {
-            self.setImage(from: cached)
-            return
+            return cached
         }
         
-        self.imageTask = NetworkManager.shared.fetch(from: imageUrl)
-        { [weak self] result in
-            switch result {
-            case .success(let result):
-                let image = UIImage(data: result) ?? nil
-                self?.picCache[imageUrl] = image
-                self?.setImage(from: image)
-            case .failure(let error):
-                guard let error = error as? URLError else { return }
-                if error.code != .cancelled { print(error) }
-            }
-        }
+        let image = try? UIImage(data: Data(contentsOf: imageUrl))
+        return image
+    }
+    
+    func cancel() {
+        urlTask?.cancel()
+        imageTask?.cancel()
+        urlTask = nil
+        imageTask = nil
     }
 }
