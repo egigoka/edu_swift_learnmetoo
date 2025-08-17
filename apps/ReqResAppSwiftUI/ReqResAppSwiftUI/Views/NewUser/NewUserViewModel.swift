@@ -14,7 +14,20 @@ final class NewUserViewModel: ObservableObject {
     
     private let networkManager = NetworkManager.shared
     
-    func addUser(to userListViewModel: UserListViewModel) {
-        
+    func addUser(to userListViewModel: UserListViewModel) async {
+        let user = User(
+            postUserQuery: PostUserQuery(
+                firstName: firstName,
+                lastName: lastName
+            )
+        )
+        do {
+            let postUserQuery = try await networkManager.postUser(user)
+            userListViewModel.appendUser(User(postUserQuery: postUserQuery))
+            userListViewModel.dismiss()
+        } catch {
+            // Error handling
+            print(error.localizedDescription)
+        }
     }
 }

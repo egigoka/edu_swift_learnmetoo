@@ -18,8 +18,17 @@ struct UserListView: View {
                 }
             }
             .listStyle(.plain)
+            .overlay {
+                if userListViewModel.isLoading {
+                    ProgressView()
+                }
+            }
             .onAppear {
-                userListViewModel.fetchUsers()
+                if userListViewModel.users.isEmpty {
+                    Task {
+                        await userListViewModel.fetchUsers()
+                    }
+                }
             }
             .navigationTitle("User List")
             .toolbar {

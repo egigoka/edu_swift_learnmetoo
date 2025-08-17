@@ -12,10 +12,16 @@ final class NetworkManager {
     
     private init() {}
     
+    private func getRequest(url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.setValue("reqres-free-v1", forHTTPHeaderField: "x-api-key")
+        return request
+    }
+    
     func fetchUsers() async throws -> [User] {
-        let request = 
+        let request = getRequest(url: Link.allUsers.url)
         
-        let (data, _) = try await URLSession.shared.data(from: Link.allUsers.url)
+        let (data, _) = try await URLSession.shared.data(for: request)
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -29,9 +35,28 @@ final class NetworkManager {
     }
     
     func postUser(_ user: User) async throws -> PostUserQuery {
-        var request =
+        var request = getRequest(url: Link.singleUser.url)
+        request.httpMethod = "POST"
+        request.setValue(
+            "application/json encoding: utf-8",
+            forHTTPHeaderField: "Content-Type"
+        )
         
-        return PostUserQuery(firstName: "Jane", lastName: "Flower")
+        let userQuery = PostUserQuery(
+            firstName: user.firstName,
+            lastName: user.lastName
+        )
+        let jsonData = try? JSONEncoder().encode(userQuery)
+        
+        request.httpBody = jsonData
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        do {
+            return try JSONDecoder().decode(PostUserQuery.self, from: data)
+        } catch {
+            throw NetworkError.decodingError
+        }
     }
 }
 
@@ -54,4 +79,11 @@ extension NetworkManager {
 
 enum NetworkError: Error {
     case decodingError
+    
+    var title: String {
+        switch self {
+        case .decodingError:
+            return "Can't decode received data"
+        }
+    }
 }

@@ -15,15 +15,22 @@ final class UserListViewModel: ObservableObject {
     
     private let networkManager = NetworkManager.shared
     
-    func fetchUsers() {
-        users = networkManager.fetchUsers()
+    func fetchUsers() async {
+        isLoading = true
+        do {
+            users = try await networkManager.fetchUsers()
+        } catch {
+            // Error handling
+            print(error.localizedDescription)
+        }
+        isLoading = false
     }
     
-    func appendUser() {
-        
+    func appendUser(_ user: User) {
+        users.append(user)
     }
     
     func dismiss() {
-        
+        isPresentingNewUserView = false
     }
 }

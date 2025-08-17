@@ -29,7 +29,7 @@ struct NewUserView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        
+                        newUserViewModel.addUser(to: userListViewModel)
                         isPresented = false
                     }
                 }
