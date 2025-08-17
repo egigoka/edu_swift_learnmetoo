@@ -26,13 +26,20 @@ struct User: Decodable {
         self.lastName = lastName
         self.avatar = avatar
     }
+    
+    init(postUserQuery: PostUserQuery) {
+        self.id = 0
+        self.firstName = postUserQuery.firstName
+        self.lastName = postUserQuery.lastName
+        self.avatar = nil
+    }
 }
 
 struct UsersQuery: Decodable {
     let data: [User]
 }
 
-struct PostUserQuery: Decodable {
+struct PostUserQuery: Codable {
     let firstName: String
     let lastName: String
     
