@@ -24,13 +24,15 @@ struct NewUserView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
-                        isPresented = false
+                        userListViewModel.dismiss()
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        newUserViewModel.addUser(to: userListViewModel)
-                        isPresented = false
+                        Task {
+                            await newUserViewModel.addUser(to: userListViewModel)
+                            userListViewModel.dismiss()
+                        }
                     }
                 }
             }

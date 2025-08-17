@@ -38,7 +38,7 @@ final class NetworkManager {
         var request = getRequest(url: Link.singleUser.url)
         request.httpMethod = "POST"
         request.setValue(
-            "application/json encoding: utf-8",
+            "application/json; charset=utf-8",
             forHTTPHeaderField: "Content-Type"
         )
         
@@ -50,11 +50,16 @@ final class NetworkManager {
         
         request.httpBody = jsonData
         
+        print(String(data: jsonData!, encoding: .utf8)!)
+        
         let (data, _) = try await URLSession.shared.data(for: request)
+        
+        print(String(data: data, encoding: .utf8)!)
         
         do {
             return try JSONDecoder().decode(PostUserQuery.self, from: data)
         } catch {
+            print(error)
             throw NetworkError.decodingError
         }
     }

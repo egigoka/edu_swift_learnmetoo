@@ -135,8 +135,8 @@ course network lesson 18 testing   - done
 course network lesson 19 theory    - done
 course network lesson 19 testing   - done
 
-course network lesson 20 theory    - 16:10
-course network lesson 20 testing   - 
+course network lesson 20 theory    - done
+course network lesson 20 testing   - in progress
 
 course network lesson 21 theory    - 
 course network lesson 21 testing   - 
