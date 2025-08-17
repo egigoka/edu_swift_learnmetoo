@@ -132,7 +132,7 @@ course network lesson 17 testing   - done
 course network lesson 18 theory    - done
 course network lesson 18 testing   - done
 
-course network lesson 19 theory    - 4:57
+course network lesson 19 theory    - 8:14
 course network lesson 19 testing   - 
 
 course network lesson 20 theory    - 

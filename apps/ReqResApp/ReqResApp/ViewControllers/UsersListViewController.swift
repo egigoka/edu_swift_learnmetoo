@@ -71,7 +71,7 @@ final class UsersListViewController: UITableViewController {
 extension UsersListViewController {
     private func fetchUsers() {
 //        users = [User.example]
-        networkManager.fetchUsersNative { [weak self] result in
+        networkManager.fetchUsersAF { [weak self] result in
             self?.spinnerView.stopAnimating()
             switch result {
             case .success(let users):
@@ -85,7 +85,7 @@ extension UsersListViewController {
     }
     
     private func post(user: User) {
-        networkManager.postUserNative(user) { [weak self] result in
+        networkManager.postUserAF(user) { [weak self] result in
             switch result {
             case .success(let postUserQuery):
                 // create User in UserList

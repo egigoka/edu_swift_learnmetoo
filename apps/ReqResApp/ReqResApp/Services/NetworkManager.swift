@@ -152,11 +152,17 @@ final class NetworkManager {
         return response.statusCode == 204
     }
     
+    private func getHeadersAF() -> HTTPHeaders {
+        let header = HTTPHeader(name: "x-api-key", value: "reqres-free-v1")
+        let headers = HTTPHeaders(arrayLiteral: header)
+        return headers
+    }
+    
     func fetchUsersAF(completion: @escaping (Result<[User], AFError>) -> Void) {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        AF.request(Link.allUsers.url)
+        AF.request(Link.allUsers.url, headers: getHeadersAF())
             .validate()
             .responseDecodable(of: UsersQuery.self, decoder: decoder) { dataResponse in
                 switch dataResponse.result {
@@ -169,7 +175,20 @@ final class NetworkManager {
     }
     
     func postUserAF(_ user: User, completion: @escaping (Result<PostUserQuery, AFError>) -> Void) {
-        
+        let postUserParameters = PostUserQuery(
+            firstName: user.firstName,
+            lastName: user.lastName
+        )
+        AF.request(Link.singleUser.url, method: .post, parameters: postUserParameters)
+            .validate()
+            .responseDecodable(of: PostUserQuery.self) { dataResponse in
+                switch dataResponse.result {
+                case .success(let postUserQuery):
+                    completion(.success(postUserQuery))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
     
     func deleteUserAF(_ id: Int, completion: @escaping (Bool) -> Void) {

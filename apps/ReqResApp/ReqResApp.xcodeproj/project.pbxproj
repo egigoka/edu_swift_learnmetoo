@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		13B3B5162E52191200D20FAB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 13B3B5152E52191200D20FAB /* Alamofire */; };
-		13B3B5182E52191200D20FAB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 13B3B5172E52191200D20FAB /* AlamofireDynamic */; };
 		13C185332E49281000B51EB0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13C185322E49281000B51EB0 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C185332E49281000B51EB0 /* Kingfisher in Frameworks */,
-				13B3B5182E52191200D20FAB /* AlamofireDynamic in Frameworks */,
 				13B3B5162E52191200D20FAB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,7 +87,6 @@
 			packageProductDependencies = (
 				13C185322E49281000B51EB0 /* Kingfisher */,
 				13B3B5152E52191200D20FAB /* Alamofire */,
-				13B3B5172E52191200D20FAB /* AlamofireDynamic */,
 			);
 			productName = ReqResApp;
 			productReference = 132C59BD2E48FA3E00E30D8B /* ReqResApp.app */;
@@ -378,11 +375,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		13B3B5172E52191200D20FAB /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 		13C185322E49281000B51EB0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
