@@ -100,7 +100,7 @@ extension UsersListViewController {
     }
     
     private func deleteUserWith(id: Int, at indexPath: IndexPath) {
-//        networkManager.deleteUser(id) { [weak self] success in
+//        networkManager.deleteUserNative(id) { [weak self] success in
 //            if success {
 //                print("User with id \(id) successfully deleted from API")
 //                
@@ -110,14 +110,22 @@ extension UsersListViewController {
 //                self?.showAlert(withError: .deletingError)
 //            }
 //        }
-        Task {
-            if try await networkManager.deleteUserWithIdNative(id) {
-                users.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
+//        Task {
+//            if try await networkManager.deleteUserWithIdNative(id) {
+//                users.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//            } else {
+//                showAlert(withError: .explicitlyCancelled)
+//            }
+//            
+//        }
+        networkManager.deleteUserAF(id) { [weak self] success in
+            if success {
+                self?.users.remove(at: indexPath.row)
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             } else {
-                showAlert(withError: .explicitlyCancelled)
+                self?.showAlert(withError: .explicitlyCancelled)
             }
-            
         }
     }
 }

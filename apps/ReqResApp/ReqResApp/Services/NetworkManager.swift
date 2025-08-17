@@ -179,7 +179,12 @@ final class NetworkManager {
             firstName: user.firstName,
             lastName: user.lastName
         )
-        AF.request(Link.singleUser.url, method: .post, parameters: postUserParameters)
+        AF.request(
+            Link.singleUser.url,
+            method: .post,
+            parameters: postUserParameters,
+            headers: getHeadersAF()
+        )
             .validate()
             .responseDecodable(of: PostUserQuery.self) { dataResponse in
                 switch dataResponse.result {
@@ -192,7 +197,19 @@ final class NetworkManager {
     }
     
     func deleteUserAF(_ id: Int, completion: @escaping (Bool) -> Void) {
+        let userURL = Link.singleUser.url.appendingPathComponent("\(id)")
         
+        AF.request(userURL, method: .delete, headers: getHeadersAF())
+            .validate(statusCode: [204])
+            .response { dataResponse in
+                print(dataResponse)
+                switch dataResponse.result {
+                case .success:
+                    completion(true)
+                case .failure:
+                    completion(false)
+                }
+            }
     }
 }
 
