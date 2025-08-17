@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Alamofire
 
-enum NetworkError: Error {
+enum NetworkErrorNative: Error {
     case decodingError
     case noData
     case noUsers
@@ -32,7 +33,7 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchAvatar(from url: URL, completion: @escaping (Data) -> Void) {
+    func fetchAvatarNative(from url: URL, completion: @escaping (Data) -> Void) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else { return }
             
@@ -42,15 +43,15 @@ final class NetworkManager {
         }
     }
     
-    private func getRequest(url: URL) -> URLRequest {
+    private func getRequestNative(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.setValue("reqres-free-v1", forHTTPHeaderField: "x-api-key")
         return request
     }
     
-    func fetchUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
+    func fetchUsersNative(completion: @escaping (Result<[User], NetworkErrorNative>) -> Void) {
         
-        let request = getRequest(url: Link.allUsers.url)
+        let request = getRequestNative(url: Link.allUsers.url)
         //let request = getRequest(url: Link.withNoData.url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -79,8 +80,8 @@ final class NetworkManager {
                     sendFailure(with: .decodingError)
                 }
             }
-                
-            func sendFailure(with error: NetworkError) {
+            
+            func sendFailure(with error: NetworkErrorNative) {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }
@@ -90,9 +91,9 @@ final class NetworkManager {
         }.resume()
     }
     
-    func postUser(_ user: User, completion: @escaping (Result<PostUserQuery, NetworkError>) -> Void) {
+    func postUserNative(_ user: User, completion: @escaping (Result<PostUserQuery, NetworkErrorNative>) -> Void) {
         
-        var request = getRequest(url: Link.singleUser.url)
+        var request = getRequestNative(url: Link.singleUser.url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
@@ -120,9 +121,9 @@ final class NetworkManager {
         
     }
     
-    func deleteUser(_ id: Int, completion: @escaping (Bool) -> Void) {
+    func deleteUserNative(_ id: Int, completion: @escaping (Bool) -> Void) {
         let userURL = Link.singleUser.url.appending(component: "\(id)")
-        var request = getRequest(url: userURL)
+        var request = getRequestNative(url: userURL)
         request.httpMethod = "DELETE"
         
         URLSession.shared.dataTask(with: request) { _, response, error in
@@ -137,9 +138,9 @@ final class NetworkManager {
         
     }
     
-    func deleteUserWithId(_ id: Int) async throws -> Bool {
+    func deleteUserWithIdNative(_ id: Int) async throws -> Bool {
         let userURL = Link.singleUser.url.appending(component: "\(id)")
-        var request = getRequest(url: userURL)
+        var request = getRequestNative(url: userURL)
         request.httpMethod = "DELETE"
         
         let (_, response) = try await URLSession.shared.data(for: request)
@@ -151,6 +152,29 @@ final class NetworkManager {
         return response.statusCode == 204
     }
     
+    func fetchUsersAF(completion: @escaping (Result<[User], AFError>) -> Void) {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        AF.request(Link.allUsers.url)
+            .validate()
+            .responseDecodable(of: UsersQuery.self, decoder: decoder) { dataResponse in
+                switch dataResponse.result {
+                case .success(let usersQuery):
+                    completion(.success(usersQuery.data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
+    func postUserAF(_ user: User, completion: @escaping (Result<PostUserQuery, AFError>) -> Void) {
+        
+    }
+    
+    func deleteUserAF(_ id: Int, completion: @escaping (Bool) -> Void) {
+        
+    }
 }
 
 // MARK: - Link

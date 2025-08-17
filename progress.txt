@@ -126,13 +126,13 @@ course network lesson 15 testing   - done
 course network lesson 16 theory    - done
 course network lesson 16 testing   - done
 
-course network lesson 17 theory    - 3:28
-course network lesson 17 testing   - 
+course network lesson 17 theory    - done
+course network lesson 17 testing   - done
 
-course network lesson 18 theory    - 
-course network lesson 18 testing   - 
+course network lesson 18 theory    - done
+course network lesson 18 testing   - done
 
-course network lesson 19 theory    - 
+course network lesson 19 theory    - 4:57
 course network lesson 19 testing   - 
 
 course network lesson 20 theory    - 

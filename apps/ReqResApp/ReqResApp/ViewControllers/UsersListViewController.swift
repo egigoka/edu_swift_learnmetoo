@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
 
 protocol NewUserViewControllerDelegate {
     func createUser(_: User)
@@ -40,9 +41,9 @@ final class UsersListViewController: UITableViewController {
     }
     
     // MARK: - Private methods
-    private func showAlert(withError networkError: NetworkError) {
+    private func showAlert(withError networkError: AFError) {
         let alert = UIAlertController(
-            title: networkError.title,
+            title: networkError.localizedDescription,
             message: nil,
             preferredStyle: .alert
         )
@@ -70,21 +71,21 @@ final class UsersListViewController: UITableViewController {
 extension UsersListViewController {
     private func fetchUsers() {
 //        users = [User.example]
-        networkManager.fetchUsers { [weak self] result in
+        networkManager.fetchUsersNative { [weak self] result in
             self?.spinnerView.stopAnimating()
             switch result {
             case .success(let users):
                 self?.users = users
             case .failure(let error):
                 print("Error in fetchUsers: \(error.localizedDescription)")
-                self?.showAlert(withError: error)
+                self?.showAlert(withError: .explicitlyCancelled)
             }
             self?.tableView.reloadData()
         }
     }
     
     private func post(user: User) {
-        networkManager.postUser(user) { [weak self] result in
+        networkManager.postUserNative(user) { [weak self] result in
             switch result {
             case .success(let postUserQuery):
                 // create User in UserList
@@ -110,11 +111,11 @@ extension UsersListViewController {
 //            }
 //        }
         Task {
-            if try await networkManager.deleteUserWithId(id) {
+            if try await networkManager.deleteUserWithIdNative(id) {
                 users.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             } else {
-                showAlert(withError: .deletingError)
+                showAlert(withError: .explicitlyCancelled)
             }
             
         }
