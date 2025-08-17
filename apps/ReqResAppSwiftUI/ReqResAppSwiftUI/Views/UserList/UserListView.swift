@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserListView: View {
-    @StateObject private var userListViewModel = UserListViewModel()
+    @State private var userListViewModel = UserListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -20,7 +20,11 @@ struct UserListView: View {
             .listStyle(.plain)
             .overlay {
                 if userListViewModel.isLoading {
-                    ProgressView()
+                    if #available(iOS 17, *) {
+                        ContentUnavailableView("Loading...", systemImage: "hourglass")
+                    } else {
+                        ProgressView()
+                    }
                 }
             }
             .onAppear {
@@ -41,19 +45,13 @@ struct UserListView: View {
         }
         .sheet(isPresented: $userListViewModel.isPresentingNewUserView) {
             NewUserView(
-                userListViewModel: userListViewModel, newUserViewModel: NewUserViewModel(),
-                isPresented: $userListViewModel.isPresentingNewUserView
+                newUserViewModel: NewUserViewModel(), userListViewModel: userListViewModel
             )
         }
     }
 }
 
-struct UserListView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserListView()
-    }
+
+#Preview {
+    UserListView()
 }
-//
-//#Preview {
-//    UserListView()
-//}

@@ -5,13 +5,13 @@
 //  Created by egigoka on 17.08.2025.
 //
 
-import Foundation
+import Observation
 
-@MainActor
-final class UserListViewModel: ObservableObject {
-    @Published var users: [User] = []
-    @Published var isPresentingNewUserView = false
-    @Published var isLoading = false
+@Observable
+final class UserListViewModel {
+    var users: [User] = []
+    var isPresentingNewUserView = false
+    var isLoading = false
     
     private let networkManager = NetworkManager.shared
     

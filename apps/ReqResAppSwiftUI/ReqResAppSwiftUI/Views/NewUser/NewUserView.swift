@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct NewUserView: View {
-    @ObservedObject var userListViewModel: UserListViewModel
-    @StateObject var newUserViewModel: NewUserViewModel
-    
-    @Binding var isPresented: Bool
+    @State var newUserViewModel: NewUserViewModel
+    let userListViewModel: UserListViewModel
     
     var body: some View {
         NavigationStack {
@@ -40,12 +38,6 @@ struct NewUserView: View {
     }
 }
 
-struct NewUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewUserView(userListViewModel: UserListViewModel(), newUserViewModel: NewUserViewModel(), isPresented: .constant(true))
-    }
+#Preview {
+    NewUserView(newUserViewModel: NewUserViewModel(), userListViewModel: UserListViewModel())
 }
-
-//#Preview {
-//    NewUserView()
-//}

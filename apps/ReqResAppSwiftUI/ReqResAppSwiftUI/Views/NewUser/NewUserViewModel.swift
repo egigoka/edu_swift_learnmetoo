@@ -5,12 +5,12 @@
 //  Created by egigoka on 17.08.2025.
 //
 
-import Foundation
+import Observation
 
-@MainActor
-final class NewUserViewModel: ObservableObject {
-    @Published var firstName = ""
-    @Published var lastName = ""
+@Observable
+final class NewUserViewModel {
+     var firstName = ""
+    var lastName = ""
     
     private let networkManager = NetworkManager.shared
     
