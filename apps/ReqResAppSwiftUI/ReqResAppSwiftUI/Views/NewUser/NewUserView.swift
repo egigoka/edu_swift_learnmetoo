@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewUserView: View {
     @ObservedObject var userListViewModel: UserListViewModel
-    @StateObject private var newUserViewModel: NewUserViewModel
+    @StateObject var newUserViewModel: NewUserViewModel
     
     @Binding var isPresented: Bool
     

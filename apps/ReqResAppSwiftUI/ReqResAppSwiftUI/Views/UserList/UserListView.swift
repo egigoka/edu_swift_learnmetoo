@@ -12,7 +12,7 @@ struct UserListView: View {
     
     var body: some View {
         NavigationStack {
-            List(UserListViewModel.users) { user in
+            List(userListViewModel.users) { user in
                 NavigationLink(destination: UserDetailsView(user: user)) {
                     UserRowView(user: user)
                 }
@@ -23,16 +23,16 @@ struct UserListView: View {
             }
             .navigationTitle("User List")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: { userListViewModel.isPresentingNewUserView = true}) {
-                        Image(Image(systemName: "plus"))
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button(action: { userListViewModel.isPresentingNewUserView = true }) {
+                        Image(systemName: "plus")
                     }
                 }
             }
         }
         .sheet(isPresented: $userListViewModel.isPresentingNewUserView) {
             NewUserView(
-                userListViewModel: userListViewModel,
+                userListViewModel: userListViewModel, newUserViewModel: NewUserViewModel(),
                 isPresented: $userListViewModel.isPresentingNewUserView
             )
         }

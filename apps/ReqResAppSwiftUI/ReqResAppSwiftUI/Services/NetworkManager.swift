@@ -12,12 +12,24 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchUsers() -> [User] {
+    func fetchUsers() async throws -> [User] {
+        let request = 
         
-        return [User.example]
+        let (data, _) = try await URLSession.shared.data(from: Link.allUsers.url)
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        do {
+            let usersQuery = try decoder.decode(UsersQuery.self, from: data)
+            return usersQuery.data
+        } catch {
+            throw NetworkError.decodingError
+        }
     }
     
-    func postUser(_ user: User) -> PostUserQuery {
+    func postUser(_ user: User) async throws -> PostUserQuery {
+        var request =
         
         return PostUserQuery(firstName: "Jane", lastName: "Flower")
     }
@@ -41,5 +53,5 @@ extension NetworkManager {
 }
 
 enum NetworkError: Error {
-    
+    case decodingError
 }
