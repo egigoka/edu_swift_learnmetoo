@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13B3B5162E52191200D20FAB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 13B3B5152E52191200D20FAB /* Alamofire */; };
+		13B3B5182E52191200D20FAB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 13B3B5172E52191200D20FAB /* AlamofireDynamic */; };
 		13C185332E49281000B51EB0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 13C185322E49281000B51EB0 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C185332E49281000B51EB0 /* Kingfisher in Frameworks */,
+				13B3B5182E52191200D20FAB /* AlamofireDynamic in Frameworks */,
+				13B3B5162E52191200D20FAB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,8 @@
 			name = ReqResApp;
 			packageProductDependencies = (
 				13C185322E49281000B51EB0 /* Kingfisher */,
+				13B3B5152E52191200D20FAB /* Alamofire */,
+				13B3B5172E52191200D20FAB /* AlamofireDynamic */,
 			);
 			productName = ReqResApp;
 			productReference = 132C59BD2E48FA3E00E30D8B /* ReqResApp.app */;
@@ -115,6 +121,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				13C185312E49281000B51EB0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 132C59BE2E48FA3E00E30D8B /* Products */;
@@ -348,6 +355,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
 		13C185312E49281000B51EB0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -359,6 +374,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		13B3B5152E52191200D20FAB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		13B3B5172E52191200D20FAB /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13B3B5142E52191200D20FAB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
 		13C185322E49281000B51EB0 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 13C185312E49281000B51EB0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
