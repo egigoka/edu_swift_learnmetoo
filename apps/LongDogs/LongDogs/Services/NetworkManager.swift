@@ -53,4 +53,20 @@ class NetworkManager {
         dataTask.resume()
         return dataTask
     }
+    
+    private func getUrlOfRAndomImage(for breed: Breed) -> URL? {
+        var url: URL?
+        
+        switch breed.type {
+        case .breed:
+            url = URL(string: Url.randomImage(breed: breed.name).urlString)
+        case .subBreed:
+            guard let subBreed = breed.subBreed else { return nil }
+            url = URL(string: Url.randomImageWithSubBreed(
+                breed: breed.name,
+                subBreed: subBreed
+            ).urlString)
+        }
+        return url
+    }
 }
