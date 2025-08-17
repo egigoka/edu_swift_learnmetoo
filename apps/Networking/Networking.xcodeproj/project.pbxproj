@@ -14,7 +14,7 @@
 		13443DB12E224ABF0051285A /* Exceptions for "Networking" folder in "Networking" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				"Supporting Files/Info.plist",
 			);
 			target = 13443D9E2E224ABE0051285A /* Networking */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = "Networking/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -179,7 +179,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MH53GS72RV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = "Networking/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
