@@ -15,11 +15,12 @@ class DogBreedCell: UITableViewCell {
     private let imageManager = ImageManager.shared
     private let networkManager = NetworkManager.shared
     
+    private var imageTask: Task<Sendable, Error>? = nil
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        //imageManager.cancel()
         dogImage.image = nil
+        imageTask?.cancel()
       }
     
     func configure(with breed: Breed) {
@@ -30,7 +31,7 @@ class DogBreedCell: UITableViewCell {
     private func startSettingImage(for breed: Breed) {
         let url = networkManager.getUrlOfRAndomImage(for: breed)
         guard let url = url else { return }
-        Task {
+        imageTask = Task {
             await setImage(from: imageManager.getRandomImage(from: url))
         }
     }
