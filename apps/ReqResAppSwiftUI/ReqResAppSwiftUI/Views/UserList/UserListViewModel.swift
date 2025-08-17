@@ -14,4 +14,16 @@ final class UserListViewModel: ObservableObject {
     @Published var isLoading = false
     
     private let networkManager = NetworkManager.shared
+    
+    func fetchUsers() {
+        users = networkManager.fetchUsers()
+    }
+    
+    func appendUser() {
+        
+    }
+    
+    func dismiss() {
+        
+    }
 }
