@@ -40,7 +40,7 @@ struct NewUserView: View {
 
 struct NewUserView_Previews: PreviewProvider {
     static var previews: some View {
-        NewUserView(userListViewModel: UserListViewModel(), isPresented: .constant(true))
+        NewUserView(userListViewModel: UserListViewModel(), newUserViewModel: NewUserViewModel(), isPresented: .constant(true))
     }
 }
 
