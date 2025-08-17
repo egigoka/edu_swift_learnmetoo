@@ -56,24 +56,32 @@ final class NetworkManager {
                 return
             }
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do {
-                let usersQuery = try decoder.decode(UsersQuery.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(usersQuery.data))
+            if (200...299).contains(response.statusCode) {
+                
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                do {
+                    let usersQuery = try decoder.decode(UsersQuery.self, from: data)
+                    DispatchQueue.main.async {
+                        if usersQuery.data.count == 0 {
+                            sendFailure(with: .noUsers)
+                            return
+                        }
+                        completion(.success(usersQuery.data))
+                    }
+                } catch {
+                    print(String(data: data, encoding: .utf8) ?? "")
+                    sendFailure(with: .decodingError)
                 }
-            } catch {
-                print(String(data: data, encoding: .utf8) ?? "")
-                sendFailure(with: .decodingError)
             }
-            
+                
             func sendFailure(with error: NetworkError) {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }
             }
+            
             
         }.resume()
     }
