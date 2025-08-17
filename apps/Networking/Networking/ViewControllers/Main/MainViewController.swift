@@ -13,6 +13,8 @@ enum URLExamples: String {
     case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
     case exampleThree = "http://10.1.0.6:9090/fixed/api_website_description"
     case exampleFour = "http://10.1.0.6:9090/fixed/api_missing_or_wrong_fields"
+    
+    case postRequest = "https://jsonplaceholder.typicode.com/posts"
 }
 
 enum UserActions: String, CaseIterable {
@@ -22,6 +24,10 @@ enum UserActions: String, CaseIterable {
     case exampleThree = "Example Three"
     case exampleFour = "Example Four"
     case ourCourses = "Our Courses"
+    
+    case postRequest = "POST Request"
+    case alamofireGet = "Alamofire GET"
+    case alamofirePost = "Alamofire POST"
 }
 
 class MainViewController: UICollectionViewController {
@@ -65,6 +71,9 @@ class MainViewController: UICollectionViewController {
         case .exampleThree: exampleThreeButtonPressed()
         case .exampleFour: exampleFourButtonPressed()
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
+        case .postRequest: print("not implemented")
+        case .alamofireGet: print("not implemented")
+        case .alamofirePost: print("not implemented")
         }
     }
     
