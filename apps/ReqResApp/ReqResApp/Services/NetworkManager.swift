@@ -86,6 +86,10 @@ final class NetworkManager {
             
         }.resume()
     }
+    
+    func postUser(_ user: User, completion: @escaping (Result<PostUserQuery, NetworkError>) -> Void) {
+        
+    }
 }
 
 // MARK: - Link
