@@ -123,10 +123,10 @@ course network lesson 14 testing   - done
 course network lesson 15 theory    - done
 course network lesson 15 testing   - done
 
-course network lesson 16 theory    - 03:16
-course network lesson 16 testing   - 
+course network lesson 16 theory    - done
+course network lesson 16 testing   - done
 
-course network lesson 17 theory    - 
+course network lesson 17 theory    - 3:28
 course network lesson 17 testing   - 
 
 course network lesson 18 theory    - 

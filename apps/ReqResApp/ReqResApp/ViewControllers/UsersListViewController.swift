@@ -99,15 +99,24 @@ extension UsersListViewController {
     }
     
     private func deleteUserWith(id: Int, at indexPath: IndexPath) {
-        networkManager.deleteUser(id) { [weak self] success in
-            if success {
-                print("User with id \(id) successfully deleted from API")
-                
-                self?.users.remove(at: indexPath.row)
-                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+//        networkManager.deleteUser(id) { [weak self] success in
+//            if success {
+//                print("User with id \(id) successfully deleted from API")
+//                
+//                self?.users.remove(at: indexPath.row)
+//                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+//            } else {
+//                self?.showAlert(withError: .deletingError)
+//            }
+//        }
+        Task {
+            if try await networkManager.deleteUserWithId(id) {
+                users.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
             } else {
-                self?.showAlert(withError: .deletingError)
+                showAlert(withError: .deletingError)
             }
+            
         }
     }
 }
