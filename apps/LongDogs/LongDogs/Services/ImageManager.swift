@@ -18,47 +18,40 @@ class ImageManager {
     
     private init() {}
     
-    private func getRandomImage(from url: URL) -> UIImage? {
+    func getRandomImage(from url: URL) -> UIImage? {
         if let cachedUrl = urlCache[url] {
             return getImage(from: cachedUrl)
         }
         
+        var randomPictureUrlString: String?
         Task {
-            URL
-        }
-        
-        let urlTask = NetworkManager.shared.fetchJson(
-            from: url,
-            responseType: APIResponse<String>.self
-        )
-        { [weak self] response in
-            switch response {
-            case .success(let response):
-                guard let imageUrl = URL(string: response.message) else { return }
-                
-                self?.urlCache[url] = imageUrl
-                
-                self?.getImage(from: imageUrl)
-            case .failure(let error):
-                guard let error = error as? URLError else { return }
-                if error.code != .cancelled { print(error) }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let decoded = try JSONDecoder().decode(APIResponse<String>.self, from: data)
+                randomPictureUrlString = decoded.message
+            } catch {
+                return
             }
         }
+        
+        guard let randomPictureUrlString = randomPictureUrlString else { return nil }
+        guard let randomPictureUrl = URL(string: randomPictureUrlString) else { return nil }
+        
+        urlCache[url] = randomPictureUrl
+        
+        return getImage(from: randomPictureUrl)
     }
     
     private func getImage(from imageUrl: URL) -> UIImage? {
         if let cached = picCache[imageUrl] {
             return cached
         }
-        
-        let image = try? UIImage(data: Data(contentsOf: imageUrl))
+        print("cache miss")
+        print(imageUrl)
+        guard let data = try? Data(contentsOf: imageUrl) else { return nil }
+        print(data)
+        let image = UIImage(data: data)
         return image
     }
     
-    func cancel() {
-        urlTask?.cancel()
-        imageTask?.cancel()
-        urlTask = nil
-        imageTask = nil
-    }
 }

@@ -18,7 +18,7 @@ class DogBreedCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageManager.cancel()
+        //imageManager.cancel()
         dogImage.image = nil
       }
     
@@ -30,7 +30,7 @@ class DogBreedCell: UITableViewCell {
     private func startSettingImage(for breed: Breed) {
         let url = networkManager.getUrlOfRAndomImage(for: breed)
         guard let url = url else { return }
-        setImage(from: url)
+        setImage(from: imageManager.getRandomImage(from: url))
     }
     
     
