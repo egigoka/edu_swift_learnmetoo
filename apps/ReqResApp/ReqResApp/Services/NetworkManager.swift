@@ -47,7 +47,8 @@ final class NetworkManager {
     
     func fetchUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
-        let request = getRequest(url: Link.allUsers.url)
+        //let request = getRequest(url: Link.allUsers.url)
+        let request = getRequest(url: Link.withDecodingError.url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data, let response = response as? HTTPURLResponse else {
