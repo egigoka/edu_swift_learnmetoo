@@ -11,6 +11,7 @@ enum NetworkError: Error {
     case decodingError
     case noData
     case noUsers
+    case deletingError
     
     var title: String {
         switch self {
@@ -20,6 +21,8 @@ enum NetworkError: Error {
             return "Can't fetch data at all"
         case .noUsers:
             return "No users got from API"
+        case .deletingError:
+            return "Can't delete user"
         }
     }
 }
@@ -122,7 +125,15 @@ final class NetworkManager {
         var request = getRequest(url: userURL)
         request.httpMethod = "DELETE"
         
-        URLSession.shared
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            guard let response = response as? HTTPURLResponse else {
+                completion(false)
+                return
+            }
+            DispatchQueue.main.async {
+                completion(response.statusCode == 204)
+            }
+        }.resume()
         
     }
 }

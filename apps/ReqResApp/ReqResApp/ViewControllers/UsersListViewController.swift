@@ -97,6 +97,19 @@ extension UsersListViewController {
             }
         }
     }
+    
+    private func deleteUserWith(id: Int, at indexPath: IndexPath) {
+        networkManager.deleteUser(id) { [weak self] success in
+            if success {
+                print("User with id \(id) successfully deleted from API")
+                
+                self?.users.remove(at: indexPath.row)
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                self?.showAlert(withError: .deletingError)
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -118,6 +131,13 @@ extension UsersListViewController {
         // Design a cell
         cell.configure(with: users[indexPath.row])
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let user = users[indexPath.row]
+            deleteUserWith(id: user.id, at: indexPath)
+        }
     }
 }
 
