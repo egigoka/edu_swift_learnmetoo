@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.gif" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-Wv-k2f">
-                                <rect key="frame" x="132.66666666666666" y="362" width="127.99999999999997" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-Wv-k2f">
+                                <rect key="frame" x="132.66666666666666" y="362.66666666666669" width="127.99999999999997" height="126.66666666666669"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="cx2-s0-VG9"/>
                                     <constraint firstAttribute="height" constant="128" id="dAF-SZ-xyc"/>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="spinner.gif" width="16" height="16"/>
+        <image name="dog.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

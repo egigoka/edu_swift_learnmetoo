@@ -27,8 +27,9 @@ class RootViewController: UITableViewController {
         
         breeds = Breed.getBreeds(from: result)
         
-        print(result)
-        print(breeds)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 //    private func loadData() {

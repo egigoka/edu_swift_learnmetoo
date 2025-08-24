@@ -15,17 +15,18 @@ class ImageManager {
     
     private init() {}
     
-    
-    
     func getRandomImage(from url: URL) async -> UIImage? {
         if let cachedURL = await cache.cachedUrl(for: url) {
             return await getImage(from: cachedURL)
         }
         let json = await networkManager.get(from: url)
-        print(json as? String)
-        return nil
+        guard let json = json as? [String: Any] else { return nil }
+        guard let randomPictureUrlString = json["message"] as? String else { return nil }
+        guard let randomPictureUrl = URL(string: randomPictureUrlString) else { return nil }
         
+        await cache.setCachedUrl(url, value: randomPictureUrl)
         
+        return await getImage(from: randomPictureUrl)
     }
     
 //    func getRandomImage(from url: URL) async -> UIImage? {
