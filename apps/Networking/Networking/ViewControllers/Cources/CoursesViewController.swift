@@ -38,7 +38,8 @@ class CoursesViewController: UITableViewController {
 // MARK: - Networking
 extension CoursesViewController {
     func fetchCourses() {
-        guard let url = URL(string: URLExamples.exampleTwo.rawValue) else { return }
+        //guard let url = URL(string: URLExamples.exampleTwo.rawValue) else { return }
+        guard let url = URL(string: URLExamples.exampleFive.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
