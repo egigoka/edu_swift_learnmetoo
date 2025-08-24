@@ -73,9 +73,9 @@ class MainViewController: UICollectionViewController {
         case .exampleThree: exampleThreeButtonPressed()
         case .exampleFour: exampleFourButtonPressed()
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
-        case .postRequest: print("not implemented")
-        case .alamofireGet: print("not implemented")
-        case .alamofirePost: print("not implemented")
+        case .postRequest: postRequest()
+        case .alamofireGet: performSegue(withIdentifier: "alamofireGet", sender: nil)
+        case .alamofirePost: performSegue(withIdentifier: "alamofirePost", sender: nil)
         }
     }
     
@@ -222,6 +222,26 @@ extension MainViewController {
                 }
             }
         }.resume()
+    }
+    
+    private func postRequest() {
+        guard let url = URL(string: URLExamples.postRequest.rawValue) else { return }
+        let course = Course(
+            name: "Networking",
+            imageUrl: "https://swiftbook.org/system/uploads/course/image/640/promo_%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_1280%D1%85720.png",
+            numberOfLessons: "67",
+            numberOfTests: "10"
+        )
+        
+        guard let courseData = try? JSONEncoder().encode(course) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = courseData
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+        }
     }
 }
 

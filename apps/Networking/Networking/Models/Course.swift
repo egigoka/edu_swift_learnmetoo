@@ -19,7 +19,7 @@
 //    }
 //}
 
-struct Course: Decodable {
+struct Course: Codable {
     let name: String?
     let imageUrl: String?
     let numberOfLessons: String?

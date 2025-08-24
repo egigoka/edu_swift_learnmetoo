@@ -142,7 +142,7 @@ course network lesson 21 theory    - done
 course network lesson 21 testing   - done
 
 course 2 lesson 11 homework review - done
-course 2 lesson 11 theory          - 1:15:40
+course 2 lesson 11 theory          - 1:26:53
 course 2 lesson 11 homework        - 
 
 course 2 lesson 12 homework review - 
