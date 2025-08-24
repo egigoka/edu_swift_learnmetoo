@@ -24,9 +24,10 @@ struct Breed: Decodable {
         return name
     }
     
-    func getBreeds(from breedsDict: Dictionary<String, [String]>) -> [Breed] {
+    static func getBreeds(from breedsDict: Dictionary<String, Any>) -> [Breed] {
         var breeds: [Breed] = []
         for (breed, subBreeds) in breedsDict {
+            guard let subBreeds = subBreeds as? [String] else { continue }
             if subBreeds.count == 0 {
                 breeds.append(Breed(name: breed, type: .breed, subBreed: nil))
             } else {

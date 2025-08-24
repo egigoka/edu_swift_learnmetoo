@@ -21,8 +21,14 @@ class RootViewController: UITableViewController {
 
     private func loadData() async {
         guard let url = URL(string: Url.listAllBreeds.urlString) else { return }
-        let result = await networkManager.get(from: url)
+        guard let result = await networkManager.get(from: url) else { return }
+        guard let result = result as? Dictionary<String, Any?> else { return }
+        guard let result = result["message"] as? Dictionary<String, Any> else { return }
+        
+        breeds = Breed.getBreeds(from: result)
+        
         print(result)
+        print(breeds)
     }
     
 //    private func loadData() {
