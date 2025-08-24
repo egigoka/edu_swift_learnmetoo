@@ -32,24 +32,6 @@ class RootViewController: UITableViewController {
         }
     }
     
-//    private func loadData() {
-//        guard let url = URL(string: Url.listAllBreeds.urlString) else { return }
-//        let _ = NetworkManager.shared.get(
-//            from: url,
-//            responseType: APIResponse<Dictionary<String, [String]>>.self
-//        ) { result in
-//            switch result {
-//            case .success(let response):
-//                self.breeds = Breed.getBreeds(from: response)
-//                  DispatchQueue.main.async {
-//                      self.tableView.reloadData()
-//                  }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let breedVC = segue.destination as? BreedViewController else { return }
         guard let breedCell = sender as? DogBreedCell else { return }

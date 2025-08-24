@@ -28,23 +28,7 @@ class ImageManager {
         
         return await getImage(from: randomPictureUrl)
     }
-    
-//    func getRandomImage(from url: URL) async -> UIImage? {
-//        if let cachedUrl = await cache.cachedUrl(for: url) {
-//            return await getImage(from: cachedUrl)
-//        }
-//        do {
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//            let decoded = try JSONDecoder().decode(APIResponse<String>.self, from: data)
-//            guard let randomPictureUrl = URL(string: decoded.message) else { return nil }
-//            
-//            await cache.setCachedUrl(url, value: randomPictureUrl)
-//            return await getImage(from: randomPictureUrl)
-//        } catch {
-//            return nil
-//        }
-//    }
-    
+
     private func getImage(from imageUrl: URL) async -> UIImage? {
         if let cached = await cache.cachedImage(for: imageUrl) {
             return cached
