@@ -229,7 +229,7 @@ extension MainViewController {
     
     private func postRequestSingle() {
         guard let url = URL(string: URLExamples.postRequest.rawValue) else { return }
-        let course = Course(
+        let course = CourseStrings(
             name: "Networking",
             imageUrl: "https://swiftbook.org/system/uploads/course/image/640/promo_%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_1280%D1%85720.png",
             numberOfLessons: "67",

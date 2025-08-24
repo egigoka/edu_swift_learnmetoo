@@ -72,12 +72,7 @@ extension CoursesViewController {
                     guard let courses = value as? [[String: Any]] else { return }
                     
                     for courseData in courses {
-                        let course = Course(
-                            name: courseData["name"] as? String,
-                            imageUrl: courseData["imageUrl"] as? String,
-                            numberOfLessons: courseData["number_of_lessons"] as? Int,
-                            numberOfTests: courseData["number_of_tests"] as? Int
-                        )
+                        let course = Course(from: courseData)
                         self?.courses.append(course)
                     }
                     DispatchQueue.main.async {
