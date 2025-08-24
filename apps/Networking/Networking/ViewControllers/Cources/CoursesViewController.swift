@@ -65,17 +65,27 @@ extension CoursesViewController {
     
     func alamofireGetButtonPressed() {
         AF.request(URLExamples.exampleTwo.rawValue)
-            .responseJSON { data in
-                guard let statusCode = data.response?.statusCode else { return }
-                print("STATUS CODE:", statusCode)
-                
-                guard (200...299).contains(statusCode) else {
-                    guard let error = data.error else { return }
-                    print("ERROR:", error)
-                    return
+            .validate()
+            .responseJSON { [weak self] result in
+                switch result.result {
+                case .success(let value):
+                    guard let courses = value as? [[String: Any]] else { return }
+                    
+                    for courseData in courses {
+                        let course = Course(
+                            name: courseData["name"] as? String,
+                            imageUrl: courseData["imageUrl"] as? String,
+                            numberOfLessons: courseData["number_of_lessons"] as? Int,
+                            numberOfTests: courseData["number_of_tests"] as? Int
+                        )
+                        self?.courses.append(course)
+                    }
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-                guard let value = data.value else { return }
-                print("VALUE:", value)
             }
     }
     
