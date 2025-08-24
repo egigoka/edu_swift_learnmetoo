@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CoursesViewController: UITableViewController {
 
@@ -63,7 +64,19 @@ extension CoursesViewController {
     }
     
     func alamofireGetButtonPressed() {
-        print("not implemented GET")
+        AF.request(URLExamples.exampleTwo.rawValue)
+            .responseJSON { data in
+                guard let statusCode = data.response?.statusCode else { return }
+                print("STATUS CODE:", statusCode)
+                
+                guard (200...299).contains(statusCode) else {
+                    guard let error = data.error else { return }
+                    print("ERROR:", error)
+                    return
+                }
+                guard let value = data.value else { return }
+                print("VALUE:", value)
+            }
     }
     
     func alamofirePostButtonPressed() {
