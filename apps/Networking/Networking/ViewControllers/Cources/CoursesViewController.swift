@@ -61,5 +61,13 @@ extension CoursesViewController {
             }
         }.resume()
     }
+    
+    func alamofireGetButtonPressed() {
+        print("not implemented GET")
+    }
+    
+    func alamofirePostButtonPressed() {
+        print("not implemented POST")
+    }
 }
 

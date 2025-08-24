@@ -82,9 +82,12 @@ class MainViewController: UICollectionViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCourses" {
-            guard let coursesVC = segue.destination as? CoursesViewController else { return }
-            coursesVC.fetchCourses()
+        guard let coursesVC = segue.destination as? CoursesViewController else { return }
+        switch segue.identifier {
+        case "showCourses": coursesVC.fetchCourses()
+        case "alamofireGet": coursesVC.alamofireGetButtonPressed()
+        case "alamofirePost": coursesVC.alamofirePostButtonPressed()
+        default: break
         }
     }
     
@@ -224,7 +227,7 @@ extension MainViewController {
         }.resume()
     }
     
-    private func postRequest() {
+    private func postRequestSingle() {
         guard let url = URL(string: URLExamples.postRequest.rawValue) else { return }
         let course = Course(
             name: "Networking",
@@ -245,15 +248,58 @@ extension MainViewController {
                 print(error)
                 return
             }
-            guard let response = response, let data = data else { return }
+            guard let _ = response, let data = data else { return }
             
-            print(response)
+            //print(response)
             
             do {
-                print("---")
                 print(String(data: data, encoding: .utf8) ?? "no data")
-                print("---")
                 let course = try JSONDecoder().decode(Course.self, from: data)
+                DispatchQueue.main.async {
+                    [weak self] in
+                    self?.successAlert()
+                }
+                print(course)
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    private func postRequest() {
+        guard let url = URL(string: URLExamples.postRequest.rawValue) else { return }
+//        let course = Course(
+//            name: "Networking",
+//            imageUrl: "https://swiftbook.org/system/uploads/course/image/640/promo_%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_1280%D1%85720.png",
+//            numberOfLessons: "67",
+//            numberOfTests: "10"
+//        )
+        let course = [
+            "name": "Networking",
+            "numberOfLessons": "67"
+        ]
+        
+//        guard let courseData = try? JSONEncoder().encode(course) else { return }
+        guard let courseData = try? JSONSerialization.data(withJSONObject: course) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = courseData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let _ = response, let data = data else { return }
+            
+            //print(response)
+            
+            do {
+                print(String(data: data, encoding: .utf8) ?? "no data")
+//                let course = try JSONDecoder().decode(Course.self, from: data)
+                let course = try JSONSerialization.jsonObject(with: data)
                 DispatchQueue.main.async {
                     [weak self] in
                     self?.successAlert()
