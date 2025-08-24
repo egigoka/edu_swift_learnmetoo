@@ -14,6 +14,7 @@ enum URLExamples: String {
     case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
     case exampleThree = "http://10.1.0.6:9090/fixed/api_website_description"
     case exampleFour = "http://10.1.0.6:9090/fixed/api_missing_or_wrong_fields"
+    case exampleFive = "http://10.1.0.6:9090/fixed/api_courses_capital"
     
     case postRequest = "https://jsonplaceholder.typicode.com/posts"
 }
