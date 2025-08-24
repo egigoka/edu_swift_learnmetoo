@@ -69,12 +69,9 @@ extension CoursesViewController {
             .responseJSON { [weak self] result in
                 switch result.result {
                 case .success(let value):
-                    guard let courses = value as? [[String: Any]] else { return }
                     
-                    for courseData in courses {
-                        let course = Course(from: courseData)
-                        self?.courses.append(course)
-                    }
+                    self?.courses = Course.getCourses(from: value) ?? []
+                    
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
@@ -85,7 +82,22 @@ extension CoursesViewController {
     }
     
     func alamofirePostButtonPressed() {
-        print("not implemented POST")
+        let course = [
+            "name": "Networking",
+            "imageUrl": "https://swiftbook.org/system/uploads/course/image/640/promo_%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_1280%D1%85720.png",
+            "numberOfLessons": "67",
+            "numberOfTests": "10"
+        ]
+        
+        AF.request(
+            URLExamples.postRequest.rawValue,
+            method: .post,
+            parameters: course
+        )
+        .validate()
+        .responseDecodable(of: [Course].self) { <#AFDataResponse<Decodable & Sendable>#> in
+            <#code#>
+        }
     }
 }
 

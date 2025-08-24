@@ -24,6 +24,18 @@ struct Course: Codable {
         numberOfLessons = courseData["number_of_lessons"] as? Int
         numberOfTests = courseData["number_of_tests"] as? Int
     }
+    
+    static func getCourses(from value: Any) -> [Course]? {
+        guard let coursesData = value as? [[String: Any]] else { return nil }
+//        var courses: [Course]? = []
+//        
+//        for courseData in coursesData {
+//            let course = Course(from: courseData)
+//            courses?.append(course)
+//        }
+//        return courses
+        return coursesData.compactMap { Course(from: $0) }
+    }
 }
 
 struct CourseStrings: Codable {
