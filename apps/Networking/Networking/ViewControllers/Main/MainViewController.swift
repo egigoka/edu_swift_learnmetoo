@@ -238,10 +238,31 @@ extension MainViewController {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = courseData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let response = response, let data = data else { return }
             
-        }
+            print(response)
+            
+            do {
+                print("---")
+                print(String(data: data, encoding: .utf8) ?? "no data")
+                print("---")
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                DispatchQueue.main.async {
+                    [weak self] in
+                    self?.successAlert()
+                }
+                print(course)
+            } catch let error {
+                print(error)
+            }
+        }.resume()
     }
 }
 
