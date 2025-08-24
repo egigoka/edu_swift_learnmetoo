@@ -8,6 +8,7 @@
 import UIKit
 
 enum URLExamples: String {
+    // 10.1.0.6 - beyond /mnt/btr/Videos/Education courses/Swift/Swift_learnmetoo.ru_Evgenij_Efimov/backup_resources
     case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     case exampleOne = "http://10.1.0.6:9090/fixed/api_course"
     case exampleTwo = "http://10.1.0.6:9090/fixed/api_courses"
