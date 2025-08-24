@@ -89,14 +89,30 @@ extension CoursesViewController {
             "numberOfTests": "10"
         ]
         
+        //let headers = HTTPHeaders(["Content-Type": "application/json"])
+        let headers: HTTPHeaders? = nil
+        
         AF.request(
             URLExamples.postRequest.rawValue,
             method: .post,
-            parameters: course
+            parameters: course,
+            headers: headers
         )
         .validate()
-        .responseDecodable(of: [Course].self) { <#AFDataResponse<Decodable & Sendable>#> in
-            <#code#>
+//        .responseJSON(completionHandler: { data in
+//            print(data)
+//        })
+        .responseDecodable(of: CourseStrings.self) { [weak self] data in
+            switch data.result {
+            case .success(let course):
+                print(course)
+                self?.courses.append(Course(from: course))
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
