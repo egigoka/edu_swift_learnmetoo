@@ -87,11 +87,11 @@ class ImageManager {
     func fetchImage(from url: URL, completion: @escaping(Data, URLResponse) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, let response = response else {
-                print(error)
+                print(error ?? "No error")
                 return
             }
-            
-            
+            guard url == response.url else { return }
+            completion(data, response)
         }
     }
 }
