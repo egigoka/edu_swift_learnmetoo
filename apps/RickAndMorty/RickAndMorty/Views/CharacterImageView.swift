@@ -22,7 +22,13 @@ class CharacterImageView: UIImageView {
         }
         
         // Load image from network
-        
+        ImageManager.shared.fetchImage(from: imageUrl) { [weak self] data, response in
+            DispatchQueue.main.async {
+                self?.image = UIImage(data: data)
+            }
+            // Save image to cache
+            
+        }
     }
     
     private func getCachedImage(from url: URL) -> UIImage? {
@@ -33,5 +39,12 @@ class CharacterImageView: UIImageView {
         }
         
         return nil
+    }
+    
+    private func saveDataToCache(with data: Data, and response: URLResponse) {
+        guard let urlOfResponse = response.url else { return }
+        let cachedResponse = CachedURLResponse(response: response, data: data)
+        let urlRequest = URLRequest(url: urlOfResponse)
+        URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
     }
 }
