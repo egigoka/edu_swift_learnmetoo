@@ -63,8 +63,4 @@ extension ContactListViewController: NewContactViewControllerDelegate {
         contacts.append(contact)
         tableView.reloadData()
     }
-    func saveContact(with name: String) {
-        contacts.append(Contact(firstName: name, lastName: ""))
-        tableView.reloadData()
-    }
 }

@@ -10,7 +10,6 @@ import UIKit
 
 protocol NewContactViewControllerDelegate {
     func saveContact(_ contact: Contact)
-    func saveContact(with name: String)
 }
 
 class NewContactViewController: UIViewController {
@@ -48,10 +47,10 @@ class NewContactViewController: UIViewController {
         guard let firstName = firstNameTextField.text else { return }
         guard let lastName = lastNameTextField.text else { return }
         
-        let fullName = "\(firstName) \(lastName)"
-        StorageManager.shared.append(contact: fullName)
+        let contact = Contact(firstName: firstName, lastName: lastName)
+        StorageManager.shared.append(contact: contact.fullName)
         
-        delegate.saveContact(with: fullName)
+        delegate.saveContact(contact)
         dismiss(animated: true)
     }
 }

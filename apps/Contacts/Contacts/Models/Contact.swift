@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alexey Efimov. All rights reserved.
 //
 
-struct Contact {
+struct Contact: Codable {
     let firstName: String
     let lastName: String
     
