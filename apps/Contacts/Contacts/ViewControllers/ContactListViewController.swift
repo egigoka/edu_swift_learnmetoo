@@ -45,8 +45,6 @@ extension ContactListViewController: UITableViewDelegate {
         if editingStyle == .delete {
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-//            StorageManager.shared.delete(at: indexPath.row)
-//            StorageManager.shared.deleteFromFile(at: indexPath.row)
         }
     }
 }
