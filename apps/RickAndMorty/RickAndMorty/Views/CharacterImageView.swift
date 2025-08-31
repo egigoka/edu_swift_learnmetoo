@@ -12,9 +12,9 @@ class CharacterImageView: UIImageView {
     
     func fetchImage(from url: String) {
         guard let imageUrl = URL(string: url) else {
-            image = UIImage(imageLiteralResourceName: "picture")
+            image = UIImage(named: "picture")
             return
         }
+        
     }
-    
 }
