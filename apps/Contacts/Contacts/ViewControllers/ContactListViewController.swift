@@ -17,12 +17,7 @@ class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contactsData = StorageManager.shared.fetchContacts()
-        
-        for contact in contactsData {
-            contacts.append(Contact(firstName: contact, lastName: ""))
-        }
-        
+        contacts = StorageManager.shared.fetchContacts()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

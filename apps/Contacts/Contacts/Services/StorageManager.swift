@@ -32,7 +32,7 @@ class StorageManager {
         userDefaults.set(data, forKey: contactKey)
     }
     
-    func deleteContact(at index: Int) {
+    func delete(at index: Int) {
         var contacts = fetchContacts()
         contacts.remove(at: index)
         save(contacts: contacts)
