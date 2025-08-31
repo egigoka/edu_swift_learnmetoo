@@ -10,6 +10,7 @@ import UIKit
 
 protocol NewContactViewControllerDelegate {
     func saveContact(_ contact: Contact)
+    func saveContact(with name: String)
 }
 
 class NewContactViewController: UIViewController {
@@ -48,11 +49,9 @@ class NewContactViewController: UIViewController {
         guard let lastName = lastNameTextField.text else { return }
         
         let fullName = "\(firstName) \(lastName)"
+        UserDefaults.standard.set(fullName, forKey: "ContactName")
         
-        //let contact = Contact(firstName: firstName, lastName: lastName)
-        
-        //delegate.saveContact(contact)
-        delegate.saveContact(fullName)
+        delegate.saveContact(with: fullName)
         dismiss(animated: true)
     }
 }
