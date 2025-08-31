@@ -146,7 +146,7 @@ course 2 lesson 11 theory          - done
 course 2 lesson 11 homework        - done
 
 course 2 lesson 12 homework review - done
-course 2 lesson 12 theory          - 1:23:27
+course 2 lesson 12 theory          - 1:35:51
 course 2 lesson 12 homework        - 
 
 50%
