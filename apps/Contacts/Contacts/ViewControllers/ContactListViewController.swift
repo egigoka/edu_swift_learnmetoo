@@ -17,8 +17,10 @@ class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let contactName = UserDefaults.standard.value(forKey: "ContactName") as? String {
-            contacts.append(Contact(firstName: contactName, lastName: ""))
+        let contactsData = StorageManager.shared.fetchContacts()
+        
+        for contact in contactsData {
+            contacts.append(Contact(firstName: contact, lastName: ""))
         }
         
     }
@@ -50,7 +52,7 @@ extension ContactListViewController: UITableViewDelegate {
         if editingStyle == .delete {
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            UserDefaults.standard.removeObject(forKey: "ContactName")
+            StorageManager.shared.delete(at: indexPath.row)
         }
     }
 }

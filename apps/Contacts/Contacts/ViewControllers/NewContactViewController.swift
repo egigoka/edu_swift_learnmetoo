@@ -49,7 +49,7 @@ class NewContactViewController: UIViewController {
         guard let lastName = lastNameTextField.text else { return }
         
         let fullName = "\(firstName) \(lastName)"
-        UserDefaults.standard.set(fullName, forKey: "ContactName")
+        StorageManager.shared.append(contact: fullName)
         
         delegate.saveContact(with: fullName)
         dismiss(animated: true)
