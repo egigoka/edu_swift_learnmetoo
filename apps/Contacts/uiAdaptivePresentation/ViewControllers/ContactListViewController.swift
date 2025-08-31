@@ -16,8 +16,6 @@ class ContactListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        contacts = StorageManager.shared.fetchContacts()
-//        contacts = StorageManager.shared.fetchFromFile()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
