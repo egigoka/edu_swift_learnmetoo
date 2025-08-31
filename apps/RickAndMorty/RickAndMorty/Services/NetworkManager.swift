@@ -90,8 +90,8 @@ class ImageManager {
                 print(error ?? "No error")
                 return
             }
-            guard url == response.url else { return }
+            guard url == response.url else { return } // bs
             completion(data, response)
-        }
+        }.resume()
     }
 }
