@@ -27,7 +27,9 @@ class StorageManager {
     }
     
     func appendToFile(with contact: Contact) {
-        
+        var contacts = fetchContactsFromFile()
+        contacts.append(contact)
+        saveToFile(contacts: contacts)
     }
     
     func fetchContacts() -> [Contact] {
@@ -38,7 +40,7 @@ class StorageManager {
     
     func fetchContactsFromFile() -> [Contact] {
         guard let data = try? Data(contentsOf: archiveUrl) else { return [] }
-        guard let contacts = try? PropertyListDecoder().decode([Contacts].self, from: data) else { return [] }
+        guard let contacts: [Contact] = try? PropertyListDecoder().decode([Contact].self, from: data) else { return [] }
         return contacts
     }
     
@@ -49,12 +51,18 @@ class StorageManager {
     
     func saveToFile(contacts: [Contact]) {
         guard let data = try? PropertyListEncoder().encode(contacts) else { return }
-        
+        try? data.write(to: archiveUrl, options: .noFileProtection)
     }
     
     func delete(at index: Int) {
         var contacts = fetchContacts()
         contacts.remove(at: index)
         save(contacts: contacts)
+    }
+    
+    func deleteFromFile(at index: Int) {
+        var contacts = fetchContactsFromFile()
+        contacts.remove(at: index)
+        saveToFile(contacts: contacts)
     }
 }

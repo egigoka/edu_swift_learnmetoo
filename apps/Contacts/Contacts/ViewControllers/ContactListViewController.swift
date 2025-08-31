@@ -17,7 +17,8 @@ class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contacts = StorageManager.shared.fetchContacts()
+//        contacts = StorageManager.shared.fetchContacts()
+        contacts = StorageManager.shared.fetchContactsFromFile()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,7 +48,8 @@ extension ContactListViewController: UITableViewDelegate {
         if editingStyle == .delete {
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            StorageManager.shared.delete(at: indexPath.row)
+//            StorageManager.shared.delete(at: indexPath.row)
+            StorageManager.shared.deleteFromFile(at: indexPath.row)
         }
     }
 }
