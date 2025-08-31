@@ -34,7 +34,7 @@ class NewContactViewController: UIViewController {
         saveAndExit()
     }
     
-    @IBAction func canceButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     

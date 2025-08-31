@@ -1,14 +1,13 @@
 //
 //  AppDelegate.swift
-//  UIAdaptivePresentation
+//  Contacts
 //
-//  Created by Alexey Efimov on 04/10/2019.
-//  Copyright © 2019 Alexey Efimov. All rights reserved.
+//  Created by egigoka on 31.08.2025.
 //
 
 import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
