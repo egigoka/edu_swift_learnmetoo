@@ -24,13 +24,6 @@ class TableViewCell: UITableViewCell {
     // MARK: - Public methods
     func configure(with result: Result?) {
         nameLabel.text = result?.name
-        DispatchQueue.global().async {
-            guard let stringUrl = result?.image else { return }
-            guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-            DispatchQueue.main.async {
-                self.characterImageView.image = UIImage(data: imageData)
-            }
-        }
+        characterImageView.fetchImage(from: result?.image ?? "")
     }
 }

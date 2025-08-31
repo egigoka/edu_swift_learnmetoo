@@ -27,7 +27,7 @@ class CharacterImageView: UIImageView {
                 self?.image = UIImage(data: data)
             }
             // Save image to cache
-            
+            self?.saveDataToCache(with: data, and: response)
         }
     }
     
@@ -42,9 +42,9 @@ class CharacterImageView: UIImageView {
     }
     
     private func saveDataToCache(with data: Data, and response: URLResponse) {
-        guard let urlOfResponse = response.url else { return }
+        guard let url = response.url else { return }
+        let urlRequest = URLRequest(url: url)
         let cachedResponse = CachedURLResponse(response: response, data: data)
-        let urlRequest = URLRequest(url: urlOfResponse)
         URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
     }
 }
