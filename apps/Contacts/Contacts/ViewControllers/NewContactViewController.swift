@@ -47,11 +47,12 @@ class NewContactViewController: UIViewController {
         guard let firstName = firstNameTextField.text else { return }
         guard let lastName = lastNameTextField.text else { return }
         
-        let contact = Contact(firstName: firstName, lastName: lastName)
-//        StorageManager.shared.save(contact: contact)
-//        StorageManager.shared.saveToFile(with: contact)
+        let fullName = "\(firstName) \(lastName)"
         
-        delegate.saveContact(contact)
+        //let contact = Contact(firstName: firstName, lastName: lastName)
+        
+        //delegate.saveContact(contact)
+        delegate.saveContact(fullName)
         dismiss(animated: true)
     }
 }
