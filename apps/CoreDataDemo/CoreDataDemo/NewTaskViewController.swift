@@ -28,6 +28,17 @@ class NewTaskViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .red
+        button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(save), for: .touchUpInside)
         return button
     }()
@@ -42,6 +53,7 @@ class NewTaskViewController: UIViewController {
     private func setupSubViews() {
         view.addSubview(taskTextField)
         view.addSubview(saveButton)
+        view.addSubview(cancelButton)
     }
     
     private func setupConstraints() {
@@ -56,9 +68,19 @@ class NewTaskViewController: UIViewController {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            saveButton.topAnchor.constraint(equalTo: taskTextField.topAnchor, constant: 64),
+            saveButton.topAnchor.constraint(equalTo: taskTextField.bottomAnchor, constant: 32),
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            saveButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 16),
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
