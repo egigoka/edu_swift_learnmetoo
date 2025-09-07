@@ -153,9 +153,9 @@ course 2 lesson 12 homework        - none
 
 course 2 lesson 13 homework review - none
 course 2 lesson 13 theory          - done
-course 2 lesson 13 homework        - in progress
+course 2 lesson 13 homework        - done
 
-course 2 lesson 14 homework review - 
+course 2 lesson 14 homework review - 26:30
 course 2 lesson 14 theory          - 
 course 2 lesson 14 homework        - 
 

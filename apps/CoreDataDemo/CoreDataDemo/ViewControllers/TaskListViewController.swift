@@ -102,7 +102,7 @@ class TaskListViewController: UITableViewController {
     }
     
     private func saveNewTask(_ taskName: String) {
-        guard let task = StorageManager.shared.newObject("Task") as? Task else { return }
+        guard let task = StorageManager.shared.newObject("Task", as: Task.self) else { return }
         let cellIndex = IndexPath(row: tasks.count, section: 0)
         
         task.name = taskName
@@ -114,8 +114,16 @@ class TaskListViewController: UITableViewController {
     
     private func modifyTask(_ task: Task, with newName: String, at indexPath: IndexPath) {
         task.name = newName
+        
         StorageManager.shared.saveContext()
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    private func deleteTask(at indexPath: IndexPath) {
+        let taskToDelete = self.tasks.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        StorageManager.shared.delete(object: taskToDelete)
     }
 }
 
@@ -143,10 +151,7 @@ extension TaskListViewController {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
             guard let self = self else { return }
-            let taskToDelete = self.tasks.remove(at: indexPath.row)
-            
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            StorageManager.shared.delete(object: taskToDelete)
+            deleteTask(at: indexPath)
         }
         
         let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
