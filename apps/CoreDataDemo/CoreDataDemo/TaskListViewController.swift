@@ -6,17 +6,22 @@
 //
 
 import UIKit
+import CoreData
 
 class TaskListViewController: UITableViewController {
+    
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     private let cellID = "cell"
     private var tasks: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         view.backgroundColor = .systemBackground
         setupNavigationBar()
-        
+        fetchData()
+        tableView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -46,9 +51,19 @@ class TaskListViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = .white
     }
 
-    @objc func addNewTask () {
+    @objc private func addNewTask () {
         let newTaskVC = NewTaskViewController()
         present(newTaskVC, animated: true)
+    }
+    
+    private func fetchData() {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        do {
+            tasks = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 
 }
@@ -56,8 +71,20 @@ class TaskListViewController: UITableViewController {
 // MARK: - Table view data source
 extension TaskListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        <#code#>
+        1
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tasks.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let task = tasks[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = task.name
+        cell.contentConfiguration = content
+        return cell
+    }
     
 }
