@@ -60,13 +60,8 @@ class TaskListViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        do {
-            tasks = try context.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        guard let fetchedTasks = StorageManager.shared.fetchAllObjects(type: Task.self) else { return }
+        tasks = fetchedTasks
     }
     
     private func showAlertNewTask(withTitle title: String, andMessage message: String) {
@@ -95,7 +90,7 @@ class TaskListViewController: UITableViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let newTaskName = alert.textFields?.first?.text, !newTaskName.isEmpty else { return }
             task.name = newTaskName
-            self?.save()
+            StorageManager.shared.saveContext()
             self?.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
@@ -113,19 +108,14 @@ class TaskListViewController: UITableViewController {
     
     private func saveNewTask(_ taskName: String) {
         guard let task = StorageManager.shared.newObject("Task") as? Task else { return }
+        let cellIndex = IndexPath(row: tasks.count, section: 0)
         
         task.name = taskName
+        
         tasks.append(task)
-        
-        let cellIndex = IndexPath(row: tasks.count - 1, section: 0)
-        
         tableView.insertRows(at: [cellIndex], with: .automatic)
-        
-        save()
+        StorageManager.shared.saveContext()
     }
-    
-    
-
 }
 
 // MARK: - Table view data source
@@ -147,22 +137,15 @@ extension TaskListViewController {
 
 // MARK: - UITableViewDelegate
 extension TaskListViewController {
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            let taskToDelete = tasks.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            context.delete(taskToDelete)
-        }
-    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
             guard let self = self else { return }
             let taskToDelete = self.tasks.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            context.delete(taskToDelete)
+            StorageManager.shared.delete(object: taskToDelete)
         }
         
         let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in

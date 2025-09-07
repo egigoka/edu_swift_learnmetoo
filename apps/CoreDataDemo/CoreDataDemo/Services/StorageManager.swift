@@ -29,4 +29,20 @@ class StorageManager {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    func fetchAllObjects<T: NSManagedObject>(type: T.Type) -> [T]? {
+        let fetchRequest = type.fetchRequest()
+        
+        do {
+            return try context.fetch(fetchRequest) as? [T]
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func delete(object: NSManagedObject) {
+        context.delete(object)
+        saveContext()
+    }
 }
