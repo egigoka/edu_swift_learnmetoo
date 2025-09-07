@@ -140,4 +140,25 @@ extension TaskListViewController {
             context.delete(taskToDelete)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            guard let self = self else { return }
+            let taskToDelete = self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            context.delete(taskToDelete)
+        }
+        
+        let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
+            print("modify tapped")
+            var task = self?.tasks[indexPath.row]
+            task?.name = (task?.name ?? "") + " ✏️"
+            print(task)
+            print(task?.name)
+            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        modifyAction.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
 }
