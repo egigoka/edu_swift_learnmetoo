@@ -63,7 +63,7 @@ class NewTaskViewController: UIViewController {
         taskTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            taskTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
+            taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             taskTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             taskTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
