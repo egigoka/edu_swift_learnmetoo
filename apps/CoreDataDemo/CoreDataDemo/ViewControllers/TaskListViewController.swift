@@ -53,9 +53,6 @@ class TaskListViewController: UITableViewController {
     }
 
     @objc private func addNewTask () {
-        //let newTaskVC = NewTaskViewController()
-        //newTaskVC.modalPresentationStyle = .fullScreen
-        //present(newTaskVC, animated: true)
         showAlertNewTask(withTitle: "Add new task", andMessage: "Enter task name, pls")
     }
     
@@ -75,8 +72,8 @@ class TaskListViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
         alert.addTextField()
-        alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        alert.addAction(saveAction)
         
         present(alert, animated: true)
     }
@@ -89,9 +86,7 @@ class TaskListViewController: UITableViewController {
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let newTaskName = alert.textFields?.first?.text, !newTaskName.isEmpty else { return }
-            task.name = newTaskName
-            StorageManager.shared.saveContext()
-            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self?.modifyTask(task, with: newTaskName, at: indexPath)
         }
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
@@ -99,8 +94,8 @@ class TaskListViewController: UITableViewController {
         alert.addTextField() { textField in
             textField.text = task.name
         }
-        alert.addAction(saveAction)
         alert.addAction(cancelButton)
+        alert.addAction(saveAction)
         
         present(alert, animated: true)
         
@@ -115,6 +110,12 @@ class TaskListViewController: UITableViewController {
         tasks.append(task)
         tableView.insertRows(at: [cellIndex], with: .automatic)
         StorageManager.shared.saveContext()
+    }
+    
+    private func modifyTask(_ task: Task, with newName: String, at indexPath: IndexPath) {
+        task.name = newName
+        StorageManager.shared.saveContext()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -154,6 +155,6 @@ extension TaskListViewController {
             showAlertModifyTask(for: task, withTitle: "Modify task", andMessage: "pls modify task", at: indexPath)
         }
         modifyAction.backgroundColor = .systemBlue
-        return UISwipeActionsConfiguration(actions: [modifyAction, deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, modifyAction])
     }
 }
