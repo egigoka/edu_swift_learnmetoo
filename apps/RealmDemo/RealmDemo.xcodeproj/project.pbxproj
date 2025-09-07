@@ -8,7 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		13DE1CB22E6DF094008B46FD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13DE1CB12E6DF094008B46FD /* RealmSwift */; };
+		13DE1CB62E6DF374008B46FD /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 13DE1CB12E6DF094008B46FD /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		13DE1CB72E6DF374008B46FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				13DE1CB62E6DF374008B46FD /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13DE1C842E6DEC95008B46FD /* RealmDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +88,7 @@
 				13DE1C802E6DEC95008B46FD /* Sources */,
 				13DE1C812E6DEC95008B46FD /* Frameworks */,
 				13DE1C822E6DEC95008B46FD /* Resources */,
+				13DE1CB72E6DF374008B46FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

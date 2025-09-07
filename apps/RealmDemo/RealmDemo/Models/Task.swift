@@ -9,14 +9,16 @@ import Foundation
 import RealmSwift
 
 class Task: Object {
-    @objc dynamic var name = ""
-    @objc dynamic var note = ""
-    @objc dynamic var date = Date()
-    @objc dynamic var isComplete = false
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var name = ""
+    @Persisted var note = ""
+    @Persisted var date = Date()
+    @Persisted var isComplete = false
 }
 
 class TaskList: Object {
-    @objc dynamic var name = ""
-    @objc dynamic var data = Date()
-    let tasks = List<Task>()
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted dynamic var name = ""
+    @Persisted dynamic var  data = Date()
+    @Persisted var tasks: List<Task>
 }
