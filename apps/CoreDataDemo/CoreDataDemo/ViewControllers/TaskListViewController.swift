@@ -59,7 +59,7 @@ class TaskListViewController: UITableViewController {
         //let newTaskVC = NewTaskViewController()
         //newTaskVC.modalPresentationStyle = .fullScreen
         //present(newTaskVC, animated: true)
-        showAlert(withTitle: "Add task", andMessage: "Enter task name, pls")
+        showAlert(withTitle: "Add new task", andMessage: "Enter task name, pls")
     }
     
     private func fetchData() {
