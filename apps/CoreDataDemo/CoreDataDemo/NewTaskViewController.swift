@@ -89,6 +89,17 @@ class NewTaskViewController: UIViewController {
     
     @objc private func save() {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
+        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
+        
+        task.name = taskTextField.text
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch let error {
+                print(error)
+            }
+        }
         
         dismiss(animated: true)
     }

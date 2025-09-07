@@ -9,6 +9,9 @@ import UIKit
 
 class TaskListViewController: UITableViewController {
 
+    private let cellID = "cell"
+    private var tasks: [Task] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -50,4 +53,11 @@ class TaskListViewController: UITableViewController {
 
 }
 
- 
+// MARK: - Table view data source
+extension TaskListViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        <#code#>
+    }
+    
+    
+}
