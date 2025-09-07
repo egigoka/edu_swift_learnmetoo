@@ -152,7 +152,7 @@ course 2 lesson 12 homework        - none
 50%
 
 course 2 lesson 13 homework review - none
-course 2 lesson 13 theory          - 2:24:59
+course 2 lesson 13 theory          - 2:25:55
 course 2 lesson 13 homework        - 
 
 course 2 lesson 14 homework review - 

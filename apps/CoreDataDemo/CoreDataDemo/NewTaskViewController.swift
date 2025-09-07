@@ -31,7 +31,7 @@ class NewTaskViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
         return button
     }()
     
@@ -42,7 +42,7 @@ class NewTaskViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(save), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         return button
     }()
 
@@ -88,8 +88,8 @@ class NewTaskViewController: UIViewController {
     }
     
     @objc private func save() {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
-        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { print("lol");return }
+        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { print("lol");return }
         
         task.name = taskTextField.text
         

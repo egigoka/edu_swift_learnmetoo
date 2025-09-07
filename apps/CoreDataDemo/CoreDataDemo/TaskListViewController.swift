@@ -21,7 +21,6 @@ class TaskListViewController: UITableViewController {
         view.backgroundColor = .systemBackground
         setupNavigationBar()
         fetchData()
-        tableView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -70,10 +69,6 @@ class TaskListViewController: UITableViewController {
 
 // MARK: - Table view data source
 extension TaskListViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tasks.count
     }
