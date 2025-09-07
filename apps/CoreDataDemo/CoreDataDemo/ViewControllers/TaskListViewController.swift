@@ -47,43 +47,30 @@ class TaskListViewController: UITableViewController {
     }
 
     @objc private func addNewTask () {
-        showAlertNewTask(withTitle: "Add new task", andMessage: "Enter task name, pls")
+        showAlert(withTitle: "Add new task", andMessage: "Enter task name, pls")
     }
     
-    private func showAlertNewTask(withTitle title: String, andMessage message: String) {
+    private func showAlert(withTitle title: String,
+                   andMessage message: String,
+               for task: Task? = nil,
+                           at indexPath: IndexPath? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            self?.saveNewTask(task)
-        }
+            guard let taskName = alert.textFields?.first?.text, !taskName.isEmpty else { return }
+            if let task = task, let indexPath = indexPath {
+                self?.modifyTask(task, with: taskName, at: indexPath)
+            } else {
+                    self?.saveNewTask(taskName)
+                }
+            }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
-        alert.addTextField()
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
-        present(alert, animated: true)
-    }
-    
-    private func showAlertModifyTask(for task: Task,
-                                     withTitle title: String,
-                                     andMessage message: String,
-                                     at indexPath: IndexPath) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            guard let newTaskName = alert.textFields?.first?.text, !newTaskName.isEmpty else { return }
-            self?.modifyTask(task, with: newTaskName, at: indexPath)
-        }
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
-        
         alert.addTextField() { textField in
-            textField.text = task.name
+            textField.text = task?.name
         }
-        alert.addAction(cancelButton)
+        alert.addAction(cancelAction)
         alert.addAction(saveAction)
         
         present(alert, animated: true)
@@ -146,7 +133,7 @@ extension TaskListViewController {
         let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
             guard let self = self else { return }
             let task = self.tasks[indexPath.row]
-            showAlertModifyTask(for: task, withTitle: "Modify task", andMessage: "pls modify task", at: indexPath)
+            showAlert(withTitle: "Modify task", andMessage: "pls modify task", for: task, at: indexPath)
         }
         modifyAction.backgroundColor = .systemBlue
         return UISwipeActionsConfiguration(actions: [deleteAction, modifyAction])
