@@ -47,23 +47,27 @@ class TaskListViewController: UITableViewController {
     }
 
     @objc private func addNewTask () {
-        showAlert(withTitle: "Add new task", andMessage: "Enter task name, pls")
+        showAlert()
     }
     
-    private func showAlert(withTitle title: String,
-                   andMessage message: String,
-               for task: Task? = nil,
-                           at indexPath: IndexPath? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    private func showAlert(for task: Task? = nil,
+                           completion: (() -> Void)? = nil) {
+        let title = task == nil ? "Update task" : "New task"
+        let message = "What do you want to do?"
+        
+        let alert = AlertController(title: title, message: message, preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let taskName = alert.textFields?.first?.text, !taskName.isEmpty else { return }
-            if let task = task, let indexPath = indexPath {
-                self?.modifyTask(task, with: taskName, at: indexPath)
+            if let task = task, let completion = completion {
+                StorageManager.shared.modify(task, newValue: taskName)
+                completion()
             } else {
-                    self?.saveNewTask(taskName)
-                }
+                self?.saveNewTask(taskName)
             }
+        }
+        
+        
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
@@ -86,13 +90,6 @@ class TaskListViewController: UITableViewController {
         tasks.append(task)
         tableView.insertRows(at: [cellIndex], with: .automatic)
         StorageManager.shared.saveContext()
-    }
-    
-    private func modifyTask(_ task: Task, with newName: String, at indexPath: IndexPath) {
-        task.name = newName
-        
-        StorageManager.shared.saveContext()
-        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     private func deleteTask(at indexPath: IndexPath) {
@@ -133,7 +130,9 @@ extension TaskListViewController {
         let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
             guard let self = self else { return }
             let task = self.tasks[indexPath.row]
-            showAlert(withTitle: "Modify task", andMessage: "pls modify task", for: task, at: indexPath)
+            showAlert(for: task) {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         }
         modifyAction.backgroundColor = .systemBlue
         return UISwipeActionsConfiguration(actions: [deleteAction, modifyAction])

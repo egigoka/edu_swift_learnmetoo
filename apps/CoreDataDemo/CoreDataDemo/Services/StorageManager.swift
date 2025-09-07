@@ -57,4 +57,9 @@ class StorageManager {
         context.delete(object)
         saveContext()
     }
+    
+    func modify(_ task: Task, newValue: String) {
+        task.name = newValue
+        saveContext()
+    }
 }
