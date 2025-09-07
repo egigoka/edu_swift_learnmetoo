@@ -126,4 +126,18 @@ extension TaskListViewController {
         return cell
     }
     
+    
+    
+}
+
+// MARK: - UITableViewDelegate
+extension TaskListViewController {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let taskToDelete = tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            context.delete(taskToDelete)
+        }
+    }
 }
