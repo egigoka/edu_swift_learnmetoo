@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlertContoller: UIAlertController {
+class AlertController: UIAlertController {
     
     func action(task: Task?, completion: @escaping (String) -> Void) {
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in

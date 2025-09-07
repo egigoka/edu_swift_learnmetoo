@@ -27,10 +27,10 @@ class StorageManager {
         context = persistentContainer.viewContext
     }
     
-    func newObject<T: NSManagedObject>(_ name: String, as type: T.Type) -> T? {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: name, in: context) else { return nil }
-        guard let object = NSManagedObject(entity: entityDescription, insertInto: context) as? T else { return nil }
-        return object
+    func newObject<T: NSManagedObject>(_ name: String, as type: T.Type, completion: (T) -> Void) {
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: name, in: context) else { return }
+        guard let object = NSManagedObject(entity: entityDescription, insertInto: context) as? T else { return }
+        completion(object)
     }
     
     func saveContext() {

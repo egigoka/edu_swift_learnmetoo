@@ -57,39 +57,22 @@ class TaskListViewController: UITableViewController {
         
         let alert = AlertController(title: title, message: message, preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            guard let taskName = alert.textFields?.first?.text, !taskName.isEmpty else { return }
+        alert.action(task: task) { [weak self] newValue in
             if let task = task, let completion = completion {
-                StorageManager.shared.modify(task, newValue: taskName)
+                StorageManager.shared.modify(task, newValue: newValue)
                 completion()
             } else {
-                self?.saveNewTask(taskName)
+                StorageManager.shared.newObject("Task", as: Task.self) { [weak self] task in
+                    task.name = newValue
+                    self?.tasks.append(task)
+                    self?.tableView.insertRows(
+                        at: [IndexPath(row: (self?.tasks.count ?? 1) - 1, section: 0)],
+                        with: .automatic)
+                }
             }
         }
         
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-        
-        alert.addTextField() { textField in
-            textField.text = task?.name
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
         present(alert, animated: true)
-        
-    }
-    
-    private func saveNewTask(_ taskName: String) {
-        guard let task = StorageManager.shared.newObject("Task", as: Task.self) else { return }
-        let cellIndex = IndexPath(row: tasks.count, section: 0)
-        
-        task.name = taskName
-        
-        tasks.append(task)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-        StorageManager.shared.saveContext()
     }
     
     private func deleteTask(at indexPath: IndexPath) {
@@ -122,14 +105,17 @@ extension TaskListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completion in
+            completion(true)
             guard let self = self else { return }
             deleteTask(at: indexPath)
         }
         
-        let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
+        let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, completion in
+            completion(true)
             guard let self = self else { return }
             let task = self.tasks[indexPath.row]
+            
             showAlert(for: task) {
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             }
