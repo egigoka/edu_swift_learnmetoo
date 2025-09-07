@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import CoreData
 
 class TaskListViewController: UITableViewController {
-    
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     private let cellID = "cell"
     private var tasks: [Task] = []
@@ -93,15 +90,29 @@ class TaskListViewController: UITableViewController {
                                      withTitle title: String,
                                      andMessage message: String,
                                      at indexPath: IndexPath) {
-        let saveAction = UIAlertAction(title: "Save", style: .default) {
-        task.name = (task.name ?? "") + " ✏️"
-        save()
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            guard let newTaskName = alert.textFields?.first?.text, !newTaskName.isEmpty else { return }
+            task.name = newTaskName
+            self?.save()
+            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addTextField() { textField in
+            textField.text = task.name
+        }
+        alert.addAction(saveAction)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true)
+        
     }
     
     private func saveNewTask(_ taskName: String) {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { print("lol");return }
-        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { print("lol");return }
+        guard let task = StorageManager.shared.newObject("Task") as? Task else { return }
         
         task.name = taskName
         tasks.append(task)
@@ -113,14 +124,7 @@ class TaskListViewController: UITableViewController {
         save()
     }
     
-    private func save() {
-        guard context.hasChanges else { return }
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
+    
 
 }
 
