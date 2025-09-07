@@ -11,7 +11,7 @@ class StorageManager {
     
     static let shared = StorageManager()
     
-    private var persistentContainer: NSPersistentContainer = {
+    private let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreDataDemo")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -21,11 +21,11 @@ class StorageManager {
         return container
     }()
     
-    private var context: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
+    private let context: NSManagedObjectContext
     
-    private init() {}
+    private init() {
+        context = persistentContainer.viewContext
+    }
     
     func newObject<T: NSManagedObject>(_ name: String, as type: T.Type) -> T? {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: name, in: context) else { return nil }

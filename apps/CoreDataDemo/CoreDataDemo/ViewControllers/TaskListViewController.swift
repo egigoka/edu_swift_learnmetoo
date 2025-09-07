@@ -10,19 +10,13 @@ import UIKit
 class TaskListViewController: UITableViewController {
 
     private let cellID = "cell"
-    private var tasks: [Task] = []
+    private var tasks: [Task] = StorageManager.shared.fetchAllObjects(type: Task.self) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         view.backgroundColor = .systemBackground
         setupNavigationBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-        tableView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -54,11 +48,6 @@ class TaskListViewController: UITableViewController {
 
     @objc private func addNewTask () {
         showAlertNewTask(withTitle: "Add new task", andMessage: "Enter task name, pls")
-    }
-    
-    private func fetchData() {
-        guard let fetchedTasks = StorageManager.shared.fetchAllObjects(type: Task.self) else { return }
-        tasks = fetchedTasks
     }
     
     private func showAlertNewTask(withTitle title: String, andMessage message: String) {
@@ -120,7 +109,7 @@ class TaskListViewController: UITableViewController {
     }
     
     private func deleteTask(at indexPath: IndexPath) {
-        let taskToDelete = self.tasks.remove(at: indexPath.row)
+        let taskToDelete = tasks.remove(at: indexPath.row)
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
         StorageManager.shared.delete(object: taskToDelete)
