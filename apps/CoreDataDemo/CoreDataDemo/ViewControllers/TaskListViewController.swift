@@ -59,7 +59,7 @@ class TaskListViewController: UITableViewController {
         //let newTaskVC = NewTaskViewController()
         //newTaskVC.modalPresentationStyle = .fullScreen
         //present(newTaskVC, animated: true)
-        showAlert(withTitle: "Add new task", andMessage: "Enter task name, pls")
+        showAlertNewTask(withTitle: "Add new task", andMessage: "Enter task name, pls")
     }
     
     private func fetchData() {
@@ -72,12 +72,12 @@ class TaskListViewController: UITableViewController {
         }
     }
     
-    private func showAlert(withTitle title: String, andMessage message: String) {
+    private func showAlertNewTask(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            self.save(task)
+            self?.saveNewTask(task)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
@@ -89,7 +89,17 @@ class TaskListViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    private func save(_ taskName: String) {
+    private func showAlertModifyTask(for task: Task,
+                                     withTitle title: String,
+                                     andMessage message: String,
+                                     at indexPath: IndexPath) {
+        let saveAction = UIAlertAction(title: "Save", style: .default) {
+        task.name = (task.name ?? "") + " ✏️"
+        save()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    private func saveNewTask(_ taskName: String) {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { print("lol");return }
         guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { print("lol");return }
         
@@ -100,12 +110,15 @@ class TaskListViewController: UITableViewController {
         
         tableView.insertRows(at: [cellIndex], with: .automatic)
         
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error {
-                print(error)
-            }
+        save()
+    }
+    
+    private func save() {
+        guard context.hasChanges else { return }
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
 
@@ -125,8 +138,6 @@ extension TaskListViewController {
         cell.contentConfiguration = content
         return cell
     }
-    
-    
     
 }
 
@@ -151,14 +162,11 @@ extension TaskListViewController {
         }
         
         let modifyAction = UIContextualAction(style: .normal, title: "Modify") { [weak self] _, _, _ in
-            print("modify tapped")
-            var task = self?.tasks[indexPath.row]
-            task?.name = (task?.name ?? "") + " ✏️"
-            print(task)
-            print(task?.name)
-            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            guard let self = self else { return }
+            let task = self.tasks[indexPath.row]
+            showAlertModifyTask(for: task, withTitle: "Modify task", andMessage: "pls modify task", at: indexPath)
         }
         modifyAction.backgroundColor = .systemBlue
-        return UISwipeActionsConfiguration(actions: [modifyAction])
+        return UISwipeActionsConfiguration(actions: [modifyAction, deleteAction])
     }
 }
