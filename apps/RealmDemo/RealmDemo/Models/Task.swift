@@ -18,7 +18,7 @@ class Task: Object {
 
 class TaskList: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted dynamic var name = ""
-    @Persisted dynamic var  data = Date()
+    @Persisted var name = ""
+    @Persisted var date = Date()
     @Persisted var tasks: List<Task>
 }
