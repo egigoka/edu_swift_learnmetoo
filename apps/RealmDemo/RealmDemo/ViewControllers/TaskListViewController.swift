@@ -12,6 +12,15 @@ class TaskListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let shoppingList = TaskList()
+        shoppingList.name = "Shopping list"
+        
+        let milk = Task()
+        milk.name = "Milk"
+        milk.note = "2 l."
+        
+        shoppingList.tasks.append(milk)
+        
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {

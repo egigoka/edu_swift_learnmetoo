@@ -22,4 +22,3 @@ class TaskList: Object {
     @Persisted var date: Date
     @Persisted var tasks: List<Task>
 }
-    
