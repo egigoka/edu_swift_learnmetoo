@@ -10,15 +10,16 @@ import RealmSwift
 
 class Task: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var name = ""
-    @Persisted var note = ""
-    @Persisted var date = Date()
-    @Persisted var isComplete = false
+    @Persisted var name: String
+    @Persisted var note: String
+    @Persisted var date: Date
+    @Persisted var isComplete: Bool
 }
 
 class TaskList: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var name = ""
-    @Persisted var date = Date()
+    @Persisted var name: String
+    @Persisted var date: Date
     @Persisted var tasks: List<Task>
 }
+    
