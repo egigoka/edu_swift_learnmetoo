@@ -29,7 +29,7 @@ class TaskListViewController: UITableViewController {
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
-        addTaskList()
+        alertTaskList()
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
@@ -67,21 +67,32 @@ class TaskListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completionHandler in
-            
-            action.image = UIImage(systemName: "trash.fill")
-            action.title = nil
-            
-            if let taskList = self?.tasksLists[indexPath.row] {
-                StorageManager.shared.delete(taskLists: [taskList])
-                
-                completionHandler(true)
-            } else {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] action, _, completion in
+            guard let taskList = self?.tasksLists[indexPath.row] else {
                 print("cannot delete")
-                completionHandler(false)
+                completion(false)
+                return
             }
+            
+            StorageManager.shared.delete(taskLists: [taskList])
+            
+            completion(true)
         }
         deleteAction.image = UIImage(systemName: "trash")
+        
+        let editAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, _, completion in
+            guard let taskList = self?.tasksLists[indexPath.row] else {
+                print("cannot edit")
+                completion(false)
+                return
+            }
+            
+            alertTaskList(taskList)
+            
+            StorageManager.shared.delete(taskLists: [taskList])
+            
+            completion(true)
+        }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -90,7 +101,7 @@ class TaskListViewController: UITableViewController {
 
 extension TaskListViewController {
     
-    private func addTaskList() {
+    private func alertTaskList(_ taskList: TaskList) {
         let alert = UIAlertController(
             title: "Add Task List",
             message: "Enter a name for your new task list",

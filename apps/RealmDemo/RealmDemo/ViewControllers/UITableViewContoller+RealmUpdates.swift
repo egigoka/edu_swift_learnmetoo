@@ -10,7 +10,7 @@ import RealmSwift
 
 extension UITableViewController {
     
-    func updateTableView(with changes: RealmCollectionChange<Results<Object>>, inSection section: Int) {
+    func updateTableView<T: Object>(with changes: RealmCollectionChange<Results<T>>, inSection section: Int) {
         
         switch changes {
         case .initial:
