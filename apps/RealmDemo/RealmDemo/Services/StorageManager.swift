@@ -14,8 +14,15 @@ class StorageManager {
     private init() {}
     
     func save(taskLists: [TaskList]) {
+        let references = taskLists.map { ThreadSafeReference(to: $0) }
         try! realm.write {
-            realm.add(taskLists)
+            for ref in references {
+                if let resolved = realm.resolve(ref) {
+                    realm.add(resolved)
+                } else {
+                    print("reference not resolved \(ref)")
+                }
+            }
         }
     }
 }
