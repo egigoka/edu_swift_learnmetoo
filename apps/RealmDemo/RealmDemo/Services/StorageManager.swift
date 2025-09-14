@@ -14,14 +14,24 @@ class StorageManager {
     
     private init() {}
     
-    func createNew<T: Object>(_ type: T.Type, value: [String: Any] = [:]) {
+    func appendToList<T: Object>(_ 
+    
+    func createNew<T: Object>(_ type: T.Type, value: [String: Any] = [:]) -> T {
         let ID = ObjectId.generate()
         var value = value
+        var newObject = T()
         
         value.updateValue(ID, forKey: "_id")
-        let newObject = realm.create(type, value: value)
+        do {
+            try realm.write {
+                newObject = realm.create(type, value: value)
+            }
+        } catch let error {
+            print("Error writing new object: \(error)")
+        }
         
         create([newObject])
+        return newObject
     }
     
     func update<T: Object>(_ object: T?, value: [String: Any] = [:]) {

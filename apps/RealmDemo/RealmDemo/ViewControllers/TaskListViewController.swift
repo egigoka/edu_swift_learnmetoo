@@ -122,7 +122,7 @@ extension TaskListViewController {
         let addAction = UIAlertAction(title: buttonTitle, style: .default) { alertAction in
             guard let name = alert.textFields?.first?.text else { return }
             if taskList == nil {
-                StorageManager.shared.createNew(TaskList.self, value: ["name": name])
+                let _ = StorageManager.shared.createNew(TaskList.self, value: ["name": name])
             } else {
                 guard let taskList = taskList else { return }
                 StorageManager.shared.update(taskList, value: ["name": name])

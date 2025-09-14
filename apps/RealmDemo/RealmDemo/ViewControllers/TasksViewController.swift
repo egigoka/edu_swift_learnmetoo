@@ -99,13 +99,17 @@ extension TasksViewController {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let addAction = UIAlertAction(title: buttonTitle, style: .default) { alertAction in
+        let addAction = UIAlertAction(title: buttonTitle, style: .default) { [weak self] alertAction in
             guard let name = alert.textFields?.first?.text else { return }
             let note = alert.textFields?[1].text ?? ""
+            var task = task
             if task == nil {
-                StorageManager.shared.createNew(TaskList.self, value: ["name": name, "note": note])
+                task = StorageManager.shared.createNew(Task.self, value: ["name": name, "note": note])
             } else {
                 StorageManager.shared.update(task, value: ["name": name, "note": note])
+            }
+            if let task = task {
+                self?.taskList.tasks.append(task)
             }
         }
         
