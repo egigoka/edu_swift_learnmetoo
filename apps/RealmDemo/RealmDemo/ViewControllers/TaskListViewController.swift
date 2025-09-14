@@ -24,21 +24,7 @@ class TaskListViewController: UITableViewController {
         tasksLists = StorageManager.shared.realm.objects(TaskList.self)
         
         notificationToken = tasksLists.observe { [weak self] changes in
-            print("notification token fired")
-            guard let tableView = self?.tableView else { return }
-            
-            switch changes {
-            case .initial:
-                tableView.reloadData()
-            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-                tableView.performBatchUpdates {
-                    tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-                    tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
-                    tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0)}, with: .automatic)
-                }
-            case .error(let error):
-                fatalError("Realm notifications error: \(error)")
-            }
+            self?.updateTableView(with: changes, inSection: 0)
         }
     }
 

@@ -15,10 +15,12 @@ class TasksViewController: UITableViewController {
     var currentTasks: Results<Task>!
     var completedTasks: Results<Task>!
     
-    var notificationToken: NotificationToken?
+    var notificationTokenCurrent: NotificationToken?
+    var notificationTokenCompleted: NotificationToken?
     
     deinit {
-        notificationToken?.invalidate()
+        notificationTokenCurrent?.invalidate()
+        notificationTokenCompleted?.invalidate()
     }
     
     override func viewDidLoad() {
@@ -27,6 +29,14 @@ class TasksViewController: UITableViewController {
         
         currentTasks = taskList.tasks.filter("isComplete = false")
         completedTasks = taskList.tasks.filter("isComplete = true")
+        
+        notificationTokenCurrent = currentTasks.observe { [weak self] changes in
+            self?.updateTableView(with: changes, inSection: 0)
+        }
+        
+        notificationTokenCompleted = completedTasks.observe({ [weak self] changes in
+            self?.updateTableView(with: changes, inSection: 1)
+        })
     }
     
     // MARK: - Table view data source
@@ -53,12 +63,6 @@ class TasksViewController: UITableViewController {
         
         return cell
     }
-    
 }
 
-extension TasksViewController {
-    
-    private func showAlert() {
-        
-    }
-}
+
