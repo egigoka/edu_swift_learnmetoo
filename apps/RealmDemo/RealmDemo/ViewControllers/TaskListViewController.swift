@@ -92,16 +92,28 @@ class TaskListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let configuration = UISwipeActionsConfiguration()
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completionHandler in
-            print("delete tapped")
+            
+            action.image = UIImage(systemName: "trash.fill")
+            action.title = nil
+            
+            if let taskList = self?.tasksLists[indexPath.row] {
+                StorageManager.shared.delete(taskLists: [taskList])
+                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completionHandler(true)
+            } else {
+                print("cannot delete")
+                completionHandler(false)
+            }
         }
         deleteAction.image = UIImage(systemName: "trash")
         
-        configuration.actions.append(deleteAction)
         
-        return configuration
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
 }
@@ -125,7 +137,13 @@ extension TaskListViewController {
             let newTaskList = TaskList(value: ["_id": newTaskListID, "name": name])
             StorageManager.shared.save(taskLists: [newTaskList])
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                if let tasksListsCount = self?.tasksLists.count {
+                    let indexPath = IndexPath(row: tasksListsCount - 1, section: 0)
+                    self?.tableView.reloadRows(at: [], with: .automatic)
+                } else {
+                    self?.tableView.reloadData()
+                    print("something went wrong while reloading data")
+                }
             }
         }
         

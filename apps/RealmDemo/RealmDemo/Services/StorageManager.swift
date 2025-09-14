@@ -22,4 +22,10 @@ class StorageManager {
             print("Error saving data: \(error)")
         }
     }
+    
+    func delete(taskLists: [TaskList]) {
+        for taskList in taskLists {
+            realm.delete(taskList)
+        }
+    }
 }
