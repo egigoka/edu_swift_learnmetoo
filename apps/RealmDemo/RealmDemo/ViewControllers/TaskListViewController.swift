@@ -55,7 +55,7 @@ class TaskListViewController: UITableViewController {
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
-        showALert()
+        addTaskList()
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
@@ -90,19 +90,50 @@ class TaskListViewController: UITableViewController {
         
         
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let configuration = UISwipeActionsConfiguration()
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completionHandler in
+            print("delete tapped")
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        configuration.actions.append(deleteAction)
+        
+        return configuration
+    }
 
 }
 
 extension TaskListViewController {
     
-    private func showALert() {
-//        let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
-//        
-//        alert.actionWIthTaskList { newValue in
-//            
-//        }
-//        
-//        present(alert, animated: true)
+    private func addTaskList() {
+        let alert = UIAlertController(
+            title: "Add Task List",
+            message: "Enter a name for your new task list",
+            preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Task List Name"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] alertAction in
+            guard let name = alert.textFields?.first?.text else { return }
+            let newTaskListID = ObjectId.generate()
+            let newTaskList = TaskList(value: ["_id": newTaskListID, "name": name])
+            StorageManager.shared.save(taskLists: [newTaskList])
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(addAction)
+        
+        present(alert, animated: true)
     }
+    
     
 }
