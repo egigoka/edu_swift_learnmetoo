@@ -14,10 +14,28 @@ class StorageManager {
     
     private init() {}
     
-    func save(taskLists: [TaskList]) {
+    func createNew<T: Object>(_ type: T.Type, value: [String: Any] = [:]) {
+        let ID = ObjectId.generate()
+        let newObject = realm.create(type, value: value)
+        create([newObject])
+    }
+    
+    func update<T: Object>(_ object: T, value: [String: Any] = [:]) {
         do {
             try realm.write {
-                realm.add(taskLists)
+                for (key, value) in value {
+                    object.setValue(value, forKey: key)
+                }
+            }
+        } catch let error {
+            print("Error while updating \(object): \n\(error)")
+        }
+    }
+    
+    private func create<T: Object>(_ objects: [T]) {
+        do {
+            try realm.write {
+                realm.add(objects)
             }
         } catch let error {
             print("Error saving data: \(error)")
