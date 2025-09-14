@@ -6,28 +6,42 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let shoppingListID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h8") else { return }
+        guard let moviesListID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h4") else { return }
+        
+        guard let movieBFEID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h5") else { return }
+        guard let movieTBOFBID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h6") else { return }
+        guard let milkID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h9") else { return }
+        guard let breadID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3h7") else { return }
+        guard let appleID = try? ObjectId(string: "60c8e2a4a7b8c9d0e1f2g3ha") else { return }
+        
+        
         let shoppingList = TaskList()
+        shoppingList._id = shoppingListID
         shoppingList.name = "Shopping list"
         
         let moviesList = TaskList(value: [
+            moviesListID,
             "Movies list",
             Date(),
-            [["Best film ever"],
-             ["The best of the best", "", Date(), true]]
+            [[movieBFEID, "Best film ever"],
+             [movieTBOFBID, "The best of the best", "", Date(), true]]
         ])
         
         let milk = Task()
+        milk._id = milkID
         milk.name = "Milk"
         milk.note = "2 l."
         
-        let bread = Task(value: ["Bread", "", Date(), true])
-        let apple = Task(value: ["name": "Apples", "isComplete": true])
+        let bread = Task(value: [breadID, "Bread", "", Date(), true])
+        let apple = Task(value: ["_id": appleID, "name": "Apples", "isComplete": true])
         
         shoppingList.tasks.append(milk)
         shoppingList.tasks.insert(contentsOf: [bread, apple], at: 1)
