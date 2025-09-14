@@ -87,35 +87,46 @@ class TaskListViewController: UITableViewController {
                 return
             }
             
-            alertTaskList(taskList)
-            
-            StorageManager.shared.delete(taskLists: [taskList])
+            self?.alertTaskList(taskList)
             
             completion(true)
         }
+        editAction.image = UIImage(systemName: "pencil")
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 
 }
 
 extension TaskListViewController {
     
-    private func alertTaskList(_ taskList: TaskList) {
+    private func alertTaskList(_ taskList: TaskList? = nil) {
+        
+        let title = taskList == nil ? "Add Task List" : "Edit Task List"
+        let message = taskList == nil ? "Enter a name for your new task list." : "Edit the name of your task list."
+        let buttonTitle = taskList == nil ? "Add" : "Save"
+        
         let alert = UIAlertController(
-            title: "Add Task List",
-            message: "Enter a name for your new task list",
+            title: title,
+            message: message,
             preferredStyle: .alert)
         
         alert.addTextField { textField in
             textField.placeholder = "Task List Name"
+            if let taskList = taskList {
+                textField.text = taskList.name
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let addAction = UIAlertAction(title: "Add", style: .default) { alertAction in
+        let addAction = UIAlertAction(title: buttonTitle, style: .default) { alertAction in
             guard let name = alert.textFields?.first?.text else { return }
-            let newTaskListID = ObjectId.generate()
-            let newTaskList = TaskList(value: ["_id": newTaskListID, "name": name])
+            var newTaskList = taskList
+            if taskList == nil {
+                let newTaskListID = ObjectId.generate()
+                newTaskList = TaskList(value: ["_id": newTaskListID, "name": name])
+            }
+            guard let newTaskList = newTaskList else { return }
             StorageManager.shared.save(taskLists: [newTaskList])
         }
         
