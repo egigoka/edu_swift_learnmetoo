@@ -24,7 +24,8 @@ class StorageManager {
         create([newObject])
     }
     
-    func update<T: Object>(_ object: T, value: [String: Any] = [:]) {
+    func update<T: Object>(_ object: T?, value: [String: Any] = [:]) {
+        guard let object = object else { return }
         do {
             try realm.write {
                 for (key, value) in value {
