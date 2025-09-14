@@ -156,7 +156,7 @@ course 2 lesson 13 theory          - done
 course 2 lesson 13 homework        - done
 
 course 2 lesson 14 homework review - done
-course 2 lesson 14 theory          - 2:06:26
+course 2 lesson 14 theory          - 2:07:27
 course 2 lesson 14 homework        - 
 
 course 2 lesson 15 homework review - 
