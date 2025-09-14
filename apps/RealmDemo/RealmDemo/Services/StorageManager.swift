@@ -16,7 +16,11 @@ class StorageManager {
     
     func createNew<T: Object>(_ type: T.Type, value: [String: Any] = [:]) {
         let ID = ObjectId.generate()
+        var value = value
+        
+        value.updateValue(ID, forKey: "_id")
         let newObject = realm.create(type, value: value)
+        
         create([newObject])
     }
     
