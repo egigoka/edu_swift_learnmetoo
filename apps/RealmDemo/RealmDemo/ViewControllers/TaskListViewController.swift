@@ -24,15 +24,20 @@ class TaskListViewController: UITableViewController {
         tasksLists = StorageManager.shared.realm.objects(TaskList.self)
         
         notificationToken = tasksLists.observe { [weak self] changes in
+            print("notification token fired")
             guard let tableView = self?.tableView else { return }
             
             switch changes {
             case .initial:
                 tableView.reloadData()
-            case .update(_, deletions: let deletions, insertions: <#T##[Int]#>, modifications: <#T##[Int]#>):
-                
+            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+                tableView.performBatchUpdates {
+                    tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                    tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0)}, with: .automatic)
+                }
             case .error(let error):
-                
+                fatalError("Realm notifications error: \(error)")
             }
         }
     }
@@ -84,8 +89,6 @@ class TaskListViewController: UITableViewController {
             if let taskList = self?.tasksLists[indexPath.row] {
                 StorageManager.shared.delete(taskLists: [taskList])
                 
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                
                 completionHandler(true)
             } else {
                 print("cannot delete")
@@ -112,20 +115,11 @@ extension TaskListViewController {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] alertAction in
+        let addAction = UIAlertAction(title: "Add", style: .default) { alertAction in
             guard let name = alert.textFields?.first?.text else { return }
             let newTaskListID = ObjectId.generate()
             let newTaskList = TaskList(value: ["_id": newTaskListID, "name": name])
             StorageManager.shared.save(taskLists: [newTaskList])
-            DispatchQueue.main.async {
-                if let tasksListsCount = self?.tasksLists.count {
-                    let indexPath = IndexPath(row: tasksListsCount - 1, section: 0)
-                    self?.tableView.insertRows(at: [indexPath], with: .automatic)
-                } else {
-                    self?.tableView.reloadData()
-                    print("something went wrong while reloading data")
-                }
-            }
         }
         
         alert.addAction(cancelAction)

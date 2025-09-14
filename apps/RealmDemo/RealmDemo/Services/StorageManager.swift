@@ -24,11 +24,34 @@ class StorageManager {
         }
     }
     
+//    func delete(taskLists: [TaskList]) {
+//        let transaction = realm.beginAsyncWrite { [weak self] in
+//            for taskList in taskLists {
+//                print("delete \(taskList)")
+//                self?.realm.delete(taskList)
+//            }
+//        }
+//        transaction.commit { error in
+//            if let error = error {
+//                print("Error deleting data: \(error)")
+//            } else {
+//                print("Data deleted successfully")
+//            }
+//        }
+//    }
     func delete(taskLists: [TaskList]) {
-        realm.beginAsyncWrite { [weak self] in
+        realm.writeAsync({ [weak self] in
+            guard let self = self else { return }
             for taskList in taskLists {
-                self?.realm.delete(taskList)
+                print("delete \(taskList)")
+                self.realm.delete(taskList)
             }
-        }
+        }, onComplete: { error in
+            if let error = error {
+                print("Error deleting data: \(error)")
+            } else {
+                print("Data deleted successfully")
+            }
+        })
     }
 }
