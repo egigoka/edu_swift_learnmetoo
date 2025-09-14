@@ -60,6 +60,36 @@ class TaskListViewController: UITableViewController {
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
     }
+    
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tasksLists.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
+        
+        let taskList = tasksLists[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = taskList.name
+        content.secondaryText = "\(taskList.tasks.count)"
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        let taskList = tasksLists[indexPath.row]
+        
+        let tasksVC = segue.destination as! TasksViewController
+        
+        tasksVC.taskList = taskList
+        
+        
+    }
 
 }
 
