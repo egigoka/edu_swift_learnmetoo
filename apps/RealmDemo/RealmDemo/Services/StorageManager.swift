@@ -5,6 +5,7 @@
 //  Created by egigoka on 07.09.2025.
 //
 
+import Foundation
 import RealmSwift
 
 class StorageManager {
@@ -24,8 +25,10 @@ class StorageManager {
     }
     
     func delete(taskLists: [TaskList]) {
-        for taskList in taskLists {
-            realm.delete(taskList)
+        realm.beginAsyncWrite { [weak self] in
+            for taskList in taskLists {
+                self?.realm.delete(taskList)
+            }
         }
     }
 }

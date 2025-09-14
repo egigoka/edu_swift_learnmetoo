@@ -12,46 +12,29 @@ class TaskListViewController: UITableViewController {
     
     var tasksLists: Results<TaskList>!
 
+    var notificationToken: NotificationToken?
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        guard let shoppingListID = try? ObjectId(string: "68c6720778fd1ce3aa44f812") else { return }
-//        guard let moviesListID = try? ObjectId(string: "68c6720778fd1ce3aa44f813") else { return }
-//        
-//        guard let movieBFEID = try? ObjectId(string: "68c6720778fd1ce3aa44f814") else { return }
-//        guard let movieTBOFBID = try? ObjectId(string: "68c6720778fd1ce3aa44f815") else { return }
-//        guard let milkID = try? ObjectId(string: "68c6720778fd1ce3aa44f816") else { return }
-//        guard let breadID = try? ObjectId(string: "68c6720778fd1ce3aa44f817") else { return }
-//        guard let appleID = try? ObjectId(string: "68c6720778fd1ce3aa44f818") else { return }
-//        
-//        let shoppingList = TaskList()
-//        shoppingList._id = shoppingListID
-//        shoppingList.name = "Shopping list"
-//        
-//        let moviesList = TaskList(value: [
-//            moviesListID,
-//            "Movies list",
-//            Date(),
-//            [[movieBFEID, "Best film ever"],
-//             [movieTBOFBID, "The best of the best", "", Date(), true]]
-//        ])
-//        
-//        let milk = Task()
-//        milk._id = milkID
-//        milk.name = "Milk"
-//        milk.note = "2 l."
-//        
-//        let bread = Task(value: [breadID, "Bread", "", Date(), true])
-//        let apple = Task(value: ["_id": appleID, "name": "Apples", "isComplete": true])
-//        
-//        shoppingList.tasks.append(milk)
-//        shoppingList.tasks.insert(contentsOf: [bread, apple], at: 1)
-//        
-//        DispatchQueue.main.async {
-//            StorageManager.shared.save(taskLists: [shoppingList, moviesList])
-//        }
-        
         tasksLists = StorageManager.shared.realm.objects(TaskList.self)
+        
+        notificationToken = tasksLists.observe { [weak self] changes in
+            guard let tableView = self?.tableView else { return }
+            
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, deletions: let deletions, insertions: <#T##[Int]#>, modifications: <#T##[Int]#>):
+                
+            case .error(let error):
+                
+            }
+        }
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
@@ -111,8 +94,6 @@ class TaskListViewController: UITableViewController {
         }
         deleteAction.image = UIImage(systemName: "trash")
         
-        
-        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
@@ -139,7 +120,7 @@ extension TaskListViewController {
             DispatchQueue.main.async {
                 if let tasksListsCount = self?.tasksLists.count {
                     let indexPath = IndexPath(row: tasksListsCount - 1, section: 0)
-                    self?.tableView.reloadRows(at: [], with: .automatic)
+                    self?.tableView.insertRows(at: [indexPath], with: .automatic)
                 } else {
                     self?.tableView.reloadData()
                     print("something went wrong while reloading data")
