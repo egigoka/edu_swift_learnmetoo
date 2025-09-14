@@ -15,12 +15,26 @@ class TaskListViewController: UITableViewController {
         let shoppingList = TaskList()
         shoppingList.name = "Shopping list"
         
+        let moviesList = TaskList(value: [
+            "Movies list",
+            Date(),
+            [["Best film ever"],
+             ["The best of the best", "", Date(), true]]
+        ])
+        
         let milk = Task()
         milk.name = "Milk"
         milk.note = "2 l."
         
-        shoppingList.tasks.append(milk)
+        let bread = Task(value: ["Bread", "", Date(), true])
+        let apple = Task(value: ["name": "Apples", "isComplete": true])
         
+        shoppingList.tasks.append(milk)
+        shoppingList.tasks.insert(contentsOf: [bread, apple], at: 1)
+        
+        DispatchQueue.main.async {
+            StorageManager.shared.save(taskLists: [shoppingList, moviesList])
+        }
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
