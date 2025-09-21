@@ -21,11 +21,20 @@ class TaskListViewController: RealmTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reloadData(sortingBy: "name")
+    }
+    
+    private func reloadData(sortingBy: String) {
+        notificationToken?.invalidate()
+        
         tasksLists = StorageManager.shared.realm.objects(TaskList.self)
+            .sorted(byKeyPath: sortingBy)
         
         notificationToken = tasksLists.observe { [weak self] changes in
             self?.updateTableView(changes, section: 0)
         }
+        
+        tableView.reloadData()
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
@@ -33,9 +42,31 @@ class TaskListViewController: RealmTableViewController {
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: // A-Z
+            reloadData(sortingBy: "name")
+        case 1: // Date
+            reloadData(sortingBy: "date")
+        default:
+            fatalError()
+        }
     }
     
-    // MARK: - Table view data source
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        let taskList = tasksLists[indexPath.row]
+        
+        let tasksVC = segue.destination as! TasksViewController
+        
+        tasksVC.taskList = taskList
+    }
+    
+}
+
+// MARK: - UITableViewDataSource
+extension TaskListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tasksLists.count
     }
@@ -52,19 +83,10 @@ class TaskListViewController: RealmTableViewController {
         
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        
-        let taskList = tasksLists[indexPath.row]
-        
-        let tasksVC = segue.destination as! TasksViewController
-        
-        tasksVC.taskList = taskList
-        
-        
-    }
-    
+}
+
+// MARK: - UITableViewDelegate
+extension TaskListViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] action, _, completion in
@@ -95,9 +117,9 @@ class TaskListViewController: RealmTableViewController {
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
-
 }
 
+// MARK: - Alert
 extension TaskListViewController {
     
     private func alertTaskList(_ taskList: TaskList? = nil) {

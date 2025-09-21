@@ -34,10 +34,11 @@ class RealmTableViewController : UITableViewController {
 
         tableView.performBatchUpdates {
             for change in pendingChanges {
-                let s = change.section
-                tableView.deleteRows(at: change.deletions.map { IndexPath(row: $0, section: s) }, with: .automatic)
-                tableView.insertRows(at: change.insertions.map { IndexPath(row: $0, section: s) }, with: .automatic)
-                tableView.reloadRows(at: change.modifications.map { IndexPath(row: $0, section: s) }, with: .automatic)
+                let section = change.section
+                
+                tableView.deleteRows(at: change.deletions.map { IndexPath(row: $0, section: section) }, with: .automatic)
+                tableView.insertRows(at: change.insertions.map { IndexPath(row: $0, section: section) }, with: .automatic)
+                tableView.reloadRows(at: change.modifications.map { IndexPath(row: $0, section: section) }, with: .automatic)
             }
         }
         
