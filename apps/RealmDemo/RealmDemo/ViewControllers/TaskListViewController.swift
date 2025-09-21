@@ -75,11 +75,21 @@ extension TaskListViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
         
         let taskList = tasksLists[indexPath.row]
+        let currentTasks = (taskList.tasks.filter { !$0.isComplete }).count
+        
         var content = cell.defaultContentConfiguration()
         
         content.text = taskList.name
+        
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "checkmark")?.withTintColor(.systemBlue)
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        
+        
         content.secondaryText = "\(taskList.tasks.count)"
-        content.image = UIImage(systemName: "checkmark")
+        
+        //content.secondaryAttributedText = imageString
         cell.contentConfiguration = content
         
         return cell
