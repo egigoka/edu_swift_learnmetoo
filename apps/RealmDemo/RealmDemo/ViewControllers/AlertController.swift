@@ -49,12 +49,12 @@ class AlertController: UIAlertController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let addAction = UIAlertAction(title: buttonTitle, style: .default) { alertAction in
             guard let name = alert.textFields?.first?.text else { return }
-            let note = alert.textFields?[1].text ?? ""
-            var task = task
+            
             if isTask {
+                let note = alert.textFields?[1].text ?? ""
                 if task == nil {
-                    task = StorageManager.shared.createNew(Task.self, value: ["name": name, "note": note])
-                    guard let task = task, let taskListParent = taskListParent else { return }
+                    let task = StorageManager.shared.createNew(Task.self, value: ["name": name, "note": note])
+                    guard let taskListParent = taskListParent else { return }
                     StorageManager.shared.appendToList(taskListParent, to: "tasks", with: task)
                 } else {
                     StorageManager.shared.update(task, value: ["name": name, "note": note])

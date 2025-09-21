@@ -38,7 +38,7 @@ class TaskListViewController: RealmTableViewController {
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
-        let alert = AlertController.generate(for: TaskList.self)
+        present(AlertController.generate(for: TaskList.self), animated: true)
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
@@ -79,6 +79,7 @@ extension TaskListViewController {
         
         content.text = taskList.name
         content.secondaryText = "\(taskList.tasks.count)"
+        content.image = UIImage(systemName: "checkmark")
         cell.contentConfiguration = content
         
         return cell
@@ -109,51 +110,12 @@ extension TaskListViewController {
                 return
             }
             
-            self?.alertTaskList(taskList)
+            self?.present(AlertController.generate(for: TaskList.self, taskList), animated: true)
             
             completion(true)
         }
         editAction.image = UIImage(systemName: "pencil")
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-    }
-}
-
-// MARK: - Alert
-extension TaskListViewController {
-    
-    private func alertTaskList(_ taskList: TaskList? = nil) {
-        
-        let title = taskList == nil ? "Add Task List" : "Edit Task List"
-        let message = taskList == nil ? "Enter a name for your new task list." : "Edit the name of your task list."
-        let buttonTitle = taskList == nil ? "Add" : "Save"
-        
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert)
-        
-        alert.addTextField { textField in
-            textField.placeholder = "Task List Name"
-            if let taskList = taskList {
-                textField.text = taskList.name
-            }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let addAction = UIAlertAction(title: buttonTitle, style: .default) { alertAction in
-            guard let name = alert.textFields?.first?.text else { return }
-            if taskList == nil {
-                let _ = StorageManager.shared.createNew(TaskList.self, value: ["name": name])
-            } else {
-                guard let taskList = taskList else { return }
-                StorageManager.shared.update(taskList, value: ["name": name])
-            }
-        }
-        
-        alert.addAction(cancelAction)
-        alert.addAction(addAction)
-        
-        present(alert, animated: true)
     }
 }
