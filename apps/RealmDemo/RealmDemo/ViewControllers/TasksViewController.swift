@@ -49,7 +49,12 @@ class TasksViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? currentTasks.count : completedTasks.count
+        //debug
+        let rows = section == 0 ? currentTasks.count : completedTasks.count
+        print("\(rows) rows in section \(section == 0 ? "current" : "completed")")
+        return rows
+        //debug END
+        //section == 0 ? currentTasks.count : completedTasks.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -88,16 +93,9 @@ extension TasksViewController {
             
             guard let self = self else { return }
             
-            var task: Task?
-            switch indexPath.section {
-            case 0:
-                task = self.currentTasks[indexPath.row]
-            case 1:
-                task = self.completedTasks[indexPath.row]
-            default:
-                fatalError()
-            }
-            StorageManager.shared.update(task, value: ["isComplete": !(task?.isComplete ?? true)])
+            var task = (indexPath.section == 0 ? self.currentTasks : self.completedTasks)[indexPath.row]
+            
+            StorageManager.shared.update(task, value: ["isComplete": !(task.isComplete)])
         }
         completeAction.backgroundColor = .systemGreen
         

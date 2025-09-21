@@ -16,9 +16,10 @@ extension UITableViewController {
         case .initial:
             tableView.reloadData()
         case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+            print("performing update on section: \(section) with \(insertions.count) insertions, \(modifications.count) modifications, and \(deletions.count) deletions") // debug
             tableView.performBatchUpdates {
-                tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: section) }, with: .automatic)
                 tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: section)}, with: .automatic)
+                tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: section) }, with: .automatic)
                 tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: section)}, with: .automatic)
             }
         case .error(let error):
