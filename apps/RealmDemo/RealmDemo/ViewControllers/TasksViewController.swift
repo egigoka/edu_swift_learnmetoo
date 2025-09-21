@@ -108,8 +108,8 @@ extension TasksViewController {
             } else {
                 StorageManager.shared.update(task, value: ["name": name, "note": note])
             }
-            if let task = task {
-                self?.taskList.tasks.append(task)
+            if let task = task, let taskList = self?.taskList {
+                StorageManager.shared.appendToList(taskList, to: "tasks", with: task)
             }
         }
         

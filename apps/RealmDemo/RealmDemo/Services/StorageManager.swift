@@ -14,7 +14,17 @@ class StorageManager {
     
     private init() {}
     
-    func appendToList<T: Object>(_ 
+    func appendToList<T: Object, V: Object>(_ object: T, to arrayKey: String, with value: V) {
+        do {
+            var array = (object[arrayKey] as? [V]) ?? []
+            try realm.write {
+                array.append(value)
+            }
+            update(object, value: [arrayKey: array])
+        } catch let error {
+            print("Error appending to list: \(error)")
+        }
+    }
     
     func createNew<T: Object>(_ type: T.Type, value: [String: Any] = [:]) -> T {
         let ID = ObjectId.generate()
@@ -30,7 +40,7 @@ class StorageManager {
             print("Error writing new object: \(error)")
         }
         
-        create([newObject])
+        add([newObject])
         return newObject
     }
     
@@ -47,7 +57,7 @@ class StorageManager {
         }
     }
     
-    private func create<T: Object>(_ objects: [T]) {
+    private func add<T: Object>(_ objects: [T]) {
         do {
             try realm.write {
                 realm.add(objects)
