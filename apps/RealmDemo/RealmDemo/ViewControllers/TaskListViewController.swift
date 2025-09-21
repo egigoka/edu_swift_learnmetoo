@@ -76,6 +76,7 @@ extension TaskListViewController {
         
         let taskList = tasksLists[indexPath.row]
         let currentTasks = (taskList.tasks.filter { !$0.isComplete }).count
+        let completedTasks = taskList.tasks.count - currentTasks
         
         var content = cell.defaultContentConfiguration()
         
@@ -86,10 +87,11 @@ extension TaskListViewController {
         imageAttachment.image = UIImage(systemName: "checkmark")?.withTintColor(.systemBlue)
         let imageString = NSAttributedString(attachment: imageAttachment)
         
-        
-        content.secondaryText = "\(taskList.tasks.count)"
-        
-        //content.secondaryAttributedText = imageString
+        if currentTasks == 0 && completedTasks != 0 {
+            content.secondaryAttributedText = imageString
+        } else {
+            content.secondaryText = "\(currentTasks)"
+        }
         cell.contentConfiguration = content
         
         return cell
