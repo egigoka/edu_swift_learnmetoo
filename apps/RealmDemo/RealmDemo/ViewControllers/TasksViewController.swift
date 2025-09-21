@@ -43,7 +43,15 @@ class TasksViewController: RealmTableViewController {
         })
     }
     
-    // MARK: - Table view data source
+    // MARK: - IBActions
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        alertTask()
+    }
+    
+}
+
+// MARK: - UITableViewDataSource
+extension TasksViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -67,16 +75,12 @@ class TasksViewController: RealmTableViewController {
         
         return cell
     }
-    
-    // MARK: - IBActions
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        alertTask()
-    }
-    
 }
 
 // MARK: - UITableViewDelegate
 extension TasksViewController {
+    
+    override func tableView
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -89,8 +93,9 @@ extension TasksViewController {
             
             StorageManager.shared.delete([task])
         }
+        deleteAction.image = UIImage(systemName: "trash")
         
-        return UISwipeActionsConfiguration(actions: [])
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

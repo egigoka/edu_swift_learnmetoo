@@ -27,7 +27,7 @@ class ContactListViewController: UIViewController {
     }
 }
 
-// MARK: - UITAbleViewDataSource
+// MARK: - UITableViewDataSource
 extension ContactListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contacts.count

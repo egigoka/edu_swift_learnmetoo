@@ -1,5 +1,5 @@
 //
-//  UITableViewContoller+RealmUpdates.swift
+//  RealmTableViewController
 //  RealmDemo
 //
 //  Created by egigoka on 14.09.2025.
