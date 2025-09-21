@@ -75,6 +75,28 @@ class TasksViewController: UITableViewController {
     
 }
 
+// MARK: - UITableViewDelegate
+extension TasksViewController {
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        <#code#>
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let completeAction = UIContextualAction(style: .normal, title: nil) { [weak self] one, two, completion in
+            completion(true)
+            
+            guard let self = self else { return }
+            task =
+            StorageManager.shared.update(<#T##object: RealmSwiftObject?##RealmSwiftObject?#>, value: <#T##[String : Any]#>)
+        }
+        completeAction.backgroundColor = .systemGreen
+        
+        return UISwipeActionsConfiguration(actions: [completeAction])
+    }
+}
+
+// MARK: - Alert
 extension TasksViewController {
     
     private func alertTask(_ task: Task? = nil) {
