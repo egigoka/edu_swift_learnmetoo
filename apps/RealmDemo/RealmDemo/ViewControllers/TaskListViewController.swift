@@ -38,7 +38,7 @@ class TaskListViewController: RealmTableViewController {
     }
 
     @IBAction func  addButtonPressed(_ sender: Any) {
-        alertTaskList()
+        let alert = AlertController.generate(for: TaskList.self)
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
