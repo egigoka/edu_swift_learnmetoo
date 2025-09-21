@@ -22,6 +22,8 @@ class TaskListViewController: RealmTableViewController {
         super.viewDidLoad()
         
         reloadData(sortingBy: "name")
+        
+        navigationController?.interactivePopGestureRecognizer?.require(toFail: tableView.panGestureRecognizer)
     }
     
     private func reloadData(sortingBy: String) {
