@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class TasksViewController: UITableViewController {
+class TasksViewController: RealmTableViewController {
     
     var taskList: TaskList!
     
@@ -35,11 +35,11 @@ class TasksViewController: UITableViewController {
             .sorted(byKeyPath: "name", ascending: true)
         
         notificationTokenCurrent = currentTasks.observe { [weak self] changes in
-            self?.updateTableView(with: changes, inSection: 0)
+            self?.updateTableView(changes, section: 0)
         }
         
         notificationTokenCompleted = completedTasks.observe({ [weak self] changes in
-            self?.updateTableView(with: changes, inSection: 1)
+            self?.updateTableView(changes, section: 1)
         })
     }
     
@@ -49,12 +49,7 @@ class TasksViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //debug
-        let rows = section == 0 ? currentTasks.count : completedTasks.count
-        print("\(rows) rows in section \(section == 0 ? "current" : "completed")")
-        return rows
-        //debug END
-        //section == 0 ? currentTasks.count : completedTasks.count
+        section == 0 ? currentTasks.count : completedTasks.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -84,6 +79,9 @@ class TasksViewController: UITableViewController {
 extension TasksViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: <#T##UIContextualAction.Style#>, title: <#T##String?#>, handler: <#T##UIContextualAction.Handler##UIContextualAction.Handler##(UIContextualAction, UIView, @escaping (Bool) -> Void) -> Void#>)
+        
         return UISwipeActionsConfiguration(actions: [])
     }
     
@@ -93,11 +91,12 @@ extension TasksViewController {
             
             guard let self = self else { return }
             
-            var task = (indexPath.section == 0 ? self.currentTasks : self.completedTasks)[indexPath.row]
+            let task = (indexPath.section == 0 ? self.currentTasks : self.completedTasks)[indexPath.row]
             
             StorageManager.shared.update(task, value: ["isComplete": !(task.isComplete)])
         }
-        completeAction.backgroundColor = .systemGreen
+        completeAction.backgroundColor = indexPath.section == 0 ? .systemGreen : .systemRed
+        completeAction.image = UIImage(systemName: indexPath.section == 0 ? "checkmark" : "xmark")
         
         return UISwipeActionsConfiguration(actions: [completeAction])
     }

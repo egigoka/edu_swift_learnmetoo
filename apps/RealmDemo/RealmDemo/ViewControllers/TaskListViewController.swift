@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class TaskListViewController: UITableViewController {
+class TaskListViewController: RealmTableViewController {
     
     var tasksLists: Results<TaskList>!
 
@@ -24,7 +24,7 @@ class TaskListViewController: UITableViewController {
         tasksLists = StorageManager.shared.realm.objects(TaskList.self)
         
         notificationToken = tasksLists.observe { [weak self] changes in
-            self?.updateTableView(with: changes, inSection: 0)
+            self?.updateTableView(changes, section: 0)
         }
     }
 
