@@ -17,11 +17,9 @@ class StorageManager {
     func appendToList<T: Object, V: Object>(_ object: T, to arrayKey: String, with value: V) {
         do {
             guard let array = object[arrayKey] as? List<V> else { return }
-            print("array \(array)")
             try realm.write {
                 array.append(value)
             }
-            //update(object, value: [arrayKey: array])
         } catch let error {
             print("Error appending to list: \(error)")
         }

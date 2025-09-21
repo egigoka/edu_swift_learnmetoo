@@ -27,8 +27,12 @@ class TasksViewController: UITableViewController {
         super.viewDidLoad()
         title = taskList.name
         
-        currentTasks = taskList.tasks.filter("isComplete = false")
-        completedTasks = taskList.tasks.filter("isComplete = true")
+        currentTasks = taskList.tasks
+            .filter("isComplete = false")
+            .sorted(byKeyPath: "name", ascending: true)
+        completedTasks = taskList.tasks
+            .filter("isComplete = true")
+            .sorted(byKeyPath: "name", ascending: true)
         
         notificationTokenCurrent = currentTasks.observe { [weak self] changes in
             self?.updateTableView(with: changes, inSection: 0)
