@@ -80,7 +80,11 @@ extension TasksViewController {
 // MARK: - UITableViewDelegate
 extension TasksViewController {
     
-    override func tableView
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = (indexPath.section == 0 ? currentTasks : completedTasks)[indexPath.row]
+        
+        alertTask(task)
+    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -150,11 +154,10 @@ extension TasksViewController {
             var task = task
             if task == nil {
                 task = StorageManager.shared.createNew(Task.self, value: ["name": name, "note": note])
+                guard let task = task, let taskList = self?.taskList else { return }
+                StorageManager.shared.appendToList(taskList, to: "tasks", with: task)
             } else {
                 StorageManager.shared.update(task, value: ["name": name, "note": note])
-            }
-            if let task = task, let taskList = self?.taskList {
-                StorageManager.shared.appendToList(taskList, to: "tasks", with: task)
             }
         }
         

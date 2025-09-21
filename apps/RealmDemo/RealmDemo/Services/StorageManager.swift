@@ -30,8 +30,6 @@ class StorageManager {
         var value = value
         var newObject = T()
         
-        print("created new object with type: \(type) and id: \(ID)")
-        
         value.updateValue(ID, forKey: "_id")
         do {
             try realm.write {
