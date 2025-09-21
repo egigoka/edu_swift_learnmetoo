@@ -68,10 +68,10 @@ class StorageManager {
         }
     }
 
-    func delete(taskLists: [TaskList]) {
+    func delete<T: Object>(_ objects: [T]) {
         do {
             try realm.write {
-                realm.delete(taskLists)
+                realm.delete(objects)
             }
         } catch let error {
             print("Error deleting data: \(error)")

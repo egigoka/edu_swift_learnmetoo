@@ -80,7 +80,15 @@ extension TasksViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: <#T##UIContextualAction.Style#>, title: <#T##String?#>, handler: <#T##UIContextualAction.Handler##UIContextualAction.Handler##(UIContextualAction, UIView, @escaping (Bool) -> Void) -> Void#>)
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completion in
+            completion(true)
+            
+            guard let self = self else { return }
+            
+            let task = (indexPath.section == 0 ? self.currentTasks : self.completedTasks)[indexPath.row]
+            
+            StorageManager.shared.delete([task])
+        }
         
         return UISwipeActionsConfiguration(actions: [])
     }

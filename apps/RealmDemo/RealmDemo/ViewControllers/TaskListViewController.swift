@@ -74,7 +74,7 @@ class TaskListViewController: RealmTableViewController {
                 return
             }
             
-            StorageManager.shared.delete(taskLists: [taskList])
+            StorageManager.shared.delete([taskList])
             
             completion(true)
         }
