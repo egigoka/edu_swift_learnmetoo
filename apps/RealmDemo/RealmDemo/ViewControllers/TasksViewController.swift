@@ -79,16 +79,25 @@ class TasksViewController: UITableViewController {
 extension TasksViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        <#code#>
+        return UISwipeActionsConfiguration(actions: [])
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let completeAction = UIContextualAction(style: .normal, title: nil) { [weak self] one, two, completion in
+        let completeAction = UIContextualAction(style: .normal, title: nil) { [weak self] _, _, completion in
             completion(true)
             
             guard let self = self else { return }
-            task =
-            StorageManager.shared.update(<#T##object: RealmSwiftObject?##RealmSwiftObject?#>, value: <#T##[String : Any]#>)
+            
+            var task: Task?
+            switch indexPath.section {
+            case 0:
+                task = self.currentTasks[indexPath.row]
+            case 1:
+                task = self.completedTasks[indexPath.row]
+            default:
+                fatalError()
+            }
+            StorageManager.shared.update(task, value: ["isComplete": !(task?.isComplete ?? true)])
         }
         completeAction.backgroundColor = .systemGreen
         
