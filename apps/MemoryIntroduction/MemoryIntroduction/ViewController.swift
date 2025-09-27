@@ -16,10 +16,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let person = "Alexey"
-        let age = 40
-        
-        label.text = "Name: \(person), age: \(age)"
+        var parent: Parent?
+        parent = Parent()
+        parent = nil
     }
 }
 
+class Parent {
+    
+    let child = Child()
+    
+    deinit {
+        print("Parent has been dealocated")
+    }
+}
+
+class Child {
+    deinit {
+        print("Child has been dealocated")
+    }
+}
