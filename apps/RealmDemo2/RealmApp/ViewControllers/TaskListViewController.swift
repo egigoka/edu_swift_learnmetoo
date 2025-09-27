@@ -31,6 +31,8 @@ class TaskListViewController: UITableViewController {
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
+        taskLists = sender.selectedSegmentIndex == 0 ? taskLists.sorted(byKeyPath: "name") : taskLists.sorted(byKeyPath: "data")
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -77,7 +79,7 @@ class TaskListViewController: UITableViewController {
         }
         doneAction.backgroundColor = .systemGreen
         
-        return UISwipeActionsConfiguration(actions: [deleteAction, doneAction, editAction])
+        return UISwipeActionsConfiguration(actions: [doneAction, deleteAction, editAction])
     }
     
     // MARK: - Navigation
