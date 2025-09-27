@@ -35,21 +35,20 @@ class RLMObservationInfo;
 @interface RLMArray () {
 @protected
     NSString *_objectClassName;
+    RLMPropertyType _type;
     BOOL _optional;
 @public
-    // The property which this RLMArray represents
-    RLMProperty *_property;
+    // The name of the property which this RLMArray represents
+    NSString *_key;
     __weak RLMObjectBase *_parentObject;
 }
 @end
 
-@interface RLMManagedArray () <RLMCollectionPrivate>
-- (RLMManagedArray *)initWithBackingCollection:(realm::List)list
-                                    parentInfo:(RLMClassInfo *)parentInfo
-                                      property:(RLMProperty *)property;
-- (RLMManagedArray *)initWithParent:(realm::Obj)parent
-                           property:(RLMProperty *)property
-                         parentInfo:(RLMClassInfo&)info;
+@interface RLMManagedArray : RLMArray <RLMFastEnumerable>
+- (instancetype)initWithParent:(RLMObjectBase *)parentObject property:(RLMProperty *)property;
+- (RLMManagedArray *)initWithList:(realm::List)list
+                       parentInfo:(RLMClassInfo *)parentInfo
+                         property:(__unsafe_unretained RLMProperty *const)property;
 
 - (bool)isBackedByList:(realm::List const&)list;
 
@@ -62,3 +61,11 @@ void RLMValidateArrayObservationKey(NSString *keyPath, RLMArray *array);
 // Initialize the observation info for an array if needed
 void RLMEnsureArrayObservationInfo(std::unique_ptr<RLMObservationInfo>& info,
                                    NSString *keyPath, RLMArray *array, id observed);
+
+
+//
+// RLMResults private methods
+//
+@interface RLMResults () <RLMFastEnumerable>
+- (void)deleteObjectsFromRealm;
+@end

@@ -16,9 +16,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/RLMConstants.h>
+#import <Foundation/Foundation.h>
 
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  A 128-bit IEEE 754-2008 decimal floating point number.
@@ -29,8 +29,7 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
  this type stores up to 34 digits of significand and an exponent from -6143 to
  6144.
  */
-NS_SWIFT_SENDABLE // immutable
-@interface RLMDecimal128 : NSObject <NSCopying>
+@interface RLMDecimal128 : NSObject
 /// Creates a new zero-initialized decimal128.
 - (instancetype)init;
 
@@ -50,8 +49,9 @@ NS_SWIFT_SENDABLE // immutable
 
 /// Parses the given string to a RLMDecimal128.
 ///
-/// Returns a decimal where `isNaN` is `YES` if the string cannot be parsed as a decimal.
-- (instancetype)initWithString:(NSString *)string;
+/// Returns `nil` and sets `error` if the string cannot be parsed as a
+/// RLMDecimal128.
+- (nullable instancetype)initWithString:(NSString *)string error:(NSError *_Nullable*)error;
 
 /// Converts the given number to a RLMDecimal128.
 + (instancetype)decimalWithNumber:(NSNumber *)number;
@@ -106,4 +106,4 @@ NS_SWIFT_SENDABLE // immutable
 
 @end
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

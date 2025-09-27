@@ -61,26 +61,12 @@
     return RLMObjectFreeze(self);
 }
 
-- (instancetype)thaw {
-    return RLMObjectThaw(self);
-}
-
 - (RLMNotificationToken *)addNotificationBlock:(RLMObjectChangeBlock)block {
-    return RLMObjectAddNotificationBlock(self, block, nil, nil);
+    return RLMObjectAddNotificationBlock(self, block, nil);
 }
 
 - (RLMNotificationToken *)addNotificationBlock:(RLMObjectChangeBlock)block queue:(dispatch_queue_t)queue {
-    return RLMObjectAddNotificationBlock(self, block, nil, queue);
-}
-
-- (RLMNotificationToken *)addNotificationBlock:(RLMObjectChangeBlock)block keyPaths:(NSArray<NSString *> *)keyPaths {
-    return RLMObjectAddNotificationBlock(self, block, keyPaths, nil);
-}
-
-- (RLMNotificationToken *)addNotificationBlock:(RLMObjectChangeBlock)block
-                                      keyPaths:(NSArray<NSString *> *)keyPaths
-                                         queue:(dispatch_queue_t)queue {
-    return RLMObjectAddNotificationBlock(self, block, keyPaths, queue);
+    return RLMObjectAddNotificationBlock(self, block, queue);
 }
 
 + (NSString *)className {

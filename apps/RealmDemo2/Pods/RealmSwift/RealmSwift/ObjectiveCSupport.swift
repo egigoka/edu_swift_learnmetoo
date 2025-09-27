@@ -32,7 +32,7 @@ import Realm
 
     /// Convert a `Results` to a `RLMResults`.
     public static func convert<T>(object: Results<T>) -> RLMResults<AnyObject> {
-        return object.collection as! RLMResults<AnyObject>
+        return object.rlmResults
     }
 
     /// Convert a `RLMResults` to a `Results`.
@@ -42,37 +42,17 @@ import Realm
 
     /// Convert a `List` to a `RLMArray`.
     public static func convert<T>(object: List<T>) -> RLMArray<AnyObject> {
-        return object.rlmArray
-    }
-
-    /// Convert a `MutableSet` to a `RLMSet`.
-    public static func convert<T>(object: MutableSet<T>) -> RLMSet<AnyObject> {
-        return object.rlmSet
+        return object._rlmArray
     }
 
     /// Convert a `RLMArray` to a `List`.
     public static func convert(object: RLMArray<AnyObject>) -> List<Object> {
-        return List(collection: object)
-    }
-
-    /// Convert a `RLMSet` to a `MutableSet`.
-    public static func convert(object: RLMSet<AnyObject>) -> MutableSet<Object> {
-        return MutableSet(collection: object)
-    }
-
-    /// Convert a `Map` to a `RLMDictionary`.
-    public static func convert<Key, Value>(object: Map<Key, Value>) -> RLMDictionary<AnyObject, AnyObject> {
-        return object.rlmDictionary
-    }
-
-    /// Convert a `RLMDictionary` to a `Map`.
-    public static func convert<Key>(object: RLMDictionary<AnyObject, AnyObject>) -> Map<Key, Object> {
-        return Map(objc: object)
+        return List(objc: object)
     }
 
     /// Convert a `LinkingObjects` to a `RLMResults`.
     public static func convert<T>(object: LinkingObjects<T>) -> RLMResults<AnyObject> {
-        return object.collection as! RLMResults<AnyObject>
+        return object.rlmResults
     }
 
     /// Convert a `RLMLinkingObjects` to a `Results`.
@@ -91,9 +71,13 @@ import Realm
     }
 
     /// Convert a `Migration` to a `RLMMigration`.
-    @available(*, deprecated, message: "This function is now redundant")
     public static func convert(object: Migration) -> RLMMigration {
-        return object
+        return object.rlmMigration
+    }
+
+    /// Convert a `RLMMigration` to a `Migration`.
+    public static func convert(object: RLMMigration) -> Migration {
+        return Migration(object)
     }
 
     /// Convert a `ObjectSchema` to a `RLMObjectSchema`.
@@ -147,16 +131,14 @@ import Realm
     }
 
     /// Convert a `RLMShouldCompactOnLaunchBlock` to a Realm Swift compact block.
-    @preconcurrency
-    public static func convert(object: @escaping RLMShouldCompactOnLaunchBlock) -> @Sendable (Int, Int) -> Bool {
+    public static func convert(object: @escaping RLMShouldCompactOnLaunchBlock) -> (Int, Int) -> Bool {
         return { totalBytes, usedBytes in
             return object(UInt(totalBytes), UInt(usedBytes))
         }
     }
 
     /// Convert a Realm Swift compact block to a `RLMShouldCompactOnLaunchBlock`.
-    @preconcurrency
-    public static func convert(object: @Sendable @escaping (Int, Int) -> Bool) -> RLMShouldCompactOnLaunchBlock {
+    public static func convert(object: @escaping (Int, Int) -> Bool) -> RLMShouldCompactOnLaunchBlock {
         return { totalBytes, usedBytes in
             return object(Int(totalBytes), Int(usedBytes))
         }

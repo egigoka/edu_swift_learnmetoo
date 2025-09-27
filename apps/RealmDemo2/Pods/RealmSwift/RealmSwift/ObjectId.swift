@@ -31,7 +31,7 @@ import Realm
  ObjectIds are intended to be fast to generate. Sorting by an ObjectId field will typically result in the objects being sorted in creation order.
  */
 @objc(RealmSwiftObjectId)
-public final class ObjectId: RLMObjectId, Decodable, @unchecked Sendable {
+public final class ObjectId: RLMObjectId, Decodable {
     // MARK: Initializers
 
     /// Creates a new zero-initialized ObjectId.
@@ -39,12 +39,10 @@ public final class ObjectId: RLMObjectId, Decodable, @unchecked Sendable {
         super.init()
     }
 
-    // swiftlint:disable unneeded_override
     /// Creates a new randomly-initialized ObjectId.
-    public override static func generate() -> ObjectId {
-        super.generate()
+    public override class func generate() -> ObjectId {
+        return unsafeDowncast(super.generate(), to: ObjectId.self)
     }
-    // swiftlint:enable unneeded_override
 
     /// Creates a new ObjectId from the given 24-byte hexadecimal string.
     ///
@@ -70,7 +68,6 @@ public final class ObjectId: RLMObjectId, Decodable, @unchecked Sendable {
     ///
     /// Aborts if the string is not 24 characters or contains any characters other than 0-9a-fA-F. Use the initializer which takes a String to handle invalid strings at runtime.
     public required init(_ str: StaticString) {
-        // swiftlint:disable:next optional_data_string_conversion
         try! super.init(string: str.withUTF8Buffer { String(decoding: $0, as: UTF8.self) })
     }
 
@@ -93,8 +90,7 @@ extension ObjectId: Encodable {
     ///
     /// - Parameter encoder: The encoder to write data to.
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(stringValue)
+        try self.stringValue.encode(to: encoder)
     }
 }
 

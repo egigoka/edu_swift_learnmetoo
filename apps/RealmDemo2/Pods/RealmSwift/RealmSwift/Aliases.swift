@@ -17,7 +17,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 import Foundation
-import Realm.Swift
+import Realm
 
 // These types don't change when wrapping in Swift
 // so we just typealias them to remove the 'RLM' prefix
@@ -27,7 +27,7 @@ import Realm.Swift
 /**
  `PropertyType` is an enum describing all property types supported in Realm models.
 
- For more information, see [Object Models and Schemas](https://www.mongodb.com/docs/atlas/device-sdks/sdk/swift/model-data/object-models/).
+ For more information, see [Realm Models](https://realm.io/docs/swift/latest/#models).
 
  ### Primitive types
 
@@ -60,45 +60,3 @@ public typealias NotificationToken = RLMNotificationToken
 
 /// :nodoc:
 public typealias ObjectBase = RLMObjectBase
-extension ObjectBase {
-    internal func _observe<T: ObjectBase>(keyPaths: [String]? = nil,
-                                          on queue: DispatchQueue? = nil,
-                                          _ block: @escaping (ObjectChange<T>) -> Void) -> NotificationToken {
-        return RLMObjectBaseAddNotificationBlock(self, keyPaths, queue) { object, names, oldValues, newValues, error in
-            assert(error == nil)
-            block(.init(object: object as? T, names: names, oldValues: oldValues, newValues: newValues))
-        }
-    }
-
-    internal func _observe<T: ObjectBase>(keyPaths: [String]? = nil,
-                                          on queue: DispatchQueue? = nil,
-                                          _ block: @escaping (T?) -> Void) -> NotificationToken {
-        return RLMObjectBaseAddNotificationBlock(self, keyPaths, queue) { object, _, _, _, _ in
-            block(object as? T)
-        }
-    }
-
-    internal func _observe(keyPaths: [String]? = nil,
-                           on queue: DispatchQueue? = nil,
-                           _ block: @escaping () -> Void) -> NotificationToken {
-        return RLMObjectBaseAddNotificationBlock(self, keyPaths, queue) { _, _, _, _, _ in
-            block()
-        }
-    }
-
-    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
-    internal func _observe<A: Actor, T: ObjectBase>(
-        keyPaths: [String]? = nil, on actor: isolated A,
-        _ block: @Sendable @escaping (isolated A, ObjectChange<T>) -> Void
-    ) async -> NotificationToken {
-        let token = RLMObjectNotificationToken()
-        token.observe(self, keyPaths: keyPaths) { object, names, oldValues, newValues, error in
-            assert(error == nil)
-            actor.invokeIsolated(block, .init(object: object as? T, names: names,
-                        oldValues: oldValues, newValues: newValues))
-        }
-        await withTaskCancellationHandler(operation: token.registrationComplete,
-                                          onCancel: { token.invalidate() })
-        return token
-    }
-}

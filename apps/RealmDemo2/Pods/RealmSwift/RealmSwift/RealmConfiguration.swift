@@ -16,6 +16,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
+import Foundation
+import Realm
 import Realm.Private
 
 extension Realm {
@@ -29,7 +31,7 @@ extension Realm {
      of this, you will normally want to cache and reuse a single configuration value for each distinct configuration
      rather than creating a new value each time you open a Realm.
      */
-    @frozen public struct Configuration: Sendable {
+    @frozen public struct Configuration {
 
         // MARK: Default Configuration
 
@@ -51,11 +53,12 @@ extension Realm {
         /**
          Creates a `Configuration` which can be used to create new `Realm` instances.
 
-         - note: The `fileURL`, and `inMemoryIdentifier`, parameters are mutually exclusive. Only
+         - note: The `fileURL`, `inMemoryIdentifier`, and `syncConfiguration` parameters are mutually exclusive. Only
                  set one of them, or none if you wish to use the default file URL.
 
          - parameter fileURL:            The local URL to the Realm file.
          - parameter inMemoryIdentifier: A string used to identify a particular in-memory Realm.
+         - parameter syncConfiguration:  For Realms intended to sync with MongoDB Realm, a sync configuration.
          - parameter encryptionKey:      An optional 64-byte key to use to encrypt the data.
          - parameter readOnly:           Whether the Realm is read-only (must be true for read-only files).
          - parameter schemaVersion:      The current schema version.
@@ -69,24 +72,24 @@ extension Realm {
 
                                             Return `true ` to indicate that an attempt to compact the file should be made.
                                             The compaction will be skipped if another process is accessing it.
-         - parameter objectTypes:        The subset of `Object` and `EmbeddedObject` subclasses persisted in the Realm.
-         - parameter seedFilePath:       The path to the realm file that will be copied to the fileURL when opened
-                                         for the first time.
+         - parameter objectTypes:        The subset of `Object` and `EmbeddedObject` subclasses persisted in the Realm. 
         */
-        @preconcurrency
         public init(fileURL: URL? = URL(fileURLWithPath: RLMRealmPathForFile("default.realm"), isDirectory: false),
                     inMemoryIdentifier: String? = nil,
+                    syncConfiguration: SyncConfiguration? = nil,
                     encryptionKey: Data? = nil,
                     readOnly: Bool = false,
                     schemaVersion: UInt64 = 0,
                     migrationBlock: MigrationBlock? = nil,
                     deleteRealmIfMigrationNeeded: Bool = false,
-                    shouldCompactOnLaunch: (@Sendable (Int, Int) -> Bool)? = nil,
-                    objectTypes: [ObjectBase.Type]? = nil,
-                    seedFilePath: URL? = nil) {
+                    shouldCompactOnLaunch: ((Int, Int) -> Bool)? = nil,
+                    objectTypes: [ObjectBase.Type]? = nil) {
                 self.fileURL = fileURL
                 if let inMemoryIdentifier = inMemoryIdentifier {
                     self.inMemoryIdentifier = inMemoryIdentifier
+                }
+                if let syncConfiguration = syncConfiguration {
+                    self.syncConfiguration = syncConfiguration
                 }
                 self.encryptionKey = encryptionKey
                 self.readOnly = readOnly
@@ -95,25 +98,48 @@ extension Realm {
                 self.deleteRealmIfMigrationNeeded = deleteRealmIfMigrationNeeded
                 self.shouldCompactOnLaunch = shouldCompactOnLaunch
                 self.objectTypes = objectTypes
-                self.seedFilePath = seedFilePath
         }
 
         // MARK: Configuration Properties
 
-        /// The local URL of the Realm file. Mutually exclusive with `inMemoryIdentifier`.
-        public var fileURL: URL? {
-            didSet {
+        /**
+         A configuration value used to configure a Realm for synchronization with MongoDB Realm. Mutually
+         exclusive with `inMemoryIdentifier`.
+         */
+        public var syncConfiguration: SyncConfiguration? {
+            get {
+                return _syncConfiguration
+            }
+            set {
                 _inMemoryIdentifier = nil
+                _syncConfiguration = newValue
             }
         }
 
-        /// A string used to identify a particular in-memory Realm. Mutually exclusive with `fileURL`.
+        private var _syncConfiguration: SyncConfiguration?
+
+        /// The local URL of the Realm file. Mutually exclusive with `inMemoryIdentifier`.
+        public var fileURL: URL? {
+            get {
+                return _path.map { URL(fileURLWithPath: $0) }
+            }
+            set {
+                _inMemoryIdentifier = nil
+                _path = newValue?.path
+            }
+        }
+
+        private var _path: String?
+
+        /// A string used to identify a particular in-memory Realm. Mutually exclusive with `fileURL` and
+        /// `syncConfiguration`.
         public var inMemoryIdentifier: String? {
             get {
                 return _inMemoryIdentifier
             }
             set {
-                fileURL = nil
+                _path = nil
+                _syncConfiguration = nil
                 _inMemoryIdentifier = newValue
             }
         }
@@ -126,12 +152,21 @@ extension Realm {
         /**
          Whether to open the Realm in read-only mode.
 
-         This is required to be able to open Realm files which are not
+         For non-synchronized Realms, this is required to be able to open Realm files which are not
          writeable or are in a directory which is not writeable.  This should only be used on files
          which will not be modified by anyone while they are open, and not just to get a read-only
          view of a file which may be written to by another thread or process. Opening in read-only
          mode requires disabling Realm's reader/writer coordination, so committing a write
          transaction from another process will result in crashes.
+
+         Syncronized Realms must always be writeable (as otherwise no synchronization could happen),
+         and this instead merely disallows performing write transactions on the Realm. In addition,
+         it will skip some automatic writes made to the Realm, such as to initialize the Realm's
+         schema. Setting `readOnly = YES` is not strictly required for Realms which the sync user
+         does not have write access to, but is highly recommended as it will improve error reporting
+         and catch some errors earlier.
+
+         Realms using query-based sync cannot be opened in read-only mode.
          */
         public var readOnly: Bool = false
 
@@ -139,7 +174,6 @@ extension Realm {
         public var schemaVersion: UInt64 = 0
 
         /// The block which migrates the Realm to the current version.
-        @preconcurrency
         public var migrationBlock: MigrationBlock?
 
         /**
@@ -150,7 +184,19 @@ extension Realm {
 
          - note: Setting this property to `true` doesn't disable file format migrations.
          */
-        public var deleteRealmIfMigrationNeeded: Bool = false
+        public var deleteRealmIfMigrationNeeded: Bool {
+            get {
+                return _deleteRealmIfMigrationNeeded
+            }
+            set(newValue) {
+                if newValue && syncConfiguration != nil {
+                    throwRealmException("Cannot set 'deleteRealmIfMigrationNeeded' when sync is enabled ('syncConfig' is set).")
+                }
+                _deleteRealmIfMigrationNeeded = newValue
+            }
+        }
+
+        private var _deleteRealmIfMigrationNeeded: Bool = false
 
         /**
          A block called when opening a Realm for the first time during the
@@ -161,8 +207,7 @@ extension Realm {
          Return `true ` to indicate that an attempt to compact the file should be made.
          The compaction will be skipped if another process is accessing it.
          */
-        @preconcurrency
-        public var shouldCompactOnLaunch: (@Sendable (Int, Int) -> Bool)?
+        public var shouldCompactOnLaunch: ((Int, Int) -> Bool)?
 
         /// The classes managed by the Realm.
         public var objectTypes: [ObjectBase.Type]? {
@@ -194,22 +239,9 @@ extension Realm {
          number of versions will instead throw an exception. This can be used with a
          low value during development to help identify places that may be problematic,
          or in production use to cause the app to crash rather than produce a Realm
-         file which is too large to be opened.
+         file which is too large to be oened.
          */
         public var maximumNumberOfActiveVersions: UInt?
-
-        /**
-         When opening the Realm for the first time, instead of creating an empty file,
-         the Realm file will be copied from the provided seed file path and used instead.
-         This can be used to open a Realm file with pre-populated data.
-
-         If a realm file already exists at the configurations's destination path, the seed file
-         will not be copied and the already existing realm will be opened instead.
-
-         This option is mutually exclusive with `inMemoryIdentifier`. Setting a `seedFilePath`
-         will nil out the `inMemoryIdentifier`.
-         */
-        public var seedFilePath: URL?
 
         /// A custom schema to use for the Realm.
         private var customSchema: RLMSchema?
@@ -221,21 +253,26 @@ extension Realm {
 
         internal var rlmConfiguration: RLMRealmConfiguration {
             let configuration = RLMRealmConfiguration()
+            if let syncConfiguration = syncConfiguration {
+                configuration.syncConfiguration = syncConfiguration.asConfig()
+            }
             if let fileURL = fileURL {
                 configuration.fileURL = fileURL
             } else if let inMemoryIdentifier = inMemoryIdentifier {
                 configuration.inMemoryIdentifier = inMemoryIdentifier
-            } else {
+            } else if syncConfiguration == nil {
                 fatalError("A Realm Configuration must specify a path or an in-memory identifier.")
             }
-            configuration.seedFilePath = self.seedFilePath
             configuration.encryptionKey = self.encryptionKey
             configuration.readOnly = self.readOnly
             configuration.schemaVersion = self.schemaVersion
-            configuration.migrationBlock = self.migrationBlock
-            configuration.migrationObjectClass = MigrationObject.self
+            configuration.migrationBlock = self.migrationBlock.map { accessorMigrationBlock($0) }
             configuration.deleteRealmIfMigrationNeeded = self.deleteRealmIfMigrationNeeded
-            configuration.shouldCompactOnLaunch = self.shouldCompactOnLaunch.map(ObjectiveCSupport.convert(object:))
+            if let shouldCompactOnLaunch = self.shouldCompactOnLaunch {
+                configuration.shouldCompactOnLaunch = ObjectiveCSupport.convert(object: shouldCompactOnLaunch)
+            } else {
+                configuration.shouldCompactOnLaunch = nil
+            }
             configuration.setCustomSchemaWithoutCopying(self.customSchema)
             configuration.disableFormatUpgrade = self.disableFormatUpgrade
             configuration.maximumNumberOfActiveVersions = self.maximumNumberOfActiveVersions ?? 0
@@ -244,18 +281,26 @@ extension Realm {
 
         internal static func fromRLMRealmConfiguration(_ rlmConfiguration: RLMRealmConfiguration) -> Configuration {
             var configuration = Configuration()
-            configuration.fileURL = rlmConfiguration.fileURL
+            configuration._path = rlmConfiguration.fileURL?.path
             configuration._inMemoryIdentifier = rlmConfiguration.inMemoryIdentifier
+            if let objcSyncConfig = rlmConfiguration.syncConfiguration {
+                configuration._syncConfiguration = SyncConfiguration(config: objcSyncConfig)
+            } else {
+                configuration._syncConfiguration = nil
+            }
             configuration.encryptionKey = rlmConfiguration.encryptionKey
             configuration.readOnly = rlmConfiguration.readOnly
             configuration.schemaVersion = rlmConfiguration.schemaVersion
-            configuration.migrationBlock = rlmConfiguration.migrationBlock
+            configuration.migrationBlock = rlmConfiguration.migrationBlock.map { rlmMigration in
+                return { migration, schemaVersion in
+                    rlmMigration(migration.rlmMigration, schemaVersion)
+                }
+            }
             configuration.deleteRealmIfMigrationNeeded = rlmConfiguration.deleteRealmIfMigrationNeeded
             configuration.shouldCompactOnLaunch = rlmConfiguration.shouldCompactOnLaunch.map(ObjectiveCSupport.convert)
             configuration.customSchema = rlmConfiguration.customSchema
             configuration.disableFormatUpgrade = rlmConfiguration.disableFormatUpgrade
             configuration.maximumNumberOfActiveVersions = rlmConfiguration.maximumNumberOfActiveVersions
-            configuration.seedFilePath = rlmConfiguration.seedFilePath
             return configuration
         }
     }
@@ -269,17 +314,5 @@ extension Realm.Configuration: CustomStringConvertible {
         return gsub(pattern: "\\ARLMRealmConfiguration",
                     template: "Realm.Configuration",
                     string: rlmConfiguration.description) ?? ""
-    }
-}
-
-// MARK: Equatable
-
-extension Realm.Configuration: Equatable {
-    public static func == (lhs: Realm.Configuration, rhs: Realm.Configuration) -> Bool {
-        lhs.encryptionKey == rhs.encryptionKey &&
-            lhs.fileURL == rhs.fileURL &&
-            lhs.inMemoryIdentifier == rhs.inMemoryIdentifier &&
-            lhs.readOnly == rhs.readOnly &&
-            lhs.schemaVersion == rhs.schemaVersion
     }
 }

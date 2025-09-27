@@ -19,28 +19,28 @@
 #import "RLMRealm_Private.h"
 
 #import "RLMClassInfo.hpp"
-
-#import <memory>
-
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+#import "object_schema.hpp"
 
 namespace realm {
     class Group;
     class Realm;
 }
+struct RLMResultsSetInfo {
+    realm::ObjectSchema osObjectSchema;
+    RLMObjectSchema *rlmObjectSchema;
+    RLMClassInfo info;
+
+    RLMResultsSetInfo(__unsafe_unretained RLMRealm *const realm);
+    static RLMClassInfo& get(__unsafe_unretained RLMRealm *const realm);
+};
 
 @interface RLMRealm () {
     @public
     std::shared_ptr<realm::Realm> _realm;
     RLMSchemaInfo _info;
+    std::unique_ptr<RLMResultsSetInfo> _resultsSetInfo;
 }
 
-+ (instancetype)realmWithSharedRealm:(std::shared_ptr<realm::Realm>)sharedRealm
-                              schema:(nullable RLMSchema *)schema
-                             dynamic:(bool)dynamic
-    freeze:(bool)freeze NS_RETURNS_RETAINED;
-
+// FIXME - group should not be exposed
 @property (nonatomic, readonly) realm::Group &group;
 @end
-
-RLM_HEADER_AUDIT_END(nullability, sendability)

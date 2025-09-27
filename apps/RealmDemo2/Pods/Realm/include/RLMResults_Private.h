@@ -18,17 +18,16 @@
 
 #import <Realm/RLMResults.h>
 
-#import "RLMRealm_Private.h"
-
 @class RLMObjectSchema;
 
-RLM_HEADER_AUDIT_BEGIN(nullability)
+NS_ASSUME_NONNULL_BEGIN
 
 @interface RLMResults ()
 @property (nonatomic, readonly, getter=isAttached) BOOL attached;
 
 + (instancetype)emptyDetachedResults;
 - (RLMResults *)snapshot;
+
 @end
 
-RLM_HEADER_AUDIT_END(nullability)
+NS_ASSUME_NONNULL_END

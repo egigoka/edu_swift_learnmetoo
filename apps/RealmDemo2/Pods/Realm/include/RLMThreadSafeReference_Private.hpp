@@ -17,12 +17,10 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #import "RLMThreadSafeReference.h"
+#import "thread_safe_reference.hpp"
 
-#import <realm/object-store/thread_safe_reference.hpp>
+NS_ASSUME_NONNULL_BEGIN
 
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
-
-RLM_HIDDEN
 @protocol RLMThreadConfined_Private <NSObject>
 
 // Constructs a new `ThreadSafeReference`
@@ -37,9 +35,10 @@ RLM_HIDDEN
                                                  realm:(RLMRealm *)realm;
 @end
 
-RLM_DIRECT_MEMBERS
 @interface RLMThreadSafeReference ()
+
 - (nullable id<RLMThreadConfined>)resolveReferenceInRealm:(RLMRealm *)realm;
+
 @end
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

@@ -17,16 +17,10 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #import "RLMRealmConfiguration_Private.h"
-
-#import <realm/object-store/shared_realm.hpp>
+#import "shared_realm.hpp"
 
 @interface RLMRealmConfiguration ()
-- (realm::Realm::Config)config;
-- (realm::Realm::Config&)configRef;
-- (std::string const&)path;
+- (realm::Realm::Config&)config;
 
 @property (nonatomic) realm::SchemaMode schemaMode;
-- (void)updateSchemaMode;
 @end
-
-void RLMDeferredAuditConfigInit(realm::AuditConfig& auditConfig, RLMRealmConfiguration *realmConfig);

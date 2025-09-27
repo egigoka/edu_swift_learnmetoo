@@ -18,9 +18,9 @@
 
 #import <Realm/RLMRealmConfiguration.h>
 
-@class RLMSchema, RLMEventConfiguration;
+@class RLMSchema;
 
-RLM_HEADER_AUDIT_BEGIN(nullability)
+NS_ASSUME_NONNULL_BEGIN
 
 @interface RLMRealmConfiguration ()
 
@@ -29,11 +29,8 @@ RLM_HEADER_AUDIT_BEGIN(nullability)
 @property (nonatomic, readwrite) bool disableFormatUpgrade;
 @property (nonatomic, copy, nullable) RLMSchema *customSchema;
 @property (nonatomic, copy) NSString *pathOnDisk;
-@property (nonatomic, retain, nullable) RLMEventConfiguration *eventConfiguration;
-@property (nonatomic, nullable) Class migrationObjectClass;
-@property (nonatomic) bool disableAutomaticChangeNotifications;
 
-// Get the default configuration without copying it
+// Get the default confiugration without copying it
 + (RLMRealmConfiguration *)rawDefaultConfiguration;
 
 + (void)resetRealmConfigurationState;
@@ -45,4 +42,4 @@ RLM_HEADER_AUDIT_BEGIN(nullability)
 FOUNDATION_EXTERN NSString *RLMRealmPathForFile(NSString *fileName);
 FOUNDATION_EXTERN NSString *RLMRealmPathForFileAndBundleIdentifier(NSString *fileName, NSString *mainBundleIdentifier);
 
-RLM_HEADER_AUDIT_END(nullability)
+NS_ASSUME_NONNULL_END

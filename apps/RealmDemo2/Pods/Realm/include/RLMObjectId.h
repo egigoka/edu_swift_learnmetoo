@@ -16,9 +16,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/RLMConstants.h>
+#import <Foundation/Foundation.h>
 
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  A 12-byte (probably) unique object identifier.
@@ -34,8 +34,7 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
  ObjectIds are intended to be fast to generate. Sorting by an ObjectId field
  will typically result in the objects being sorted in creation order.
  */
-NS_SWIFT_SENDABLE // immutable
-@interface RLMObjectId : NSObject <NSCopying>
+@interface RLMObjectId : NSObject
 /// Creates a new randomly-initialized ObjectId.
 + (nonnull instancetype)objectId NS_SWIFT_NAME(generate());
 
@@ -76,4 +75,4 @@ NS_SWIFT_SENDABLE // immutable
 
 @end
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

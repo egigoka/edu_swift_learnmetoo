@@ -18,7 +18,6 @@
 
 #import "RLMObject_Private.h"
 
-#import "RLMSwiftObject.h"
 #import "RLMRealm_Private.hpp"
 #import "RLMUtil.hpp"
 
@@ -51,13 +50,6 @@ static inline void RLMVerifyInWriteTransaction(__unsafe_unretained RLMObjectBase
     RLMVerifyAttached(obj);
 
     if (!obj->_realm.inWriteTransaction) {
-        if (obj->_realm.isFrozen) {
-            @throw RLMException(@"Attempting to modify a frozen object - call thaw on the Object instance first.");
-        }
         @throw RLMException(@"Attempting to modify object outside of a write transaction - call beginWriteTransaction on an RLMRealm instance first.");
     }
 }
-
-[[clang::objc_runtime_visible]]
-@interface RealmSwiftDynamicObject : RealmSwiftObject
-@end

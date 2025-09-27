@@ -19,7 +19,7 @@
 import Realm
 
 /// A protocol describing types that can parameterize a `RealmOptional`.
-public protocol RealmOptionalType: _ObjcBridgeable {
+public protocol RealmOptionalType {
 }
 
 public extension RealmOptionalType {
@@ -43,15 +43,14 @@ extension Bool: RealmOptionalType {}
 
  To change the underlying value stored by a `RealmOptional` instance, mutate the instance's `value` property.
  */
-@available(*, deprecated, renamed: "RealmProperty", message: "RealmOptional<T> has been deprecated, use RealmProperty<T?> instead.")
-public final class RealmOptional<Value: RealmOptionalType>: RLMSwiftValueStorage {
+public final class RealmOptional<Value: RealmOptionalType>: RLMOptionalBase {
     /// The value the optional represents.
     public var value: Value? {
         get {
-            return RLMGetSwiftValueStorage(self).map(staticBridgeCast)
+            return RLMGetOptional(self).map(dynamicBridgeCast)
         }
         set {
-            RLMSetSwiftValueStorage(self, newValue.map(staticBridgeCast))
+            RLMSetOptional(self, newValue.map(dynamicBridgeCast))
         }
     }
 
@@ -66,41 +65,25 @@ public final class RealmOptional<Value: RealmOptionalType>: RLMSwiftValueStorage
     }
 }
 
-@available(*, deprecated, message: "RealmOptional has been deprecated, use RealmProperty<T?> instead.")
 extension RealmOptional: Equatable where Value: Equatable {
     public static func == (lhs: RealmOptional<Value>, rhs: RealmOptional<Value>) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-@available(*, deprecated, message: "RealmOptional has been deprecated, use RealmProperty<T?> instead.")
-extension RealmOptional: Codable where Value: Codable, Value: _RealmSchemaDiscoverable {
+extension RealmOptional: Codable where Value: Codable {
     public convenience init(from decoder: Decoder) throws {
         self.init()
         // `try decoder.singleValueContainer().decode(Value?.self)` incorrectly
         // rejects null values: https://bugs.swift.org/browse/SR-7404
-        self.value = try decoder.decodeOptional(Value?.self)
+        let container = try decoder.singleValueContainer()
+        self.value = container.decodeNil() ? nil : try container.decode(Value.self)
     }
 
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(value)
+        try self.value.encode(to: encoder)
     }
 }
 
 internal protocol RealmOptionalProtocol { }
-@available(*, deprecated, message: "RealmOptional has been deprecated, use RealmProperty<T?> instead.")
 extension RealmOptional: RealmOptionalProtocol { }
-
-internal extension Decoder {
-    func decodeOptional<T: _RealmSchemaDiscoverable>(_ type: T.Type) throws -> T where T: Decodable {
-        let container = try singleValueContainer()
-        if container.decodeNil() {
-            if let type = T.self as? _ObjcBridgeable.Type, let value = type._rlmFromObjc(NSNull()) {
-                return value as! T
-            }
-            throw DecodingError.typeMismatch(T.self, .init(codingPath: self.codingPath, debugDescription: "Cannot convert nil to \(T.self)"))
-        }
-        return try container.decode(T.self)
-    }
-}

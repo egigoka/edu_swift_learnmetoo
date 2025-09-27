@@ -18,12 +18,16 @@
 
 #import <Foundation/Foundation.h>
 
-#define RLM_HEADER_AUDIT_BEGIN NS_HEADER_AUDIT_BEGIN
-#define RLM_HEADER_AUDIT_END NS_HEADER_AUDIT_END
+NS_ASSUME_NONNULL_BEGIN
 
-#define RLM_FINAL __attribute__((objc_subclassing_restricted))
-
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+// Swift 5 considers NS_ENUM to be "open", meaning there could be values present
+// other than the defined cases (which allows adding more cases later without
+// it being a breaking change), while older versions consider it "closed".
+#ifdef NS_CLOSED_ENUM
+#define RLM_CLOSED_ENUM NS_CLOSED_ENUM
+#else
+#define RLM_CLOSED_ENUM NS_ENUM
+#endif
 
 #if __has_attribute(ns_error_domain) && (!defined(__cplusplus) || !__cplusplus || __cplusplus >= 201103L)
 #define RLM_ERROR_ENUM(type, name, domain) \
@@ -35,23 +39,18 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 #define RLM_ERROR_ENUM(type, name, domain) NS_ENUM(type, name)
 #endif
 
-#define RLM_HIDDEN __attribute__((visibility("hidden")))
-#define RLM_VISIBLE __attribute__((visibility("default")))
-#define RLM_HIDDEN_BEGIN _Pragma("GCC visibility push(hidden)")
-#define RLM_HIDDEN_END _Pragma("GCC visibility pop")
-#define RLM_DIRECT __attribute__((objc_direct))
-#define RLM_DIRECT_MEMBERS __attribute__((objc_direct_members))
 
 #pragma mark - Enums
 
 /**
  `RLMPropertyType` is an enumeration describing all property types supported in Realm models.
 
- For more information, see [Realm Models](https://www.mongodb.com/docs/atlas/device-sdks/sdk/swift/model-data/object-models/).
+ For more information, see [Realm Models](https://realm.io/docs/objc/latest/#models).
  */
-typedef NS_CLOSED_ENUM(int32_t, RLMPropertyType) {
+typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType) {
 
 #pragma mark - Primitive types
+
     /** Integers: `NSInteger`, `int`, `long`, `Int` (Swift) */
     RLMPropertyTypeInt    = 0,
     /** Booleans: `BOOL`, `bool`, `Bool` (Swift) */
@@ -60,8 +59,6 @@ typedef NS_CLOSED_ENUM(int32_t, RLMPropertyType) {
     RLMPropertyTypeFloat  = 5,
     /** Double-precision floating-point numbers: `double`, `Double` (Swift) */
     RLMPropertyTypeDouble = 6,
-    /** NSUUID, UUID */
-    RLMPropertyTypeUUID   = 12,
 
 #pragma mark - Object types
 
@@ -69,64 +66,98 @@ typedef NS_CLOSED_ENUM(int32_t, RLMPropertyType) {
     RLMPropertyTypeString = 2,
     /** Binary data: `NSData` */
     RLMPropertyTypeData   = 3,
-    /** Any type: `id<RLMValue>`, `AnyRealmValue` (Swift) */
+    /**
+     Any object: `id`.
+
+     This property type is no longer supported for new models. However, old files
+     with any-typed properties are still supported for migration purposes.
+     */
     RLMPropertyTypeAny    = 9,
     /** Dates: `NSDate` */
     RLMPropertyTypeDate   = 4,
+
+#pragma mark - Linked object types
+
+    /** Realm model objects. See [Realm Models](https://realm.io/docs/objc/latest/#models) for more information. */
+    RLMPropertyTypeObject = 7,
+    /** Realm linking objects. See [Realm Models](https://realm.io/docs/objc/latest/#models) for more information. */
+    RLMPropertyTypeLinkingObjects = 8,
+
     RLMPropertyTypeObjectId = 10,
     RLMPropertyTypeDecimal128 = 11,
-
-#pragma mark - Linked object types
-
-    /** Realm model objects. See [Realm Models](https://www.mongodb.com/docs/atlas/device-sdks/sdk/swift/model-data/object-models/) for more information. */
-    RLMPropertyTypeObject = 7,
-    /** Realm linking objects. See [Realm Models](https://www.mongodb.com/docs/atlas/device-sdks/sdk/swift/model-data/relationships/#define-an-inverse-relationship-property) for more information. */
-    RLMPropertyTypeLinkingObjects = 8,
 };
+
+/** An error domain identifying Realm-specific errors. */
+extern NSString * const RLMErrorDomain;
+
+/** An error domain identifying non-specific system errors. */
+extern NSString * const RLMUnknownSystemErrorDomain;
 
 /**
- `RLMAnyValueType` is an enumeration describing all property types supported by RLMValue (AnyRealmValue).
-
- For more information, see [Realm Models](https://www.mongodb.com/docs/atlas/device-sdks/sdk/swift/model-data/supported-types/#std-label-ios-anyrealmvalue-data-type).
+ `RLMError` is an enumeration representing all recoverable errors. It is associated with the
+ Realm error domain specified in `RLMErrorDomain`.
  */
-typedef NS_CLOSED_ENUM(int32_t, RLMAnyValueType) {
-#pragma mark - Primitive types
-    /** Integers: `NSInteger`, `int`, `long`, `Int` (Swift) */
-    RLMAnyValueTypeInt    = 0,
-    /** Booleans: `BOOL`, `bool`, `Bool` (Swift) */
-    RLMAnyValueTypeBool   = 1,
-    /** Floating-point numbers: `float`, `Float` (Swift) */
-    RLMAnyValueTypeFloat  = 5,
-    /** Double-precision floating-point numbers: `double`, `Double` (Swift) */
-    RLMAnyValueTypeDouble = 6,
-    /** NSUUID, UUID */
-    RLMAnyValueTypeUUID   = 12,
+typedef RLM_ERROR_ENUM(NSInteger, RLMError, RLMErrorDomain) {
+    /** Denotes a general error that occurred when trying to open a Realm. */
+    RLMErrorFail                  = 1,
 
-#pragma mark - Object types
+    /** Denotes a file I/O error that occurred when trying to open a Realm. */
+    RLMErrorFileAccess            = 2,
 
-    /** Strings: `NSString`, `String` (Swift) */
-    RLMAnyValueTypeString = 2,
-    /** Binary data: `NSData` */
-    RLMAnyValueTypeData   = 3,
-    /** Any type: `id<RLMValue>`, `AnyRealmValue` (Swift) */
-    RLMAnyValueTypeAny    = 9,
-    /** Dates: `NSDate` */
-    RLMAnyValueTypeDate   = 4,
-    RLMAnyValueTypeObjectId = 10,
-    RLMAnyValueTypeDecimal128 = 11,
+    /**
+     Denotes a file permission error that ocurred when trying to open a Realm.
 
-#pragma mark - Linked object types
+     This error can occur if the user does not have permission to open or create
+     the specified file in the specified access mode when opening a Realm.
+     */
+    RLMErrorFilePermissionDenied  = 3,
 
-    /** Realm model objects. See [Realm Models](https://www.mongodb.com/docs/realm/sdk/swift/fundamentals/object-models-and-schemas/) for more information. */
-    RLMAnyValueTypeObject = 7,
-    /** Realm linking objects. See [Realm Models](https://www.mongodb.com/docs/realm/sdk/swift/fundamentals/relationships/#inverse-relationship) for more information. */
-    RLMAnyValueTypeLinkingObjects = 8,
+    /** Denotes an error where a file was to be written to disk, but another file with the same name already exists. */
+    RLMErrorFileExists            = 4,
 
-    /** Dictionary: `RLMDictionary`, `Map` (Swift) */
-    RLMAnyValueTypeDictionary = 512,
-    /** Set: `RLMArray`, `List` (Swift) */
-    RLMAnyValueTypeList = 128,
+    /**
+     Denotes an error that occurs if a file could not be found.
+
+     This error may occur if a Realm file could not be found on disk when trying to open a
+     Realm as read-only, or if the directory part of the specified path was not found when
+     trying to write a copy.
+     */
+    RLMErrorFileNotFound          = 5,
+
+    /**
+     Denotes an error that occurs if a file format upgrade is required to open the file,
+     but upgrades were explicitly disabled.
+     */
+    RLMErrorFileFormatUpgradeRequired = 6,
+
+    /**
+     Denotes an error that occurs if the database file is currently open in another
+     process which cannot share with the current process due to an
+     architecture mismatch.
+
+     This error may occur if trying to share a Realm file between an i386 (32-bit) iOS
+     Simulator and the Realm Browser application. In this case, please use the 64-bit
+     version of the iOS Simulator.
+     */
+    RLMErrorIncompatibleLockFile  = 8,
+
+    /** Denotes an error that occurs when there is insufficient available address space. */
+    RLMErrorAddressSpaceExhausted = 9,
+
+    /** Denotes an error that occurs if there is a schema version mismatch, so that a migration is required. */
+    RLMErrorSchemaMismatch = 10,
+    // Error code 11 is obsolete
+    // RLMErrorIncompatibleSyncedFile = 11,
+    /**
+     Denotates an error where an operation was requested which cannot be performed on an open file.
+     */
+    RLMErrorAlreadyOpen = 12,
+
+    /// Denotates an error where an input value was invalid.
+    RLMErrorInvalidInput = 13,
 };
+
+#pragma mark - Constants
 
 #pragma mark - Notification Constants
 
@@ -185,4 +216,4 @@ extern NSString * const RLMRealmCoreVersionKey;
 /** The corresponding key is the Realm invalidated property name. */
 extern NSString * const RLMInvalidatedKey;
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

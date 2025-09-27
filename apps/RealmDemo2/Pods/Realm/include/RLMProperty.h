@@ -18,7 +18,7 @@
 
 #import <Realm/RLMConstants.h>
 
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+NS_ASSUME_NONNULL_BEGIN
 
 /// :nodoc:
 @protocol RLMInt @end
@@ -38,8 +38,6 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 @protocol RLMDecimal128 @end
 /// :nodoc:
 @protocol RLMObjectId @end
-/// :nodoc:
-@protocol RLMUUID @end
 
 /// :nodoc:
 @interface NSNumber ()<RLMInt, RLMBool, RLMDouble, RLMFloat>
@@ -55,7 +53,6 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
  These property instances map to columns in the core database.
  */
-NS_SWIFT_SENDABLE RLM_FINAL // not actually immutable, but the public API kinda is
 @interface RLMProperty : NSObject
 
 #pragma mark - Properties
@@ -80,7 +77,7 @@ NS_SWIFT_SENDABLE RLM_FINAL // not actually immutable, but the public API kinda 
 @property (nonatomic, readonly) BOOL indexed;
 
 /**
- For `RLMObject` and `RLMCollection` properties, the name of the class of object stored in the property.
+ For `RLMObject` and `RLMArray` properties, the name of the class of object stored in the property.
  */
 @property (nonatomic, readonly, copy, nullable) NSString *objectClassName;
 
@@ -99,21 +96,6 @@ NS_SWIFT_SENDABLE RLM_FINAL // not actually immutable, but the public API kinda 
  */
 @property (nonatomic, readonly) BOOL array;
 
-/**
- Indicates whether this property is a set.
- */
-@property (nonatomic, readonly) BOOL set;
-
-/**
- Indicates whether this property is a dictionary.
- */
-@property (nonatomic, readonly) BOOL dictionary;
-
-/**
- Indicates whether this property is an array or set.
- */
-@property (nonatomic, readonly) BOOL collection;
-
 #pragma mark - Methods
 
 /**
@@ -127,7 +109,6 @@ NS_SWIFT_SENDABLE RLM_FINAL // not actually immutable, but the public API kinda 
 /**
  An `RLMPropertyDescriptor` instance represents a specific property on a given class.
  */
-NS_SWIFT_SENDABLE RLM_FINAL
 @interface RLMPropertyDescriptor : NSObject
 
 /**
@@ -146,4 +127,4 @@ NS_SWIFT_SENDABLE RLM_FINAL
 
 @end
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

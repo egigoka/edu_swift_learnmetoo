@@ -16,10 +16,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/RLMConstants.h>
+#import <Foundation/Foundation.h>
 
 #import <realm/table_ref.hpp>
-#import <realm/util/optional.hpp>
 
 #import <unordered_map>
 #import <vector>
@@ -29,13 +28,12 @@ namespace realm {
     class Schema;
     struct Property;
     struct ColKey;
-    struct TableKey;
 }
 
 class RLMObservationInfo;
 @class RLMRealm, RLMSchema, RLMObjectSchema, RLMProperty;
 
-RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
+NS_ASSUME_NONNULL_BEGIN
 
 namespace std {
 // Add specializations so that NSString can be used as the key for hash containers
@@ -56,9 +54,6 @@ template<> struct equal_to<NSString *> {
 class RLMClassInfo {
 public:
     RLMClassInfo(RLMRealm *, RLMObjectSchema *, const realm::ObjectSchema *);
-
-    RLMClassInfo(RLMRealm *realm, RLMObjectSchema *rlmObjectSchema,
-                 std::unique_ptr<realm::ObjectSchema> objectSchema);
 
     __unsafe_unretained RLMRealm *const realm;
     __unsafe_unretained RLMObjectSchema *const rlmObjectSchema;
@@ -84,13 +79,6 @@ public:
     // persisted property.
     realm::ColKey tableColumn(NSString *propertyName) const;
     realm::ColKey tableColumn(RLMProperty *property) const;
-    // Get the table column key for the given computed property. The property
-    // must be a valid computed property.
-    // Subscripting a `realm::ObjectSchema->computed_properties[property.index]`
-    // does not return a valid colKey, unlike subscripting persisted_properties.
-    // This method retrieves a valid column key for computed properties by
-    // getting the opposite table column of the origin's "forward" link.
-    realm::ColKey computedTableColumn(RLMProperty *property) const;
 
     // Get the info for the target of the link at the given property index.
     RLMClassInfo &linkTargetType(size_t propertyIndex);
@@ -99,30 +87,12 @@ public:
     RLMClassInfo &linkTargetType(realm::Property const& property);
 
     // Get the corresponding ClassInfo for the given Realm
-    RLMClassInfo &resolve(RLMRealm *);
-
-    // Return true if the RLMObjectSchema is for a Swift class
-    bool isSwiftClass() const noexcept;
-
-    // Returns true if this was a dynamically added type
-    bool isDynamic() const noexcept;
-
-    // KeyPathFromString converts a string keypath to a vector of key
-    // pairs to be used for deep change checking across links.
-    std::optional<std::vector<std::vector<std::pair<realm::TableKey, realm::ColKey>>>>
-    keyPathArrayFromStringArray(NSArray<NSString *> *keyPaths) const;
-
-private:
-    // If the ObjectSchema is not owned by the realm instance
-    // we need to manually manage the ownership of the object.
-    std::unique_ptr<realm::ObjectSchema> dynamicObjectSchema;
-    [[maybe_unused]] RLMObjectSchema *_Nullable dynamicRLMObjectSchema;
+    RLMClassInfo &freeze(RLMRealm *);
 };
 
 // A per-RLMRealm object schema map which stores RLMClassInfo keyed on the name
 class RLMSchemaInfo {
     using impl = std::unordered_map<NSString *, RLMClassInfo>;
-
 public:
     RLMSchemaInfo() = default;
     RLMSchemaInfo(RLMRealm *realm);
@@ -131,23 +101,13 @@ public:
 
     // Look up by name, throwing if it's not present
     RLMClassInfo& operator[](NSString *name);
-    // Look up by table key, return none if its not present.
-    RLMClassInfo* operator[](realm::TableKey tableKey);
-
-    // Emplaces a locally derived object schema into RLMSchemaInfo. This is used
-    // when creating objects dynamically that are not registered in the Cocoa schema.
-    // Note: `RLMClassInfo` assumes ownership of `schema`.
-    void appendDynamicObjectSchema(std::unique_ptr<realm::ObjectSchema> schema,
-                                   RLMObjectSchema *objectSchema,
-                                   RLMRealm *const target_realm);
 
     impl::iterator begin() noexcept;
     impl::iterator end() noexcept;
     impl::const_iterator begin() const noexcept;
     impl::const_iterator end() const noexcept;
-
 private:
     std::unordered_map<NSString *, RLMClassInfo> m_objects;
 };
 
-RLM_HEADER_AUDIT_END(nullability, sendability)
+NS_ASSUME_NONNULL_END

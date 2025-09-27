@@ -51,17 +51,6 @@ import Realm
         self.ascending = ascending
     }
 
-    /**
-     Creates a sort descriptor with the given key path and sort order values.
-
-     - parameter keyPath:   The key path which the sort descriptor orders results by.
-     - parameter ascending: Whether the descriptor sorts in ascending or descending order.
-     */
-    public init<Element: ObjectBase>(keyPath: PartialKeyPath<Element>, ascending: Bool = true) {
-        self.keyPath = _name(for: keyPath)
-        self.ascending = ascending
-    }
-
     // MARK: Functions
 
     /// Returns a copy of the sort descriptor with the sort order reversed.

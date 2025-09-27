@@ -16,7 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/RLMConstants.h>
+#import <Foundation/Foundation.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,11 +30,17 @@ typedef NS_ENUM(NSUInteger, RLMUpdatePolicy) {
     RLMUpdatePolicyUpdateAll = 2,
 };
 
-RLM_HEADER_AUDIT_BEGIN(nullability)
+NS_ASSUME_NONNULL_BEGIN
 
 void RLMVerifyHasPrimaryKey(Class cls);
 
-void RLMVerifyInWriteTransaction(RLMRealm *const realm);
+//
+// Accessor Creation
+//
+
+// create or get cached accessors for the given schema
+void RLMRealmCreateAccessors(RLMSchema *schema);
+
 
 //
 // Adding, Removing, Getting Objects
@@ -61,38 +67,26 @@ RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *classN
                                                id _Nullable value, RLMUpdatePolicy updatePolicy)
 NS_RETURNS_RETAINED;
 
-// creates an asymmetric object and doesn't return
-void RLMCreateAsymmetricObjectInRealm(RLMRealm *realm, NSString *className, id value);
-
 //
 // Accessor Creation
 //
 
 
-// Perform the per-property accessor initialization for a managed RealmSwiftObject
-// promotingExisting should be true if the object was previously used as an
-// unmanaged object, and false if it is a newly created object.
-void RLMInitializeSwiftAccessor(RLMObjectBase *object, bool promotingExisting);
+// switch List<> properties from being backed by unmanaged RLMArrays to RLMManagedArray
+void RLMInitializeSwiftAccessorGenerics(RLMObjectBase *object);
 
 #ifdef __cplusplus
 }
 
 namespace realm {
-    class Obj;
     class Table;
-    struct ColKey;
-    struct ObjLink;
+    class Obj;
 }
 class RLMClassInfo;
 
-// get an object with a given table & object key
-RLMObjectBase *RLMObjectFromObjLink(RLMRealm *realm,
-                                    realm::ObjLink&& objLink,
-                                    bool parentIsSwiftObject) NS_RETURNS_RETAINED;
-
 // Create accessors
 RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, int64_t key) NS_RETURNS_RETAINED;
-RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, const realm::Obj& obj) NS_RETURNS_RETAINED;
+RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, realm::Obj&& obj) NS_RETURNS_RETAINED;
 #endif
 
-RLM_HEADER_AUDIT_END(nullability)
+NS_ASSUME_NONNULL_END

@@ -29,6 +29,9 @@ namespace realm {
 @class RLMObjectSchema, RLMProperty, RLMSchema, RLMSortDescriptor;
 class RLMClassInfo;
 
+extern NSString * const RLMPropertiesComparisonTypeMismatchException;
+extern NSString * const RLMUnsupportedTypesFoundInPropertyComparisonException;
+
 realm::Query RLMPredicateToQuery(NSPredicate *predicate, RLMObjectSchema *objectSchema,
                                  RLMSchema *schema, realm::Group &group);
 
