@@ -65,7 +65,7 @@ class StorageManager {
             print("Error saving data: \(error)")
         }
     }
-
+    
     func delete<T: Object>(_ objects: [T]) {
         do {
             try realm.write {
@@ -74,9 +74,5 @@ class StorageManager {
         } catch let error {
             print("Error deleting data: \(error)")
         }
-    }
-    
-    func saveContext() {
-        realm.
     }
 }
