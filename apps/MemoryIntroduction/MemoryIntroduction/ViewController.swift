@@ -9,11 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet var label: UILabel!
+    
+    // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let person = "Alexey"
+        let age = 40
+        
+        label.text = "Name: \(person), age: \(age)"
     }
-
-
 }
 

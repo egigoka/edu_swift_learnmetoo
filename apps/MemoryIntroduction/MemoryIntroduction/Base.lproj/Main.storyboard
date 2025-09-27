@@ -44,15 +44,18 @@
                             <constraint firstItem="V4e-Mx-9Li" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vCj-Mz-Dvf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="5fN-Hd-J0z" id="PEc-0P-7LP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-100" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="o4X-P0-SWT">
             <objects>
-                <viewController id="qUn-pU-0LE" sceneMemberID="viewController">
+                <viewController id="qUn-pU-0LE" customClass="SecondViewController" customModule="MemoryIntroduction" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gKi-cd-TXa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +67,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeButtonAction" destination="qUn-pU-0LE" eventType="touchUpInside" id="qsZ-Bd-Ewg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eBi-dv-kZ5"/>
