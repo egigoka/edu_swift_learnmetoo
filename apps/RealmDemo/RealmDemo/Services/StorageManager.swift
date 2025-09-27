@@ -75,4 +75,8 @@ class StorageManager {
             print("Error deleting data: \(error)")
         }
     }
+    
+    func saveContext() {
+        realm.
+    }
 }
