@@ -36,6 +36,7 @@ class TaskListViewController: RealmTableViewController {
             self?.updateTableView(changes, section: 0)
         }
         
+        StorageManager.shared.cleanup()
         tableView.reloadData()
     }
 

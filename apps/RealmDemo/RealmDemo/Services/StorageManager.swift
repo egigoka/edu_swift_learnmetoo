@@ -64,13 +64,30 @@ class StorageManager {
     }
     
     func cleanup() {
-        write {
-            let allTasks = realm.objects(Tasks.self)
-            let allTaskLists = realm.objects(TaskList.self)
-            let usedTasks: [Task] = []
-            
-            for taskList in allTaskLists
+        let allTasks = realm.objects(Task.self)
+        let allTaskLists = realm.objects(TaskList.self)
+        var usedTasks: [Task] = []
+        
+        print("Total tasks: \(allTasks.count)")
+        
+        for taskList in allTaskLists {
+            for task in taskList.tasks {
+                usedTasks.append(task)
+            }
         }
+        
+        print("Tasks in Task lists: \(usedTasks.count)")
+        
+        if allTasks.count == usedTasks.count { return }
+        
+        write {
+            for task in allTasks {
+                if usedTasks.contains(task) { continue }
+                realm.delete(task)
+            }
+        }
+        
+        print("cleanup completed")
     }
     
     private func write(completion: () -> Void) {

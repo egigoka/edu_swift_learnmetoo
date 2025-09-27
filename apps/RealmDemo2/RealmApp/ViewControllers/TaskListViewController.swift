@@ -60,6 +60,10 @@ class TaskListViewController: UITableViewController {
             completion(true)
         }
         
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
+            
+        }
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
