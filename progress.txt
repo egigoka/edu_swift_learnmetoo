@@ -160,7 +160,7 @@ course 2 lesson 14 theory          - done
 course 2 lesson 14 homework        - done
 
 course 2 lesson 15 homework review - done
-course 2 lesson 15 theory          - 1:15:14
+course 2 lesson 15 theory          - 1:29:54
 course 2 lesson 15 homework        - 
 
 course 2 lesson 16 homework review - 

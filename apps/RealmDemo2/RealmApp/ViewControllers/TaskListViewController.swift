@@ -25,7 +25,7 @@ class TaskListViewController: UITableViewController {
     }
     
     @IBAction func  addButtonPressed(_ sender: Any) {
-        showALert()
+        showAlert()
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
@@ -60,11 +60,14 @@ class TaskListViewController: UITableViewController {
             completion(true)
         }
         
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
-            
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] _, _, isDone in
+            self?.showAlert(with: taskList) {
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            isDone(true)
         }
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     
     // MARK: - Navigation
@@ -79,16 +82,21 @@ class TaskListViewController: UITableViewController {
 
 extension TaskListViewController {
     
-    private func showALert() {
+    private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
         let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
         
-        alert.action { [weak self] newValue in
-            let taskList = TaskList()
-            taskList.name = newValue
-            
-            StorageManager.shared.save(taskList: taskList)
-            let rowIndex = IndexPath(row: (self?.taskLists.count ?? 1) - 1, section: 0)
-            self?.tableView.insertRows(at: [rowIndex], with: .automatic)
+        alert.action(with: taskList) { [weak self] newValue in
+            if let taskList = taskList, let completion = completion {
+                StorageManager.shared.edit(taskList: taskList, newValue: newValue)
+                completion()
+            } else {
+                let taskList = TaskList()
+                taskList.name = newValue
+                
+                StorageManager.shared.save(taskList: taskList)
+                let rowIndex = IndexPath(row: (self?.taskLists.count ?? 1) - 1, section: 0)
+                self?.tableView.insertRows(at: [rowIndex], with: .automatic)
+            }
         }
         
         present(alert, animated: true)

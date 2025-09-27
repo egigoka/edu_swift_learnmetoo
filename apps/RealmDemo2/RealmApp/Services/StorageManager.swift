@@ -35,6 +35,12 @@ class StorageManager {
         }
     }
     
+    func complete(taskList: TaskList) {
+        write {
+            <#code#>
+        }
+    }
+    
     // MARK: - Task methods
     func save(task: Task, in taskList: TaskList) {
         write {
