@@ -15,7 +15,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
 
         for i in 1...100 {
-            data.append(String(1))
+            data.append(String(i))
         }
     }
 
@@ -30,7 +30,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         var conf = cell.defaultContentConfiguration()
         
@@ -45,35 +45,18 @@ class TableViewController: UITableViewController {
         true
     }
     
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        deleteAction.image = UIImage(systemName: "trash")
-        
-        let editAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, _, completion in
-            guard let taskList = self?.tasksLists[indexPath.row] else {
-                print("cannot edit")
-                completion(false)
-                return
-            }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] action, _, completion in
             
-            self?.present(AlertController.generate(for: TaskList.self, taskList), animated: true)
+            self?.data.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             
             completion(true)
         }
-        editAction.image = UIImage(systemName: "pencil")
+        deleteAction.backgroundColor = .systemRed
+        deleteAction.image = UIImage(systemName: "trash")
         
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
 }
