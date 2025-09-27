@@ -157,9 +157,9 @@ course 2 lesson 13 homework        - done
 
 course 2 lesson 14 homework review - done
 course 2 lesson 14 theory          - done
-course 2 lesson 14 homework        - in progress (checking+)
+course 2 lesson 14 homework        - done
 
-course 2 lesson 15 homework review - 
+course 2 lesson 15 homework review - 23:46
 course 2 lesson 15 theory          - 
 course 2 lesson 15 homework        - 
 
