@@ -24,12 +24,6 @@ class TaskListViewController: RealmTableViewController {
         reloadData(sortingBy: "name")
         
         navigationController?.interactivePopGestureRecognizer?.require(toFail: tableView.panGestureRecognizer)
-        
-//        //debug
-//        for i in 1...10 {
-//            let _ = StorageManager.shared.createNew(TaskList.self, value: ["name": String(i)])
-//        }
-//        //debug END
     }
     
     private func reloadData(sortingBy: String) {
@@ -117,7 +111,7 @@ extension TaskListViewController {
                 return
             }
             
-            StorageManager.shared.delete([taskList])
+            StorageManager.shared.delete(taskList: taskList)
             
             completion(true)
         }

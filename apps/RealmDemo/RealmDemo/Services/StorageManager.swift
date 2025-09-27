@@ -15,13 +15,9 @@ class StorageManager {
     private init() {}
     
     func appendToList<T: Object, V: Object>(_ object: T, to arrayKey: String, with value: V) {
-        do {
-            guard let array = object[arrayKey] as? List<V> else { return }
-            try realm.write {
-                array.append(value)
-            }
-        } catch let error {
-            print("Error appending to list: \(error)")
+        guard let array = object[arrayKey] as? List<V> else { return }
+        write {
+            array.append(value)
         }
     }
     
@@ -31,12 +27,8 @@ class StorageManager {
         var newObject = T()
         
         value.updateValue(ID, forKey: "_id")
-        do {
-            try realm.write {
-                newObject = realm.create(type, value: value)
-            }
-        } catch let error {
-            print("Error writing new object: \(error)")
+        write {
+            newObject = realm.create(type, value: value)
         }
         
         add([newObject])
@@ -45,34 +37,50 @@ class StorageManager {
     
     func update<T: Object>(_ object: T?, value: [String: Any] = [:]) {
         guard let object = object else { return }
-        do {
-            try realm.write {
-                for (key, value) in value {
-                    object.setValue(value, forKey: key)
-                }
+        write {
+            for (key, value) in value {
+                object.setValue(value, forKey: key)
             }
-        } catch let error {
-            print("Error while updating \(object): \n\(error)")
         }
     }
     
     private func add<T: Object>(_ objects: [T]) {
-        do {
-            try realm.write {
-                realm.add(objects)
-            }
-        } catch let error {
-            print("Error saving data: \(error)")
+        write {
+            realm.add(objects)
+        }
+    }
+    
+    func delete(taskList: TaskList) {
+        write {
+            realm.delete(taskList.tasks)
+            realm.delete(taskList)
         }
     }
     
     func delete<T: Object>(_ objects: [T]) {
+        write {
+            realm.delete(objects)
+        }
+    }
+    
+    func cleanup() {
+        write {
+            let allTasks = realm.objects(Tasks.self)
+            let allTaskLists = realm.objects(TaskList.self)
+            let usedTasks: [Task] = []
+            
+            for taskList in allTaskLists
+        }
+    }
+    
+    private func write(completion: () -> Void) {
         do {
             try realm.write {
-                realm.delete(objects)
+                completion()
             }
         } catch let error {
-            print("Error deleting data: \(error)")
+            print(error)
+            fatalError(String(describing: error))
         }
     }
 }
