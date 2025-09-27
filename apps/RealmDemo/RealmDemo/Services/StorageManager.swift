@@ -63,6 +63,12 @@ class StorageManager {
         }
     }
     
+    func complete(taskList: TaskList) {
+        write {
+            taskList.tasks.setValue(true, forKey: "isComplete")
+        }
+    }
+    
     func cleanup() {
         let allTasks = realm.objects(Task.self)
         let allTaskLists = realm.objects(TaskList.self)

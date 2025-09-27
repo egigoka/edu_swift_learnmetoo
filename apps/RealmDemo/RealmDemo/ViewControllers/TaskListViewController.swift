@@ -118,7 +118,7 @@ extension TaskListViewController {
         }
         deleteAction.image = UIImage(systemName: "trash")
         
-        let editAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, _, completion in
+        let editAction = UIContextualAction(style: .normal, title: nil) { [weak self] _, _, completion in
             guard let taskList = self?.tasksLists[indexPath.row] else {
                 print("cannot edit")
                 completion(false)
@@ -131,6 +131,20 @@ extension TaskListViewController {
         }
         editAction.image = UIImage(systemName: "pencil")
         
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        let completeAction = UIContextualAction(style: .normal, title: nil) { [weak self] _, _, completion in
+            guard let taskList = self?.tasksLists[indexPath.row] else {
+                print("cannot edit")
+                completion(false)
+                return
+            }
+            
+            StorageManager.shared.complete(taskList: taskList)
+            self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            
+            completion(true)
+        }
+        completeAction.image = UIImage(systemName: "checkmark")
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction, completeAction])
     }
 }
