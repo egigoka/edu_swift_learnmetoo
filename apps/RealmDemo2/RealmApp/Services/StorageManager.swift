@@ -14,12 +14,22 @@ class StorageManager {
     
     private init() {}
     
+    // MARK: - TaskList methods
     func save(taskList: TaskList) {
         write {
             realm.add(taskList)
         }
     }
     
+    func delete(taskList: TaskList) {
+        write {
+            let tasks = taskList.tasks
+            realm.delete(tasks)
+            realm.delete(taskList)
+        }
+    }
+    
+    // MARK: - Task methods
     func save(task: Task, in taskList: TaskList) {
         write {
             taskList.tasks.append(task)
