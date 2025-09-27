@@ -17,6 +17,7 @@ class TaskListViewController: UITableViewController {
         super.viewDidLoad()
     
         taskLists = StorageManager.shared.realm.objects(TaskList.self)
+            .sorted(byKeyPath: "name")
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
@@ -31,7 +32,10 @@ class TaskListViewController: UITableViewController {
     }
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
-        taskLists = sender.selectedSegmentIndex == 0 ? taskLists.sorted(byKeyPath: "name") : taskLists.sorted(byKeyPath: "data")
+        taskLists = sender.selectedSegmentIndex == 0
+            ? taskLists.sorted(byKeyPath: "name")
+            : taskLists.sorted(byKeyPath: "data")
+        
         tableView.reloadData()
     }
     
