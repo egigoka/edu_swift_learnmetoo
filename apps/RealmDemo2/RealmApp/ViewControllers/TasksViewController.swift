@@ -61,7 +61,8 @@ extension TasksViewController {
         
         let alert = AlertController(title: "New Task", message: "What do you want to do?", preferredStyle: .alert)
         
-        alert.actionWithTask { newValue, note in
+        alert.action { newValue, note in
+            let task = Task(value: [newValue, note])
             
         }
         

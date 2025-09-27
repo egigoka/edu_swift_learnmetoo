@@ -20,6 +20,12 @@ class StorageManager {
         }
     }
     
+    func save(task: Task, in taskList: TaskList) {
+        write {
+            taskList.tasks.append(task)
+        }
+    }
+    
     private func write(_ completion: () -> Void) {
         do {
             try realm.write {

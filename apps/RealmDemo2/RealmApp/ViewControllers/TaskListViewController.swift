@@ -79,8 +79,13 @@ extension TaskListViewController {
     private func showALert() {
         let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
         
-        alert.actionWIthTaskList { newValue in
+        alert.action { [weak self] newValue in
+            let taskList = TaskList()
+            taskList.name = newValue
             
+            StorageManager.shared.save(taskList: taskList)
+            let rowIndex = IndexPath(row: (self?.taskLists.count ?? 1) - 1, section: 0)
+            self?.tableView.insertRows(at: [rowIndex], with: .automatic)
         }
         
         present(alert, animated: true)

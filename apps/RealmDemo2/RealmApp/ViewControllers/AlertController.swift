@@ -10,7 +10,7 @@ import UIKit
 
 class AlertController: UIAlertController {
         
-    func actionWIthTaskList(completion: @escaping (String) -> Void) {
+    func action(completion: @escaping (String) -> Void) {
                 
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let newValue = self.textFields?.first?.text else { return }
@@ -27,7 +27,7 @@ class AlertController: UIAlertController {
         }
     }
     
-    func actionWithTask(completion: @escaping (String, String) -> Void) {
+    func action(completion: @escaping (String, String) -> Void) {
                         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let newTask = self.textFields?.first?.text else { return }
