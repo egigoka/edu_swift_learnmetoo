@@ -78,10 +78,14 @@ class TasksViewController: UITableViewController {
         editAction.backgroundColor = .systemOrange
         
         let doneAction = UIContextualAction(style: .normal, title: "Done") { [weak self] _, _, isDone in
-            let indexPathForCurrentTask = IndexPath(
-                row: (self?.currentTasks.count ?? 1) - 1,
-                section: 0)
-            tableView.moveRow(at: [indexPath], to: [IndexPath(row: <#T##Int#>, section: <#T##Int#>)])
+            let indexPathForCurrentTask = IndexPath(row: (self?.currentTasks.count ?? 1) - 1, section: 0)
+            let indexPathForCompletedTask = IndexPath(row: (self?.completedTasks.count ?? 1) - 1, section: 1)
+            
+            let destinationIndexPath = indexPath.section == 0 ? indexPathForCurrentTask : indexPathForCompletedTask
+            print(indexPath)
+            print(destinationIndexPath)
+            
+            tableView.moveRow(at: indexPath, to: destinationIndexPath)
             isDone(true)
         }
         doneAction.backgroundColor = .systemGreen

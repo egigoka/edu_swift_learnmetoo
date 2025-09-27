@@ -27,7 +27,9 @@ class TasksViewController: RealmTableViewController {
         super.viewDidLoad()
         title = taskList.name
         
-        //navigationItem.rightBarButtonItem = editButtonItem
+        let addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        
+        navigationItem.rightBarButtonItems = [addButtonItem, editButtonItem]
         
         currentTasks = taskList.tasks
             .filter("isComplete = false")
@@ -43,6 +45,10 @@ class TasksViewController: RealmTableViewController {
         notificationTokenCompleted = completedTasks.observe({ [weak self] changes in
             self?.updateTableView(changes, section: 1)
         })
+    }
+    
+    @objc private func addButtonPressed() {
+        present(AlertController.generate(for: Task.self, nil, in: taskList), animated: true)
     }
     
     // MARK: - IBActions
