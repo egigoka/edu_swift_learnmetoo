@@ -57,6 +57,39 @@ class TasksViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, isDone in
+            StorageManager.shared.delete(task: task)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            isDone(true)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] _, _, isDone in
+            self?.showAlert(with: task) {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            isDone(true)
+        }
+        editAction.backgroundColor = .systemOrange
+        
+        let doneAction = UIContextualAction(style: .normal, title: "Done") { [weak self] _, _, isDone in
+            let indexPathForCurrentTask = IndexPath(
+                row: (self?.currentTasks.count ?? 1) - 1,
+                section: 0)
+            tableView.moveRow(at: [indexPath], to: [IndexPath(row: <#T##Int#>, section: <#T##Int#>)])
+            isDone(true)
+        }
+        doneAction.backgroundColor = .systemGreen
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, doneAction, editAction])
+    }
+    
+    // MARK: - Selectors
     @objc private func addButtonPressed() {
         showAlert()
     }
@@ -72,11 +105,16 @@ extension TasksViewController {
         let alert = AlertController(title: title, message: "What do you want to do?", preferredStyle: .alert)
         
         alert.action(with: task) { [weak self] newValue, note in
-            let task = Task(value: [newValue, note])
-            guard let taskList = self?.taskList else { return }
-            StorageManager.shared.save(task: task, in: taskList)
-            let rowIndex = IndexPath(row: (self?.currentTasks.count ?? 1) - 1, section: 0)
-            self?.tableView.insertRows(at: [rowIndex], with: .automatic)
+            if let task = task, let completion = completion {
+                StorageManager.shared.edit(task: task, name: newValue, note: note)
+                completion()
+            } else {
+                let task = Task(value: [newValue, note])
+                guard let taskList = self?.taskList else { return }
+                StorageManager.shared.save(task: task, in: taskList)
+                let rowIndex = IndexPath(row: (self?.currentTasks.count ?? 1) - 1, section: 0)
+                self?.tableView.insertRows(at: [rowIndex], with: .automatic)
+            }
         }
         
         present(alert, animated: true)

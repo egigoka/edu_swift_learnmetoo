@@ -56,10 +56,10 @@ class TaskListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let taskList = taskLists[indexPath.row]
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, isDone in
             StorageManager.shared.delete(taskList: taskList)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
+            isDone(true)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] _, _, isDone in
