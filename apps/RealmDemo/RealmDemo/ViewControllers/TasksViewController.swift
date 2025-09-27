@@ -27,6 +27,8 @@ class TasksViewController: RealmTableViewController {
         super.viewDidLoad()
         title = taskList.name
         
+        //navigationItem.rightBarButtonItem = editButtonItem
+        
         currentTasks = taskList.tasks
             .filter("isComplete = false")
             .sorted(byKeyPath: "name", ascending: true)

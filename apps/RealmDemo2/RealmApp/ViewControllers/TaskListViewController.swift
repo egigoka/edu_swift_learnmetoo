@@ -17,6 +17,8 @@ class TaskListViewController: UITableViewController {
         super.viewDidLoad()
     
         taskLists = StorageManager.shared.realm.objects(TaskList.self)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +68,7 @@ class TaskListViewController: UITableViewController {
             }
             isDone(true)
         }
-        editAction.backgroundColor = .orange
+        editAction.backgroundColor = .systemOrange
         
         let doneAction = UIContextualAction(style: .normal, title: "Done") { [weak self] _, _, isDone in
             StorageManager.shared.done(taskList: taskList)
@@ -91,7 +93,9 @@ class TaskListViewController: UITableViewController {
 extension TaskListViewController {
     
     private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
-        let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
+        let title = taskList != nil ? "Edit list" : "New list"
+        
+        let alert = AlertController(title: title, message: "Please insert new value", preferredStyle: .alert)
         
         alert.action(with: taskList) { [weak self] newValue in
             if let taskList = taskList, let completion = completion {

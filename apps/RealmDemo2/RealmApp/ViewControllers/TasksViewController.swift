@@ -65,11 +65,13 @@ class TasksViewController: UITableViewController {
 
 extension TasksViewController {
     
-    private func showAlert() {
+    private func showAlert(with task: Task? = nil, completion: (() -> Void)? = nil) {
         
-        let alert = AlertController(title: "New Task", message: "What do you want to do?", preferredStyle: .alert)
+        let title = task != nil ? "Edit task" : "New task"
         
-        alert.action { [weak self] newValue, note in
+        let alert = AlertController(title: title, message: "What do you want to do?", preferredStyle: .alert)
+        
+        alert.action(with: task) { [weak self] newValue, note in
             let task = Task(value: [newValue, note])
             guard let taskList = self?.taskList else { return }
             StorageManager.shared.save(task: task, in: taskList)

@@ -23,6 +23,7 @@ class TaskListViewController: RealmTableViewController {
         
         reloadData(sortingBy: "name")
         
+        navigationItem.leftBarButtonItem = editButtonItem
         navigationController?.interactivePopGestureRecognizer?.require(toFail: tableView.panGestureRecognizer)
     }
     
