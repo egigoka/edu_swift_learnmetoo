@@ -16,23 +16,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var alexey: Person?
-        var swiftbook: Job?
+        var person: Person?
+        var job: Job?
         
-        alexey = Person()
-        swiftbook = Job()
+        person = Person()
+        job = Job()
         
-        alexey?.job = swiftbook
-        swiftbook?.person = alexey
+        person?.job = job
+        job?.person = person
         
-        alexey = nil
-        swiftbook = nil
+        person = nil
+        job = nil
     }
 }
 
 class Person {
     
     var job: Job?
+    
+    init() {
+        print("Person has been created")
+    }
     
     deinit {
         print("Person has been dealocated")
@@ -42,6 +46,10 @@ class Person {
 class Job {
     
     var person: Person?
+    
+    init() {
+        print("Job has been created")
+    }
     
     deinit {
         print("Job has been dealocated")
