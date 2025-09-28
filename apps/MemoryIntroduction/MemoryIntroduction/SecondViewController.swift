@@ -29,6 +29,9 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         closure()
+        doSomething {
+            view.backgroundColor = .systemGreen
+        }
 //        var alexey: Person?
 //        var swiftbook: Job?
 //        
@@ -47,6 +50,9 @@ class SecondViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    
+    // MARK: - Private methods
+    func doSomething(completion: () -> Void) {
+        completion()
+    }
     
 }
