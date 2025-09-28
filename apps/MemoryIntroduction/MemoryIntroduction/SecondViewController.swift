@@ -9,6 +9,11 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
+    // MARK: - Private properties
+    private lazy var closure: () -> Void = { [unowned self] in
+        self.view.backgroundColor = .systemFill
+    }
+    
     // MARK: - Lifecycle
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -23,6 +28,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        closure()
 //        var alexey: Person?
 //        var swiftbook: Job?
 //        
