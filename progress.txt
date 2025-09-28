@@ -164,13 +164,13 @@ course 2 lesson 15 theory          - done
 course 2 lesson 15 homework        - none
 
 course 2 lesson 16 homework review - none
-course 2 lesson 16 theory          - 2:03:06
-course 2 lesson 16 homework        - 
+course 2 lesson 16 theory          - done
+course 2 lesson 16 homework        - none
 
 60%
 
-course 3 lesson 1 homework review  - 
-course 3 lesson 1 theory           - 
+course 3 lesson 1 homework review  - none
+course 3 lesson 1 theory           - 20:51
 course 3 lesson 1 homework         - 
 
 course 3 lesson 2 homework review  - 
