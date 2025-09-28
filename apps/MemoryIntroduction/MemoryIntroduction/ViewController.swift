@@ -16,42 +16,46 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var person: Person?
-        var job: Job?
+        label.isHidden = true
         
-        person = Person()
-        job = Job()
-        
-        person?.job = job
-        job?.person = person
-        
-        person = nil
-        job = nil
+//        var person: Person?
+//        var job: Job?
+//        
+//        person = Person()
+//        job = Job()
+//        
+//        person?.job = job
+//        job?.person = person
+//        
+//        person = nil
+//        job = nil
     }
 }
 
-class Person {
-    
-    var job: Job?
-    
-    init() {
-        print("Person has been created")
-    }
-    
-    deinit {
-        print("Person has been dealocated")
-    }
-}
-
-class Job {
-    
-    var person: Person?
-    
-    init() {
-        print("Job has been created")
-    }
-    
-    deinit {
-        print("Job has been dealocated")
-    }
-}
+//// Parent
+//class Person {
+//    
+//    var job: Job?
+//    
+//    init() {
+//        print("Person has been created")
+//    }
+//    
+//    deinit {
+//        print("Person has been dealocated")
+//    }
+//}
+//
+//// Child
+//class Job {
+//    
+//    weak var person: Person?
+//    
+//    init() {
+//        print("Job has been created")
+//    }
+//    
+//    deinit {
+//        print("Job has been dealocated")
+//    }
+//}
