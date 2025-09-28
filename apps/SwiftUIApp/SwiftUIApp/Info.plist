@@ -4,10 +4,8 @@
 <dict>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIColorName</key>
-		<string>red</string>
 		<key>UIImageName</key>
-		<string>swiftimage512x512</string>
+		<string>swiftimage256x256</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<true/>
 		<key>UILaunchScreen</key>

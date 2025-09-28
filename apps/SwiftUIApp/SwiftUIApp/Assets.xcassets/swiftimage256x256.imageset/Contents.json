@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "swiftimage512x512.png",
+      "filename" : "swiftimage256x256.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
