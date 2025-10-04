@@ -170,7 +170,7 @@ course 2 lesson 16 homework        - none
 60%
 
 course 3 lesson 1 homework review  - none
-course 3 lesson 1 theory           - 51:06
+course 3 lesson 1 theory           - 1:01:51
 course 3 lesson 1 homework         - 
 
 course 3 lesson 2 homework review  - 
