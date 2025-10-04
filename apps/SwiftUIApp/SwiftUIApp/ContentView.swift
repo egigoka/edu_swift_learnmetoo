@@ -9,11 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, SwiftUI!")
-            .font(.title)
-            .foregroundColor(.red)
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Part 2")
+                .font(.title)
+            HStack {
+                Text("Introducing Stacks and Containers")
+                    .font(.subheadline)
+                Spacer()
+                Text("SwiftUI")
+            }
+        }
         .padding()
-        Text("Introducing Stacks and Containers")
     }
 }
 
