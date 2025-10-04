@@ -12,6 +12,7 @@ struct SwiftLogo: View {
         ZStack {
             ColoredCircle(color: .orange)
             SwiftImage()
+                .offset(x: -10, y: -10)
         }
     }
 }
