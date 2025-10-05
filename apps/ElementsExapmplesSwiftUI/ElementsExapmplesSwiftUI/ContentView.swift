@@ -34,7 +34,7 @@ struct UserNameView: View {
     let userName: String
     
     var body: some View {
-        HStack() {
+        HStack(alignment: .bottom) {
             Text("USERNAME:")
             Text(userName)
                 .font(.largeTitle)
