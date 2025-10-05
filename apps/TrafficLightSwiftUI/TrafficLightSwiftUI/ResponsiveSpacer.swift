@@ -25,10 +25,26 @@ struct ResponsiveSpacer: View {
 }
 
 #Preview {
-    ResponsiveSpacer(portraitHeight: 60, landscapeHeight: 0)
-        .frame()
-        .overlay(
-            Rectangle()
-                .stroke(.red, style: StrokeStyle(lineWidth: 1, dash: [5]))
-        )
+    VStack {
+        Rectangle()
+            .frame(height: 1)
+            .foregroundStyle(.clear)
+            .overlay(
+                Rectangle()
+                    .stroke(.red, style: StrokeStyle(lineWidth: 1, dash: [4]))
+            )
+        ResponsiveSpacer(portraitHeight: 60, landscapeHeight: 0)
+            .overlay(
+                Rectangle()
+                    .stroke(.red, style: StrokeStyle(lineWidth: 1, dash: [5]))
+            )
+        Rectangle()
+            .frame(height: 1)
+            .foregroundStyle(.clear)
+            .overlay(
+                Rectangle()
+                    .stroke(.red, style: StrokeStyle(lineWidth: 1, dash: [4]))
+            )
+    }
+    .frame(height: 100)
 }
