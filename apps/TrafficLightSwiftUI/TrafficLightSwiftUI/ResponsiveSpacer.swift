@@ -26,4 +26,9 @@ struct ResponsiveSpacer: View {
 
 #Preview {
     ResponsiveSpacer(portraitHeight: 60, landscapeHeight: 0)
+        .frame()
+        .overlay(
+            Rectangle()
+                .stroke(.red, style: StrokeStyle(lineWidth: 1, dash: [5]))
+        )
 }
