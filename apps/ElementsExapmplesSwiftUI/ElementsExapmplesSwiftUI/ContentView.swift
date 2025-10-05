@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sliderValue = Double.random(in: 0...1)
+    @State private var sliderValue = Double(Int.random(in: 0...255))
     
     var body: some View {
         
@@ -38,7 +38,7 @@ struct ColorSlider: View {
         HStack {
             Text("0")
                 .foregroundColor(textColor)
-            Slider(value: $value)
+            Slider(value: $value, in: 0...255, step: 1)
             Text("255")
                 .foregroundColor(textColor)
         }
@@ -48,4 +48,3 @@ struct ColorSlider: View {
 #Preview {
     ContentView()
 }
-
