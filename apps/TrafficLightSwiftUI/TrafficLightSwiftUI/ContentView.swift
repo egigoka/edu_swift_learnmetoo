@@ -23,11 +23,11 @@ struct ContentView: View {
         VStack {
             VStack {
                 ColoredCircle(
-                    color: .red.opacity(redOpacity))
+                    color: .red, opacity: redOpacity)
                 ColoredCircle(
-                    color: .yellow.opacity(yellowOpacity))
+                    color: .yellow, opacity: yellowOpacity)
                 ColoredCircle(
-                    color: .green.opacity(greenOpacity))
+                    color: .green, opacity: greenOpacity)
             }
         }
         .padding(.top)
