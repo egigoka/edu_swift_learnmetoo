@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TableImageView: View {
+    let size = CGSize(width: 250, height: 250)
+    
     var body: some View {
         Image(systemName: "table")
             .resizable()
-            .frame(width: 250, height: 250)
-//            .cornerRadius(250 / 2)
+            .frame(size)
             .background(Color(white: 0.9))
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.red, lineWidth: 8))
@@ -20,9 +21,18 @@ struct TableImageView: View {
     }
 }
 
+extension Image {
+    func frame(_ size: CGSize) -> some View {
+        modifier(FrameFromSize(size: size))
+    }
+}
+
 struct FrameFromSize: ViewModifier {
+    let size: CGSize
+    
     func body(content: Content) -> some View {
-        <#code#>
+        content
+            .frame(width: size.width, height: size.height)
     }
 }
 
