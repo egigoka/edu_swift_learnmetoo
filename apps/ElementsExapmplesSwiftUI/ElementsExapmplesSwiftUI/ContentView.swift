@@ -32,6 +32,14 @@ struct ContentView: View {
                 }
 //            ColorSlider(value: $sliderValue, textColor: .green)
 //            ColorSlider(value: $sliderValue, textColor: .blue)
+            
+            Text("Welcome to SwiftUI")
+                .font(.system(size: 50))
+                .bold()
+                .foregroundColor(.red)
+                .background(Color.blue)
+                .padding()
+                .background(Color.red)
             Spacer()
         }
         .padding()
@@ -72,6 +80,8 @@ struct ColorSlider: View {
             Text("0")
                 .foregroundColor(textColor)
             Slider(value: $value, in: 0...255, step: 1) {} // empty closure to use different init of Slider to workaround bug that doesn't apply step argument
+                .background(textColor)
+                .cornerRadius(40)
             Text("255")
                 .foregroundColor(textColor)
         }
