@@ -9,10 +9,16 @@ import SwiftUI
 
 struct StylizedButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
-        configuration.
+        configuration.label
+            .buttonStyle(.borderedProminent)
+            .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
+            .font(.title)
+            .buttonSizing(.flexible)
+            .padding()
     }
 }
 
 #Preview {
-    Button().buttonStyle(StylizedButton())
+    Button("Preview") { }
+        .buttonStyle(StylizedButton())
 }
