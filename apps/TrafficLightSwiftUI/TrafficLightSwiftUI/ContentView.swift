@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentLight: CurrentLight = .none
+    @State private var buttonText = "START"
     
-    @State var redOpacity = 0.3
-    @State var yellowOpacity = 0.3
-    @State var greenOpacity = 0.3
+    @State private var redOpacity = 0.3
+    @State private var yellowOpacity = 0.3
+    @State private var greenOpacity = 0.3
     
-    @State var buttonText = "START"
+    @State private var currentLight: CurrentLight = .green
     
     var body: some View {
         VStack {
@@ -35,22 +35,26 @@ struct ContentView: View {
         }
     }
     
+}
+
+extension ContentView {
+    
     private func buttonTapped() {
+        let lightOn = 1.0
+        let lightOff = 0.3
+        
         switch currentLight {
-        case .none:
-            redOpacity = 1
-            currentLight = .red
         case .red:
-            redOpacity = 0.3
-            yellowOpacity = 1
+            redOpacity = lightOff
+            yellowOpacity = lightOn
             currentLight = .yellow
         case .yellow:
-            yellowOpacity = 0.3
-            greenOpacity = 1
+            yellowOpacity = lightOff
+            greenOpacity = lightOn
             currentLight = .green
         case .green:
-            greenOpacity = 0.3
-            redOpacity = 1
+            greenOpacity = lightOff
+            redOpacity = lightOn
             currentLight = .red
         }
         buttonText = "NEXT"
@@ -62,7 +66,6 @@ struct ContentView: View {
 }
 
 enum CurrentLight {
-    case none
     case red
     case yellow
     case green
