@@ -18,9 +18,9 @@ struct ContentView: View {
                     .font(.largeTitle)
                 
                 .padding(.horizontal)
-                ColorSlider(value: $sliderValue)
-                ColorSlider(value: $sliderValue)
-                ColorSlider(value: $sliderValue)
+                ColorSlider(value: $sliderValue, textColor: .red)
+                ColorSlider(value: $sliderValue, textColor: .green)
+                ColorSlider(value: $sliderValue, textColor: .blue)
                 Spacer()
             }
             
@@ -32,14 +32,15 @@ struct ContentView: View {
 
 struct ColorSlider: View {
     @Binding var value: Double
+    var textColor: Color
     
     var body: some View {
         HStack {
             Text("0")
-                .foregroundColor(.red)
+                .foregroundColor(textColor)
             Slider(value: $value)
             Text("255")
-                .foregroundColor(.red)
+                .foregroundColor(textColor)
         }
     }
 }
