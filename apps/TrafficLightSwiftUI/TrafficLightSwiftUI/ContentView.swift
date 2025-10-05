@@ -10,22 +10,17 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var buttonText = "START"
-    
-    @State private var redOpacity = 0.3
-    @State private var yellowOpacity = 0.3
-    @State private var greenOpacity = 0.3
-    
-    @State private var currentLight: CurrentLight = .green
+    @State private var currentLight: CurrentLight = .none
     
     var body: some View {
         VStack {
             VStack {
                 ColoredCircle(
-                    color: .red, opacity: redOpacity)
+                    color: .red, opacity: currentLight == .red ? 1 : 0.3)
                 ColoredCircle(
-                    color: .yellow, opacity: yellowOpacity)
+                    color: .yellow, opacity: currentLight == .yellow ? 1 : 0.3)
                 ColoredCircle(
-                    color: .green, opacity: greenOpacity)
+                    color: .green, opacity: currentLight == .green ? 1 : 0.3)
             }
         }
         .padding(.top)
@@ -40,22 +35,11 @@ struct ContentView: View {
 extension ContentView {
     
     private func buttonTapped() {
-        let lightOn = 1.0
-        let lightOff = 0.3
-        
         switch currentLight {
-        case .red:
-            redOpacity = lightOff
-            yellowOpacity = lightOn
-            currentLight = .yellow
-        case .yellow:
-            yellowOpacity = lightOff
-            greenOpacity = lightOn
-            currentLight = .green
-        case .green:
-            greenOpacity = lightOff
-            redOpacity = lightOn
-            currentLight = .red
+        case .none: currentLight = .red
+        case .red: currentLight = .yellow
+        case .yellow: currentLight = .green
+        case .green: currentLight = .red
         }
         buttonText = "NEXT"
     }
@@ -66,6 +50,7 @@ extension ContentView {
 }
 
 enum CurrentLight {
+    case none
     case red
     case yellow
     case green
