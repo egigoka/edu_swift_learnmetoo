@@ -10,23 +10,42 @@ import SwiftUI
 struct ContentView: View {
     @State private var sliderValue = Double(Int.random(in: 0...255))
     @State private var userName = ""
+    @State private var displayedName = ""
+    @State private var showAlert = false
     
     var body: some View {
         
-        VStack {
+        VStack(spacing: 40) {
             Text("\(lround(sliderValue))")
                 .font(.largeTitle)
                 .padding(.horizontal)
-            UserNameView(userName: userName)
+            UserNameView(userName: displayedName)
             ColorSlider(value: $sliderValue, textColor: .red)
             TextField("Enter your name", text: $userName)
                 .textFieldStyle(.roundedBorder)
-            ColorSlider(value: $sliderValue, textColor: .green)
-            ColorSlider(value: $sliderValue, textColor: .blue)
+            Button("Done", action: checkUserName)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Wrong format"),
+                        message: Text("Enter your name")
+                    )
+                }
+//            ColorSlider(value: $sliderValue, textColor: .green)
+//            ColorSlider(value: $sliderValue, textColor: .blue)
             Spacer()
         }
         .padding()
+    }
+    
+    private func checkUserName() {
+        if let _ = Double(userName) {
+            userName = ""
+            showAlert = true
+            return
+        }
         
+        displayedName = userName
+        userName = ""
     }
 }
 
@@ -34,8 +53,9 @@ struct UserNameView: View {
     let userName: String
     
     var body: some View {
-        HStack(alignment: .bottom) {
+        HStack(alignment: .firstTextBaseline) {
             Text("USERNAME:")
+                .frame(height: 60)
             Text(userName)
                 .font(.largeTitle)
         }
