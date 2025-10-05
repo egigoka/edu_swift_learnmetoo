@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.verticalSizeClass) var verticalSizeClass
-    
     @State var currentLight: CurrentLight = .none
     
     @State var redOpacity = 0.3
@@ -31,29 +29,31 @@ struct ContentView: View {
             }
         }
         .padding(.top)
-        Spacer()
-            .frame(height: verticalSizeClass == .compact ? 0 : 60)
-        Button(buttonText) {
-            switch currentLight {
-            case .none:
-                redOpacity = 1
-                currentLight = .red
-            case .red:
-                redOpacity = 0.3
-                yellowOpacity = 1
-                currentLight = .yellow
-            case .yellow:
-                yellowOpacity = 0.3
-                greenOpacity = 1
-                currentLight = .green
-            case .green:
-                greenOpacity = 0.3
-                redOpacity = 1
-                currentLight = .red
-            }
-            buttonText = "NEXT"
+        ResponsiveSpacer(portraitHeight: 60, landscapeHeight: 0)
+        StylizedButton(title: buttonText) {
+            buttonTapped()
         }
-        .buttonStyle(StylizedButton())
+    }
+    
+    private func buttonTapped() {
+        switch currentLight {
+        case .none:
+            redOpacity = 1
+            currentLight = .red
+        case .red:
+            redOpacity = 0.3
+            yellowOpacity = 1
+            currentLight = .yellow
+        case .yellow:
+            yellowOpacity = 0.3
+            greenOpacity = 1
+            currentLight = .green
+        case .green:
+            greenOpacity = 0.3
+            redOpacity = 1
+            currentLight = .red
+        }
+        buttonText = "NEXT"
     }
 }
 

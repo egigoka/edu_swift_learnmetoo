@@ -7,24 +7,23 @@
 
 import SwiftUI
 
-struct StylizedButton: PrimitiveButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-//        configuration.label
-//            .buttonStyle(.borderedProminent)
-//            .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
-//            .font(.title)
-//            .buttonSizing(.flexible)
-//            .padding()
-        Button(configuration)
-            .buttonStyle(.borderedProminent)
-            .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
-            .font(.title)
-            .buttonSizing(.flexible)
-            .padding()
+struct StylizedButton: View {
+    let title: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.title)
+                .fontWeight(.bold)
+        }
+        .buttonStyle(.borderedProminent)
+        .overlay(Capsule().stroke(Color(.label), lineWidth: 4))
+        .buttonSizing(.flexible)
+        .padding()
     }
 }
 
 #Preview {
-    Button("Preview") { }
-        .buttonStyle(StylizedButton())
+    StylizedButton(title: "Preview") { }
 }
