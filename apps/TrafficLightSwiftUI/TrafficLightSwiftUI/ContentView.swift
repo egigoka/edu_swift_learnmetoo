@@ -53,11 +53,7 @@ struct ContentView: View {
             }
             buttonText = "NEXT"
         }
-        .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
-        .font(.title)
-        .buttonSizing(.flexible)
-        .buttonStyle(.borderedProminent)
-        .padding()
+        .buttonStyle(StylizedButton())
     }
 }
 

@@ -7,9 +7,15 @@
 
 import SwiftUI
 
-struct StylizedButton: ButtonStyle {
+struct StylizedButton: PrimitiveButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
+//        configuration.label
+//            .buttonStyle(.borderedProminent)
+//            .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
+//            .font(.title)
+//            .buttonSizing(.flexible)
+//            .padding()
+        Button(configuration)
             .buttonStyle(.borderedProminent)
             .overlay(Capsule().stroke(Color(.label), lineWidth: 3))
             .font(.title)
