@@ -17,34 +17,31 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-            ColoredView(red: red, green: green, blue: blue)
-            ColorSlider(value: $red, color: .red
-            ) {
-                alertPresent = true
+        ZStack {
+            VStack {
+                ColoredView(red: red, green: green, blue: blue)
+                ColorSlider(value: $red, color: .red
+                ) {
+                    alertPresent = true
+                }
+                ColorSlider(value: $green,
+                            color: .green) {
+                    alertPresent = true
+                }
+                ColorSlider(value: $blue, color: .blue) {
+                    alertPresent = true
+                }
             }
-            ColorSlider(value: $green,
-                        color: .green) {
-                alertPresent = true
-            }
-            ColorSlider(value: $blue, color: .blue) {
-                alertPresent = true
-            }
+            
         }
         .focused($isFocused)
         .padding()
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                HStack {
-                    Button("Done") {
-                        isFocused = false
-                    }
-                    Button("Done") { // debug
-                        isFocused = false
-                    }
+                Button("Done") {
+                    isFocused = false
                 }
-                .padding()
             }
         }
         .alert(isPresented: $alertPresent) {
