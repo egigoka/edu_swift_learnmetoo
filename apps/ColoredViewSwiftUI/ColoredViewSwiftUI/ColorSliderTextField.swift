@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ColorSliderTextField: View {
     @FocusState var isFocused: Bool
-    @Binding var inputValue: String
+    @Binding var textValue: String
     @Binding var value: Double
     
     var onError: () -> Void
     
     var body: some View {
-        TextField("", text: $inputValue)
+        TextField("", text: $textValue)
             .focused($isFocused, equals: true)
             .monospacedDigit()
             .textFieldStyle(.roundedBorder)
@@ -32,13 +32,13 @@ struct ColorSliderTextField: View {
     }
     
     private func verifyInput() {
-        guard let inputValueAsDouble = Double(inputValue) else {
-            inputValue = "\(Int(value))"
+        guard let inputValueAsDouble = Double(textValue) else {
+            textValue = "\(Int(value))"
             onError()
             return
         }
         guard inputValueAsDouble <= 255, inputValueAsDouble >= 0 else {
-            inputValue = "\(Int(value))"
+            textValue = "\(Int(value))"
             onError()
             return
         }
@@ -47,7 +47,7 @@ struct ColorSliderTextField: View {
 }
 
 #Preview {
-    ColorSliderTextField(inputValue: .constant("234"),
+    ColorSliderTextField(textValue: .constant("234"),
                          value: .constant(235),
                          onError: {})
 }

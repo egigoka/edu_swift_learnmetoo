@@ -10,13 +10,13 @@ import SwiftUI
 struct ColorSlider: View {
     @FocusState var isFocused: Bool
     @Binding var value: Double
-    @State private var inputValue: String
+    @State private var textValue: String
     var color: Color
     var onError: () -> Void
     
     init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
             _value = value
-            _inputValue = State(initialValue: "\(Int(value.wrappedValue))")
+            _textValue = State(initialValue: "\(Int(value.wrappedValue))")
             self.color = color
             self.onError = onError
         }
@@ -36,10 +36,10 @@ struct ColorSlider: View {
             }
             .tint(color)
             .onChange(of: value) { _, newValue in
-                inputValue = "\(Int(value))"
+                textValue = "\(Int(value))"
             }
             
-            ColorSliderTextField(inputValue: $inputValue, value: $value, onError: onError)
+            ColorSliderTextField(textValue: $textValue, value: $value, onError: onError)
         }
     }
 }
