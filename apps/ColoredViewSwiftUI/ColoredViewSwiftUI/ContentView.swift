@@ -20,30 +20,32 @@ struct ContentView: View {
         ZStack {
             VStack {
                 ColoredView(red: red, green: green, blue: blue)
-                ColorSlider(value: $red, color: .red
-                ) {
-                    alertPresent = true
-                }
-                ColorSlider(value: $green,
-                            color: .green) {
-                    alertPresent = true
-                }
-                ColorSlider(value: $blue, color: .blue) {
-                    alertPresent = true
+                    .padding(.vertical)
+                ColorSlider(value: $red, color: .red) { alertPresent = true }
+                ColorSlider(value: $green, color: .green) { alertPresent = true }
+                    .padding(.vertical)
+                ColorSlider(value: $blue, color: .blue) { alertPresent = true }
+                    .padding(.vertical)
+                    .padding(.bottom, true ? 70 : 0)
+//                    .padding(.bottom, isFocused ? 70 : 0)
+            }
+            if true {
+//            if isFocused {
+                HStack{
+                    Spacer()
+                    VStack{
+                        Spacer()
+                        Button("Done") {
+                            isFocused = false
+                        }
+                        .buttonStyle(.glassProminent)
+                        .padding(16)
+                    }
                 }
             }
-            
         }
         .focused($isFocused)
         .padding()
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Done") {
-                    isFocused = false
-                }
-            }
-        }
         .alert(isPresented: $alertPresent) {
             Alert(
                 title: Text("Wrong value"),

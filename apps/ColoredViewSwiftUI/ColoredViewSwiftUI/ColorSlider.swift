@@ -55,7 +55,6 @@ struct ColorSlider: View {
                 .frame(width: 49)
             
         }
-        .padding()
         .backgroundStyle(.red)
     }
     
