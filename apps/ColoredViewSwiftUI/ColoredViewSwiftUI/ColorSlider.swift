@@ -14,9 +14,8 @@ struct ColorSlider: View {
     var onError: () -> Void
     
     init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
-        
-        self._value = $value
-        self._inputValue = String(Int(value))
+        _value = value
+        _inputValue = State(initialValue: "\(value.wrappedValue)")
         self.color = color
         self.onError = onError
     }
@@ -55,32 +54,6 @@ struct ColorSlider: View {
         .padding()
         .backgroundStyle(.red)
     }
-//    var color: Color
-//    @Binding var value: Double
-//    @State private var inputValue: String
-//    
-//    init(color: Color, value: Binding<Double>) {
-//        self.color = color
-//        self._value = $value
-//        self._inputValue = State(wrappedValue: String(value.wrappedValue))
-//    }
-//    
-//    var body: some View {
-//        HStack {
-//            Slider(value: $value, in: 0...255, step: 1) {
-//                EmptyView()
-//            } minimumValueLabel: {
-//                Text("\(Int(value))")
-//                    .monospacedDigit()
-//            } maximumValueLabel: {
-//                Text("")
-//            } onEditingChanged: { sliderValue in
-//                print(sliderValue)
-//            }
-//            TextField("", text: $inputValue)
-//        }
-//        .padding()
-//    }
 }
 
 #Preview {

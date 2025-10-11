@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State var value: Double
-    @State var inputValue: String
     @State var alertPresent: Bool
     @State var red: Double
     @State var green: Double
@@ -19,13 +18,13 @@ struct ContentView: View {
         
         VStack {
             ColoredView(red: red, green: green, blue: blue)
-            ColorSlider(value: $red, inputValue: $inputValue, color: .red) {
+            ColorSlider(value: $red, color: .red) {
                 alertPresent = true
             }
-            ColorSlider(value: $green, inputValue: $inputValue, color: .green) {
+            ColorSlider(value: $green, color: .green) {
                 alertPresent = true
             }
-            ColorSlider(value: $blue, inputValue: $inputValue, color: .blue) {
+            ColorSlider(value: $blue, color: .blue) {
                 alertPresent = true
             }
         }
@@ -43,7 +42,6 @@ struct ContentView: View {
 #Preview {
     ContentView(
         value: 100,
-        inputValue: "100",
         alertPresent: false,
         red: 100,
         green: 200,
