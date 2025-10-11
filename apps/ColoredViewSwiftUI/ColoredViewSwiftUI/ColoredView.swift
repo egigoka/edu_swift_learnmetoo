@@ -13,10 +13,6 @@ struct ColoredView: View {
     let blue: Double
     
     var body: some View {
-//        Rectangle()
-//            .fill(Color(red: red/255.0, green: green/255.0, blue: blue/255.0))
-//            .scaledToFill()
-//            .round
         let cornerRadius: CGFloat = 16
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
             .fill(Color(red: red/255, green: green/255, blue: blue/255))
@@ -28,7 +24,6 @@ struct ColoredView: View {
                 .stroke(lineWidth: 4)
                 
             )
-            .padding()
         
             
     }

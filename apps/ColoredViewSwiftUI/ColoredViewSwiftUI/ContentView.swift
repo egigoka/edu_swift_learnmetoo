@@ -20,17 +20,18 @@ struct ContentView: View {
         ZStack {
             VStack {
                 ColoredView(red: red, green: green, blue: blue)
-                    .padding(.vertical)
+                    .padding(.horizontal)
                 ColorSlider(value: $red, color: .red) { alertPresent = true }
+                    .padding(.vertical)
                 ColorSlider(value: $green, color: .green) { alertPresent = true }
                     .padding(.vertical)
                 ColorSlider(value: $blue, color: .blue) { alertPresent = true }
                     .padding(.vertical)
-                    .padding(.bottom, true ? 70 : 0)
-//                    .padding(.bottom, isFocused ? 70 : 0)
+//                    .padding(.bottom, true ? 60 : 0)
+                    .padding(.bottom, isFocused ? 70 : 0)
             }
-            if true {
-//            if isFocused {
+//            if true {
+            if isFocused {
                 HStack{
                     Spacer()
                     VStack{
