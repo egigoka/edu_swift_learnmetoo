@@ -19,9 +19,7 @@ struct ContentView: View {
         
         VStack {
             ColoredView(red: red, green: green, blue: blue)
-            ColorSlider(
-                value: $red,
-                color: .red
+            ColorSlider(value: $red, color: .red
             ) {
                 alertPresent = true
             }
@@ -38,15 +36,21 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button("Done") {
-                    isFocused = false
+                HStack {
+                    Button("Done") {
+                        isFocused = false
+                    }
+                    Button("Done") { // debug
+                        isFocused = false
+                    }
                 }
+                .padding()
             }
         }
         .alert(isPresented: $alertPresent) {
             Alert(
                 title: Text("Wrong value"),
-                message: Text("Please, input a number"),
+                message: Text("Please, input a number between 0 and 255"),
                 dismissButton: .default(Text("Ok"))
             )
         }

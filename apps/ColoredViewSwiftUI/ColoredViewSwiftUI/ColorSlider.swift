@@ -44,22 +44,33 @@ struct ColorSlider: View {
                 .monospacedDigit()
                 .textFieldStyle(.roundedBorder)
                 .onSubmit {
-                    if let inputValue = Double(inputValue)
-                    {
-                        value = inputValue
-                    } else {
-                        inputValue = "\(Int(value))"
-                        onError()
-                    }
+                    verifyInput()
                 }
+                .onChange(of: isFocused, { _, newValue in
+                    guard !newValue else { return }
+                    verifyInput()
+                })
                 .keyboardType(.numberPad)
                 .disableAutocorrection(true)
                 .frame(width: 49)
             
         }
-        .focused($isFocused)
         .padding()
         .backgroundStyle(.red)
+    }
+    
+    private func verifyInput() {
+        guard let inputValueAsDouble = Double(inputValue) else {
+            inputValue = "\(Int(value))"
+            onError()
+            return
+        }
+        guard inputValueAsDouble <= 255, inputValueAsDouble >= 0 else {
+            inputValue = "\(Int(value))"
+            onError()
+            return
+        }
+        value = inputValueAsDouble
     }
 }
 
