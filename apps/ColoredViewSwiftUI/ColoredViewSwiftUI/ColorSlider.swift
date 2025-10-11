@@ -27,9 +27,11 @@ struct ColorSlider: View {
             .onChange(of: value) { _, newValue in
                 inputValue = "\(Int(value))"
             }
+            
+            
             TextField("", text: $inputValue)
                 .monospacedDigit()
-                .border(.secondary)
+                .textFieldStyle(.roundedBorder)
                 .onSubmit {
                     if let inputValue = Double(inputValue)
                     {
@@ -39,7 +41,7 @@ struct ColorSlider: View {
                         onError()
                     }
                 }
-                .frame(width: 35)
+                .frame(width: 45)
         }
         .padding()
         .backgroundStyle(.red)
