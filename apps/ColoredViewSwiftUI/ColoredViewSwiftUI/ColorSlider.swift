@@ -19,13 +19,17 @@ struct ColorSlider: View {
             } minimumValueLabel: {
                 Text("\(Int(value))")
                     .monospacedDigit()
+                    .frame(width: 35)
             } maximumValueLabel: {
                 Text("")
+                    .frame(width: 0, height: 0)
             }
             .onChange(of: value) { _, newValue in
                 inputValue = "\(Int(value))"
             }
             TextField("", text: $inputValue)
+                .monospacedDigit()
+                .border(.secondary)
                 .onSubmit {
                     if let inputValue = Double(inputValue)
                     {
@@ -35,9 +39,10 @@ struct ColorSlider: View {
                         onError()
                     }
                 }
+                .frame(width: 35)
         }
-        .scaledToFill()
         .padding()
+        .backgroundStyle(.red)
     }
 //    var color: Color
 //    @Binding var value: Double
@@ -68,7 +73,7 @@ struct ColorSlider: View {
 }
 
 #Preview {
-    @Previewable @State var value: Double = Double.random(in: 0...255)
-    @Previewable @State var inputValue: String = ""
+    @Previewable @State var value: Double = 235
+    @Previewable @State var inputValue: String = "235"
     ColorSlider(value: $value, inputValue: $inputValue, onError: {})
 }
