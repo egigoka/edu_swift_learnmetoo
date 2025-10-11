@@ -25,12 +25,13 @@ struct ColorSlider: View {
             Slider(value: $value, in: 0...255, step: 1) {
                 EmptyView()
             } minimumValueLabel: {
-                Text("\(Int(value))")
-                    .monospacedDigit()
-                    .frame(width: 35)
+                AnyView(
+                    Text("\(Int(value))")
+                        .monospacedDigit()
+                        .frame(width: 35)
+                )
             } maximumValueLabel: {
-                Text("")
-                    .frame(width: 0, height: 0)
+                AnyView(EmptyView())
             }
             .tint(color)
             .onChange(of: value) { _, newValue in

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @FocusState private var focusedField: Int?
     @State var value: Double
     @State var alertPresent: Bool
     @State var red: Double
@@ -29,6 +30,15 @@ struct ContentView: View {
             }
         }
         .padding()
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    focusedField = nil // Dismiss keyboard for all sliders
+                }
+                .padding()
+            }
+        }
         .alert(isPresented: $alertPresent) {
             Alert(
                 title: Text("Wrong value"),
