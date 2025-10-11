@@ -9,8 +9,16 @@ import SwiftUI
 
 struct ColorSlider: View {
     @Binding var value: Double
-    @Binding var inputValue: String
+    @Binding private var inputValue: String
+    var color: Color
     var onError: () -> Void
+    
+    init(value: Double, inputValue: String, color: Color, onError: @escaping () -> Void) {
+        self._value = $value
+        self._inputValue = $inputValue
+        self.color = color
+        self.onError = onError
+    }
     
     var body: some View {
         HStack {
@@ -24,10 +32,10 @@ struct ColorSlider: View {
                 Text("")
                     .frame(width: 0, height: 0)
             }
+            .tint(color)
             .onChange(of: value) { _, newValue in
                 inputValue = "\(Int(value))"
             }
-            
             
             TextField("", text: $inputValue)
                 .monospacedDigit()
@@ -76,6 +84,5 @@ struct ColorSlider: View {
 
 #Preview {
     @Previewable @State var value: Double = 235
-    @Previewable @State var inputValue: String = "235"
-    ColorSlider(value: $value, inputValue: $inputValue, onError: {})
+    ColorSlider(value: $value, color: .red, onError: {})
 }
