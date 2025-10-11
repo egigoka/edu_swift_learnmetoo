@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ColorSlider: View {
     @Binding var value: Double
-    @Binding private var inputValue: String
+    @State private var inputValue: String
     var color: Color
     var onError: () -> Void
     
-    init(value: Double, inputValue: String, color: Color, onError: @escaping () -> Void) {
+    init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
+        
         self._value = $value
-        self._inputValue = $inputValue
+        self._inputValue = String(Int(value))
         self.color = color
         self.onError = onError
     }
