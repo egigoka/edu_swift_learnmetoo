@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @FocusState private var focusedField: Int?
+    @FocusState var isFocused: Bool
     @State var value: Double
     @State var alertPresent: Bool
     @State var red: Double
@@ -19,34 +19,28 @@ struct ContentView: View {
         
         VStack {
             ColoredView(red: red, green: green, blue: blue)
-            ColorSlider(value: $red, color: .red) {
+            ColorSlider(
+                value: $red,
+                color: .red
+            ) {
                 alertPresent = true
             }
-            ColorSlider(value: $green, color: .green) {
+            ColorSlider(value: $green,
+                        color: .green) {
                 alertPresent = true
             }
             ColorSlider(value: $blue, color: .blue) {
                 alertPresent = true
             }
         }
+        .focused($isFocused)
         .padding()
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                HStack {
-                    Spacer()
-                    Button("Done") {
-                        focusedField = nil
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(12)
-                    .shadow(radius: 1)
-                    Spacer()
+                Button("Done") {
+                    isFocused = false
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 4)
             }
         }
         .alert(isPresented: $alertPresent) {

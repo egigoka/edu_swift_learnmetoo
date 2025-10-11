@@ -40,7 +40,7 @@ struct ColorSlider: View {
             }
             
             TextField("", text: $inputValue)
-                .focused($isFocused)
+                .focused($isFocused, equals: true)
                 .monospacedDigit()
                 .textFieldStyle(.roundedBorder)
                 .onSubmit {
@@ -57,6 +57,7 @@ struct ColorSlider: View {
                 .frame(width: 49)
             
         }
+        .focused($isFocused)
         .padding()
         .backgroundStyle(.red)
     }
