@@ -8,9 +8,36 @@
 import SwiftUI
 
 struct ColorSlider: View {
+    @Binding var value: Double
+    @Binding var inputValue: String
+    var onError: () -> Void
     
     var body: some View {
-        
+        HStack {
+            Slider(value: $value, in: 0...255, step: 1) {
+                EmptyView()
+            } minimumValueLabel: {
+                Text("\(Int(value))")
+                    .monospacedDigit()
+            } maximumValueLabel: {
+                Text("")
+            }
+            .onChange(of: value) { _, newValue in
+                inputValue = "\(Int(value))"
+            }
+            TextField("", text: $inputValue)
+                .onSubmit {
+                    if let inputValue = Double(inputValue)
+                    {
+                        value = inputValue
+                    } else {
+                        inputValue = ""
+                        onError()
+                    }
+                }
+        }
+        .scaledToFill()
+        .padding()
     }
 //    var color: Color
 //    @Binding var value: Double
@@ -41,6 +68,7 @@ struct ColorSlider: View {
 }
 
 #Preview {
-//    @Previewable @State var projectedValue: Double = Double.random(in: 0...255)
-//    ColorSlider(color: .red, value: $projectedValue)
+    @Previewable @State var value: Double = Double.random(in: 0...255)
+    @Previewable @State var inputValue: String = ""
+    ColorSlider(value: $value, inputValue: $inputValue, onError: {})
 }
