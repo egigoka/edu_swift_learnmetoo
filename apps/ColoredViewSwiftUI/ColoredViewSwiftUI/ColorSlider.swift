@@ -51,7 +51,7 @@ struct ColorSlider: View {
                 }
                 .keyboardType(.numberPad)
                 .disableAutocorrection(true)
-                .frame(width: 45)
+                .scaledToFit()
             
         }
         .padding()
