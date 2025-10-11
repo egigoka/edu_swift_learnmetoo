@@ -15,11 +15,11 @@ struct ColorSlider: View {
     var onError: () -> Void
     
     init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
-        _value = value
-        _inputValue = State(initialValue: "\(Int(value.wrappedValue))")
-        self.color = color
-        self.onError = onError
-    }
+            _value = value
+            _inputValue = State(initialValue: "\(Int(value.wrappedValue))")
+            self.color = color
+            self.onError = onError
+        }
     
     var body: some View {
         HStack {
@@ -39,41 +39,11 @@ struct ColorSlider: View {
                 inputValue = "\(Int(value))"
             }
             
-            TextField("", text: $inputValue)
-                .focused($isFocused, equals: true)
-                .monospacedDigit()
-                .textFieldStyle(.roundedBorder)
-                .onSubmit {
-                    verifyInput()
-                }
-                .onChange(of: isFocused, { _, newValue in
-                    guard !newValue else { return }
-                    verifyInput()
-                })
-                .keyboardType(.numberPad)
-                .disableAutocorrection(true)
-                .frame(width: 49)
-            
+            ColorSliderTextField(inputValue: $inputValue, value: $value, onError: onError)
         }
-        .backgroundStyle(.red)
-    }
-    
-    private func verifyInput() {
-        guard let inputValueAsDouble = Double(inputValue) else {
-            inputValue = "\(Int(value))"
-            onError()
-            return
-        }
-        guard inputValueAsDouble <= 255, inputValueAsDouble >= 0 else {
-            inputValue = "\(Int(value))"
-            onError()
-            return
-        }
-        value = inputValueAsDouble
     }
 }
 
 #Preview {
-    @Previewable @State var value: Double = 235
-    ColorSlider(value: $value, color: .red, onError: {})
+    ColorSlider(value: .constant(235), color: .red, onError: {})
 }

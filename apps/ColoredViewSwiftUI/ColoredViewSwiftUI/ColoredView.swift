@@ -14,18 +14,12 @@ struct ColoredView: View {
     
     var body: some View {
         let cornerRadius: CGFloat = 16
-        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        RoundedRectangle(cornerRadius: cornerRadius)
             .fill(Color(red: red/255, green: green/255, blue: blue/255))
             .overlay(
-                RoundedRectangle(
-                    cornerRadius: cornerRadius,
-                    style: .continuous
-                )
-                .stroke(lineWidth: 4)
-                
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(lineWidth: 4)
             )
-        
-            
     }
 }
 
