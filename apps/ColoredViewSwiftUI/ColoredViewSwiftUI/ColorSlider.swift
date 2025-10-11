@@ -16,10 +16,8 @@ struct ColorSlider: View {
     init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
         _value = value
         _inputValue = State(initialValue: "\(Int(value.wrappedValue))")
-        //_inputValue = State(initialValue: "\(UIFont.labelFontSize)")
         self.color = color
         self.onError = onError
-        print("\(3 * 0.6 * 17 + 12)")
     }
     
     var body: some View {
@@ -53,7 +51,7 @@ struct ColorSlider: View {
                 }
                 .keyboardType(.numberPad)
                 .disableAutocorrection(true)
-                .frame(width: 3 * 0.6 * 17 + 12)
+                .frame(width: 49)
             
         }
         .padding()
