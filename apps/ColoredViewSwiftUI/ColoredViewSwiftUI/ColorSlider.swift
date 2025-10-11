@@ -15,7 +15,7 @@ struct ColorSlider: View {
     
     init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
         _value = value
-        _inputValue = State(initialValue: "\(value.wrappedValue)")
+        _inputValue = State(initialValue: "\(Int(value.wrappedValue))")
         self.color = color
         self.onError = onError
     }
@@ -45,11 +45,14 @@ struct ColorSlider: View {
                     {
                         value = inputValue
                     } else {
-                        inputValue = ""
+                        inputValue = "\(Int(value))"
                         onError()
                     }
                 }
+                .keyboardType(.numberPad)
+                .disableAutocorrection(true)
                 .frame(width: 45)
+            
         }
         .padding()
         .backgroundStyle(.red)
