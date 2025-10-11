@@ -33,10 +33,20 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button("Done") {
-                    focusedField = nil // Dismiss keyboard for all sliders
+                HStack {
+                    Spacer()
+                    Button("Done") {
+                        focusedField = nil
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .shadow(radius: 1)
+                    Spacer()
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.bottom, 4)
             }
         }
         .alert(isPresented: $alertPresent) {

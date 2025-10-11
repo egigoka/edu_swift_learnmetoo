@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ColorSlider: View {
+    @FocusState var isFocused: Bool
     @Binding var value: Double
     @State private var inputValue: String
     var color: Color
@@ -39,6 +40,7 @@ struct ColorSlider: View {
             }
             
             TextField("", text: $inputValue)
+                .focused($isFocused)
                 .monospacedDigit()
                 .textFieldStyle(.roundedBorder)
                 .onSubmit {
