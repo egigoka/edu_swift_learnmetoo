@@ -174,8 +174,8 @@ course 3 lesson 1 theory           - done
 course 3 lesson 1 homework         - done
 
 course 3 lesson 2 homework review  - done
-course 3 lesson 2 theory           - 2:36:29
-course 3 lesson 2 homework         - 
+course 3 lesson 2 theory           - done
+course 3 lesson 2 homework         - in progress
 
 course 3 lesson 3 homework review  - 
 course 3 lesson 3 theory           - 
