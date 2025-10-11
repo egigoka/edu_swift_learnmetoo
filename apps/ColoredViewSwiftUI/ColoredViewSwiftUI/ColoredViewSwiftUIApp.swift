@@ -11,7 +11,7 @@ import SwiftUI
 struct ColoredViewSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(value: 100, inputValue: "100", alertPresent: false)
         }
     }
 }
