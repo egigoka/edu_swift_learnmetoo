@@ -16,12 +16,25 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .offset(x: 0, y: 100)
             Spacer()
-            Button("Tap me") {
-                tapCount += 1
-            }
+            ButtonView(tapCount: $tapCount, color: .black)
             Spacer()
         }
         .padding()
+    }
+}
+
+struct ButtonView: View {
+    @Binding var tapCount: Int
+    
+    let color: Color
+    
+    var body: some View {
+        Button(action: {
+            tapCount += 1
+        }, label: {
+            
+        })
+        .background(color)
     }
 }
 
