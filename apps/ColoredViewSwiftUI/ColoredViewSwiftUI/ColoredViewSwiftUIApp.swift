@@ -13,7 +13,7 @@ struct ColoredViewSwiftUIApp: App {
         WindowGroup {
             ContentView(
                 red: 9,
-                green: 255,
+                green: 200,
                 blue: 99
             )
         }

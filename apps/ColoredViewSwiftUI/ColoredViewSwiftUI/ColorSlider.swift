@@ -38,10 +38,6 @@ struct ColorSlider: View {
             ColorSliderTextField(textValue: $textValue,
                                  sliderValue: $sliderValue)
         }
-        .onTapGesture {
-            UIApplication.shared.inputView?.endEditing(true)
-            isFocused = false
-        }
     }
     
     private func sliderText() -> AnyView {

@@ -21,9 +21,6 @@ struct DoneButtonLarge: View {
         .labelStyle(.iconOnly)
         .opacity(isFocused ? 1 : 0)
         .frame(height: isFocused ? nil : 0)
-        .onAppear {
-            isFocused = true
-        }
     }
 }
 
@@ -31,4 +28,7 @@ struct DoneButtonLarge: View {
     @Previewable @FocusState var isFocused: Bool
     
     DoneButtonLarge(isFocused: _isFocused)
+        .onAppear {
+            isFocused = true
+        }
 }
