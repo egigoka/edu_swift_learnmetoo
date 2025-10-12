@@ -27,10 +27,5 @@ struct DoneButtonLarge: View {
 #Preview {
     @Previewable @FocusState var isFocused: Bool
     
-    DoneButtonLarge(
-        isFocused: FocusState<Bool>()
-    )
-    .onAppear {
-        isFocused = true
-    }
+    DoneButtonLarge(isFocused: _isFocused)
 }

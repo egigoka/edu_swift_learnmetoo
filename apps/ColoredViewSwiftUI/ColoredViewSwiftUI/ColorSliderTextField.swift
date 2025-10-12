@@ -11,7 +11,7 @@ struct ColorSliderTextField: View {
     @FocusState var isFocused: Bool
     
     @Binding var textValue: String
-    @Binding var value: Double
+    @Binding var sliderValue: Double
     
     @State private var alertPresent: Bool = false
     
@@ -49,19 +49,19 @@ struct ColorSliderTextField: View {
             if !textValue.isEmpty {
                 alertPresent = true
             }
-            textValue = "\(Int(value))"
+            textValue = "\(Int(sliderValue))"
             return
         }
-        value = Double(intValue)
+        sliderValue = Double(intValue)
     }
 }
 
 
 #Preview {
     ColorSliderTextField(textValue: .constant("234"),
-                         value: .constant(235))
+                         sliderValue: .constant(235))
     ColorSliderTextField(textValue: .constant("88"),
-                         value: .constant(235))
+                         sliderValue: .constant(235))
     ColorSliderTextField(textValue: .constant("8"),
-                         value: .constant(235))
+                         sliderValue: .constant(235))
 }

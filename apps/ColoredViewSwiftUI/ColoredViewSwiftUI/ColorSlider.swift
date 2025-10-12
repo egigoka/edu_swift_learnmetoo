@@ -10,20 +10,20 @@ import SwiftUI
 struct ColorSlider: View {
     @FocusState var isFocused: Bool
     
-    @Binding var value: Double
+    @Binding var sliderValue: Double
     @State private var textValue: String
     
-    var color: Color
+    let color: Color
     
     init(value: Binding<Double>, color: Color) {
-            _value = value
+            _sliderValue = value
             _textValue = State(initialValue: "\(Int(value.wrappedValue))")
             self.color = color
         }
     
     var body: some View {
         HStack {
-            Slider(value: $value,
+            Slider(value: $sliderValue,
                    in: 0...255,
                    step: 1,
                    label: emptyView,
@@ -31,17 +31,17 @@ struct ColorSlider: View {
                    maximumValueLabel: emptyView
             )
             .accentColor(color)
-            .onChange(of: value) {
-                textValue = "\(Int(value))"
+            .onChange(of: sliderValue) {
+                textValue = "\(Int(sliderValue))"
             }
             
-            ColorSliderTextField(textValue: $textValue, value: $value)
+            ColorSliderTextField(textValue: $textValue, sliderValue: $sliderValue)
         }
     }
     
     private func sliderText() -> AnyView {
         AnyView(
-            Text("\(Int(value))")
+            Text("\(Int(sliderValue))")
                 .monospacedDigit()
                 .fixedDigitWidth(3)
         )
