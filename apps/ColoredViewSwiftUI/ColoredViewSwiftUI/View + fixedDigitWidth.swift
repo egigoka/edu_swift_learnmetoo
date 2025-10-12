@@ -14,6 +14,7 @@ extension View {
 }
 
 struct FixedDigitWidthModifier: ViewModifier {
+    @Environment(\.sizeCategory) var sizeCategory
     let digitCount: Int
     let padding: CGFloat
     @State private var width: CGFloat = 0
@@ -23,25 +24,23 @@ struct FixedDigitWidthModifier: ViewModifier {
             .monospacedDigit()
             .frame(width: width)
             .background(
-                GeometryReader { geo in
-                    Text(String(repeating: "0", count: digitCount))
-                        .monospacedDigit()
-                        .fixedSize()
-                        .opacity(0)
-                        .onAppear {
-                            // Force immediate measurement
-                            DispatchQueue.main.async {
-                                width = geo.size.width
-                            }
-                        }
-                        .background(
-                            GeometryReader { textGeo in
-                                Color.clear.onAppear {
+                Text(String(repeating: "0", count: digitCount))
+                    .monospacedDigit()
+                    .fixedSize()
+                    .opacity(0)
+                    .background(
+                        GeometryReader { textGeo in
+                            Color.clear
+                                .onAppear {
                                     width = textGeo.size.width + padding
                                 }
-                            }
-                        )
-                }
+                                .onChange(of: sizeCategory) {
+                                    DispatchQueue.main.async {
+                                        width = textGeo.size.width + padding
+                                    }
+                                }
+                        }
+                    )
             )
     }
 }

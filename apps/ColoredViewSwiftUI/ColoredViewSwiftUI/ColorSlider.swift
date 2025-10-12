@@ -12,6 +12,7 @@ struct ColorSlider: View {
     
     @Binding var value: Double
     @State private var textValue: String
+    
     var color: Color
     
     init(value: Binding<Double>, color: Color) {
@@ -22,24 +23,32 @@ struct ColorSlider: View {
     
     var body: some View {
         HStack {
-            Slider(value: $value, in: 0...255, step: 1) {
-                EmptyView()
-            } minimumValueLabel: {
-                AnyView(
-                    Text("\(Int(value))")
-                        .monospacedDigit()
-                        .fixedDigitWidth(3)
-                )
-            } maximumValueLabel: {
-                AnyView(EmptyView())
-            }
+            Slider(value: $value,
+                   in: 0...255,
+                   step: 1,
+                   label: emptyView,
+                   minimumValueLabel: sliderText,
+                   maximumValueLabel: emptyView
+            )
             .accentColor(color)
-            .onChange(of: value) { _, newValue in
+            .onChange(of: value) {
                 textValue = "\(Int(value))"
             }
             
             ColorSliderTextField(textValue: $textValue, value: $value)
         }
+    }
+    
+    private func sliderText() -> AnyView {
+        AnyView(
+            Text("\(Int(value))")
+                .monospacedDigit()
+                .fixedDigitWidth(3)
+        )
+    }
+    
+    private func emptyView() -> AnyView {
+        AnyView(EmptyView())
     }
 }
 
