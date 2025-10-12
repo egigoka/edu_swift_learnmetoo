@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ColorSlider: View {
     @FocusState var isFocused: Bool
+    
     @Binding var value: Double
     @State private var textValue: String
     var color: Color
@@ -32,7 +33,7 @@ struct ColorSlider: View {
             } maximumValueLabel: {
                 AnyView(EmptyView())
             }
-            .tint(color)
+            .accentColor(color)
             .onChange(of: value) { _, newValue in
                 textValue = "\(Int(value))"
             }
@@ -43,5 +44,6 @@ struct ColorSlider: View {
 }
 
 #Preview {
-    ColorSlider(value: .constant(235), color: .red)
+    @Previewable @State var value: Double = 235
+    ColorSlider(value: $value, color: .red)
 }

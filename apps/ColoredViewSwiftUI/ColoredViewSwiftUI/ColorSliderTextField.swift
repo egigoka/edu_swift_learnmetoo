@@ -24,9 +24,13 @@ struct ColorSliderTextField: View {
             .onSubmit { // if there's button to commit on keyboard
                 verifyInput()
             }
-            .onChange(of: isFocused, { _, newValue in // on end of editing
-                guard !newValue else { return }
-                verifyInput()
+            .onChange(of: isFocused, { _, newValue in
+                if newValue { // editing started
+                    textValue = ""
+                    // much smoother experience to clear before entering
+                } else { // end of edit
+                    verifyInput()
+                }
             })
             .keyboardType(.numberPad)
             .disableAutocorrection(true)
@@ -41,12 +45,14 @@ struct ColorSliderTextField: View {
     }
     
     private func verifyInput() {
-        guard let inputValueAsDouble = Double(textValue), (0...255) else {
+        guard let intValue = Int(textValue), (0...255).contains(intValue) else {
+            if !textValue.isEmpty {
+                alertPresent = true
+            }
             textValue = "\(Int(value))"
-            alertPresent = true
             return
         }
-        value = inputValueAsDouble
+        value = Double(intValue)
     }
 }
 

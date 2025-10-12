@@ -12,8 +12,6 @@ struct ColoredViewSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(
-                value: 100,
-                alertPresent: false,
                 red: 100,
                 green: 200,
                 blue: 150

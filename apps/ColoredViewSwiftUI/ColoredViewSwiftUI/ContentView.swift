@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @FocusState var isFocused: Bool
-    @State var value: Double
-    @State var alertPresent: Bool
     @State var red: Double
     @State var green: Double
     @State var blue: Double
@@ -52,8 +50,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView(
-        value: 100,
-        alertPresent: false,
         red: 100,
         green: 200,
         blue: 150)
