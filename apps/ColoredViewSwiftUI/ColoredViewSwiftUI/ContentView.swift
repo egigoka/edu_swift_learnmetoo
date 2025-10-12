@@ -27,15 +27,7 @@ struct ContentView: View {
             if isFocused {
                 HStack(spacing: 0){
                     Spacer()
-                    Button("Done", systemImage: "checkmark") {
-                        isFocused = false
-                    }
-                    .controlSize(.large)
-                    .buttonBorderShape(.circle)
-                    .buttonStyle(.glass)
-                    .labelStyle(.iconOnly)
-                    .opacity(isFocused ? 1 : 0)
-                    .frame(height: isFocused ? nil : 0)
+                    DoneButtonLarge(isFocused: _isFocused)
                 }
             }
         }
