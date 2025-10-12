@@ -41,7 +41,7 @@ struct ColorSliderTextField: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
-            .fixedDigitWidth(3)
+            .fixedDigitWidth(3, padding: 14)
     }
     
     private func verifyInput() {
@@ -60,6 +60,8 @@ struct ColorSliderTextField: View {
 #Preview {
     ColorSliderTextField(textValue: .constant("234"),
                          value: .constant(235))
-    ColorSliderTextField(textValue: .constant("0"),
+    ColorSliderTextField(textValue: .constant("88"),
+                         value: .constant(235))
+    ColorSliderTextField(textValue: .constant("8"),
                          value: .constant(235))
 }

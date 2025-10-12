@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func fixedDigitWidth(_ digitCount: Int, padding: CGFloat = 20) -> some View {
+    func fixedDigitWidth(_ digitCount: Int, padding: CGFloat = 0) -> some View {
         self.modifier(FixedDigitWidthModifier(digitCount: digitCount, padding: padding))
     }
 }
@@ -16,7 +16,7 @@ extension View {
 struct FixedDigitWidthModifier: ViewModifier {
     let digitCount: Int
     let padding: CGFloat
-    @State private var width: CGFloat = 100 // Start with reasonable default
+    @State private var width: CGFloat = 0
     
     func body(content: Content) -> some View {
         content
