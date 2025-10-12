@@ -32,13 +32,14 @@ struct ContentView: View {
                 .buttonStyle(.glassProminent)
                 .opacity(isFocused ? 1 : 0)
                 .frame(height: isFocused ? nil : 0)
+                .padding(isFocused ? .bottom : .horizontal)
             }
-            .background(Color.red)
         }
         .animation(.easeInOut(duration: animationDuration),
                    value: isFocused)
         .focused($isFocused)
-        .padding()
+        .padding(.horizontal)
+        .padding(.top)
     }
 }
 
