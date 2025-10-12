@@ -31,12 +31,17 @@ extension View {
         
     }
     
-//    func __textWidth(for count: Int) -> CGFloat {
-//
-//        let width = Font.Width(13)
-//
-//        return width
-//    }
+    func __textWidth(for count: Int) -> CGFloat {
+
+        let geometry = GeometryReader { geometry in
+            //print(geometry.size.width)
+            Text("000")
+                .monospacedDigit()
+                .hidden()
+                .preference(key: WidthPreferenceKey.self, value: geometry.size.width)
+        }
+        return 3
+    }
 }
 
 
@@ -49,10 +54,22 @@ struct TextLabelStaticTextWidth: View {
             .frame(width: self.textWidth(for: 3))
         let width = Double(self.textWidth(for: 3))
         let width2 = Double(self._textWidth(for: 3))
-//        let width3 = Double(self.__textWidth(for: 3))
+        let width3 = Double(self.__textWidth(for: 3))
         Text(String(width))
         Text(String(width2))
-//        Text(String(width3))
+        Text(String(width3))
+        TextField("", text: $text)
+                .monospacedDigit()
+                .overlay(
+                    GeometryReader { geo in
+                        Color.clear.preference(
+                            key: WidthPreferenceKey.self,
+                            value: geo.size.width
+                        )
+                    }
+                )
+                .hidden()
+                .background(Color.red)
     }
 }
 

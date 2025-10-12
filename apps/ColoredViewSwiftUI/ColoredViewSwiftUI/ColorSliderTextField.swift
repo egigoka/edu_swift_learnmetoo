@@ -14,6 +14,7 @@ struct ColorSliderTextField: View {
     @Binding var value: Double
     
     @State private var alertPresent: Bool = false
+    @State private var threeDigitWidth: CGFloat = 50
     
     var body: some View {
         TextField("", text: $textValue)
@@ -21,10 +22,23 @@ struct ColorSliderTextField: View {
             .multilineTextAlignment(.center)
             .monospacedDigit()
             .background(
-                Text("000")
-                    .monospacedDigit()
-                    .hidden()
+                GeometryReader { geometry in
+                    Text("000")
+                        .monospacedDigit()
+                        .background(
+                            GeometryReader { geo in
+                                Color.clear.preference(
+                                    key: WidthPreferenceKey.self,
+                                    value: geo.size.width
+                                )
+                            }
+                        )
+                }
             )
+            .onPreferenceChange(WidthPreferenceKey.self) { width in
+                threeDigitWidth = width + 16 // TextField padding
+            }
+            .frame(width: threeDigitWidth)
             .textFieldStyle(.roundedBorder)
             .onSubmit { // if there's button to commit on keyboard
                 verifyInput()
@@ -60,6 +74,13 @@ struct ColorSliderTextField: View {
             return
         }
         value = Double(intValue)
+    }
+}
+
+struct WidthPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
 
