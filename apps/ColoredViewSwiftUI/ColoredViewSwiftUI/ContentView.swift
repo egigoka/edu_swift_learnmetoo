@@ -13,52 +13,32 @@ struct ContentView: View {
     @State var green: Double
     @State var blue: Double
     
+    private let animationDuration = 0.25
+    private let spacing = 32.0
+    
     var body: some View {
-        ZStack {
-            VStack {
-                ColoredView(red: red, green: green, blue: blue)
-                    .padding(.horizontal)
-                ColorSlider(value: $red, color: .red)
-                    .padding(.vertical)
-                ColorSlider(value: $green, color: .green)
-                    .padding(.vertical)
-                ColorSlider(value: $blue, color: .blue)
-                    .padding(.vertical)
-                //  .padding(.bottom, true ? 60 : 0) // for preview
-                    .padding(.bottom, isFocused ? 70 : 0)
+        VStack(spacing: spacing) {
+            ColoredView(red: red, green: green, blue: blue)
+                .padding(.horizontal)
+            ColorSlider(value: $red, color: .red)
+            ColorSlider(value: $green, color: .green)
+            ColorSlider(value: $blue, color: .blue)
+            
+            HStack{
+                Spacer()
+                Button("Done") {
+                    isFocused = false
+                }
+                .buttonStyle(.glassProminent)
+                .opacity(isFocused ? 1 : 0)
+                .frame(height: isFocused ? nil : 0)
             }
-            .animation(.easeInOut(duration: 2), value: isFocused)
-            ZStack {
-                // if true { // for preview
-                //if isFocused {
-                    VStack{
-                        Spacer()
-                        HStack{
-                            Spacer()
-                            Button("Done") {
-                                withAnimation(.easeInOut(duration: 2)) {
-                                    isFocused = false
-                                }
-                            }
-                            .buttonStyle(.glassProminent)
-                            .padding(16)
-                        }
-                    }
-                    .opacity(isFocused ? 1 : 0)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                //}
-            }
-            .animation(.easeInOut(duration: 2), value: isFocused)
+            .background(Color.red)
         }
+        .animation(.easeInOut(duration: animationDuration),
+                   value: isFocused)
         .focused($isFocused)
         .padding()
-        .onChange(of: isFocused) { oldValue, newValue in
-            if newValue {
-                withAnimation(.easeInOut(duration: 2)) {
-                    // for button appearing animation
-                }
-            }
-        }
     }
 }
 
