@@ -21,16 +21,16 @@ struct ContentView: View {
             VStack {
                 ColoredView(red: red, green: green, blue: blue)
                     .padding(.horizontal)
-                ColorSlider(value: $red, color: .red) { alertPresent = true }
+                ColorSlider(value: $red, color: .red)
                     .padding(.vertical)
-                ColorSlider(value: $green, color: .green) { alertPresent = true }
+                ColorSlider(value: $green, color: .green)
                     .padding(.vertical)
-                ColorSlider(value: $blue, color: .blue) { alertPresent = true }
+                ColorSlider(value: $blue, color: .blue)
                     .padding(.vertical)
-//                    .padding(.bottom, true ? 60 : 0)
+//                    .padding(.bottom, true ? 60 : 0) // for preview
                     .padding(.bottom, isFocused ? 70 : 0)
             }
-//            if true {
+//            if true { // for preview
             if isFocused {
                 HStack{
                     Spacer()
@@ -47,13 +47,6 @@ struct ContentView: View {
         }
         .focused($isFocused)
         .padding()
-        .alert(isPresented: $alertPresent) {
-            Alert(
-                title: Text("Wrong value"),
-                message: Text("Please, input a number between 0 and 255"),
-                dismissButton: .default(Text("Ok"))
-            )
-        }
     }
 }
 

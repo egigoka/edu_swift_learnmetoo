@@ -12,13 +12,11 @@ struct ColorSlider: View {
     @Binding var value: Double
     @State private var textValue: String
     var color: Color
-    var onError: () -> Void
     
-    init(value: Binding<Double>, color: Color, onError: @escaping () -> Void) {
+    init(value: Binding<Double>, color: Color) {
             _value = value
             _textValue = State(initialValue: "\(Int(value.wrappedValue))")
             self.color = color
-            self.onError = onError
         }
     
     var body: some View {
@@ -39,11 +37,11 @@ struct ColorSlider: View {
                 textValue = "\(Int(value))"
             }
             
-            ColorSliderTextField(textValue: $textValue, value: $value, onError: onError)
+            ColorSliderTextField(textValue: $textValue, value: $value)
         }
     }
 }
 
 #Preview {
-    ColorSlider(value: .constant(235), color: .red, onError: {})
+    ColorSlider(value: .constant(235), color: .red)
 }
