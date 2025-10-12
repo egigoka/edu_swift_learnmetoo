@@ -14,7 +14,6 @@ struct ContentView: View {
     @State var blue: Double
     
     var body: some View {
-        
         ZStack {
             VStack {
                 ColoredView(red: red, green: green, blue: blue)
@@ -25,26 +24,41 @@ struct ContentView: View {
                     .padding(.vertical)
                 ColorSlider(value: $blue, color: .blue)
                     .padding(.vertical)
-//                    .padding(.bottom, true ? 60 : 0) // for preview
+                //  .padding(.bottom, true ? 60 : 0) // for preview
                     .padding(.bottom, isFocused ? 70 : 0)
             }
-//            if true { // for preview
-            if isFocused {
-                HStack{
-                    Spacer()
+            .animation(.easeInOut(duration: 2), value: isFocused)
+            ZStack {
+                // if true { // for preview
+                //if isFocused {
                     VStack{
                         Spacer()
-                        Button("Done") {
-                            isFocused = false
+                        HStack{
+                            Spacer()
+                            Button("Done") {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    isFocused = false
+                                }
+                            }
+                            .buttonStyle(.glassProminent)
+                            .padding(16)
                         }
-                        .buttonStyle(.glassProminent)
-                        .padding(16)
                     }
-                }
+                    .opacity(isFocused ? 1 : 0)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                //}
             }
+            .animation(.easeInOut(duration: 2), value: isFocused)
         }
         .focused($isFocused)
         .padding()
+        .onChange(of: isFocused) { oldValue, newValue in
+            if newValue {
+                withAnimation(.easeInOut(duration: 2)) {
+                    // for button appearing animation
+                }
+            }
+        }
     }
 }
 
