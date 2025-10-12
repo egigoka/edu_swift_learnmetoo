@@ -24,22 +24,30 @@ struct ContentView: View {
             ColorSlider(value: $green, color: .green)
             ColorSlider(value: $blue, color: .blue)
             
-            HStack{
-                Spacer()
-                Button("Done") {
-                    isFocused = false
+            if true {
+                HStack{
+                    Spacer()
+                    Button("Done") {
+                        isFocused = false
+                    }
+                    .buttonStyle(.glass)
+                    .opacity(isFocused ? 1 : 1)
+                    .frame(height: isFocused ? nil : nil)
+                    Button("Done", systemImage: "checkmark") {
+                        isFocused = false
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.glass)
+                    .opacity(isFocused ? 1 : 1)
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(height: isFocused ? nil : nil)
                 }
-                .buttonStyle(.glassProminent)
-                .opacity(isFocused ? 1 : 0)
-                .frame(height: isFocused ? nil : 0)
-                .padding(isFocused ? .bottom : .horizontal)
             }
         }
         .animation(.easeInOut(duration: animationDuration),
                    value: isFocused)
         .focused($isFocused)
-        .padding(.horizontal)
-        .padding(.top)
+        .padding()
     }
 }
 
