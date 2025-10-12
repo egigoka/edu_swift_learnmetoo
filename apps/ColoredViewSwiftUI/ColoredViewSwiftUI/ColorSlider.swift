@@ -28,7 +28,6 @@ struct ColorSlider: View {
                 AnyView(
                     Text("\(Int(value))")
                         .monospacedDigit()
-                        .frame(width: 35)
                 )
             } maximumValueLabel: {
                 AnyView(EmptyView())

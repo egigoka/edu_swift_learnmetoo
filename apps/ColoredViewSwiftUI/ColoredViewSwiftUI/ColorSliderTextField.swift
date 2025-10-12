@@ -34,7 +34,7 @@ struct ColorSliderTextField: View {
             })
             .keyboardType(.numberPad)
             .disableAutocorrection(true)
-            .frame(width: 49)
+            .frame(width: textWidth(for: 3))
             .alert(isPresented: $alertPresent) {
                 Alert(
                     title: Text("Wrong value"),
@@ -53,6 +53,17 @@ struct ColorSliderTextField: View {
             return
         }
         value = Double(intValue)
+    }
+    
+    private func textWidth(for count: Int) -> CGFloat {
+        let fontSize = UIFont.preferredFont(forTextStyle: .body).pointSize
+        let sample = String(repeating: "8", count: count)
+        let font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: .regular)
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
+        let size = sample.size(withAttributes: attributes)
+        print(size.width)
+        print(fontSize)
+        return size.width + 16 // inner padding compensation
     }
 }
 
