@@ -14,31 +14,12 @@ struct ColorSliderTextField: View {
     @Binding var value: Double
     
     @State private var alertPresent: Bool = false
-    @State private var threeDigitWidth: CGFloat = 50
     
     var body: some View {
         TextField("", text: $textValue)
             .focused($isFocused, equals: true)
             .multilineTextAlignment(.center)
             .monospacedDigit()
-            .background(
-                GeometryReader { geometry in
-                    Text("000")
-                        .monospacedDigit()
-                        .background(
-                            GeometryReader { geo in
-                                Color.clear.preference(
-                                    key: WidthPreferenceKey.self,
-                                    value: geo.size.width
-                                )
-                            }
-                        )
-                }
-            )
-            .onPreferenceChange(WidthPreferenceKey.self) { width in
-                threeDigitWidth = width + 16 // TextField padding
-            }
-            .frame(width: threeDigitWidth)
             .textFieldStyle(.roundedBorder)
             .onSubmit { // if there's button to commit on keyboard
                 verifyInput()
@@ -53,9 +34,6 @@ struct ColorSliderTextField: View {
             })
             .keyboardType(.numberPad)
             .disableAutocorrection(true)
-            .background() {
-                Color.red
-            }
             .alert(isPresented: $alertPresent) {
                 Alert(
                     title: Text("Wrong value"),
@@ -63,6 +41,7 @@ struct ColorSliderTextField: View {
                     dismissButton: .default(Text("Ok"))
                 )
             }
+            .fixedDigitWidth(3)
     }
     
     private func verifyInput() {
@@ -77,14 +56,10 @@ struct ColorSliderTextField: View {
     }
 }
 
-struct WidthPreferenceKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
 
 #Preview {
     ColorSliderTextField(textValue: .constant("234"),
+                         value: .constant(235))
+    ColorSliderTextField(textValue: .constant("0"),
                          value: .constant(235))
 }

@@ -28,11 +28,7 @@ struct ColorSlider: View {
                 AnyView(
                     Text("\(Int(value))")
                         .monospacedDigit()
-                        .background(
-                            Text("000")
-                                .monospacedDigit()
-                                .hidden()
-                        )
+                        .fixedDigitWidth(3)
                 )
             } maximumValueLabel: {
                 AnyView(EmptyView())
@@ -50,4 +46,5 @@ struct ColorSlider: View {
 #Preview {
     @Previewable @State var value: Double = 235
     ColorSlider(value: $value, color: .red)
+    ColorSlider(value: .constant(0), color: .red)
 }
