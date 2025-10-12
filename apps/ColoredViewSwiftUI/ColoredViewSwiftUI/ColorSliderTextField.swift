@@ -20,6 +20,11 @@ struct ColorSliderTextField: View {
             .focused($isFocused, equals: true)
             .multilineTextAlignment(.center)
             .monospacedDigit()
+            .background(
+                Text("000")
+                    .monospacedDigit()
+                    .hidden()
+            )
             .textFieldStyle(.roundedBorder)
             .onSubmit { // if there's button to commit on keyboard
                 verifyInput()
@@ -34,7 +39,9 @@ struct ColorSliderTextField: View {
             })
             .keyboardType(.numberPad)
             .disableAutocorrection(true)
-            .frame(width: textWidth(for: 3))
+            .background() {
+                Color.red
+            }
             .alert(isPresented: $alertPresent) {
                 Alert(
                     title: Text("Wrong value"),
