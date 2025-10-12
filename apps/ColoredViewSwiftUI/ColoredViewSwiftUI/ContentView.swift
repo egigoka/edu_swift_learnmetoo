@@ -20,9 +20,9 @@ struct ContentView: View {
         VStack(spacing: spacing) {
             ColoredView(red: red, green: green, blue: blue)
                 .padding(.horizontal)
-            ColorSlider(value: $red, color: .red)
-            ColorSlider(value: $green, color: .green)
-            ColorSlider(value: $blue, color: .blue)
+            ColorSlider(sliderValue: $red, color: .red)
+            ColorSlider(sliderValue: $green, color: .green)
+            ColorSlider(sliderValue: $blue, color: .blue)
             
             if isFocused {
                 HStack(spacing: 0){

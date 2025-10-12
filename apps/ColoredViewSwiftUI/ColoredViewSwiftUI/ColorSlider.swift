@@ -15,9 +15,9 @@ struct ColorSlider: View {
     
     let color: Color
     
-    init(value: Binding<Double>, color: Color) {
-            _sliderValue = value
-            _textValue = State(initialValue: "\(Int(value.wrappedValue))")
+    init(sliderValue: Binding<Double>, color: Color) {
+            _sliderValue = sliderValue
+            _textValue = State(initialValue: "\(lround(sliderValue.wrappedValue))")
             self.color = color
         }
     
@@ -32,10 +32,15 @@ struct ColorSlider: View {
             )
             .accentColor(color)
             .onChange(of: sliderValue) {
-                textValue = "\(Int(sliderValue))"
+                textValue = "\(lround(sliderValue))"
             }
             
-            ColorSliderTextField(textValue: $textValue, sliderValue: $sliderValue)
+            ColorSliderTextField(textValue: $textValue,
+                                 sliderValue: $sliderValue)
+        }
+        .onTapGesture {
+            UIApplication.shared.inputView?.endEditing(true)
+            isFocused = false
         }
     }
     
@@ -54,6 +59,6 @@ struct ColorSlider: View {
 
 #Preview {
     @Previewable @State var value: Double = 235
-    ColorSlider(value: $value, color: .red)
-    ColorSlider(value: .constant(0), color: .red)
+    ColorSlider(sliderValue: $value, color: .red)
+    ColorSlider(sliderValue: .constant(0), color: .red)
 }
