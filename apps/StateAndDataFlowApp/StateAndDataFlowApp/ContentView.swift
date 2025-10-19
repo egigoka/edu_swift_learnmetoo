@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tapCount = 0
     
     var body: some View {
         VStack {
-            Text("\(tapCount)")
+            Text("3")
                 .font(.largeTitle)
                 .offset(x: 0, y: 100)
             Spacer()
-            ButtonView(tapCount: $tapCount, color: .black)
+            ButtonView()
             Spacer()
         }
         .padding()
@@ -24,10 +23,6 @@ struct ContentView: View {
 }
 
 struct ButtonView: View {
-    @Binding var tapCount: Int
-    
-    let color: Color
-    
 //    init(tapCount: Binding<Int>, color: Color) {
 //        _tapCount = tapCount
 //        self.color = color
@@ -35,15 +30,15 @@ struct ButtonView: View {
     
     var body: some View {
         Button(action: {
-            tapCount += 1
+            
         }) {
-            Text("Tap me")
+            Text("Start")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
         }
         .frame(width: 200, height: 60)
-        .background(color)
+        .background(.red)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
