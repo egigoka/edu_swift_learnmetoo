@@ -28,13 +28,27 @@ struct ButtonView: View {
     
     let color: Color
     
+//    init(tapCount: Binding<Int>, color: Color) {
+//        _tapCount = tapCount
+//        self.color = color
+//    }
+    
     var body: some View {
         Button(action: {
             tapCount += 1
-        }, label: {
-            
-        })
+        }) {
+            Text("Tap me")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+        }
+        .frame(width: 200, height: 60)
         .background(color)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.blue, lineWidth: 4)
+        )
     }
 }
 
