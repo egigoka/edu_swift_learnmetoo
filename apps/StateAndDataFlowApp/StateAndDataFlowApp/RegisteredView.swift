@@ -15,6 +15,7 @@ struct RegisteredView: View {
             HStack {
                 TextField("Enter your name", text: $user.name)
                     .multilineTextAlignment(.center)
+                    .autocorrectionDisabled()
                 Text("\(user.name.count)")
                     .foregroundStyle(user.name.count >= 3 ? .green : .red)
                     .padding()
@@ -25,6 +26,7 @@ struct RegisteredView: View {
                     Text("Ok")
                 }
             }
+            .disabled(user.name.count < 3)
 
         }
     }

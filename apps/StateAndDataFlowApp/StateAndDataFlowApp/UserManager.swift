@@ -9,5 +9,5 @@ import Combine
 
 class UserManager: ObservableObject {
     @Published var isRegistered = false
-    var name = ""
+    @Published var name = ""
 }

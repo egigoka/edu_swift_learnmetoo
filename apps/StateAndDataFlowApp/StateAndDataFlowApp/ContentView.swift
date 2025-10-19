@@ -20,15 +20,23 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .offset(x: 0, y: 100)
             Spacer()
-            ButtonView(timer: timer)
+            ButtonView(buttonTitle: $timer.buttonTitle, color: .red) {
+                timer.startTimer()
+            }
             Spacer()
+            ButtonView(buttonTitle: .constant("Logout"), color: .black) {
+                user.isRegistered = false
+                user.name = ""
+            }
         }
         .padding()
     }
 }
 
 struct ButtonView: View {
-    @StateObject var timer: TimeCounter
+    @Binding var buttonTitle: String
+    let color: Color
+    let action: () -> Void
     
 //    init(tapCount: Binding<Int>, color: Color) {
 //        _tapCount = tapCount
@@ -36,16 +44,14 @@ struct ButtonView: View {
 //    }
     
     var body: some View {
-        Button(action: {
-            timer.startTimer()
-        }) {
-            Text(timer.buttonTitle)
+        Button(action: action) {
+            Text(buttonTitle)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
         }
         .frame(width: 200, height: 60)
-        .background(.red)
+        .background(color)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
