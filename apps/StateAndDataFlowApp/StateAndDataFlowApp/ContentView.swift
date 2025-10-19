@@ -29,10 +29,6 @@ struct ContentView: View {
             }
         }
         .padding()
-        .onAppear() {
-            print("is registered? \(user.user.isRegistered)")
-            print("\"\(user.user.name)\"")
-        }
     }
 }
 

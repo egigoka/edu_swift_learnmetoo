@@ -10,7 +10,8 @@ import Combine
 class UserManager: ObservableObject {
     
     @Published var user = User() {
-        willSet {
+        didSet {
+            guard user.isRegistered else { return }
             StorageManager.shared.saveUser(user: user)
         }
     }

@@ -11,16 +11,15 @@ struct StarterView: View {
     @EnvironmentObject var user: UserManager
     
     var body: some View {
-        Group {
-            if user.user.isRegistered {
-                ContentView()
-            } else {
-                RegisteredView()
-            }
-        }
-        .onAppear() {
-            print("is registered? \(user.user.isRegistered)")
-            print("\"\(user.user.name)\"")
+        if user.user.isRegistered {
+            ContentView()
+        } else {
+            RegisteredView()
+                .onTapGesture {
+                    UIApplication.shared.inputViewController?.dismissKeyboard()
+                    print("dismissed?")
+                }
+                //.overlay(Rectangle())
         }
     }
 }

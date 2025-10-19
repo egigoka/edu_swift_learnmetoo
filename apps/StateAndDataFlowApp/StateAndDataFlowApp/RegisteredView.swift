@@ -12,23 +12,28 @@ struct RegisteredView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                TextField("Enter your name", text: $user.user.name)
-                    .multilineTextAlignment(.center)
-                    .autocorrectionDisabled()
-                Text("\(user.user.name.count)")
-                    .foregroundStyle(user.valid ? .green : .red)
-                    .padding()
-            }
-            Button(action: registerUser) {
+            Spacer()
+            VStack {
                 HStack {
-                    Image(systemName: "checkmark.circle")
-                    Text("Ok")
+                    TextField("Enter your name", text: $user.user.name)
+                        .multilineTextAlignment(.center)
+                        .autocorrectionDisabled()
+                    Text("\(user.user.name.count)")
+                        .foregroundStyle(user.valid ? .green : .red)
+                        .padding()
                 }
+                Button(action: registerUser) {
+                    HStack {
+                        Image(systemName: "checkmark.circle")
+                        Text("Ok")
+                    }
+                }
+                .disabled(!user.valid)
             }
-            .disabled(!user.valid)
-
+            Spacer()
+            
         }
+//        .overlay(Rectangle())
     }
     
     private func registerUser() {
