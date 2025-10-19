@@ -18,6 +18,10 @@ struct StarterView: View {
                 RegisteredView()
             }
         }
+        .onAppear() {
+            print("is registered? \(user.user.isRegistered)")
+            print("\"\(user.user.name)\"")
+        }
     }
 }
 

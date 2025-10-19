@@ -9,13 +9,19 @@ import Combine
 
 class UserManager: ObservableObject {
     
-    @Published var user = User()
+    @Published var user = User() {
+        willSet {
+            StorageManager.shared.saveUser(user: user)
+        }
+    }
     
     var valid: Bool {
         user.name.count >= 3
     }
     
-    init() {}
+    init() {
+        user = StorageManager.shared.loadUser()
+    }
     
     init(user: User) {
         self.user = user

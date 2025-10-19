@@ -25,11 +25,14 @@ struct ContentView: View {
             }
             Spacer()
             ButtonView(buttonTitle: .constant("Logout"), color: .black) {
-                user.user.isRegistered = false
-                user.user.name = ""
+                StorageManager.shared.clear(userManager: user)
             }
         }
         .padding()
+        .onAppear() {
+            print("is registered? \(user.user.isRegistered)")
+            print("\"\(user.user.name)\"")
+        }
     }
 }
 
