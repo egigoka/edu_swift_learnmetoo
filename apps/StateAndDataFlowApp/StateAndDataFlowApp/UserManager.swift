@@ -5,19 +5,24 @@
 //  Created by egigoka on 19.10.2025.
 //
 
-import SwiftUI
 import Combine
 
 class UserManager: ObservableObject {
-    @AppStorage("isRegistered") var isRegistered = false {
-        willSet {
-            objectWillChange.send()
-        }
+    
+    @Published var user = User()
+    
+    var valid: Bool {
+        user.name.count >= 3
     }
-    @AppStorage("userName") var name = "" {
-        willSet {
-            objectWillChange.send()
-        }
+    
+    init() {}
+    
+    init(user: User) {
+        self.user = user
     }
-    @Published
+}
+
+struct User: Codable {
+    var name = ""
+    var isRegistered = false
 }

@@ -13,11 +13,11 @@ struct RegisteredView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Enter your name", text: $user.name)
+                TextField("Enter your name", text: $user.user.name)
                     .multilineTextAlignment(.center)
                     .autocorrectionDisabled()
-                Text("\(user.name.count)")
-                    .foregroundStyle(user.name.count >= 3 ? .green : .red)
+                Text("\(user.user.name.count)")
+                    .foregroundStyle(user.valid ? .green : .red)
                     .padding()
             }
             Button(action: registerUser) {
@@ -26,14 +26,14 @@ struct RegisteredView: View {
                     Text("Ok")
                 }
             }
-            .disabled(user.name.count < 3)
+            .disabled(!user.valid)
 
         }
     }
     
     private func registerUser() {
-        if !user.name.isEmpty {
-            user.isRegistered = true
+        if !user.user.name.isEmpty {
+            user.user.isRegistered = true
         }
     }
 }
