@@ -1,0 +1,15 @@
+{
+  "originHash" : "867b42eae7e57747c3dd44f84cace054d15c9a9bc8e70319e5fa0592dffb2ebe",
+  "pins" : [
+    {
+      "identity" : "timelinetableviewcell",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kf99916/TimelineTableViewCell",
+      "state" : {
+        "revision" : "ddd74c3f1993cdff68b3b86dac8ffd46b0795dd7",
+        "version" : "2.2.2"
+      }
+    }
+  ],
+  "version" : 3
+}
