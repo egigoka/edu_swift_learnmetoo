@@ -18,26 +18,30 @@ struct TimelineInfo: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UITableViewController,
                                 context: Context) {
+        let bundle = Bundle(for: TimelineTableViewCell.self)
+        let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle")
+        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell",
+            bundle: Bundle(url: nibUrl!)!)
+        uiViewController.tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
+        
         let timelineTableViewCell = UINib(
             nibName: "TimelineTableViewCell",
-            bundle: nil
+            bundle: Bundle(for: TimelineTableViewCell.self)
         )
-        
-        uiViewController.tableView.register(timelineTableViewCell, forCellReuseIdentifier: "TimelineTableViewCell")
         
         uiViewController.tableView.dataSource = context.coordinator
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(fligths: flights)
+        Coordinator(flights: flights)
     }
 }
 
 class Coordinator: NSObject {
     let flights: [FlightInformation]
     
-    init(fligths: [FlightInformation]) {
-        self.flights = fligths
+    init(flights: [FlightInformation]) {
+        self.flights = flights
     }
 }
 
