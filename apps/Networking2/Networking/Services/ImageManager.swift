@@ -14,10 +14,14 @@ class ImageManager {
     
     private init() {}
     
-    private func getImage(from imageUrl: URL) async -> UIImage? {
+    func fetchImage(from imageUrl: String?) async -> UIImage? {
+        guard let imageUrl = imageUrl else { return nil }
+        guard let imageUrl = URL(string: imageUrl) else { return nil }
+        
         if let cached = await cache.cachedImage(for: imageUrl) {
             return cached
         }
+        
         guard let data = try? Data(contentsOf: imageUrl) else { return nil }
         let image = UIImage(data: data)
         

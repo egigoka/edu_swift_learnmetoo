@@ -25,7 +25,7 @@ class CoursesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        guard let cell = cell as? CourseCell else { return cell }
+        guard let cell = cell as? CourseTableViewCell else { return cell }
         
         let course = courses[indexPath.row]
         
