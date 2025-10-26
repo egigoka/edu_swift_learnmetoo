@@ -51,10 +51,12 @@ extension CoursesViewController {
             guard let data = data else { return }
             
             do {
-                self.courses = try JSONDecoder().decode([Course].self, from: data)
+                print(String(data: data, encoding: .utf8) ?? "no data")
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                self.courses = try jsonDecoder.decode([Course].self, from: data)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    print("    data reloaded")
                 }
             } catch let error {
                 print(error)
