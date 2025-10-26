@@ -20,14 +20,10 @@ struct TimelineInfo: UIViewControllerRepresentable {
                                 context: Context) {
         let bundle = Bundle(for: TimelineTableViewCell.self)
         let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle")
+        let nibUrlUnwrapped = nibUrl!
         let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell",
-            bundle: Bundle(url: nibUrl!)!)
+            bundle: Bundle(url: nibUrlUnwrapped)!)
         uiViewController.tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
-        
-        let timelineTableViewCell = UINib(
-            nibName: "TimelineTableViewCell",
-            bundle: Bundle(for: TimelineTableViewCell.self)
-        )
         
         uiViewController.tableView.dataSource = context.coordinator
     }
