@@ -5,14 +5,15 @@
 //  Created by egigoka on 19.10.2025.
 //
 
-import Foundation
+//import Foundation
+import SwiftUI
 
 class StorageManager {
     
     static let shared = StorageManager()
     
-//    private let userDefaults = UserDefaults.standard
-//    private let userDataKey = "userManager"
+    private let userDefaults = UserDefaults.standard
+    private let userDataKey = "userManager"
     
     @AppStorage("userManager") private var userData = Data()
     
@@ -25,7 +26,7 @@ class StorageManager {
     }
     
     func loadUser() -> User {
-        guard let userData = userDefaults.object(forKey: userDataKey) as? Data else { return User() }
+        //guard let userData = userDefaults.object(forKey: userDataKey) as? Data else { return User() }
         guard let user = try? JSONDecoder().decode(User.self, from: userData) else { return User() }
         return user
     }
