@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c4C-rV-6Jd">
-                                <rect key="frame" x="0.0" y="224" width="393" height="560"/>
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" id="zbU-bi-Qsh" customClass="CourseTableViewCell" customModule="SwiftbookApp" customModuleProvider="target">
@@ -33,6 +33,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7dX-I6-7BB" kind="show" id="GDp-3f-w88"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -58,6 +61,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="772" y="-672.41379310344837"/>
+        </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="IDP-sd-Gx1">
+            <objects>
+                <hostingController id="7dX-I6-7BB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JkD-Ok-zgt"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKh-G9-XWm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="-672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lWV-mI-VH0">

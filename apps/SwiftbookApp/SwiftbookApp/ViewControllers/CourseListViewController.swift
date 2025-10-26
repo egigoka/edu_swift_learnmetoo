@@ -41,6 +41,8 @@ class CourseListViewController: UIViewController {
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
     }
+    
+    
 }
 
 // MARK: - UITableViewDataSource
