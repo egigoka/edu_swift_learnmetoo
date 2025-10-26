@@ -14,12 +14,14 @@ class CourseTableViewCell: UITableViewCell {
     @IBOutlet var numberOfTests: UILabel!
     
     func configure(with course: Course) {
-        var content = defaultContentConfiguration()
-        content.text = course.name
+        print(course)
+        courseNameLabel.text = course.name
+        numberOfTests.text = "\(course.numberOfTests ?? 0) Tests"
+        numberOfLessons.text = "\(course.numberOfLessons ?? 0) Lessons"
         Task { [weak self] in
+            guard let self = self else { return }
             let imageData = await ImageManager.shared.fetchImage(from: course.imageUrl)
-            content.image = imageData
-            self?.contentConfiguration = content
+            self.courseImage.image = imageData
         }
     }
 }
