@@ -46,7 +46,7 @@ struct CourseImage: View {
         getImage(from: stringURL)
             .resizable()
             .cornerRadius(30)
-            .frame(width: 230, height: 180)
+            .frame(width: 198*1.5, height: 108*1.5)
             .shadow(radius: 10)
     }
     
@@ -62,7 +62,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(course: Course(
             name: "Course Name",
-            imageUrl: "https://swiftbook.ru/wp-content/uploads/2018/03/2-courselogo.jpg",
+            imageUrl: "https://swiftbook.org/system/uploads/course/image/467/promo_first_apps_v4.jpg",
             numberOfLessons: 40,
             numberOfTests: 10)
         )
