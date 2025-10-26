@@ -13,7 +13,7 @@ struct StarterView: View {
     @State private var showUIKitView = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 32) {
             Button("Show SwiftUI View") {
                 showSwiftUIView = true
             }

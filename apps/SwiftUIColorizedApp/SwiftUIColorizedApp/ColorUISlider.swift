@@ -9,15 +9,46 @@
 import SwiftUI
 
 struct ColorUISlider: UIViewRepresentable {
+    
+    @Binding var value: Double
+    let color: UIColor
+    
     func makeUIView(context: Context) -> UISlider {
-        <#code#>
+        let slider = UISlider(frame: .zero)
+        slider.minimumValue = 0
+        slider.maximumValue = 255
+        slider.thumbTintColor = color
+        
+        slider.addTarget(context.coordinator,
+                         action: #selector(Coordinator.valueChanged),
+                         for: .valueChanged)
+        
+        return slider
     }
     
     func updateUIView(_ uiView: UISlider, context: Context) {
-        <#code#>
+        uiView.value = Float(value)
+    }
+    
+    func makeCoordinator() -> ColorUISlider.Coordinator {
+        Coordinator(value: $value)
+    }
+}
+
+extension ColorUISlider {
+    class Coordinator: NSObject {
+        @Binding var value: Double
+        
+        init(value: Binding<Double>) {
+            _value = value
+        }
+        
+        @objc func valueChanged(_ sender: UISlider) {
+            value = Double(sender.value)
+        }
     }
 }
 
 #Preview {
-    ColorUISlider()
+    ColorUISlider(value: .constant(100), color: .red)
 }
