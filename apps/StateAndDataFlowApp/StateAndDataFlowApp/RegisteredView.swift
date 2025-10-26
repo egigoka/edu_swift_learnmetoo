@@ -14,25 +14,17 @@ struct RegisteredView: View {
         
         VStack {
             Spacer()
-            UserNameTextField()
-        }
-        
-        VStack {
-            Spacer()
-            VStack {
-                
-                Button(action: registerUser) {
-                    HStack {
-                        Image(systemName: "checkmark.circle")
-                        Text("Ok")
-                    }
+            UserNameTextField(userName: $user.user.name, userValid: user.valid)
+            Button(action: registerUser) {
+                HStack {
+                    Image(systemName: "checkmark.circle")
+                    Text("Ok")
                 }
-                .disabled(!user.valid)
             }
+            .disabled(!user.valid)
             Spacer()
-            
         }
-//        .overlay(Rectangle())
+        .padding()
     }
     
     private func registerUser() {
@@ -43,15 +35,16 @@ struct RegisteredView: View {
 }
 
 struct UserNameTextField: View {
-    @EnvironmentObject var user: UserManager
+    @Binding var userName: String
+    let userValid: Bool
     
     var body: some View {
         HStack {
-            TextField("Enter your name", text: $user.user.name)
+            TextField("Enter your name", text: $userName)
                 .multilineTextAlignment(.center)
                 .autocorrectionDisabled()
-            Text("\(user.user.name.count)")
-                .foregroundStyle(user.valid ? .green : .red)
+            Text("\(userName.count)")
+                .foregroundStyle(userValid ? .green : .red)
                 .padding()
         }
     }
