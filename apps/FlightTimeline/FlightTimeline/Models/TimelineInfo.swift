@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TimelineTableViewCell
 
 struct TimelineInfo: UIViewControllerRepresentable {
     
@@ -38,14 +39,38 @@ class Coordinator: NSObject {
     }
 }
 
-class Coordinator: UITableViewDataSource {
+extension Coordinator: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         flights.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateFormatter = DateFormatter()
-        dateFormatter.
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        
+        let flight = flights[indexPath.row]
+        let scheduledString = dateFormatter.string(from: flight.scheduledTime) // screduled flights
+        let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath) as? TimelineTableViewCell else { return cell }
+        guard let cell = cell else { return  }
+        
+        var flightInfo = "\(flight.airline) \(flight.number)"
+        flightInfo += "\(flight.direction == .departure ? "to" : "from")"
+        flightInfo += "\(flight.otherAirport) - \(flight.filghtStatus)"
+        
+        cell.descriptionLabel.text = flightInfo
+        cell.titleLabel.text = "On time for \(scheduledString)"
+        
+        if flight.status == .cancelled {
+            cell.titleLabel.text = "Cancelled"
+        } else flight.timeDifference != 0, flight.status == .cancelled {
+            cell.titleLabel.text = "Cancelled"
+        } else if flight.timeDifference != 0 {
+            
+        }
+        
     }
 }
 
