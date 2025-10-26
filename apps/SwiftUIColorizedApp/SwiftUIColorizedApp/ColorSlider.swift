@@ -19,7 +19,8 @@ struct ColorSlider: View {
         HStack {
             SliderValueLabel(value: sliderValue)
             
-            ColorUISlider(value: $sliderValue, color: color)
+            //ColorUISlider(value: $sliderValue, color: color)
+            Slider(value: $sliderValue, in: 0...255, step: 1)
                 .onChange(of: sliderValue) { value in
                     textValue = "\(lround(sliderValue))"
                 }

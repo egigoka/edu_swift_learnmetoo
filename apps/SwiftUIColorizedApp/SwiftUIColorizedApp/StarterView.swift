@@ -2,8 +2,8 @@
 //  StarterView.swift
 //  SwiftUIColorizedApp
 //
-//  Created by Alexey Efimov on 20.12.2020.
-//  Copyright © 2020 Alexey Efimov. All rights reserved.
+//  Created by egigoka on 27.10.2025.
+//  Copyright © 2025 Alexey Efimov. All rights reserved.
 //
 
 import SwiftUI
@@ -14,26 +14,16 @@ struct StarterView: View {
     
     var body: some View {
         VStack {
-            Button("Show SwiftUI View") {
+            Button("Show SwiftUI view") {
                 showSwiftUIView = true
             }
             .sheet(isPresented: $showSwiftUIView) {
                 ContentView()
             }
-            
-            Button("Show UIKit View") {
-                showUIKitView = true
-            }
-            .sheet(isPresented: $showUIKitView) {
-                ColorViewControllerRepresentation()
-                    .ignoresSafeArea()
-            }
         }
     }
 }
 
-struct StarterView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarterView()
-    }
+#Preview {
+    StarterView()
 }

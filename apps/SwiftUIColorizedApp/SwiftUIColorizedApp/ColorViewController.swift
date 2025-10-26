@@ -6,7 +6,7 @@
 //  Copyright © 2019 Alexey Efimov. All rights reserved.
 //
 
-import SwiftUI
+import UIKit
 
 protocol ColorViewControllerDelegate {
     func setColor(_ color: UIColor)
@@ -43,6 +43,7 @@ class ColorViewController: UIViewController {
         
         colorView.backgroundColor = currentColor
         
+        setValueForSlider()
         setValue(for: redLabel, greenLabel, blueLabel)
         setValue(for: redTextField, greenTextField, blueTextField)
         addDoneButtonTo(redTextField, greenTextField, blueTextField)
@@ -107,6 +108,14 @@ extension ColorViewController {
             default: break
             }
         }
+    }
+    
+    private func setValueForSlider() {
+        let ciColor = CIColor(color: currentColor)
+        
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
     }
     
     // Значения RGB
@@ -183,16 +192,5 @@ extension ColorViewController: UITextFieldDelegate {
         } else {
             showAlert(title: "Wrong format!", message: "Please enter correct value")
         }
-    }
-}
-
-struct ColorViewControllerRepresentation: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "ColorVeiwController")
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
     }
 }
