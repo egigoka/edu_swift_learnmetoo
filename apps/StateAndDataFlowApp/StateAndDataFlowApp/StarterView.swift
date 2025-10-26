@@ -15,11 +15,7 @@ struct StarterView: View {
             ContentView()
         } else {
             RegisteredView()
-                .onTapGesture {
-                    UIApplication.shared.inputViewController?.dismissKeyboard()
-                    print("dismissed?")
-                }
-                //.overlay(Rectangle())
+                .hideKeyboardWhenTapped()
         }
     }
 }

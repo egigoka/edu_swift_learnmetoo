@@ -20,11 +20,11 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .offset(x: 0, y: 100)
             Spacer()
-            ButtonView(buttonTitle: $timer.buttonTitle, color: .red) {
+            ButtonView(title: $timer.buttonTitle, color: .red) {
                 timer.startTimer()
             }
             Spacer()
-            ButtonView(buttonTitle: .constant("Logout"), color: .black) {
+            ButtonView(title: .constant("Logout"), color: .black) {
                 StorageManager.shared.clear(userManager: user)
             }
         }
@@ -33,7 +33,7 @@ struct ContentView: View {
 }
 
 struct ButtonView: View {
-    @Binding var buttonTitle: String
+    @Binding var title: String
     let color: Color
     let action: () -> Void
     
@@ -44,7 +44,7 @@ struct ButtonView: View {
     
     var body: some View {
         Button(action: action) {
-            Text(buttonTitle)
+            Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
