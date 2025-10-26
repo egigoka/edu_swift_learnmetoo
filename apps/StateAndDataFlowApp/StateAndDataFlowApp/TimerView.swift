@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TimerView.swift
 //  StateAndDataFlowApp
 //
 //  Created by egigoka on 12.10.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TimerView: View {
     @EnvironmentObject var user: UserManager
     @StateObject private var timer = TimeCounter()
     
@@ -30,7 +30,6 @@ struct ContentView: View {
             Spacer()
             ButtonView(
                 title: .constant("Logout"),
-                disabled: .constant(false),
                 color: .black
             ) {
                 StorageManager.shared.clear(userManager: user)
@@ -40,36 +39,7 @@ struct ContentView: View {
     }
 }
 
-struct ButtonView: View {
-    @Binding var title: String
-    @Binding var disabled: Bool
-    let color: Color
-    let action: () -> Void
-    
-//    init(tapCount: Binding<Int>, color: Color) {
-//        _tapCount = tapCount
-//        self.color = color
-//    }
-    
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-        }
-        .disabled(disabled)
-        .frame(width: 200, height: 60)
-        .background(color)
-        .cornerRadius(20)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.blue, lineWidth: 4)
-        )
-    }
-}
-
 #Preview {
-    ContentView()
+    TimerView()
         .environmentObject(UserManager())
 }

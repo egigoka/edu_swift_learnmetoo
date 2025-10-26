@@ -1,5 +1,5 @@
 //
-//  RegisteredView.swift
+//  RegisterView.swift
 //  StateAndDataFlowApp
 //
 //  Created by egigoka on 19.10.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegisteredView: View {
+struct RegisterView: View {
     @EnvironmentObject var user: UserManager
     
     var body: some View {
@@ -26,7 +26,9 @@ struct RegisteredView: View {
         }
         .padding()
     }
-    
+}
+
+extension RegisterView {
     private func registerUser() {
         if !user.user.name.isEmpty {
             user.user.isRegistered = true
@@ -44,13 +46,13 @@ struct UserNameTextField: View {
                 .multilineTextAlignment(.center)
                 .autocorrectionDisabled()
             Text("\(userName.count)")
-                .foregroundStyle(userValid ? .green : .red)
+                .foregroundColor(userValid ? .green : .red)
                 .padding()
         }
     }
 }
 
 #Preview {
-    RegisteredView()
+    RegisterView()
         .environmentObject(UserManager())
 }

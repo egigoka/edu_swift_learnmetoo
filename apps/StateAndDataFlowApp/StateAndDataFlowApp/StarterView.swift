@@ -12,9 +12,9 @@ struct StarterView: View {
     
     var body: some View {
         if user.user.isRegistered {
-            ContentView()
+            TimerView()
         } else {
-            RegisteredView()
+            RegisterView()
                 .hideKeyboardWhenTapped()
         }
     }
