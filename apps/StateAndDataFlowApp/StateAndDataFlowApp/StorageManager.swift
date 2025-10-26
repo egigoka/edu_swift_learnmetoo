@@ -11,14 +11,17 @@ class StorageManager {
     
     static let shared = StorageManager()
     
-    private let userDefaults = UserDefaults.standard
-    private let userDataKey = "userManager"
+//    private let userDefaults = UserDefaults.standard
+//    private let userDataKey = "userManager"
+    
+    @AppStorage("userManager") private var userData = Data()
     
     private init() {}
     
     func saveUser(user: User) {
         guard let userData = try? JSONEncoder().encode(user) else { return }
-        userDefaults.set(userData, forKey: userDataKey)
+//        userDefaults.set(userData, forKey: userDataKey)
+        self.userData = userData
     }
     
     func loadUser() -> User {

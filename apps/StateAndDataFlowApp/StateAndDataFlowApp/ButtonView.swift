@@ -10,6 +10,7 @@ import SwiftUI
 struct ButtonView: View {
     @Binding var title: String
     @Binding var disabled: Bool
+    
     let color: Color
     let action: () -> Void
     
@@ -33,13 +34,7 @@ struct ButtonView: View {
                 .foregroundStyle(.white)
         }
         .disabled(disabled)
-        .frame(width: 200, height: 60)
-        .background(color)
-        .cornerRadius(20)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.blue, lineWidth: 4)
-        )
+        .buttonAppearance(color)
     }
 }
 
