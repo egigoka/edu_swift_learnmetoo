@@ -13,6 +13,7 @@ class TimeCounter: ObservableObject {
     var counter = 3
     var timer: Timer?
     var buttonTitle = "Start"
+    var buttonDisabled = false
     
     func startTimer() {
         if counter > 0 {
@@ -33,6 +34,7 @@ class TimeCounter: ObservableObject {
         } else {
             killTimer()
             buttonTitle = "Reset"
+            buttonDisabled = false
         }
         objectWillChange.send(self)
     }
@@ -47,6 +49,7 @@ class TimeCounter: ObservableObject {
             counter = 3
             buttonTitle = "Start"
         } else {
+            buttonDisabled = true
             buttonTitle = "Wait.."
         }
         
