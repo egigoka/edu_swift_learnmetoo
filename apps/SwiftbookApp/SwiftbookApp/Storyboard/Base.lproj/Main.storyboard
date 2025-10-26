@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7dX-I6-7BB" kind="show" id="GDp-3f-w88"/>
+                                            <segue destination="7dX-I6-7BB" kind="show" destinationCreationSelector="openCourseDetailsView:" id="GDp-3f-w88"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
