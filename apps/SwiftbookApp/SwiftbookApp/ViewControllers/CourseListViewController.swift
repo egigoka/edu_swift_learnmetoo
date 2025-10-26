@@ -10,7 +10,7 @@ import SwiftUI
 
 class CourseListViewController: UIViewController {
 
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView! 
     
     private var courses: [Course] = []
     
