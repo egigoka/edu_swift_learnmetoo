@@ -45,7 +45,6 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="c4C-rV-6Jd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2K7-Jd-Fil"/>
                             <constraint firstItem="c4C-rV-6Jd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Js-Tb-hse"/>
