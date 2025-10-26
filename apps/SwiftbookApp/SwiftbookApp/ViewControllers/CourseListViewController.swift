@@ -41,13 +41,6 @@ class CourseListViewController: UIViewController {
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
     }
-    
-    @IBSegueAction func openCourseDetailsView(_ coder: NSCoder) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
-        let course = courses[indexPath.row]
-        return UIHostingController(coder: coder, rootView: ContentView(course: course))
-    }
-    
 }
 
 // MARK: - UITableViewDataSource

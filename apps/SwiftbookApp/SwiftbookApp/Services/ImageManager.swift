@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alexey Efimov. All rights reserved.
 //
 
-import Foundation 
+import Foundation
 
 class ImageManager {
     static let shared = ImageManager()
