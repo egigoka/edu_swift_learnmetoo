@@ -16,26 +16,22 @@ struct TimelineInfo: UIViewControllerRepresentable {
         print("test, date: \(Date())")
         let controller = UITableViewController()
         
-        let bundle = Bundle(for: TimelineTableViewCell.self)
+//        let bundle = Bundle(for: TimelineTableViewCell.self)
+        let bundle = Bundle.main
         print("bundle: \(bundle)")
+        
+//        if let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle") {
         if let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle") {
-            print("nibUrl: \(nibUrl)")
+            print("nibUrl \(nibUrl)")
         } else {
             print("no nib url")
         }
-        if let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle"),
-           let nibBundle = Bundle(url: nibUrl) {
-            print("nibUrl: \(nibUrl)")
-            print("nibBundle: \(nibBundle)")
-//            let nib = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
-//            controller.tableView.register(nib, forCellReuseIdentifier: "TimelineTableViewCell")
-        } else {
-            print("else")
-//            controller.tableView.register(TimelineTableViewCell.self,
-//                                          forCellReuseIdentifier: "TimelineTableViewCell")
-        }
-        
-        controller.tableView.dataSource = context.coordinator
+//        let nibBundle = Bundle(url: nibUrl)
+//        let nib = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
+//        
+//        controller.tableView.register(nib, forCellReuseIdentifier: "TimelineTableViewCell")
+//        
+//        controller.tableView.dataSource = context.coordinator
         
         return controller
     }
