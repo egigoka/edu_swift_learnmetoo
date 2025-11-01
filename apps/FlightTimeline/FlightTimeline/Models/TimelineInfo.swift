@@ -13,7 +13,6 @@ struct TimelineInfo: UIViewControllerRepresentable {
     let flights: [FlightInformation]
     
     func makeUIViewController(context: Context) -> UITableViewController {
-        print("\n\n\ntest, date: \(Date())")
         let controller = UITableViewController()
         
         let bundle = Bundle(for: TimelineTableViewCell.self)
@@ -26,11 +25,9 @@ struct TimelineInfo: UIViewControllerRepresentable {
             print("Could not load TimelineTableViewCell bundle")
             return controller
         }
-        print("Loaded bundle: \(nibBundle)")
         
         let nib = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
         controller.tableView.register(nib, forCellReuseIdentifier: "TimelineTableViewCell")
-        print("Registered successfully")
         
         controller.tableView.dataSource = context.coordinator
         
