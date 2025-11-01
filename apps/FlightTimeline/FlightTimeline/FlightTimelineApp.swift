@@ -23,6 +23,13 @@ struct RootView: View {
     }
 }
 
-#Preview {
-    RootV
+#Preview("Light Mode") {
+    RootView()
+        .environment(\.colorScheme, .light)
+}
+
+#Preview("Dark Mode") {
+    RootView()
+        .background(Color.black.ignoresSafeArea())
+        .environment(\.colorScheme, .dark)
 }
