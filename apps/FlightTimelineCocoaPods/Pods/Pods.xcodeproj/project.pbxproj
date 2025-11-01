@@ -10,13 +10,13 @@
 		10DA44D5BA0C166E5A9D1005DB5228FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		7224AB7CE5113B3A21F9259CFCE9A681 /* Pods-FlightTimeline-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 092F9D41D57653A5C2D75CABAF967AA3 /* Pods-FlightTimeline-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88B9DAB663DF88A1B7CC98D6077F8FF7 /* Pods-FlightTimeline-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A58A8482CB7B686AB191D48A5886555 /* Pods-FlightTimeline-dummy.m */; };
-		8FB50BC1F1EC0E1061E8B44A6FD9479A /* TimelineTableViewCell-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AC029FBCF200E3487326FE421DB8FC /* TimelineTableViewCell-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FB50BC1F1EC0E1061E8B44A6FD9479A /* TimelineTableViewCell-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A916A8AEF9573DAB5C061EB66F2BF9 /* TimelineTableViewCell-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A105357B9E27E8C3A573B2B610D603BD /* TimelineTableViewCell-TimelineTableViewCell in Resources */ = {isa = PBXBuildFile; fileRef = 8F6433D6912D94AF674E50B3B07EE4CC /* TimelineTableViewCell-TimelineTableViewCell */; };
-		A7A07D5DC65A2915D11620161DA96E9D /* TimelinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5628B0E6E6550C5320D704B3BE86BFFD /* TimelinePoint.swift */; };
-		BCB0BC53B4CF801FF5D25E12D5C76796 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D906676B52D50F809AB355FB14554436 /* TimelineTableViewCell.xib */; };
-		C2F2736BA2BEE8F08A7001B6A50CD422 /* TimelineTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B717C89F650D310BFD05A11A931FAFE9 /* TimelineTableViewCell-dummy.m */; };
-		D166C8DDAE7C14180691603CB91DB540 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355556F6EAB08D6DDB74489F6EF6AACF /* TimelineTableViewCell.swift */; };
-		DF9E51CB1F2A73D53AE6067C84382722 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C453A1D82E1D99EA8E0E768BA3B6A /* Timeline.swift */; };
+		A7A07D5DC65A2915D11620161DA96E9D /* TimelinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081D7A7B73C3F25F5FBC6F73E1F2DFD /* TimelinePoint.swift */; };
+		BCB0BC53B4CF801FF5D25E12D5C76796 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F30F52EA1834E7DFC76004713C67C5B /* TimelineTableViewCell.xib */; };
+		C2F2736BA2BEE8F08A7001B6A50CD422 /* TimelineTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2095D05E4B8A54B4CC286BB221D3B /* TimelineTableViewCell-dummy.m */; };
+		D166C8DDAE7C14180691603CB91DB540 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452DF4164375DF4BE8CC2D75DE83FD8 /* TimelineTableViewCell.swift */; };
+		DF9E51CB1F2A73D53AE6067C84382722 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4015676A1DA42916621F40A0A7CDC32 /* Timeline.swift */; };
 		FF61262AA5418881088E8B00E58C2A18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,35 +38,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05E723716F92C22DA4F5FF18CD32C41B /* TimelineTableViewCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TimelineTableViewCell.release.xcconfig; sourceTree = "<group>"; };
 		07A9FB10DBFCCB69C4B69869AB8DB84F /* Pods-FlightTimeline */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FlightTimeline"; path = Pods_FlightTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		092F9D41D57653A5C2D75CABAF967AA3 /* Pods-FlightTimeline-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlightTimeline-umbrella.h"; sourceTree = "<group>"; };
+		0DF2095D05E4B8A54B4CC286BB221D3B /* TimelineTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TimelineTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		18BAD8D0F49E50AB43F9E444C64BBC63 /* ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		1F30F52EA1834E7DFC76004713C67C5B /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TimelineTableViewCell.xib; path = TimelineTableViewCell/TimelineTableViewCell.xib; sourceTree = "<group>"; };
 		2A58A8482CB7B686AB191D48A5886555 /* Pods-FlightTimeline-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlightTimeline-dummy.m"; sourceTree = "<group>"; };
-		331C453A1D82E1D99EA8E0E768BA3B6A /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = TimelineTableViewCell/Timeline.swift; sourceTree = "<group>"; };
-		355556F6EAB08D6DDB74489F6EF6AACF /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineTableViewCell.swift; path = TimelineTableViewCell/TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3E275D79A79B3AA59E348CA1C1763C29 /* TimelineTableViewCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TimelineTableViewCell.debug.xcconfig; sourceTree = "<group>"; };
 		46A9D2866ACBDAF04094CAF2019709BA /* Pods-FlightTimeline-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlightTimeline-Info.plist"; sourceTree = "<group>"; };
-		55CAF25511D87B0914C308F17828A043 /* TimelineTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TimelineTableViewCell.modulemap; sourceTree = "<group>"; };
-		5628B0E6E6550C5320D704B3BE86BFFD /* TimelinePoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelinePoint.swift; path = TimelineTableViewCell/TimelinePoint.swift; sourceTree = "<group>"; };
-		596A3FAAF910D15BF09CB707CA718430 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4BC2767A0A24B5E8EE073A097E24B26A /* TimelineTableViewCell.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TimelineTableViewCell.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7081D7A7B73C3F25F5FBC6F73E1F2DFD /* TimelinePoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelinePoint.swift; path = TimelineTableViewCell/TimelinePoint.swift; sourceTree = "<group>"; };
 		77B2544E1434CFB639821CC36B150214 /* Pods-FlightTimeline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlightTimeline.modulemap"; sourceTree = "<group>"; };
 		808CAFDCC369DE1DCFBF3254C799BFEF /* Pods-FlightTimeline-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlightTimeline-acknowledgements.plist"; sourceTree = "<group>"; };
+		8445BA9D3EDC4241724A7F610E1F90BB /* TimelineTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TimelineTableViewCell.modulemap; sourceTree = "<group>"; };
+		8452DF4164375DF4BE8CC2D75DE83FD8 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimelineTableViewCell.swift; path = TimelineTableViewCell/TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		897DDFB32EB15CA77766485B088D913D /* TimelineTableViewCell */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TimelineTableViewCell; path = TimelineTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B6DA8A04E4F23F894B4D02195FC3478 /* Pods-FlightTimeline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlightTimeline.debug.xcconfig"; sourceTree = "<group>"; };
 		8F6433D6912D94AF674E50B3B07EE4CC /* TimelineTableViewCell-TimelineTableViewCell */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "TimelineTableViewCell-TimelineTableViewCell"; path = TimelineTableViewCell.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		93D9667A9ED5307E3B143D683217EA2A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		92F453C06BD00246B57AB14C6DE5150F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		978D7CCDB90568826BB1430D7DB33222 /* TimelineTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TimelineTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		9D647E1D42B4F4B56FD14F1AE9E740F0 /* Pods-FlightTimeline-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlightTimeline-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A071F3CD82592BA5EAE37B71D2685CEF /* TimelineTableViewCell.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TimelineTableViewCell.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B717C89F650D310BFD05A11A931FAFE9 /* TimelineTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TimelineTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		C77EA2EC622EBD459DAC0F3B8769C339 /* TimelineTableViewCell-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TimelineTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		B6F46A85A984EA3A05E44222E7366055 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		BA1252F216A88D7850529C02C0557EAC /* TimelineTableViewCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TimelineTableViewCell.release.xcconfig; sourceTree = "<group>"; };
+		CBF330F50ED3D102DF046AF9D58212C6 /* TimelineTableViewCell-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TimelineTableViewCell-Info.plist"; sourceTree = "<group>"; };
 		CCE4E393DC1902A064775A4FD62D124C /* Pods-FlightTimeline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlightTimeline.release.xcconfig"; sourceTree = "<group>"; };
-		D4AC029FBCF200E3487326FE421DB8FC /* TimelineTableViewCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TimelineTableViewCell-umbrella.h"; sourceTree = "<group>"; };
-		D906676B52D50F809AB355FB14554436 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TimelineTableViewCell.xib; path = TimelineTableViewCell/TimelineTableViewCell.xib; sourceTree = "<group>"; };
+		D4015676A1DA42916621F40A0A7CDC32 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = TimelineTableViewCell/Timeline.swift; sourceTree = "<group>"; };
+		D4A916A8AEF9573DAB5C061EB66F2BF9 /* TimelineTableViewCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TimelineTableViewCell-umbrella.h"; sourceTree = "<group>"; };
 		DEC4546F2BEEF70603EED845D27D63E9 /* Pods-FlightTimeline-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlightTimeline-frameworks.sh"; sourceTree = "<group>"; };
-		E3062E09B84EB89E6CF3F3AF16233EB1 /* TimelineTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TimelineTableViewCell-prefix.pch"; sourceTree = "<group>"; };
-		EBC5D5C084604823D23841E5244EBE42 /* ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		F5E96C3788425699E6F87E0FCBCA9B5C /* TimelineTableViewCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TimelineTableViewCell.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,41 +96,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		39128EB2CCE4F538C33545E2A96A01EA /* Support Files */ = {
+		36B6AFCE697EA80CAC8251619D481D65 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EBC5D5C084604823D23841E5244EBE42 /* ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist */,
-				55CAF25511D87B0914C308F17828A043 /* TimelineTableViewCell.modulemap */,
-				B717C89F650D310BFD05A11A931FAFE9 /* TimelineTableViewCell-dummy.m */,
-				C77EA2EC622EBD459DAC0F3B8769C339 /* TimelineTableViewCell-Info.plist */,
-				E3062E09B84EB89E6CF3F3AF16233EB1 /* TimelineTableViewCell-prefix.pch */,
-				D4AC029FBCF200E3487326FE421DB8FC /* TimelineTableViewCell-umbrella.h */,
-				3E275D79A79B3AA59E348CA1C1763C29 /* TimelineTableViewCell.debug.xcconfig */,
-				05E723716F92C22DA4F5FF18CD32C41B /* TimelineTableViewCell.release.xcconfig */,
+				86C558E031D0404CE19802204F8ADCD6 /* TimelineTableViewCell */,
 			);
-			name = "Support Files";
-			path = "../edu_swift_learnmetoo/apps/FlightTimelineCocoaPods/Pods/Target Support Files/TimelineTableViewCell";
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		5D07CB03C5B2DC19066E85109F350F31 /* TimelineTableViewCell */ = {
+		86C558E031D0404CE19802204F8ADCD6 /* TimelineTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				331C453A1D82E1D99EA8E0E768BA3B6A /* Timeline.swift */,
-				5628B0E6E6550C5320D704B3BE86BFFD /* TimelinePoint.swift */,
-				355556F6EAB08D6DDB74489F6EF6AACF /* TimelineTableViewCell.swift */,
-				D906676B52D50F809AB355FB14554436 /* TimelineTableViewCell.xib */,
-				ED219F7EFF9B8802C7F7078DCBC1144E /* Pod */,
-				39128EB2CCE4F538C33545E2A96A01EA /* Support Files */,
+				D4015676A1DA42916621F40A0A7CDC32 /* Timeline.swift */,
+				7081D7A7B73C3F25F5FBC6F73E1F2DFD /* TimelinePoint.swift */,
+				8452DF4164375DF4BE8CC2D75DE83FD8 /* TimelineTableViewCell.swift */,
+				1F30F52EA1834E7DFC76004713C67C5B /* TimelineTableViewCell.xib */,
+				BBE743969E00B74523528874E35769C0 /* Pod */,
+				E607608BEB1A57C4ED63B08A298A272A /* Support Files */,
 			);
 			name = TimelineTableViewCell;
-			path = ../../../../TimelineTableViewCell;
+			path = ../TimelineTableViewCell;
+			sourceTree = "<group>";
+		};
+		BBE743969E00B74523528874E35769C0 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B6F46A85A984EA3A05E44222E7366055 /* LICENSE */,
+				92F453C06BD00246B57AB14C6DE5150F /* README.md */,
+				4BC2767A0A24B5E8EE073A097E24B26A /* TimelineTableViewCell.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				F3DB43C43700932906260B837B9CB291 /* Development Pods */,
+				36B6AFCE697EA80CAC8251619D481D65 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				D2F87150451D2D92CE384C1BD3763C75 /* Products */,
 				D936F5851E068338650080245F352FE2 /* Targets Support Files */,
@@ -171,22 +173,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		ED219F7EFF9B8802C7F7078DCBC1144E /* Pod */ = {
+		E607608BEB1A57C4ED63B08A298A272A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				596A3FAAF910D15BF09CB707CA718430 /* LICENSE */,
-				93D9667A9ED5307E3B143D683217EA2A /* README.md */,
-				A071F3CD82592BA5EAE37B71D2685CEF /* TimelineTableViewCell.podspec */,
+				18BAD8D0F49E50AB43F9E444C64BBC63 /* ResourceBundle-TimelineTableViewCell-TimelineTableViewCell-Info.plist */,
+				8445BA9D3EDC4241724A7F610E1F90BB /* TimelineTableViewCell.modulemap */,
+				0DF2095D05E4B8A54B4CC286BB221D3B /* TimelineTableViewCell-dummy.m */,
+				CBF330F50ED3D102DF046AF9D58212C6 /* TimelineTableViewCell-Info.plist */,
+				978D7CCDB90568826BB1430D7DB33222 /* TimelineTableViewCell-prefix.pch */,
+				D4A916A8AEF9573DAB5C061EB66F2BF9 /* TimelineTableViewCell-umbrella.h */,
+				F5E96C3788425699E6F87E0FCBCA9B5C /* TimelineTableViewCell.debug.xcconfig */,
+				BA1252F216A88D7850529C02C0557EAC /* TimelineTableViewCell.release.xcconfig */,
 			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		F3DB43C43700932906260B837B9CB291 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5D07CB03C5B2DC19066E85109F350F31 /* TimelineTableViewCell */,
-			);
-			name = "Development Pods";
+			name = "Support Files";
+			path = "../Pods/Target Support Files/TimelineTableViewCell";
 			sourceTree = "<group>";
 		};
 		F746E1BBD5D5E523AC7F216419ED4C14 /* Pods-FlightTimeline */ = {
@@ -426,7 +426,7 @@
 		};
 		513813F24429BAB5D37D4B51FAA4C0E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E275D79A79B3AA59E348CA1C1763C29 /* TimelineTableViewCell.debug.xcconfig */;
+			baseConfigurationReference = F5E96C3788425699E6F87E0FCBCA9B5C /* TimelineTableViewCell.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGNING_ALLOWED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TimelineTableViewCell";
@@ -505,7 +505,7 @@
 		};
 		B6AB0934D3EDAB3AE060E764C4EBB8F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E275D79A79B3AA59E348CA1C1763C29 /* TimelineTableViewCell.debug.xcconfig */;
+			baseConfigurationReference = F5E96C3788425699E6F87E0FCBCA9B5C /* TimelineTableViewCell.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -544,7 +544,7 @@
 		};
 		CC5A1A144A4C2E82BE9321C3294219AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05E723716F92C22DA4F5FF18CD32C41B /* TimelineTableViewCell.release.xcconfig */;
+			baseConfigurationReference = BA1252F216A88D7850529C02C0557EAC /* TimelineTableViewCell.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGNING_ALLOWED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TimelineTableViewCell";
@@ -667,7 +667,7 @@
 		};
 		FA8A2BB0D092C22C1DC1CFD1AEDF1E68 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05E723716F92C22DA4F5FF18CD32C41B /* TimelineTableViewCell.release.xcconfig */;
+			baseConfigurationReference = BA1252F216A88D7850529C02C0557EAC /* TimelineTableViewCell.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
