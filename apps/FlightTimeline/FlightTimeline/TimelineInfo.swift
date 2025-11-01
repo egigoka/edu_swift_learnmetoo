@@ -26,8 +26,10 @@ struct TimelineInfo: UIViewControllerRepresentable {
             return controller
         }
         
-        let nib = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
-        controller.tableView.register(nib, forCellReuseIdentifier: "TimelineTableViewCell")
+        let timelineTableViewCell = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
+        controller.tableView.register(
+            timelineTableViewCell,
+            forCellReuseIdentifier: "TimelineTableViewCell")
         
         controller.tableView.dataSource = context.coordinator
         
