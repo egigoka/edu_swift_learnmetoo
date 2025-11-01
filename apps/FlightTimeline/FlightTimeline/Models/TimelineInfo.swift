@@ -66,9 +66,7 @@ extension Coordinator: UITableViewDataSource {
         let scheduledString = dateFormatter.string(from: flight.scheduledTime) // screduled flights
         let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime) // current flights
         
-        print("dequequeing the cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath)
-        print("got cell")
         guard let cell = cell as? TimelineTableViewCell else {
             return cell
         }
