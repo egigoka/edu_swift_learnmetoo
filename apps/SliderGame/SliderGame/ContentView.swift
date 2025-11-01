@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private 
+    
     var targetValue: Int
+    
     
     init() {
         targetValue = Int.random(in: 0...100)
@@ -16,7 +19,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Get as close to the value: ")
+            Text("Get as close to the value: \(targetValue)")
+            Button("Check me!") {
+                
+            }
+            Button("Restart") {
+                
+            }
         }
         .padding()
     }
