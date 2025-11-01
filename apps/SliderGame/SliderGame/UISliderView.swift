@@ -67,6 +67,7 @@ struct UISliderView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: Context) {
+        print("updateUIViewController \(Date())")
         
     }
     
@@ -77,6 +78,6 @@ struct UISliderView: UIViewControllerRepresentable {
 }
 
 #Preview {
-    @Previewable @State var currentValue: Float = 0
+    @Previewable @State var currentValue: Float = 1
     UISliderView(currentValue: $currentValue, targetValue: 10, opacity: 0)
 }
