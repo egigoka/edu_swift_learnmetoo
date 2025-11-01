@@ -34,12 +34,14 @@ struct UISliderView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
         
         let viewController = UIViewController()
+        guard let view = viewController.view else { return viewController }
         let slider = UISlider()
         viewController.view.addSubview(slider)
         
         NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: slider, attribute: .leading, relatedBy: .equal, toItem: viewController, attribute: .leading),
-            NSLayoutConstraint(item: slider, attribute: .trailing, relatedBy: .equal, toItem: viewController, attribute: .trailing)
+            slider.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            slider.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         slider.maximumValue = 100
