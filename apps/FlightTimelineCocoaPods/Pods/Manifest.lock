@@ -1,0 +1,16 @@
+PODS:
+  - TimelineTableViewCell (3.0)
+
+DEPENDENCIES:
+  - TimelineTableViewCell (from `../../../TimelineTableViewCell`)
+
+EXTERNAL SOURCES:
+  TimelineTableViewCell:
+    :path: "../../../TimelineTableViewCell"
+
+SPEC CHECKSUMS:
+  TimelineTableViewCell: 834c01084b6b2d5d5d8ee904036eff8fc095b704
+
+PODFILE CHECKSUM: 790f72af73fadd6661d76ccd3da22acda11ad34d
+
+COCOAPODS: 1.16.2
