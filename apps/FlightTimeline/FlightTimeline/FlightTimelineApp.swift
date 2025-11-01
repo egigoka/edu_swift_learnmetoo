@@ -18,8 +18,8 @@ struct FlightTimelineApp: App {
 
 struct RootView: View {
     var body: some View {
-        //ContentView()
-        TimelineInfo(flights: FlightInformation.generateFlights())
+        ContentView()
+        //TimelineInfo(flights: FlightInformation.generateFlights())
     }
 }
 
@@ -29,7 +29,10 @@ struct RootView: View {
 }
 
 #Preview("Dark Mode") {
-    RootView()
-        .background(Color.black.ignoresSafeArea())
-        .environment(\.colorScheme, .dark)
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        RootView()
+            .environment(\.colorScheme, .dark)
+    }
 }

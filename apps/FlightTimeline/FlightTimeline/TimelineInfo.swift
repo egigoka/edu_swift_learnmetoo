@@ -26,7 +26,8 @@ struct TimelineInfo: UIViewControllerRepresentable {
             return controller
         }
         
-        let timelineTableViewCell = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
+        let timelineTableViewCell = UINib(nibName: "TimelineTableViewCell",
+                                          bundle: nibBundle)
         controller.tableView.register(
             timelineTableViewCell,
             forCellReuseIdentifier: "TimelineTableViewCell")
@@ -55,20 +56,29 @@ class Coordinator: NSObject {
 }
 
 extension Coordinator: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         flights.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
         
         let flight = flights[indexPath.row]
-        let scheduledString = dateFormatter.string(from: flight.scheduledTime) // screduled flights
-        let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime) // current flights
+        // scheduled flights
+        let scheduledString = dateFormatter.string(from: flight.scheduledTime)
+        // current flights
+        let currentString = dateFormatter.string(
+            from: flight.currentTime ?? flight.scheduledTime
+        )
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "TimelineTableViewCell",
+            for: indexPath
+        )
         guard let cell = cell as? TimelineTableViewCell else {
             return cell
         }
