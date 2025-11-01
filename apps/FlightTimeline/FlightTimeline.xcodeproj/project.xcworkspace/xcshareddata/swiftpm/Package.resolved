@@ -1,13 +1,13 @@
 {
-  "originHash" : "867b42eae7e57747c3dd44f84cace054d15c9a9bc8e70319e5fa0592dffb2ebe",
+  "originHash" : "f0f760e6b7851dbf2b72b4a4cc2870bb28a7de206cf6127fe665da14b1dedbdd",
   "pins" : [
     {
       "identity" : "timelinetableviewcell",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kf99916/TimelineTableViewCell",
+      "location" : "https://github.com/egigoka/TimelineTableViewCell",
       "state" : {
-        "revision" : "ddd74c3f1993cdff68b3b86dac8ffd46b0795dd7",
-        "version" : "2.2.2"
+        "branch" : "master",
+        "revision" : "c5d21f4a9e2626d5e508ce472ec4b8e569a3b6d2"
       }
     }
   ],

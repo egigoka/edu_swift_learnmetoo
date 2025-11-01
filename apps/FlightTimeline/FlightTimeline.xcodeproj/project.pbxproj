@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		131B3CA92EAED77E00CD9502 /* TimelineTableViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 131B3CA82EAED77E00CD9502 /* TimelineTableViewCell */; };
+		13922FA22EB68C8800F7F91E /* TimelineTableViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 13922FA12EB68C8800F7F91E /* TimelineTableViewCell */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				131B3CA92EAED77E00CD9502 /* TimelineTableViewCell in Frameworks */,
+				13922FA22EB68C8800F7F91E /* TimelineTableViewCell in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			);
 			name = FlightTimeline;
 			packageProductDependencies = (
-				131B3CA82EAED77E00CD9502 /* TimelineTableViewCell */,
+				13922FA12EB68C8800F7F91E /* TimelineTableViewCell */,
 			);
 			productName = FlightTimeline;
 			productReference = 131B3C992EAED61100CD9502 /* FlightTimeline.app */;
@@ -101,7 +101,7 @@
 			mainGroup = 131B3C902EAED61100CD9502;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				131B3CA72EAED77E00CD9502 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */,
+				13922FA02EB68C8800F7F91E /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 131B3C9A2EAED61100CD9502 /* Products */;
@@ -343,20 +343,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		131B3CA72EAED77E00CD9502 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */ = {
+		13922FA02EB68C8800F7F91E /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kf99916/TimelineTableViewCell";
+			repositoryURL = "https://github.com/egigoka/TimelineTableViewCell";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.2;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		131B3CA82EAED77E00CD9502 /* TimelineTableViewCell */ = {
+		13922FA12EB68C8800F7F91E /* TimelineTableViewCell */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 131B3CA72EAED77E00CD9502 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */;
+			package = 13922FA02EB68C8800F7F91E /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */;
 			productName = TimelineTableViewCell;
 		};
 /* End XCSwiftPackageProductDependency section */
