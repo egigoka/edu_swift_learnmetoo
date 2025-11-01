@@ -9,8 +9,24 @@ import SwiftUI
 
 struct UISliderView: UIViewControllerRepresentable {
     
+    @Binding var value: Int
+    
     func makeUIViewController(context: Context) -> some UIViewController {
-        <#code#>
+        let viewController = UIViewController()
+        let slider = UISlider()
+        viewController.view.addSubview(slider)
+        
+        slider.maximumValue = 100
+        slider.value = 1
+        
+        return viewController
     }
     
+    func updateUIViewController(_ uiViewController: UIViewControllerType,
+                                context: Context) { }
+    
+}
+
+#Preview {
+    UISliderView()
 }
