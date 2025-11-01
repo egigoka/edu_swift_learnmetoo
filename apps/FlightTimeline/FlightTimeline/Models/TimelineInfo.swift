@@ -40,7 +40,6 @@ struct TimelineInfo: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        print("registering coordinator")
         return Coordinator(flights: flights)
     }
 }
@@ -58,9 +57,6 @@ extension Coordinator: UITableViewDataSource {
         flights.count
     }
     
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        UITableViewCell()
-    //    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
