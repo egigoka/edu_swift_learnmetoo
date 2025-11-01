@@ -11,18 +11,18 @@ import SwiftUI
 struct FlightTimelineApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            TimelineInfo(flights: FlightInformation.generateFlights())
+            RootView()
         }
     }
 }
 
-#Preview {
-    FlightTimelineApp_Preview()
+struct RootView: View {
+    var body: some View {
+        //ContentView()
+        TimelineInfo(flights: FlightInformation.generateFlights())
+    }
 }
 
-struct FlightTimelineApp_Preview: View {
-    var body: some View {
-        FlightTimelineApp.body
-    }
+#Preview {
+    RootV
 }
