@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private 
+    @State private var currentValue: Float
+    private var opacity: Float
     
-    var targetValue: Int
+    private var targetValue: Int
     
     
     init() {
+        currentValue = 0
+        opacity = 0
         targetValue = Int.random(in: 0...100)
+        opacity =
     }
     
     var body: some View {
         VStack {
             Text("Get as close to the value: \(targetValue)")
+            UISliderView(currentValue: $currentValue, targetValue: targetValue, opacity: opacity)
             Button("Check me!") {
                 
             }
@@ -28,6 +33,11 @@ struct ContentView: View {
             }
         }
         .padding()
+    }
+    
+    private func computeScore() -> Int {
+        let difference = abs(targetValue - round(currentValue))
+        return 100 - difference
     }
 }
 

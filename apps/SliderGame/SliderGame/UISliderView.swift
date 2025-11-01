@@ -12,12 +12,14 @@ struct UISliderView: UIViewControllerRepresentable {
     @Binding var currentValue: Float
     let targetValue: Int
     let coordinator: Coordinator
+    let opacity: CGFloat
     
-    init(currentValue: Binding<Float>, targetValue: Int) {
+    init(currentValue: Binding<Float>, targetValue: Int, opacity: Float) {
         self._currentValue = currentValue
         self.targetValue = targetValue
         self.coordinator = Coordinator(currentValue: currentValue,
                                        targetValue: targetValue)
+        self.opacity = CGFloat(opacity)
     }
     
     class Coordinator {
@@ -29,9 +31,9 @@ struct UISliderView: UIViewControllerRepresentable {
             self.targetValue = targetValue
         }
         
-        @objc func onSliderChange(_ value: Float) {
-            currentValue = value
-            print(value)
+        @objc func onSliderChange(_ sender: UISlider) {
+            currentValue = sender.value
+            
         }
     }
     
@@ -54,7 +56,7 @@ struct UISliderView: UIViewControllerRepresentable {
         slider.minimumValue = 0
         slider.maximumValue = 100
         slider.value = currentValue
-        slider.thumbTintColor = .red
+        slider.thumbTintColor = .red.withAlphaComponent(opacity)
 //        slider.addTarget(self, action: #selector(coordinator.onSliderChange), for: .valueChanged)
         slider.addTarget(context.coordinator,
                             action: #selector(Coordinator.onSliderChange(_:)),
@@ -76,5 +78,5 @@ struct UISliderView: UIViewControllerRepresentable {
 
 #Preview {
     @Previewable @State var currentValue: Float = 0
-    UISliderView(currentValue: $currentValue, targetValue: 10)
+    UISliderView(currentValue: $currentValue, targetValue: 10, opacity: 0)
 }
