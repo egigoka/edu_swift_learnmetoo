@@ -16,39 +16,49 @@ struct UISliderView: UIViewControllerRepresentable {
     init(currentValue: Binding<Float>, targetValue: Int) {
         self._currentValue = currentValue
         self.targetValue = targetValue
-        self.coordinator = Coordinator(currentValue: currentValue)
+        self.coordinator = Coordinator(currentValue: currentValue,
+                                       targetValue: targetValue)
     }
     
     class Coordinator {
         @Binding var currentValue: Float
+        let targetValue: Int
         
-        init(currentValue: Binding<Float>) {
+        init(currentValue: Binding<Float>, targetValue: Int) {
             self._currentValue = currentValue
+            self.targetValue = targetValue
         }
         
         @objc func onSliderChange(_ value: Float) {
             currentValue = value
+            print(value)
         }
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {
         
+        print("makeUIViewController \(Date())")
         let viewController = UIViewController()
         guard let view = viewController.view else { return viewController }
         let slider = UISlider()
         viewController.view.addSubview(slider)
         
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             slider.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             slider.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            slider.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            slider.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
+        slider.minimumValue = 0
         slider.maximumValue = 100
         slider.value = currentValue
         slider.thumbTintColor = .red
-        slider.addTarget(self, action: #selector(coordinator.onSliderChange), for: .valueChanged)
-        
+//        slider.addTarget(self, action: #selector(coordinator.onSliderChange), for: .valueChanged)
+        slider.addTarget(context.coordinator,
+                            action: #selector(Coordinator.onSliderChange(_:)),
+                            for: .valueChanged)
         
         return viewController
     }
@@ -59,7 +69,8 @@ struct UISliderView: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(currentValue: $currentValue)
+        return Coordinator(currentValue: $currentValue,
+                           targetValue: targetValue)
     }
 }
 
