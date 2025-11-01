@@ -9,7 +9,8 @@ import SwiftUI
 
 struct UISliderView: UIViewControllerRepresentable {
     
-    @Binding var value: Int
+    @Binding var currentValue: Float
+    let targetValue: Int
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let viewController = UIViewController()
@@ -17,16 +18,26 @@ struct UISliderView: UIViewControllerRepresentable {
         viewController.view.addSubview(slider)
         
         slider.maximumValue = 100
-        slider.value = 1
+        slider.value = currentValue
+        slider.thumbTintColor = .red
+        slider.addTarget(self, action: #selector(onSliderChange), for: .valueChanged)
+        
         
         return viewController
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
-                                context: Context) { }
+                                context: Context) {
+        
+    }
+    
+    @objc private func onSliderChange(_ value: Float) {
+        currentValue = value
+    }
     
 }
 
 #Preview {
-    UISliderView()
+    @Previewable @State var currentValue: Float = 0
+    UISliderView(currentValue: $currentValue, targetValue: 10)
 }
