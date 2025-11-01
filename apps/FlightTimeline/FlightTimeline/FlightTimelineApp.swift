@@ -11,7 +11,18 @@ import SwiftUI
 struct FlightTimelineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            TimelineInfo(flights: FlightInformation.generateFlights())
         }
+    }
+}
+
+#Preview {
+    FlightTimelineApp_Preview()
+}
+
+struct FlightTimelineApp_Preview: View {
+    var body: some View {
+        FlightTimelineApp.body
     }
 }
