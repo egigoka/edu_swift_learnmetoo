@@ -16,16 +16,30 @@ struct TimelineInfo: UIViewControllerRepresentable {
         UITableViewController()
     }
     
+    func makeUIViewController(context: Context) -> UITableViewController? {
+        let controller = UITableViewController()
+        
+        let bundle = Bundle(for: TimelineTableViewCell.self)
+        
+        let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle")!
+        let nibBundle = Bundle(url: nibUrl)!
+        let nib = UINib(nibName: "TimelineTableViewCell", bundle: nibBundle)
+        
+        controller.tableView.register(nib, forCellReuseIdentifier: "TimelineTableViewCell")
+        
+        controller.tableView.dataSource = context.coordinator
+        
+        return controller
+    }
+    
     func updateUIViewController(_ uiViewController: UITableViewController,
                                 context: Context) {
-        let bundle = Bundle(for: TimelineTableViewCell.self)
-        let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle")
-        let nibUrlUnwrapped = nibUrl!
-        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell",
-            bundle: Bundle(url: nibUrlUnwrapped)!)
-        uiViewController.tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
         
-        uiViewController.tableView.dataSource = context.coordinator
+        if uiViewController.tableView.dataSource == nil {
+            
+        } else {
+            uiViewController.tableView.reloadData()
+        }
     }
     
     func makeCoordinator() -> Coordinator {
