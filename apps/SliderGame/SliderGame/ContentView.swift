@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var currentValue: Float
+    @State private var targetValue: Int
     @State private var alertShown = false
     private var opacity: Float {
         Float(computeScore()) * 0.01
     }
-    private var targetValue: Int
     
     
     
@@ -31,13 +31,14 @@ struct ContentView: View {
                 alertShown = true
             }
             Button("Restart") {
-                
+                targetValue = Int.random(in: 0...100)
             }
         }
         .padding()
         .alert(isPresented: $alertShown) {
-            Alert(title: Text("title"),
-                  message: Text("message \(computeScore())"))
+            let message = Text("\(computeScore())")
+                .bold()
+            return Alert(title: Text("Your score"), message: message)
         }
     }
     
