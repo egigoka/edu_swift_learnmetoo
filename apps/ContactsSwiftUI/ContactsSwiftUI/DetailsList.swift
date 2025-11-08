@@ -14,10 +14,20 @@ struct DetailsList: View {
         List {
             Image(systemName: "person.fill")
                 .resizable()
-                .frame(height: 250)
-            Text("\(person.phone)")
-            Text("\(person.email)")
+                .frame(width: 150, height: 150, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
+            HStack {
+                Image(systemName: "phone")
+                    .foregroundColor(.blue)
+                Text("\(person.phone)")
+            }
+            HStack {
+                Image(systemName: "tray")
+                    .foregroundColor(.blue)
+                Text("\(person.email)")
+            }
         }
+        .navigationTitle(Text("\(person.fullName)"))
     }
 }
 

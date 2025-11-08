@@ -11,9 +11,14 @@ struct PersonsList: View {
     let persons: [Person]
     
     var body: some View {
-        let _ = print(persons.count)
-        List(persons) { person in
-            Text("\(person.name) \(person.surname)")
+        NavigationView {
+            
+            List(persons) { person in
+                NavigationLink(
+                    "\(person.fullName)",
+                    value: DetailsList(person: person)
+                )
+            }
         }
     }
 }

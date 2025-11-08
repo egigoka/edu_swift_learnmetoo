@@ -13,6 +13,9 @@ struct ContentView: View {
     var body: some View {
         TabView {
             PersonsList(persons: persons)
+                .tabItem {
+                    Image(systemName: "person.3")
+                }
             PersonsList(persons: persons)
         }
     }
