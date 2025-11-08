@@ -23,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 24) {
             Text("Get as close to the value: \(targetValue)")
-            UISliderView(currentValue: $currentValue, targetValue: targetValue, opacity: opacity)
+            UISliderView(currentValue: $currentValue, opacity: opacity)
                 .frame(height: 16)
             Button("Check me!") {
                 alertShown = true

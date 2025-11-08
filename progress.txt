@@ -187,7 +187,7 @@ course 3 lesson 4 homework         - done
 
 70%
 
-course 3 lesson 5 homework review  - 
+course 3 lesson 5 homework review  - 18:40
 course 3 lesson 5 theory           - 
 course 3 lesson 5 homework         - 
 

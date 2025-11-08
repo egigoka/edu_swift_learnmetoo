@@ -9,30 +9,10 @@ import SwiftUI
 
 struct UISliderView: UIViewControllerRepresentable {
     
-    @Binding var currentValue: Float
-    let targetValue: Int
-    let coordinator: Coordinator
-    let opacity: CGFloat
+    @Binding var value: Float
     
-    init(currentValue: Binding<Float>, targetValue: Int, opacity: Float) {
-        self._currentValue = currentValue
-        self.targetValue = targetValue
-        self.coordinator = Coordinator(currentValue: currentValue)
-        self.opacity = CGFloat(opacity)
-    }
-    
-    class Coordinator {
-        @Binding var currentValue: Float
-        
-        init(currentValue: Binding<Float>) {
-            self._currentValue = currentValue
-        }
-        
-        @objc func onSliderChange(_ sender: UISlider) {
-            currentValue = sender.value
-            
-        }
-    }
+    let alpha: Int
+    let color: UIColor
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let viewController = UIViewController()
@@ -50,8 +30,8 @@ struct UISliderView: UIViewControllerRepresentable {
         
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.value = currentValue
-        slider.thumbTintColor = .red.withAlphaComponent(opacity)
+        slider.value = value
+        slider.thumbTintColor = .red.withAlphaComponent(CGFloat(alpha) / 255)
         slider.addTarget(context.coordinator,
                             action: #selector(Coordinator.onSliderChange(_:)),
                             for: .valueChanged)
@@ -62,18 +42,33 @@ struct UISliderView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: Context) {
         guard let slider = uiViewController.view.subviews.compactMap({ $0 as? UISlider }).first else { return }
-        let newTint = UIColor.red.withAlphaComponent(opacity)
+        let newTint = UIColor.red.withAlphaComponent(CGFloat(alpha) / 255)
         if slider.thumbTintColor != newTint {
             slider.thumbTintColor = newTint
         }
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(currentValue: $currentValue)
+        return Coordinator(currentValue: $value)
+    }
+}
+
+extension UISliderView {
+    class Coordinator {
+        @Binding var currentValue: Float
+        
+        init(currentValue: Binding<Float>) {
+            self._currentValue = currentValue
+        }
+        
+        @objc func onSliderChange(_ sender: UISlider) {
+            currentValue = sender.value
+            
+        }
     }
 }
 
 #Preview {
-    @Previewable @State var currentValue: Float = 0.5
-    UISliderView(currentValue: $currentValue, targetValue: 10, opacity: 0)
+    @Previewable @State var value: Float = 0.5
+    UISliderView(Value: $value, alpha: 100, color: .blue)
 }
