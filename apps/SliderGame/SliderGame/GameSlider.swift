@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct GameSlider: View {
+    @Binding var currentValue: Double
+    
+    let targetValue: Int
+    let color: UIColor
+    let alpha: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 24) {
+            Text("Get as close to the value: \(targetValue)")
+            HStack {
+                Text("0")
+                UISliderView(value: $currentValue, alpha: alpha, color: .red)
+                Text("100")
+            }
+        }
     }
 }
 
 #Preview {
-    GameSlider()
+    @Previewable @State var currentValue: Double = 50
+    GameSlider(currentValue: $currentValue,
+               targetValue: 50,
+               color: .red,
+               alpha: 100)
 }

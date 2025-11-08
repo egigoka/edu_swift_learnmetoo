@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var currentValue: Double
     @State private var targetValue: Int
     @State private var alertShown = false
-    private var opacity: Int {
+    private var alpha: Int {
         computeScore()
     }
     
@@ -22,9 +22,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            Text("Get as close to the value: \(targetValue)")
-            UISliderView(value: $currentValue, alpha: opacity, color: .red)
-                .frame(height: 16)
+            GameSlider(currentValue: $currentValue,
+                       targetValue: targetValue,
+                       color: .red,
+                       alpha: alpha)
             Button("Check me!") {
                 alertShown = true
             }
