@@ -35,8 +35,6 @@ struct UISliderView: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        
-        print("makeUIViewController \(Date())")
         let viewController = UIViewController()
         guard let view = viewController.view else { return viewController }
         let slider = UISlider()
@@ -54,7 +52,6 @@ struct UISliderView: UIViewControllerRepresentable {
         slider.maximumValue = 100
         slider.value = currentValue
         slider.thumbTintColor = .red.withAlphaComponent(opacity)
-//        slider.addTarget(self, action: #selector(coordinator.onSliderChange), for: .valueChanged)
         slider.addTarget(context.coordinator,
                             action: #selector(Coordinator.onSliderChange(_:)),
                             for: .valueChanged)
@@ -64,7 +61,6 @@ struct UISliderView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: Context) {
-        print("updateUIViewController \(Date())")
         guard let slider = uiViewController.view.subviews.compactMap({ $0 as? UISlider }).first else { return }
         let newTint = UIColor.red.withAlphaComponent(opacity)
         if slider.thumbTintColor != newTint {

@@ -15,8 +15,6 @@ struct ContentView: View {
         Float(computeScore()) * 0.01
     }
     
-    
-    
     init() {
         currentValue = 0
         targetValue = Int.random(in: 0...100)
