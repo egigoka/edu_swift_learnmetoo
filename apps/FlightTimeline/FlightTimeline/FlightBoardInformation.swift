@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FlightBoardInformation: View {
+    @Binding var isPresented: Bool
+    
     let flight: FlightInformation
     
     var body: some View {
