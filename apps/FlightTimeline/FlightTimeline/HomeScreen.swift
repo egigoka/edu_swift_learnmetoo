@@ -21,11 +21,21 @@ struct HomeScreen: View {
                 VStack(alignment: .leading, spacing: 10) {
                     NavigationLink(
                         "Arrivals",
-                        destination: FlightBoard(boardName: "Arrivals")
+                        destination: FlightBoard(
+                            boardName: "Arrivals",
+                            flightInfo: flightInfo.filter {
+                                $0.direction == .arrival
+                            }
+                        )
                     )
                     NavigationLink(
                         "Departures",
-                        destination: FlightBoard(boardName: "Departures")
+                        destination: FlightBoard(
+                            boardName: "Departures",
+                            flightInfo: flightInfo.filter {
+                                $0.direction == .departure
+                            }
+                        )
                     )
                     NavigationLink(
                         "Flight Timeline",
@@ -36,8 +46,8 @@ struct HomeScreen: View {
                 }
                 .font(.title)
             }
+            .navigationBarTitle(Text("Airport"))
         }
-        .navigationBarTitle(Text("Airport"))
     }
 }
 
