@@ -10,7 +10,7 @@ class DataManager {
     static let shared = DataManager()
     
     private let names = ["Bruce", "John", "Mark", "Steve", "Bill",
-        "Tony", "Lisa", "Tina", "Karen", "Karen"]
+        "Tony", "Lisa", "Tina", "Karen", "Shlorp"]
     private let surnames = ["Wayne", "Snow", "Musk", "Wozniak", "Gates",
                     "Rogers", "Simpson", "Johnson", "White", "Black"]
     private let phones = ["4155550101", "2125550199", "3105550123",
@@ -41,16 +41,26 @@ class DataManager {
         var persons: [Person] = []
         
         for _ in 0..<names.count {
-            print(1..<names.count)
             persons.append(Person(
                 id: UUID().uuidString,
                 name: names.remove(at: Int.random(in: 0..<names.count)),
                 surname: surnames.remove(at: Int.random(in: 0..<surnames.count)),
                 phone: phones.remove(at: Int.random(in: 0..<phones.count)),
-                email: emails.remove(at: Int.random(in: 0..<emails.count))))
+                email: emails.remove(at: Int.random(in: 0..<emails.count))
+            ))
         }
         
         return persons
+    }
+    
+    func generateContact() -> Person {
+        Person(
+            id: UUID().uuidString,
+            name: names[Int.random(in: 0..<names.count)],
+            surname: surnames[Int.random(in: 0..<surnames.count)],
+            phone: phones[Int.random(in: 0..<phones.count)],
+            email: emails[Int.random(in: 0..<emails.count)]
+        )
     }
 }
 
