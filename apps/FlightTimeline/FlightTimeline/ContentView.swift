@@ -18,7 +18,7 @@ struct ContentView: View {
             UserProfile()
                 .tabItem {
                     Image(systemName: "person")
-                    Text
+                    Text("Profile")
                 }
         }
     }

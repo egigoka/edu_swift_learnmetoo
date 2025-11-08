@@ -9,13 +9,24 @@ import SwiftUI
 
 struct HomeScreen: View {
     var body: some View {
-        ZStack {
-            Image(systemName: "airplane")
-                .resizable()
-                .frame(width: 250, height: 250)
-                .opacity(0.1)
-                .rotationEffect(.degrees(-90))
-            
+        NavigationView {
+            ZStack {
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                    .opacity(0.1)
+                    .rotationEffect(.degrees(-90))
+                VStack {
+                    NavigationLink(
+                        "Arrivals",
+                        destination: FlightBoard(boardName: "Arrivals")
+                    )
+                    NavigationLink(
+                        "Departures",
+                        destination: FlightBoard(boardName: "Departures")
+                    )
+                }
+            }
         }
     }
 }
