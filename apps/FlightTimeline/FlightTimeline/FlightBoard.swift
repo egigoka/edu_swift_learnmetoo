@@ -12,9 +12,16 @@ struct FlightBoard: View {
     let flightInfo: [FlightInformation]
     
     var body: some View {
-        Text(boardName)
-            .font(.title)
-        
+        VStack {
+            Text(boardName)
+                .font(.title)
+            ScrollView {
+                ForEach(flightInfo) { flight in
+                    Text("\(flight.airline) \(flight.number)")
+                    Text("\(flight.flightStatus) ")
+                }
+            }
+        }
     }
 }
 
