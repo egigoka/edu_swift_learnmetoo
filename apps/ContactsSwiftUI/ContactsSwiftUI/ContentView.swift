@@ -11,17 +11,19 @@ struct ContentView: View {
     let persons = DataManager.shared.generateContacts()
     
     var body: some View {
-        TabView {
-            PersonsList(persons: persons)
-                .tabItem {
-                    Image(systemName: "person.3")
-                    Text("Contacts")
-                }
-            PersonsList(persons: persons)
-                .tabItem {
-                    Image(systemName: "phone")
-                    Text("Details")
-                }
+        NavigationView {
+            TabView {
+                PersonsList(persons: persons)
+                    .tabItem {
+                        Image(systemName: "person.3")
+                        Text("Contacts")
+                    }
+                DetailsList(persons: persons)
+                    .tabItem {
+                        Image(systemName: "phone")
+                        Text("Details")
+                    }
+            }
         }
     }
 }

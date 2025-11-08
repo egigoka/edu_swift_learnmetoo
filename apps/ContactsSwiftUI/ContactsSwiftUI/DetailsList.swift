@@ -12,19 +12,28 @@ struct DetailsList: View {
     
     var body: some View {
         List(persons) { person in
-            Section(person.fullName) {
-                <#code#>
+            NavigationLink(destination: Details(person: person)) {
+                Section(person.fullName) {
+                    DetailInfo(imageName: "phone", details: person.phone)
+                    DetailInfo(imageName: "tray", details: person.email)
+                }
             }
         }
+        .navigationTitle("Details List")
     }
 }
 
 struct DetailInfo: View {
+    let imageName: String
+    let details: String
     var body: some View {
-        
+        HStack {
+            Image(systemName: imageName)
+            Text(details)
+        }
     }
 }
 
 #Preview {
-    DetailsList()
+    DetailsList(persons: DataManager.shared.generateContacts())
 }
