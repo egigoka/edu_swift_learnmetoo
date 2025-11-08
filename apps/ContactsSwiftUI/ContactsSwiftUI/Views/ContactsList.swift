@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonsList: View {
+struct ContactsList: View {
     let contacts: [Person]
     
     var body: some View {
@@ -24,5 +24,5 @@ struct PersonsList: View {
 }
 
 #Preview {
-    PersonsList(contacts: Person.generateContacts())
+    ContactsList(contacts: Person.generateContacts())
 }
