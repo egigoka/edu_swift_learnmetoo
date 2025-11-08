@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DetailsList: View {
-    let persons: [Person]
+    let contacts: [Person]
     
     var body: some View {
-        List(persons) { person in
+        List(contacts) { person in
             Section(person.fullName) {
                 DetailInfo(imageName: "phone", details: person.phone, person: person)
                 DetailInfo(imageName: "tray", details: person.email, person: person)
@@ -26,7 +26,7 @@ struct DetailInfo: View {
     let details: String
     let person: Person
     var body: some View {
-        NavigationLink(destination: Details(person: person)) {
+        NavigationLink(destination: Details(contact: person)) {
             Image(systemName: imageName)
             Text(details)
         }
@@ -34,5 +34,5 @@ struct DetailInfo: View {
 }
 
 #Preview {
-    DetailsList(persons: DataManager.shared.generateContacts())
+    DetailsList(contacts: Person.generateContacts())
 }

@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    let persons = DataManager.shared.generateContacts()
+    private let contacts = Person.generateContacts()
     
     var body: some View {
         NavigationView {
             TabView {
                 NavigationStack {
-                    PersonsList(persons: persons)
+                    PersonsList(contacts: contacts)
                 }
                     .tabItem {
                         Image(systemName: "person.3")
                         Text("Contacts")
                     }
                 NavigationStack {
-                    DetailsList(persons: persons)
+                    DetailsList(contacts: contacts)
                 }
                     .tabItem {
                         Image(systemName: "phone")

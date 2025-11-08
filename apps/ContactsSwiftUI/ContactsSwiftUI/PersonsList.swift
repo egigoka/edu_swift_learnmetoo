@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct PersonsList: View {
-    let persons: [Person]
+    let contacts: [Person]
     
     var body: some View {
-        List(persons) { person in
+        List(contacts) { person in
             NavigationLink(
                 "\(person.fullName)",
-                destination: Details(person: person)
+                destination: Details(contact: person)
             )
         }
         .navigationTitle("Contact List")
@@ -22,5 +22,5 @@ struct PersonsList: View {
 }
 
 #Preview {
-    PersonsList(persons: DataManager.shared.generateContacts())
+    PersonsList(contacts: Person.generateContacts())
 }

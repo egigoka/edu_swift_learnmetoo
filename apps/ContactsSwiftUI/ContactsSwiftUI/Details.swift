@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Details: View {
-    let person: Person
+    let contact: Person
     
     var body: some View {
         List {
@@ -19,18 +19,18 @@ struct Details: View {
             HStack {
                 Image(systemName: "phone")
                     .foregroundColor(.blue)
-                Text("\(person.phone)")
+                Text("\(contact.phone)")
             }
             HStack {
                 Image(systemName: "tray")
                     .foregroundColor(.blue)
-                Text("\(person.email)")
+                Text("\(contact.email)")
             }
         }
-        .navigationTitle(Text("\(person.fullName)"))
+        .navigationTitle(Text("\(contact.fullName)"))
     }
 }
 
 #Preview {
-    Details(person: DataManager.shared.generateContact())
+    Details(contact: Person.generateContact())
 }
