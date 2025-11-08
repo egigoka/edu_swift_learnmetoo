@@ -8,29 +8,23 @@
 import SwiftUI
 
 struct DetailsList: View {
-    let person: Person
+    let persons: [Person]
     
     var body: some View {
-        List {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 150, height: 150, alignment: .center)
-                .frame(maxWidth: .infinity, alignment: .center)
-            HStack {
-                Image(systemName: "phone")
-                    .foregroundColor(.blue)
-                Text("\(person.phone)")
-            }
-            HStack {
-                Image(systemName: "tray")
-                    .foregroundColor(.blue)
-                Text("\(person.email)")
+        List(persons) { person in
+            Section(person.fullName) {
+                <#code#>
             }
         }
-        .navigationTitle(Text("\(person.fullName)"))
+    }
+}
+
+struct DetailInfo: View {
+    var body: some View {
+        
     }
 }
 
 #Preview {
-    DetailsList(person: DataManager.shared.generateContact())
+    DetailsList()
 }

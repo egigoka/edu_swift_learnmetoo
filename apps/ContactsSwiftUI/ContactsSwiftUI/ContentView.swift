@@ -15,8 +15,13 @@ struct ContentView: View {
             PersonsList(persons: persons)
                 .tabItem {
                     Image(systemName: "person.3")
+                    Text("Contacts")
                 }
             PersonsList(persons: persons)
+                .tabItem {
+                    Image(systemName: "phone")
+                    Text("Details")
+                }
         }
     }
 }

@@ -12,13 +12,13 @@ struct PersonsList: View {
     
     var body: some View {
         NavigationView {
-            
             List(persons) { person in
                 NavigationLink(
                     "\(person.fullName)",
-                    value: DetailsList(person: person)
+                    destination: Details(person: person)
                 )
             }
+            .navigationTitle("Contact List")
         }
     }
 }
