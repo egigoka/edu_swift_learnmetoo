@@ -20,7 +20,11 @@ struct FlightBoardInformation: View {
             Text("\(flight.direction == .arrival ? "From" : "To") \(flight.otherAirport)")
             Text("\(flight.flightStatus)")
                 .foregroundColor(Color(flight.timelineColor))
+            Spacer()
         }
+        .font(.headline)
+        .padding()
+        .navigationBarTitle("Flight Information")
     }
 }
 

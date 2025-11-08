@@ -12,14 +12,12 @@ struct FlightBoard: View {
     let flightInfo: [FlightInformation]
     
     var body: some View {
-//            ScrollView([.vertical, .horizontal]) {
-//                ForEach(flightInfo) { flight in
-//                    Text("\(flight.airline) \(flight.number)")
-//                    Text("\(flight.flightStatus) ")
-//                }
-//            }
         List(flightInfo) { flight in
-            FlightRow(flight: flight)
+            NavigationLink(
+                destination: FlightBoardInformation(flight: flight)
+            ) {
+                FlightRow(flight: flight)
+            }
         }
         .navigationBarTitle(Text(boardName))
     }
