@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    let persons = DataManager.shared.generateContacts()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            PersonsList(persons: persons)
         }
-        .padding()
     }
 }
 
