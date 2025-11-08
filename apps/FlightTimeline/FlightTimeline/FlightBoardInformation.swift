@@ -18,6 +18,7 @@ struct FlightBoardInformation: View {
                 Text("\(flight.airline) Flight \(flight.number)")
                     .font(.largeTitle)
                 Spacer()
+                Button("Done") { isPresented = false }
             }
             Text("\(flight.direction == .arrival ? "From" : "To") \(flight.otherAirport)")
             Text("\(flight.flightStatus)")
@@ -26,10 +27,15 @@ struct FlightBoardInformation: View {
         }
         .font(.headline)
         .padding()
-        .navigationBarTitle("Flight Information")
+//        .navigationBarTitle("Flight Information")
+//        .navigationBarItems(trailing:
+//                                Button("Done") { isPresented = false }
+//        )
     }
 }
 
 #Preview {
-    FlightBoardInformation(flight: FlightInformation.generateFlight())
+    FlightBoardInformation(
+        isPresented: .constant(false),
+        flight: FlightInformation.generateFlight())
 }

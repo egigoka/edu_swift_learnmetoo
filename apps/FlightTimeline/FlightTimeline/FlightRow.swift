@@ -24,7 +24,9 @@ struct FlightRow: View {
                     .frame(alignment: .trailing)
             }
             .sheet(isPresented: $isPresented) {
-                FlightBoardInformation(flight: flight)
+                FlightBoardInformation(
+                    isPresented: $isPresented,
+                    flight: flight)
             }
         }
     }
