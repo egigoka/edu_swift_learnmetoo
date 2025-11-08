@@ -13,16 +13,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView {
-                NavigationStack {
-                    PersonsList(contacts: contacts)
-                }
+                PersonsList(contacts: contacts)
                     .tabItem {
-                        Image(systemName: "person.3")
+                        Image(systemName: SystemImages.contacts.rawValue)
                         Text("Contacts")
                     }
-                NavigationStack {
-                    DetailsList(contacts: contacts)
-                }
+                DetailsList(contacts: contacts)
                     .tabItem {
                         Image(systemName: "phone")
                         Text("Details")

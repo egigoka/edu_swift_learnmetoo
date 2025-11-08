@@ -191,7 +191,7 @@ course 3 lesson 5 homework review  - done
 course 3 lesson 5 theory           - done
 course 3 lesson 5 homework         - done
 
-course 3 lesson 6 homework review  - 27:05
+course 3 lesson 6 homework review  - 27:13
 course 3 lesson 6 theory           - 
 course 3 lesson 6 homework         - 
 
