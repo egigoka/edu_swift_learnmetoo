@@ -18,10 +18,11 @@ struct UISliderView: UIViewRepresentable {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 100
+        slider.value = Float(value)
 
         slider.addTarget(
             context.coordinator,
-            action: #selector(Coordinator.onSliderChange(_:)),
+            action: #selector(Coordinator.valueChanged),
             for: .valueChanged
         )
         
@@ -29,10 +30,7 @@ struct UISliderView: UIViewRepresentable {
     }
     
     func updateUIView(_ view: UISlider, context: Context) {
-        let newTint = UIColor.red.withAlphaComponent(CGFloat(alpha) / 100)
-        if view.thumbTintColor != newTint {
-            view.thumbTintColor = newTint
-        }
+        view.thumbTintColor = color.withAlphaComponent(CGFloat(alpha) / 100)
     }
     
     func makeCoordinator() -> Coordinator {
@@ -48,9 +46,8 @@ extension UISliderView {
             self._value = value
         }
         
-        @objc func onSliderChange(_ sender: UISlider) {
+        @objc func valueChanged(_ sender: UISlider) {
             value = Double(sender.value)
-            
         }
     }
 }

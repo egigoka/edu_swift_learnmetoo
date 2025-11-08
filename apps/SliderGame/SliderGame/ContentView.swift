@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var currentValue: Float
+    @State private var currentValue: Double
     @State private var targetValue: Int
     @State private var alertShown = false
     private var opacity: Int {
@@ -41,7 +41,7 @@ struct ContentView: View {
     }
     
     private func computeScore() -> Int {
-        let difference = abs(targetValue - lroundf(currentValue))
+        let difference = abs(targetValue - lround(currentValue))
         return 100 - difference
     }
 }
