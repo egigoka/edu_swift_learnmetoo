@@ -8,24 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var currentValue: Double
-    @State private var targetValue: Int
+    @State private var targetValue: Int = Int.random(in: 1...100)
+    @State private var currentValue: Double = 50
     @State private var alertShown = false
-    private var alpha: Int {
-        computeScore()
-    }
-    
-    init() {
-        currentValue = 0
-        targetValue = Int.random(in: 0...100)
-    }
     
     var body: some View {
         VStack(spacing: 24) {
             GameSlider(currentValue: $currentValue,
                        targetValue: targetValue,
                        color: .red,
-                       alpha: alpha)
+                       alpha: computeScore())
             Button("Check me!") {
                 alertShown = true
             }
