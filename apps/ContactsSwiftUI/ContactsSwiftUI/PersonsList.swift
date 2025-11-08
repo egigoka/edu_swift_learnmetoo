@@ -11,7 +11,8 @@ struct PersonsList: View {
     let persons: [Person]
     
     var body: some View {
-        ForEach(persons) { person in
+        let _ = print(persons.count)
+        List(persons) { person in
             Text("\(person.name) \(person.surname)")
         }
     }

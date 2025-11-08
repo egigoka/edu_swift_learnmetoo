@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             PersonsList(persons: persons)
+            PersonsList(persons: persons)
         }
     }
 }

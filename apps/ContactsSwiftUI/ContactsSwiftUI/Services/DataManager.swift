@@ -38,17 +38,16 @@ class DataManager {
         var phones = phones
         var emails = emails
         
-        print(1..<names.count)
-        
         var persons: [Person] = []
         
-        for _ in 1...names.count {
+        for _ in 0..<names.count {
+            print(1..<names.count)
             persons.append(Person(
                 id: UUID().uuidString,
-                name: names.remove(at: Int.random(in: 1..<names.count)),
-                surname: surnames.remove(at: Int.random(in: 1..<surnames.count)),
-                phone: phones.remove(at: Int.random(in: 1..<phones.count)),
-                email: emails.remove(at: Int.random(in: 1..<emails.count))))
+                name: names.remove(at: Int.random(in: 0..<names.count)),
+                surname: surnames.remove(at: Int.random(in: 0..<surnames.count)),
+                phone: phones.remove(at: Int.random(in: 0..<phones.count)),
+                email: emails.remove(at: Int.random(in: 0..<emails.count))))
         }
         
         return persons
