@@ -76,7 +76,7 @@ struct CurvesView: View {
                 )
                 path.closeSubpath()
             }
-            .stroke(Color.orange, lineWidth: 2)
+            .stroke(.orange, lineWidth: 2)
         }
         .frame(width: width, height: height)
     }
