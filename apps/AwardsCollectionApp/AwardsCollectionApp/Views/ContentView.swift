@@ -31,7 +31,7 @@ struct ContentView: View {
                 
                 GradientRectangles(width: shapeSize, height: shapeSize)
                     .offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
-                    .animation(.easeInOut, value: showShape)
+                    .animation(.easeOut, value: showShape)
                 
                 Spacer()
             }
