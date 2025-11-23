@@ -10,12 +10,13 @@ import SwiftUI
 struct ShapesView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView {
+            ScrollView {
+                VStack {
                     GradientRectangles(width: 250, height: 250)
                     PathView(width: 250, height: 250)
                     CurvesView(width: 250, height: 250)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .navigationTitle("Shapes")
         }

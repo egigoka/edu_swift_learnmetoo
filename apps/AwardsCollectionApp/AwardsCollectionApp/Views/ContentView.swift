@@ -13,6 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader{ geometry in
+            let fullWidth = geometry.size.width
+            + geometry.safeAreaInsets.leading
+            + geometry.safeAreaInsets.trailing
             VStack {
                 Button(action: { showShape.toggle() }) {
                     HStack {
@@ -27,20 +30,13 @@ struct ContentView: View {
                 Spacer()
                 
                 GradientRectangles(width: shapeSize, height: shapeSize)
-                    .offset(
-                        x: showShape
-                        ? 0
-                        : -geometry.size.width / 2
-                        - geometry.safeAreaInsets.leading
-                        - shapeSize / 2
-                    )
-                    .animation(.default, value: showShape)
+                    .offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
+                    .animation(.easeInOut, value: showShape)
                 
                 Spacer()
             }
             .font(.headline)
             .padding()
-            .ignoresSafeArea(edges: .horizontal)
         }
     }
 }
