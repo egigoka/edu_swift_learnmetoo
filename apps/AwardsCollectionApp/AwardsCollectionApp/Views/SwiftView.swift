@@ -13,6 +13,7 @@ struct SwiftView: View {
     
     // animation variables
     @State private var gradientShift: CGFloat = -0.5
+    @State private var strokeShift: CGFloat = 0
     
     var body: some View {
         ZStack {
@@ -33,7 +34,13 @@ struct SwiftView: View {
                 colors: [.orange, .red],
                 startPoint: UnitPoint(x: 0.25 + gradientShift, y: 0.25 + gradientShift),
                 endPoint: UnitPoint(x: 0.75 + gradientShift , y: 0.75 + gradientShift)))
-            .stroke(.orange, lineWidth: 2)
+            .stroke(
+                AngularGradient(
+                    gradient: Gradient(colors: [.red, .orange, .orange, .red]),
+                    center: .center,
+                    angle: .degrees(Double(strokeShift))
+                ),
+                lineWidth: 2)
             .opacity(1)
         }
         .frame(width: width, height: height)
@@ -43,6 +50,12 @@ struct SwiftView: View {
                     .repeatForever(autoreverses: true)
             ) {
                 gradientShift = 0.5
+            }
+            withAnimation(
+                Animation.linear(duration: 5)
+                    .repeatForever(autoreverses: true)
+            ) {
+                strokeShift = 360
             }
         }
     }

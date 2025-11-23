@@ -13,7 +13,7 @@ struct PathView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let size = min(geometry.size.height, geometry.size.width)
+            let size = min(height, width)
             let nearLine = size * 0.1
             let farLine = size * 0.9
             let middle = size / 2
@@ -42,10 +42,10 @@ struct PathView: View {
                 .scaleEffect(0.2)
                 .offset(x: -geometry.size.width / 7.25)
         }
-        .frame(width: 200, height: 200)
+        .frame(width: width, height: height)
     }
 }
 
 #Preview {
-    PathView(width: 200, height: 200)
+    PathView(width: 100, height: 100)
 }

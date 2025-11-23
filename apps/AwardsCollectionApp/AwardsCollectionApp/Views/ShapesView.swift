@@ -12,10 +12,11 @@ struct ShapesView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    GradientRectangles(width: 250, height: 250)
-                    PathView(width: 250, height: 250)
-                    CurvesView(width: 250, height: 250)
-                    SwiftView(width: 250, height: 250)
+                    GradientRectangles(width: 125, height: 125)
+                    PathView(width: 125, height: 125)
+                    CurvesView(width: 125, height: 125)
+                    SwiftView(width: 125, height: 125)
+                    HypocycloidView(width: 125, height: 125)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
