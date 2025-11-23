@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct GradientRectangles: View {
+    let width: CGFloat
+    let height: CGFloat
+    
     var body: some View {
-        Text("Gradient Rectangles")
+        Rectangle()
+            .fill(
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.red, Color.blue]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .frame(width: width, height: height)
     }
 }
 
 #Preview {
-    GradientRectangles()
+    GradientRectangles(width: 200, height: 200)
 }

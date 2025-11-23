@@ -9,7 +9,18 @@ import SwiftUI
 
 struct TabViews: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            ContentView()
+                .tabItem {
+                    Image(systemName: "rosette")
+                    Text("Content View")
+                }
+            ShapesView()
+                .tabItem {
+                    Image(systemName: "pencil.and.outline")
+                    Text("Shapes View")
+                }
+        }
     }
 }
 
