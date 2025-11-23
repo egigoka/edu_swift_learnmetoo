@@ -44,9 +44,8 @@ struct CustomGridView<Content>: View where Content: View {
 }
 
 #Preview {
-    CustomGridView<AnyView>(items: [11, 3, 765, 18, 5, 34, 23, 45, 12, 7, 456], columns: 3) {item in
+    CustomGridView<Text>(items: [11, 3, 765, 18, 5, 34, 23, 45, 12, 7, 456], columns: 3) {item in
         Text("\(item)")
-            .background(.red)
-        as! AnyView
+            .bold()
     }
 }
