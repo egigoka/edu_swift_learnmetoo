@@ -20,7 +20,13 @@ struct TabViews: View {
                     Image(systemName: "pencil.and.outline")
                     Text("Shapes View")
                 }
-            CustomGridView(items: [11, 787, 432, 1, 5, 3], columns: 3)
+            CustomGridView<AnyView>(items: [11, 787, 432, 1, 5, 3, 2, 100, 200, 400, 800], columns: 3) { item in
+                Text("\(item) test")
+                    .bold()
+                    .background(.red)
+                    .foregroundStyle(.white)
+                as! AnyView
+            }
                 .tabItem {
                     Image(systemName: "square.grid.3x3")
                     Text("Custom Grid View")
