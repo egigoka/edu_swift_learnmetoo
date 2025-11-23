@@ -15,6 +15,7 @@ struct ShapesView: View {
                     GradientRectangles(width: 250, height: 250)
                     PathView(width: 250, height: 250)
                     CurvesView(width: 250, height: 250)
+                    SwiftView(width: 250, height: 250)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }

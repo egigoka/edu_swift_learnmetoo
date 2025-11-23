@@ -10,7 +10,6 @@ import SwiftUI
 struct SwiftView: View {
     let width: CGFloat
     let height: CGFloat
-    @State var point: CounterModel
     
     var body: some View {
         ZStack {
@@ -34,31 +33,12 @@ struct SwiftView: View {
     }
     
     private func point(x: CGFloat, y: CGFloat) -> CGPoint {
-        print(point)
-        if await point.getValue() % 2 == 0 {
-           // print("path.addQuadCurve(to: CGPoint(x: \(x * width / 256), y: \(y * height / 256))", terminator: "")
-        } else {
-            print(", control: CGPoint(x: \(x * width / 256), y: \(y * height / 256))")
-        }
-        Task {
-            await point.increment()
-        }
         return CGPoint(x: x * width / 256 , y: y * height / 256)
     }
 }
 
-actor CounterModel {
-    private(set) var value: Int = 0
-
-    func increment() {
-        value += 1
-    }
-
-    func getValue() -> Int {
-        value
-    }
-}
 
 #Preview {
-    SwiftView(width: 200, height: 200, point: CounterModel())
+    SwiftView(width: 256, height: 200)
 }
+
