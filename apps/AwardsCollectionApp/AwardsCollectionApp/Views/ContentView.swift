@@ -31,7 +31,7 @@ struct ContentView: View {
                 if showShape {
                     GradientRectangles(width: shapeSize, height: shapeSize)
                         .animation(.default, value: showShape)
-                        .transition(.scale)
+                        .transition(transition)
                     //.offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
                     //.animation(.easeOut, value: showShape)
                 }
@@ -46,7 +46,11 @@ struct ContentView: View {
 
 extension ContentView {
     var transition: AnyTransition {
-        return .asymmetric(insertion: <#T##AnyTransition#>, removal: <#T##AnyTransition#>)
+        let insertion = AnyTransition.move(edge: .leading)
+            .combined(with: .scale)
+        let removal = AnyTransition.scale
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
 
