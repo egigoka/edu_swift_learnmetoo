@@ -20,6 +20,11 @@ struct TabViews: View {
                     Image(systemName: "pencil.and.outline")
                     Text("Shapes View")
                 }
+            CustomGridView(items: [11, 787, 432, 1, 5, 3])
+                .tabItem {
+                    Image(systemName: "square.grid.3x3")
+                    Text("Custom Grid View")
+                }
         }
     }
 }
