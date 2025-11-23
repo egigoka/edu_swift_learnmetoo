@@ -34,12 +34,13 @@ struct SwiftView: View {
     }
     
     private func point(x: CGFloat, y: CGFloat) -> CGPoint {
-        return CGPoint(x: x, y: y)
+        print(1/256*width)
+        return CGPoint(x: x, y: y / 256 * height)
     }
 }
 
 
 #Preview {
-    SwiftView(width: 256, height: 200)
+    SwiftView(width: 200, height: 256)
 }
 
