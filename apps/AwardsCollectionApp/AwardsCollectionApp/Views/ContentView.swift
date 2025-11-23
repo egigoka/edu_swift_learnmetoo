@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showShape = false
+    private let shapeSize: CGFloat = 250
+    private var screenWidth: CGFloat = 0
     
     var body: some View {
+        GeometryReader{ [self] geometry in
+            let _ = self.screenWidth = geometry.size.width
+        }
         VStack {
             Button(action: { showShape.toggle() }) {
                 HStack {
@@ -24,7 +29,15 @@ struct ContentView: View {
             
             Spacer()
             
+            GradientRectangles(width: shapeSize, height: shapeSize)
+                .offset(
+                    x: showShape ? 0 : -UIScreen.main.bounds.width / 2 - shapeSize / 2
+                )
+                .offset(x: showShape ? 0 : CGFloat(screenWidth / 2) + shapeSize / 2)
+                .animation(.default, value: 0.2)
             
+            
+            Spacer()
         }
         .font(.headline)
         .padding()
