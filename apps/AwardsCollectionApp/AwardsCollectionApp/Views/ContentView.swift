@@ -13,25 +13,27 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            let fullWidth = geometry.size.width
-            + geometry.safeAreaInsets.leading
-            + geometry.safeAreaInsets.trailing
+//            let fullWidth = geometry.size.width
+//            + geometry.safeAreaInsets.leading
+//            + geometry.safeAreaInsets.trailing
             VStack {
-                Button(action: { showShape.toggle() }) {
+                Button(action: { withAnimation { showShape.toggle() } }) {
                     HStack {
                         Text(showShape ? "Hide Shape" : "Show Shape")
                         Spacer()
                         Image(systemName: "chevron.up.square")
                             .rotationEffect(.degrees(showShape ? 0 : 180))
-                            .animation(.default, value: showShape)
+                            //.animation(.default, value: showShape)
                     }
                 }
                 
                 Spacer()
-                
-                GradientRectangles(width: shapeSize, height: shapeSize)
-                    .offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
-                    .animation(.easeOut, value: showShape)
+                if showShape {
+                    GradientRectangles(width: shapeSize, height: shapeSize)
+                        .transition(.slide)
+                    //                    .offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
+                    //.animation(.easeOut, value: showShape)
+                }
                 
                 Spacer()
             }
