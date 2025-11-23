@@ -29,7 +29,7 @@ struct ContentView: View {
                 
                 Spacer()
                 if showShape {
-                    GradientRectangles(width: shapeSize, height: shapeSize)
+                    SwiftView(width: shapeSize, height: shapeSize)
                         .animation(.default, value: showShape)
                         .transition(.transition)
                     //.offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)

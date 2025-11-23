@@ -192,10 +192,10 @@ course 3 lesson 5 theory           - done
 course 3 lesson 5 homework         - done
 
 course 3 lesson 6 homework review  - done
-course 3 lesson 6 theory           - 2:21:32
-course 3 lesson 6 homework         - 
+course 3 lesson 6 theory           - done
+course 3 lesson 6 homework         - done
 
-course 3 lesson 7 homework review  - 
+course 3 lesson 7 homework review  - 19:52
 course 3 lesson 7 theory           - 
 course 3 lesson 7 homework         - 
 
