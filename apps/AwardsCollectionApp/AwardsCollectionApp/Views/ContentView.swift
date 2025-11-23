@@ -22,8 +22,8 @@ struct ContentView: View {
                         Text(showShape ? "Hide Shape" : "Show Shape")
                         Spacer()
                         Image(systemName: "chevron.up.square")
+                            .scaleEffect(showShape ? 2 : 1)
                             .rotationEffect(.degrees(showShape ? 0 : 180))
-                        //.animation(.default, value: showShape)
                     }
                 }
                 
@@ -31,7 +31,7 @@ struct ContentView: View {
                 if showShape {
                     GradientRectangles(width: shapeSize, height: shapeSize)
                         .animation(.default, value: showShape)
-                        .transition(transition)
+                        .transition(.transition)
                     //.offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
                     //.animation(.easeOut, value: showShape)
                 }
@@ -44,8 +44,8 @@ struct ContentView: View {
     }
 }
 
-extension ContentView {
-    var transition: AnyTransition {
+extension AnyTransition {
+    static var transition: AnyTransition {
         let insertion = AnyTransition.move(edge: .leading)
             .combined(with: .scale)
         let removal = AnyTransition.scale
