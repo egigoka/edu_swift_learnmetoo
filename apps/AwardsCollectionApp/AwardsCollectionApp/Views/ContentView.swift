@@ -10,12 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @State private var showShape = false
     private let shapeSize: CGFloat = 250
-    private var screenWidth: CGFloat = 0
+    @State private var screenWidth: CGFloat = 0
     
     var body: some View {
-        GeometryReader{ [self] geometry in
+        GeometryReader{ geometry in
             let _ = self.screenWidth = geometry.size.width
+            let _ = print(self.screenWidth)
+            Circle()
         }
+        .ignoresSafeArea()
         VStack {
             Button(action: { showShape.toggle() }) {
                 HStack {
