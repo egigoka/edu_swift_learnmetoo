@@ -44,6 +44,39 @@ struct CurvesView: View {
                     startRadius: size * 0.05,
                     endRadius: size * 0.6)
             )
+            
+            Path { path in
+                path.addArc(
+                    center: CGPoint(x: nearLine, y: nearLine),
+                    radius: middle,
+                    startAngle: .degrees(90),
+                    endAngle: .degrees(0),
+                    clockwise: true
+                )
+                path.addArc(
+                    center: CGPoint(x: farLine, y: nearLine),
+                    radius: middle,
+                    startAngle: .degrees(180),
+                    endAngle: .degrees(90),
+                    clockwise: true
+                )
+                path.addArc(
+                    center: CGPoint(x: farLine, y: farLine),
+                    radius: middle,
+                    startAngle: .degrees(270),
+                    endAngle: .degrees(180),
+                    clockwise: true
+                )
+                path.addArc(
+                    center: CGPoint(x: nearLine, y: farLine),
+                    radius: middle,
+                    startAngle: .degrees(0),
+                    endAngle: .degrees(270),
+                    clockwise: true
+                )
+                path.closeSubpath()
+            }
+            .stroke(Color.orange, lineWidth: 2)
         }
         .frame(width: width, height: height)
     }
