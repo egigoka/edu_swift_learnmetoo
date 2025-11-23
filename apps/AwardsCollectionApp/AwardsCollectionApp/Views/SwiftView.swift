@@ -11,10 +11,13 @@ struct SwiftView: View {
     let width: CGFloat
     let height: CGFloat
     
+    // animation variables
+    @State private var gradientShift: CGFloat = -1
+    
     var body: some View {
         ZStack {
             Image("swiftimage256x256")
-            Path { path in            
+            Path { path in
                 path.move(to: point(x: 162, y: 10))
                 path.addQuadCurve(to: point(x: 229, y: 166), control: point(x: 254, y: 86))
                 path.addQuadCurve(to: point(x: 246, y: 223), control: point(x: 254, y: 191))
@@ -27,14 +30,25 @@ struct SwiftView: View {
                 path.addQuadCurve(to: point(x: 177, y: 125), control: point(x: 141, y: 102))
                 path.addQuadCurve(to: point(x: 162, y: 10), control: point(x: 203, y: 78))
             }
-            .fill()
+            .fill(LinearGradient(
+                colors: [.orange, .red],
+                startPoint: UnitPoint(x: 0 + gradientShift, y: 0 + gradientShift),
+                endPoint: UnitPoint(x: 1 + gradientShift , y: 1 + gradientShift)))
             .stroke(.black, lineWidth: 2)
+            .opacity(1)
         }
         .frame(width: width, height: height)
+        .onAppear {
+            withAnimation(
+                Animation.linear(duration: 2)
+                    .repeatForever(autoreverses: true)
+            ) {
+                gradientShift = 1
+            }
+        }
     }
     
     private func point(x: CGFloat, y: CGFloat) -> CGPoint {
-        print(1/256*width)
         return CGPoint(x: x / 256 * width, y: y / 256 * height)
     }
 }
