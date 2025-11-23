@@ -12,15 +12,23 @@ struct GradientRectangles: View {
     let height: CGFloat
     
     var body: some View {
-        Rectangle()
-            .fill(
-                LinearGradient(
-                    gradient: Gradient(colors: [Color.red, Color.blue]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-            )
-            .frame(width: width, height: height)
+        ZStack {
+            ForEach(0..<3) { iteration in
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [.green, .blue]),
+                            startPoint: UnitPoint(x: 0, y: 1),
+                            endPoint: UnitPoint(x: 1, y: 0)
+                        )
+                    )
+                    .frame(width: width, height: height)
+                    .rotationEffect(.degrees(Double(iteration) * 60))
+            }
+            
+            Image(systemName: "airplane")
+                .resizable()
+        }
     }
 }
 
