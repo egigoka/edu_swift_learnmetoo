@@ -12,7 +12,7 @@ struct ShapesView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    
+                    GradientRectangles(width: 250, height: 250)
                 }
             }
             .navigationTitle("Shapes")
