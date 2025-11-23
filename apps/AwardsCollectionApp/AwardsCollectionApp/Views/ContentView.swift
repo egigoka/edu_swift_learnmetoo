@@ -23,15 +23,16 @@ struct ContentView: View {
                         Spacer()
                         Image(systemName: "chevron.up.square")
                             .rotationEffect(.degrees(showShape ? 0 : 180))
-                            //.animation(.default, value: showShape)
+                        //.animation(.default, value: showShape)
                     }
                 }
                 
                 Spacer()
                 if showShape {
                     GradientRectangles(width: shapeSize, height: shapeSize)
-                        .transition(.slide)
-                    //                    .offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
+                        .animation(.default, value: showShape)
+                        .transition(.scale)
+                    //.offset( x: showShape ? 0 : -(fullWidth + shapeSize) / 2)
                     //.animation(.easeOut, value: showShape)
                 }
                 
@@ -40,6 +41,12 @@ struct ContentView: View {
             .font(.headline)
             .padding()
         }
+    }
+}
+
+extension ContentView {
+    var transition: AnyTransition {
+        return .asymmetric(insertion: <#T##AnyTransition#>, removal: <#T##AnyTransition#>)
     }
 }
 
