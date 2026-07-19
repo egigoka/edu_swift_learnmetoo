@@ -25,9 +25,7 @@ struct ContentView: View {
 
 #Preview(
     traits:
-        .fixedLayout(width: 667, height: 375),
         .landscapeLeft
-        
 ) {
     ContentView()
 }
