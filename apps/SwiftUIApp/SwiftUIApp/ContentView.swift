@@ -9,13 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Hello, SwiftUI!")
+        ZStack {
+            Color.blue
+            VStack {
+                Text("Hello, SwiftUI!")
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
 #Preview {
+    ContentView()
+}
+
+#Preview(
+    traits:
+        .fixedLayout(width: 667, height: 375),
+        .landscapeLeft
+        
+) {
     ContentView()
 }
