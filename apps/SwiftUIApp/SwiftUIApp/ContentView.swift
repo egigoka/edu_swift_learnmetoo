@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.blue
+        VStack{
+            SwiftLogo()
+                .padding(.bottom, -40)
             VStack(alignment: .leading) {
                 Text("Part 2")
                     .font(.title)
@@ -22,7 +23,9 @@ struct ContentView: View {
                 }
             }
             .padding()
+            Spacer()
         }
+        .padding()
     }
 }
 

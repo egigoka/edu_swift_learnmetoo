@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ColoredCircle: View {
+    
+    let color: UIColor
+    
     var body: some View {
-        Color.orange
+        Color(color)
             .frame(width: 250, height: 250)
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 4))
@@ -18,5 +21,5 @@ struct ColoredCircle: View {
 }
 
 #Preview {
-    ColoredCircle()
+    ColoredCircle(color: .red)
 }
