@@ -2,7 +2,7 @@
 //  SwiftUIAppApp.swift
 //  SwiftUIApp
 //
-//  Created by egigoka on 28.09.2025.
+//  Created by egigoka2kz on 19.07.2026.
 //
 
 import SwiftUI
