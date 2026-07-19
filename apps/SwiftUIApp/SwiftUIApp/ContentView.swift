@@ -11,10 +11,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.blue
-            VStack {
-                Text("Hello, SwiftUI!")
-            }
-            .padding()
+            Text("Hello, SwiftUI!")
+                .font(.title)
         }
     }
 }
@@ -23,9 +21,6 @@ struct ContentView: View {
     ContentView()
 }
 
-#Preview(
-    traits:
-        .landscapeLeft
-) {
+#Preview(traits: .landscapeLeft) {
     ContentView()
 }
