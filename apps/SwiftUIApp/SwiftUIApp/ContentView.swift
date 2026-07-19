@@ -11,8 +11,17 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.blue
-            Text("Hello, SwiftUI!")
-                .font(.title)
+            VStack(alignment: .leading) {
+                Text("Part 2")
+                    .font(.title)
+                HStack {
+                    Text("Introducing Stacks and Containers")
+                        .font(.subheadline)
+                    Spacer()
+                    Text("SwiftUI")
+                }
+            }
+            .padding()
         }
     }
 }
