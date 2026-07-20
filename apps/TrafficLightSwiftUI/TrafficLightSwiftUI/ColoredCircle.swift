@@ -13,10 +13,13 @@ struct ColoredCircle: View {
     let opacity: Double
     
     var body: some View {
-        
+        Circle()
+            .fill(color)
+            .opacity(opacity)
+            .overlay(Circle().stroke(.foreground, lineWidth: 4))
     }
 }
 
 #Preview {
-    ColoredCircle(color: .red, opacity: 0.5)
+    ColoredCircle(color: .red, opacity: 1)
 }
