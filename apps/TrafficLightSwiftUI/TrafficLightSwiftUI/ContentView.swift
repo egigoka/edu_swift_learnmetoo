@@ -19,13 +19,8 @@ struct ContentView: View {
         ColoredCircle(color: .red, opacity: red)
         ColoredCircle(color: .yellow, opacity: yellow)
         ColoredCircle(color: .green, opacity: green)
-        Spacer()
-        Button(buttonText) {
-            self.buttonTapped()
-        }
-        .buttonStyle(.glassProminent)
-        .font(.title)
-        .padding()
+        StylizedButton(buttonText: buttonText) { self.buttonTapped() }
+            .padding()
     }
     
 }
