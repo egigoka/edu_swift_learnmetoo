@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var buttonText: String = "START"
     
     var body: some View {
+        Spacer()
+            .frame(height: 16)
         ColoredCircle(color: .red, opacity: red)
         ColoredCircle(color: .yellow, opacity: yellow)
         ColoredCircle(color: .green, opacity: green)
@@ -28,21 +30,25 @@ struct ContentView: View {
 extension ContentView {
     
     private func buttonTapped() {
+        
+        let lightIsOn = 1.0
+        let lightIsOff = 0.3
+        
         switch currentLight {
         case .red:
-            red = 0.3
-            yellow = 1
+            red = lightIsOff
+            yellow = lightIsOn
             currentLight = .yellow
         case .yellow:
-            yellow = 0.3
-            green = 1
+            yellow = lightIsOff
+            green = lightIsOn
             currentLight = .green
         case .green:
-            green = 0.3
-            red = 1
+            green = lightIsOff
+            red = lightIsOn
             currentLight = .red
         case .none:
-            red = 1
+            red = lightIsOn
             currentLight = .red
             buttonText = "NEXT"
         }
@@ -50,6 +56,10 @@ extension ContentView {
 }
 
 #Preview {
+    ContentView()
+}
+
+#Preview(traits: .landscapeLeft) {
     ContentView()
 }
 
