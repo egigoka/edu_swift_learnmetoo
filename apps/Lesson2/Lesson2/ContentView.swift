@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var sliderValue = Double.random(in: 0...1)
+    
     var body: some View {
-        Text("Hello, world!")
-            .font(.largeTitle)
-        
+        VStack {
+            Text("\(sliderValue)")
+                .font(.largeTitle)
+            ColoredSlider(value: $sliderValue, color: .red)
+            
+            Slider(value: $sliderValue)
+            Spacer()
+        }
+        .padding()
     }
 }
 
