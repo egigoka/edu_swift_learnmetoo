@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var sliderValue = Double.random(in: 0...1)
+    @State private var sliderValue = Double.random(in: 0...255)
+    @State private var userName = ""
     
     var body: some View {
         VStack {
-            Text("\(sliderValue)")
+            Text("\(lround(sliderValue))")
                 .font(.largeTitle)
-            ColoredSlider(value: $sliderValue, color: .red)
-            
-            Slider(value: $sliderValue)
+            UserNameText(userName: $userName)
+            ColoredSlider(value: $sliderValue, textColor: .red)
+            Slider(value: $sliderValue, in: 0...255)
+            TextField("Enter your name", text: $userName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
         }
         .padding()

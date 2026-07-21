@@ -10,13 +10,13 @@ import SwiftUI
 struct ColoredSlider: View {
     
     @Binding var value: Double
-    let color: Color
+    let textColor: Color
     
     var body: some View {
         HStack {
             Text("0")
                 .foregroundStyle(.red)
-            Slider(value: $value)
+            Slider(value: $value, in: 0...255, step: 1)
             Text("255")
                 .foregroundStyle(.red)
         }
@@ -25,5 +25,5 @@ struct ColoredSlider: View {
 }
 
 #Preview {
-    ColoredSlider(value: .constant(0.5), color: .red)
+    ColoredSlider(value: .constant(127), textColor: .red)
 }
