@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct UserNameText: View {
-    @Binding var userName: String
+    var userName: String
     
     var body: some View {
-        HStack {
+        HStack(alignment: .firstTextBaseline) {
             Text("USER NAME: ")
             Text(userName)
                 .font(.largeTitle)
+            Spacer()
         }
     }
 }
 
 #Preview {
-    UserNameText(userName: .constant("TEST"))
+    UserNameText(userName: "TEST")
 }
