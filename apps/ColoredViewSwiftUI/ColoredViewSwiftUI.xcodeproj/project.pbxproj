@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXFileReference section */
-		1353E21F2E9AC3B8000A436A /* ColoredViewSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColoredViewSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1368B673302CF47A00A043EB /* ColoredViewSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColoredViewSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1353E2212E9AC3B8000A436A /* ColoredViewSwiftUI */ = {
+		1368B675302CF47A00A043EB /* ColoredViewSwiftUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ColoredViewSwiftUI;
 			sourceTree = "<group>";
@@ -19,28 +19,26 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1353E21C2E9AC3B8000A436A /* Frameworks */ = {
+		1368B670302CF47A00A043EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1353E2162E9AC3B8000A436A = {
+		1368B66A302CF47A00A043EB = {
 			isa = PBXGroup;
 			children = (
-				1353E2212E9AC3B8000A436A /* ColoredViewSwiftUI */,
-				1353E2202E9AC3B8000A436A /* Products */,
+				1368B675302CF47A00A043EB /* ColoredViewSwiftUI */,
+				1368B674302CF47A00A043EB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1353E2202E9AC3B8000A436A /* Products */ = {
+		1368B674302CF47A00A043EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1353E21F2E9AC3B8000A436A /* ColoredViewSwiftUI.app */,
+				1368B673302CF47A00A043EB /* ColoredViewSwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,84 +46,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1353E21E2E9AC3B8000A436A /* ColoredViewSwiftUI */ = {
+		1368B672302CF47A00A043EB /* ColoredViewSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1353E22A2E9AC3BA000A436A /* Build configuration list for PBXNativeTarget "ColoredViewSwiftUI" */;
+			buildConfigurationList = 1368B67E302CF47B00A043EB /* Build configuration list for PBXNativeTarget "ColoredViewSwiftUI" */;
 			buildPhases = (
-				1353E21B2E9AC3B8000A436A /* Sources */,
-				1353E21C2E9AC3B8000A436A /* Frameworks */,
-				1353E21D2E9AC3B8000A436A /* Resources */,
+				1368B66F302CF47A00A043EB /* Sources */,
+				1368B670302CF47A00A043EB /* Frameworks */,
+				1368B671302CF47A00A043EB /* Resources */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				1353E2212E9AC3B8000A436A /* ColoredViewSwiftUI */,
+				1368B675302CF47A00A043EB /* ColoredViewSwiftUI */,
 			);
 			name = ColoredViewSwiftUI;
-			packageProductDependencies = (
-			);
 			productName = ColoredViewSwiftUI;
-			productReference = 1353E21F2E9AC3B8000A436A /* ColoredViewSwiftUI.app */;
+			productReference = 1368B673302CF47A00A043EB /* ColoredViewSwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1353E2172E9AC3B8000A436A /* Project object */ = {
+		1368B66B302CF47A00A043EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					1353E21E2E9AC3B8000A436A = {
-						CreatedOnToolsVersion = 26.0.1;
+					1368B672302CF47A00A043EB = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = 1353E21A2E9AC3B8000A436A /* Build configuration list for PBXProject "ColoredViewSwiftUI" */;
+			buildConfigurationList = 1368B66E302CF47A00A043EB /* Build configuration list for PBXProject "ColoredViewSwiftUI" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1353E2162E9AC3B8000A436A;
+			mainGroup = 1368B66A302CF47A00A043EB;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1353E2202E9AC3B8000A436A /* Products */;
+			productRefGroup = 1368B674302CF47A00A043EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1353E21E2E9AC3B8000A436A /* ColoredViewSwiftUI */,
+				1368B672302CF47A00A043EB /* ColoredViewSwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1353E21D2E9AC3B8000A436A /* Resources */ = {
+		1368B671302CF47A00A043EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1353E21B2E9AC3B8000A436A /* Sources */ = {
+		1368B66F302CF47A00A043EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1353E2282E9AC3BA000A436A /* Debug */ = {
+		1368B67C302CF47B00A043EB /* Debug configuration for PBXProject "ColoredViewSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -160,7 +150,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -178,7 +168,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -189,7 +179,7 @@
 			};
 			name = Debug;
 		};
-		1353E2292E9AC3BA000A436A /* Release */ = {
+		1368B67D302CF47B00A043EB /* Release configuration for PBXProject "ColoredViewSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -224,7 +214,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -236,7 +226,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -246,14 +236,14 @@
 			};
 			name = Release;
 		};
-		1353E22B2E9AC3BA000A436A /* Debug */ = {
+		1368B67F302CF47B00A043EB /* Debug configuration for PBXNativeTarget "ColoredViewSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -278,14 +268,14 @@
 			};
 			name = Debug;
 		};
-		1353E22C2E9AC3BA000A436A /* Release */ = {
+		1368B680302CF47B00A043EB /* Release configuration for PBXNativeTarget "ColoredViewSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -313,25 +303,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1353E21A2E9AC3B8000A436A /* Build configuration list for PBXProject "ColoredViewSwiftUI" */ = {
+		1368B66E302CF47A00A043EB /* Build configuration list for PBXProject "ColoredViewSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1353E2282E9AC3BA000A436A /* Debug */,
-				1353E2292E9AC3BA000A436A /* Release */,
+				1368B67C302CF47B00A043EB /* Debug configuration for PBXProject "ColoredViewSwiftUI" */,
+				1368B67D302CF47B00A043EB /* Release configuration for PBXProject "ColoredViewSwiftUI" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1353E22A2E9AC3BA000A436A /* Build configuration list for PBXNativeTarget "ColoredViewSwiftUI" */ = {
+		1368B67E302CF47B00A043EB /* Build configuration list for PBXNativeTarget "ColoredViewSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1353E22B2E9AC3BA000A436A /* Debug */,
-				1353E22C2E9AC3BA000A436A /* Release */,
+				1368B67F302CF47B00A043EB /* Debug configuration for PBXNativeTarget "ColoredViewSwiftUI" */,
+				1368B680302CF47B00A043EB /* Release configuration for PBXNativeTarget "ColoredViewSwiftUI" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1353E2172E9AC3B8000A436A /* Project object */;
+	rootObject = 1368B66B302CF47A00A043EB /* Project object */;
+	validationLevel = 1;
 }

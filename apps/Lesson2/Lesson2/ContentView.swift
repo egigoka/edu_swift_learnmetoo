@@ -20,15 +20,7 @@ struct ContentView: View {
             UserNameView(userName: displayedName)
             ColoredSlider(value: $sliderValue, textColor: .red)
             TextField("Enter your name", text: $userName)
-                //.textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(
-                    EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(lineWidth: 2)
-                        .foregroundStyle(.blue)
-                )
+                .bordered()
                 
             Button("Done", action: checkUsername)
                 .alert(isPresented: $showAlert) {
@@ -62,6 +54,28 @@ struct ContentView: View {
         userName = ""
     }
 }
+
+extension View {
+    func bordered() -> some View {
+        ModifiedContent(content: self, modifier: BorderedViewModifier())
+    }
+}
+
+struct BorderedViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(
+            EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(lineWidth: 2)
+                    .foregroundStyle(.blue)
+            )
+            .shadow(color: .gray.opacity(0.4), radius: 3, x: 1, y: 2)
+    }
+}
+
 
 #Preview {
     ContentView()

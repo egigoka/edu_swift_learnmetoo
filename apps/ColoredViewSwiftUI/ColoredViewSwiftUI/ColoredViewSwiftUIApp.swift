@@ -2,7 +2,7 @@
 //  ColoredViewSwiftUIApp.swift
 //  ColoredViewSwiftUI
 //
-//  Created by egigoka on 11.10.2025.
+//  Created by egigoka2kz on 12.08.2026.
 //
 
 import SwiftUI
@@ -11,12 +11,7 @@ import SwiftUI
 struct ColoredViewSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                red: 9,
-                green: 200,
-                blue: 99
-            )
+            ContentView()
         }
     }
 }
-
