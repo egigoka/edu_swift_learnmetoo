@@ -17,6 +17,8 @@ struct ColoredSlider: View {
             Text("0")
                 .foregroundStyle(textColor)
             Slider(value: $value, in: 0...255, step: 1)
+                .background(textColor)
+                .cornerRadius(40)
             Text("255")
                 .foregroundStyle(textColor)
         }

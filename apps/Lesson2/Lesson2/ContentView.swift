@@ -28,12 +28,21 @@ struct ContentView: View {
                         message: Text("Enter your name"),
                     )
                 }
-            Text("Welcome to SwiftUI")
-                .font(.system(size: 60))
-                .bold()
-                .foregroundStyle(.red)
-                //.lineLimit(2)
-                //.multilineTextAlignment(.leading)
+            VStack {
+                Text("Welcome to")
+                    .font(.system(size: 60))
+                    .bold()
+                    //.foregroundStyle(.red)
+                    //.background(.blue)
+                    //.padding()
+                    //.background(.red)
+                    //.lineLimit(2)
+                    //.multilineTextAlignment(.leading)
+                Text("SwiftUI")
+                    .font(.system(size: 60))
+                    .bold()
+            }
+            .foregroundStyle(.red)
             
             Spacer()
         }

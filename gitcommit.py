@@ -39,14 +39,11 @@ def main() -> None:
         for line in progress_diff.splitlines()
         if line.startswith("+") and not line.startswith("+++") and line[1:].strip()
     ]
-    if not changed_lines:
-        raise SystemExit("progress.txt has no changes; nothing committed")
-
-    commit_message = changed_lines[-1].partition(" - ")[0].rstrip()
-
-    run("git", "add", ".")
-    run("git", "commit", "-m", commit_message)
-    run("git", "push")
+    if changed_lines:
+        commit_message = changed_lines[-1].partition(" - ")[0].rstrip()
+        run("git", "add", ".")
+        run("git", "commit", "-m", commit_message)
+        run("git", "push")
 
     now = datetime.now().astimezone()
     week_start = (now - timedelta(days=now.weekday())).replace(
