@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import subprocess
-import sys
 from datetime import datetime, timedelta
 
 
@@ -25,20 +24,25 @@ def format_duration(commit_count: int) -> str:
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        raise SystemExit(f"Usage: {sys.argv[0]} COMMIT MESSAGE")
-
-    if not run(
+    progress_diff = run(
         "git",
-        "status",
-        "--porcelain",
+        "diff",
+        "--unified=0",
+        "--no-color",
+        "HEAD",
         "--",
         "progress.txt",
         capture_output=True,
-    ):
+    )
+    changed_lines = [
+        line[1:].strip()
+        for line in progress_diff.splitlines()
+        if line.startswith("+") and not line.startswith("+++") and line[1:].strip()
+    ]
+    if not changed_lines:
         raise SystemExit("progress.txt has no changes; nothing committed")
 
-    commit_message = " ".join(sys.argv[1:])
+    commit_message = changed_lines[-1].partition(" - ")[0].rstrip()
 
     run("git", "add", ".")
     run("git", "commit", "-m", commit_message)

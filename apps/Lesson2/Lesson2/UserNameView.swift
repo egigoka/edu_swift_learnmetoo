@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct UserNameText: View {
+struct UserNameView: View {
     var userName: String
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text("USER NAME: ")
+                .frame(height: 60)
             Text(userName)
                 .font(.largeTitle)
             Spacer()
@@ -21,5 +22,5 @@ struct UserNameText: View {
 }
 
 #Preview {
-    UserNameText(userName: "TEST")
+    UserNameView(userName: "TEST")
 }
