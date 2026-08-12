@@ -20,7 +20,16 @@ struct ContentView: View {
             UserNameView(userName: displayedName)
             ColoredSlider(value: $sliderValue, textColor: .red)
             TextField("Enter your name", text: $userName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                //.textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(
+                    EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(lineWidth: 2)
+                        .foregroundStyle(.blue)
+                )
+                
             Button("Done", action: checkUsername)
                 .alert(isPresented: $showAlert) {
                     Alert(
@@ -32,12 +41,6 @@ struct ContentView: View {
                 Text("Welcome to")
                     .font(.system(size: 60))
                     .bold()
-                    //.foregroundStyle(.red)
-                    //.background(.blue)
-                    //.padding()
-                    //.background(.red)
-                    //.lineLimit(2)
-                    //.multilineTextAlignment(.leading)
                 Text("SwiftUI")
                     .font(.system(size: 60))
                     .bold()
