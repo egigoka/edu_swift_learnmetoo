@@ -10,19 +10,19 @@ import SwiftUI
 struct ColorSliderTextField: View {
     
     @Binding var value: Double
-    @State private var isShowingAlert: Bool = false
-    
+    @State private var showAlert = false
+    @State private var newValue = 0.0
     
     var body: some View {
-        TextField("", value: $value, formatter: NumberFormatter()) { _ in
-            checkValue()
-        }
+        TextField("", text: textValue, onCommit: {
+            value = newValue
+        })
             .frame(width: 64)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .onSubmit(checkValue)
             .alert(
                 "Wrong Format",
-                isPresented: $isShowingAlert,
+                isPresented: $showAlert,
                 actions: { Button("OK", role: .cancel) { } },
                 message: { Text("Please enter value from 0 to 255")}
             )
@@ -30,10 +30,16 @@ struct ColorSliderTextField: View {
     
     private func checkValue() {
         guard (0...255).contains(value) else {
-            isShowingAlert = true
+            showAlert = true
             value = value > 255 ? 255 : 0
             return
         }
+    }
+}
+
+extension ColorSliderTextField {
+    var textValue: Binding<String> {
+        Binding<String>
     }
 }
 
