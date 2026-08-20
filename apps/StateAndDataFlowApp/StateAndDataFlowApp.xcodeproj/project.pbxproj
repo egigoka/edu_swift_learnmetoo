@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXFileReference section */
-		13ECE8DB2E9BF5F200305BE7 /* StateAndDataFlowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateAndDataFlowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13F4EBBC30371E34006F47ED /* StateAndDataFlowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateAndDataFlowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		13ECE8DD2E9BF5F200305BE7 /* StateAndDataFlowApp */ = {
+		13F4EBBE30371E34006F47ED /* StateAndDataFlowApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = StateAndDataFlowApp;
 			sourceTree = "<group>";
@@ -19,28 +19,26 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		13ECE8D82E9BF5F200305BE7 /* Frameworks */ = {
+		13F4EBB930371E34006F47ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13ECE8D22E9BF5F200305BE7 = {
+		13F4EBB330371E34006F47ED = {
 			isa = PBXGroup;
 			children = (
-				13ECE8DD2E9BF5F200305BE7 /* StateAndDataFlowApp */,
-				13ECE8DC2E9BF5F200305BE7 /* Products */,
+				13F4EBBE30371E34006F47ED /* StateAndDataFlowApp */,
+				13F4EBBD30371E34006F47ED /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		13ECE8DC2E9BF5F200305BE7 /* Products */ = {
+		13F4EBBD30371E34006F47ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13ECE8DB2E9BF5F200305BE7 /* StateAndDataFlowApp.app */,
+				13F4EBBC30371E34006F47ED /* StateAndDataFlowApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,84 +46,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13ECE8DA2E9BF5F200305BE7 /* StateAndDataFlowApp */ = {
+		13F4EBBB30371E34006F47ED /* StateAndDataFlowApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13ECE8E62E9BF5F400305BE7 /* Build configuration list for PBXNativeTarget "StateAndDataFlowApp" */;
+			buildConfigurationList = 13F4EBC730371E3D006F47ED /* Build configuration list for PBXNativeTarget "StateAndDataFlowApp" */;
 			buildPhases = (
-				13ECE8D72E9BF5F200305BE7 /* Sources */,
-				13ECE8D82E9BF5F200305BE7 /* Frameworks */,
-				13ECE8D92E9BF5F200305BE7 /* Resources */,
+				13F4EBB830371E34006F47ED /* Sources */,
+				13F4EBB930371E34006F47ED /* Frameworks */,
+				13F4EBBA30371E34006F47ED /* Resources */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				13ECE8DD2E9BF5F200305BE7 /* StateAndDataFlowApp */,
+				13F4EBBE30371E34006F47ED /* StateAndDataFlowApp */,
 			);
 			name = StateAndDataFlowApp;
-			packageProductDependencies = (
-			);
 			productName = StateAndDataFlowApp;
-			productReference = 13ECE8DB2E9BF5F200305BE7 /* StateAndDataFlowApp.app */;
+			productReference = 13F4EBBC30371E34006F47ED /* StateAndDataFlowApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		13ECE8D32E9BF5F200305BE7 /* Project object */ = {
+		13F4EBB430371E34006F47ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					13ECE8DA2E9BF5F200305BE7 = {
-						CreatedOnToolsVersion = 26.0.1;
+					13F4EBBB30371E34006F47ED = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = 13ECE8D62E9BF5F200305BE7 /* Build configuration list for PBXProject "StateAndDataFlowApp" */;
+			buildConfigurationList = 13F4EBB730371E34006F47ED /* Build configuration list for PBXProject "StateAndDataFlowApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 13ECE8D22E9BF5F200305BE7;
+			mainGroup = 13F4EBB330371E34006F47ED;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 13ECE8DC2E9BF5F200305BE7 /* Products */;
+			productRefGroup = 13F4EBBD30371E34006F47ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13ECE8DA2E9BF5F200305BE7 /* StateAndDataFlowApp */,
+				13F4EBBB30371E34006F47ED /* StateAndDataFlowApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		13ECE8D92E9BF5F200305BE7 /* Resources */ = {
+		13F4EBBA30371E34006F47ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13ECE8D72E9BF5F200305BE7 /* Sources */ = {
+		13F4EBB830371E34006F47ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		13ECE8E42E9BF5F400305BE7 /* Debug */ = {
+		13F4EBC530371E3D006F47ED /* Debug configuration for PBXProject "StateAndDataFlowApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -160,7 +150,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -178,7 +168,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -189,7 +179,7 @@
 			};
 			name = Debug;
 		};
-		13ECE8E52E9BF5F400305BE7 /* Release */ = {
+		13F4EBC630371E3D006F47ED /* Release configuration for PBXProject "StateAndDataFlowApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -224,7 +214,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -236,7 +226,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -246,14 +236,14 @@
 			};
 			name = Release;
 		};
-		13ECE8E72E9BF5F400305BE7 /* Debug */ = {
+		13F4EBC830371E3D006F47ED /* Debug configuration for PBXNativeTarget "StateAndDataFlowApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -278,14 +268,14 @@
 			};
 			name = Debug;
 		};
-		13ECE8E82E9BF5F400305BE7 /* Release */ = {
+		13F4EBC930371E3D006F47ED /* Release configuration for PBXNativeTarget "StateAndDataFlowApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -313,25 +303,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13ECE8D62E9BF5F200305BE7 /* Build configuration list for PBXProject "StateAndDataFlowApp" */ = {
+		13F4EBB730371E34006F47ED /* Build configuration list for PBXProject "StateAndDataFlowApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13ECE8E42E9BF5F400305BE7 /* Debug */,
-				13ECE8E52E9BF5F400305BE7 /* Release */,
+				13F4EBC530371E3D006F47ED /* Debug configuration for PBXProject "StateAndDataFlowApp" */,
+				13F4EBC630371E3D006F47ED /* Release configuration for PBXProject "StateAndDataFlowApp" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13ECE8E62E9BF5F400305BE7 /* Build configuration list for PBXNativeTarget "StateAndDataFlowApp" */ = {
+		13F4EBC730371E3D006F47ED /* Build configuration list for PBXNativeTarget "StateAndDataFlowApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13ECE8E72E9BF5F400305BE7 /* Debug */,
-				13ECE8E82E9BF5F400305BE7 /* Release */,
+				13F4EBC830371E3D006F47ED /* Debug configuration for PBXNativeTarget "StateAndDataFlowApp" */,
+				13F4EBC930371E3D006F47ED /* Release configuration for PBXNativeTarget "StateAndDataFlowApp" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 13ECE8D32E9BF5F200305BE7 /* Project object */;
+	rootObject = 13F4EBB430371E34006F47ED /* Project object */;
+	validationLevel = 1;
 }

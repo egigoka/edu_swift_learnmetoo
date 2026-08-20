@@ -2,7 +2,7 @@
 //  StateAndDataFlowAppApp.swift
 //  StateAndDataFlowApp
 //
-//  Created by egigoka on 12.10.2025.
+//  Created by egigoka2kz on 20.08.2026.
 //
 
 import SwiftUI
@@ -11,8 +11,7 @@ import SwiftUI
 struct StateAndDataFlowAppApp: App {
     var body: some Scene {
         WindowGroup {
-            StarterView()
-                .environmentObject(UserManager())
+            ContentView()
         }
     }
 }

@@ -39,7 +39,25 @@ struct ColorSliderTextField: View {
 
 extension ColorSliderTextField {
     var textValue: Binding<String> {
-        Binding<String>
+        Binding<String>(
+            get: {
+                "\(lround(value))"
+            },
+            set: {
+                if let number = NumberFormatter().number(from: $0) {
+                    let doubleValue = number.doubleValue
+                    if !(0...255).contains(doubleValue) {
+                        newValue = doubleValue > 255 ? 255 : 0
+                        showAlert = true
+                        return
+                    }
+                    self.newValue = doubleValue
+                } else {
+                    newValue = 0
+                    showAlert = true
+                }
+            }
+        )
     }
 }
 
