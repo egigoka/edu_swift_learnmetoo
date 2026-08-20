@@ -15,11 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ColoredView(color: Color(
-                red: red/255,
-                green: green/255,
-                blue: blue/255
-            ))
+            ColoredView(red: red, green: green, blue: blue)
             ColorSlider(color: .red, value: $red)
             ColorSlider(color: .green, value: $green)
             ColorSlider(color: .blue, value: $blue)

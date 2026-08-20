@@ -24,7 +24,7 @@ struct ColorSlider: View {
                     textValue = "\(Int(value))"
                 }
             TextField("", text: $textValue)
-                .frame(width: 48)
+                .frame(width: 64)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .onSubmit(onSubmit)
                 .alert(
