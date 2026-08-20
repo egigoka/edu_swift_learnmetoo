@@ -24,7 +24,7 @@ struct ColorSlider: View {
                 .onChange(of: value) { _, _ in
                     textValue = "\(Int(value))"
                 }
-            ColorSliderTextField(textValue: $textValue, value: $value)
+            ColorSliderTextField(value: $value)
         }
         .onAppear() {
             textValue = "\(Int(value))"

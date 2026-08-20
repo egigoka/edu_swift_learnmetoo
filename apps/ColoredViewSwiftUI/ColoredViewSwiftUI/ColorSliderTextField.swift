@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ColorSliderTextField: View {
-    @Binding var textValue: String
-    @Binding var value: Double
     
+    @Binding var value: Double
     @State private var isShowingAlert: Bool = false
     
     
     var body: some View {
-        TextField("", text: $textValue)
+        TextField("", value: $value, formatter: NumberFormatter()) { _ in
+            checkValue()
+        }
             .frame(width: 64)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .onSubmit(onSubmit)
+            .onSubmit(checkValue)
             .alert(
                 "Wrong Format",
                 isPresented: $isShowingAlert,
@@ -27,17 +28,15 @@ struct ColorSliderTextField: View {
             )
     }
     
-    private func onSubmit() {
-        guard let intValue = Int(textValue),
-                (0...255).contains(intValue) else {
+    private func checkValue() {
+        guard (0...255).contains(value) else {
             isShowingAlert = true
-            textValue = "\(Int(value))"
+            value = value > 255 ? 255 : 0
             return
         }
-        value = Double(intValue)
     }
 }
 
 #Preview {
-    ColorSliderTextField(textValue: .constant("100"), value: .constant(100))
+    ColorSliderTextField(value: .constant(100))
 }
