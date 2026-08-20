@@ -12,7 +12,7 @@ struct ColorSlider: View {
     @State var color: Color
     @Binding var value: Double
     @State var textValue: String = ""
-    @State var alert: Bool = false
+    @State var isShowingAlert: Bool = false
     
     var body: some View {
         HStack {
@@ -26,21 +26,27 @@ struct ColorSlider: View {
             TextField("", text: $textValue)
                 .frame(width: 48)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onSubmit {
-                    guard let intValue = Int(textValue), (0...255).contains(intValue) else {
-                        alert = true
-                        textValue = "\(Int(value))"
-                        return
-                    }
-                    value = Double(intValue)
-                }
-                .alert(isPresented: $alert) {
-                    Alert(title: Text("Please, enter a number between 0 and 255"))
-                }
+                .onSubmit(onSubmit)
+                .alert(
+                    "Wrong Format",
+                    isPresented: $isShowingAlert,
+                    actions: { Button("OK", role: .cancel) { } },
+                    message: { Text("Please enter value from 0 to 255")}
+                )
         }
         .onAppear() {
             textValue = "\(Int(value))"
         }
+    }
+    
+    private func onSubmit() {
+        guard let intValue = Int(textValue),
+                (0...255).contains(intValue) else {
+            isShowingAlert = true
+            textValue = "\(Int(value))"
+            return
+        }
+        value = Double(intValue)
     }
 }
 
