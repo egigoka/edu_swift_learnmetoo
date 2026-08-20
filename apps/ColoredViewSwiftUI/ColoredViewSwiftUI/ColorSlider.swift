@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ColorSlider: View {
-    @Binding var value: Double
     
+    @Binding var value: Double
     @State private var textValue: String = ""
     
     let color: Color
@@ -20,7 +21,7 @@ struct ColorSlider: View {
                 .foregroundStyle(color)
             Slider(value: $value, in: 0...255, step: 1)
                 .tint(color)
-                .onChange(of: value) { oldValue, newValue in
+                .onChange(of: value) { _, _ in
                     textValue = "\(Int(value))"
                 }
             ColorSliderTextField(textValue: $textValue, value: $value)
