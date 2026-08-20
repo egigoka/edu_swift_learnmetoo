@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ColorSlider: View {
-    
-    @State var color: Color
     @Binding var value: Double
-    @State var textValue: String = ""
-    @State var isShowingAlert: Bool = false
+    
+    @State private var textValue: String = ""
+    
+    let color: Color
     
     var body: some View {
         HStack {
@@ -23,34 +23,17 @@ struct ColorSlider: View {
                 .onChange(of: value) { oldValue, newValue in
                     textValue = "\(Int(value))"
                 }
-            TextField("", text: $textValue)
-                .frame(width: 64)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onSubmit(onSubmit)
-                .alert(
-                    "Wrong Format",
-                    isPresented: $isShowingAlert,
-                    actions: { Button("OK", role: .cancel) { } },
-                    message: { Text("Please enter value from 0 to 255")}
-                )
+            ColorSliderTextField(textValue: $textValue, value: $value)
         }
         .onAppear() {
             textValue = "\(Int(value))"
         }
     }
     
-    private func onSubmit() {
-        guard let intValue = Int(textValue),
-                (0...255).contains(intValue) else {
-            isShowingAlert = true
-            textValue = "\(Int(value))"
-            return
-        }
-        value = Double(intValue)
-    }
+    
 }
 
 #Preview {
     @Previewable @State var value = 100.0
-    ColorSlider(color: .red, value: $value)
+    ColorSlider(value: $value, color: .red)
 }

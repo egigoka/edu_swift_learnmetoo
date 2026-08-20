@@ -14,9 +14,7 @@ struct ColoredView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 32)
-            .fill(
-                Color(red: red/255, green: green/255, blue: blue/255)
-            )
+            .fill(Color(red: red/255, green: green/255, blue: blue/255))
             .stroke(.foreground, lineWidth: 4)
     }
 }
