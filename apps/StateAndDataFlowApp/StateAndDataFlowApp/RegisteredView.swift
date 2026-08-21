@@ -36,4 +36,5 @@ struct RegisteredView: View {
 
 #Preview {
     RegisteredView()
+        .environmentObject(UserManager())
 }
