@@ -11,7 +11,8 @@ import SwiftUI
 struct StateAndDataFlowAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StarterView()
+                .environmentObject(UserManager())
         }
     }
 }

@@ -9,21 +9,27 @@ import SwiftUI
 
 struct RegisteredView: View {
     @State private var name = ""
+    @EnvironmentObject var user: UserManager
     
     var body: some View {
         VStack {
             TextField("Enter your name", text: $name)
                 .multilineTextAlignment(.center)
-            Button {
-                
-            } label: {
+            Button(action: reggisterUser) {
                 HStack {
-                    Text("Register")
-                    Spacer()
-                    Image(systemName: "cross")
+                    Image(systemName: "checkmark.circle.fill")
+                    Text("Ok")
                 }
             }
+            .buttonStyle(.borderedProminent)
 
+        }
+    }
+    
+    private func reggisterUser() {
+        if !name.isEmpty {
+            user.name = name
+            user.isRegistered = true
         }
     }
 }
