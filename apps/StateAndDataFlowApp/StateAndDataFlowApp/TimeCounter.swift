@@ -15,11 +15,26 @@ class TimeCounter: ObservableObject {
     
     func startTimer() {
         timer = Timer.scheduledTimer(
-            timeInterval: <#T##TimeInterval#>,
-            target: <#T##Any#>,
-            selector: <#T##Selector#>,
-            userInfo: <#T##Any?#>,
-            repeats: <#T##Bool#>
+            timeInterval: 1,
+            target: self,
+            selector: #selector(updateCounter),
+            userInfo: nil,
+            repeats: true
         )
+    }
+    
+    @objc private func updateCounter() {
+        if counter > 0 {
+            counter -= 1
+        } else {
+            killTimer()
+        }
+        
+        objectWillChange.send(self)
+    }
+    
+    private func killTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }
