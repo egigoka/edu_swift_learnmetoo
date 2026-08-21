@@ -32,7 +32,7 @@ struct ButtonView: View {
         Button {
             timer.startTimer()
         } label: {
-            Text("Start")
+            Text(timer.buttonTitle)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
