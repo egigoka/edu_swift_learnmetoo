@@ -16,15 +16,45 @@ struct ContentView: View {
         VStack {
             Text("Hello, \(user.name)")
                 .font(.largeTitle)
-                .offset(x: 0, y: 100)
+                .padding()
             Text("\(timer.counter)")
                 .font(.largeTitle)
-                .offset(x: 0, y: 200)
+                .padding()
             Spacer()
             ButtonView(timer: timer)
             Spacer()
+            ColoredButton(color: .blue, label: "Logout", disabled: false) {
+                
+            }
         }
         .padding()
+    }
+}
+
+struct ColoredButton: View {
+    let color: Color
+    let label: String
+    let disabled: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Text(label)
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+            
+        }
+        .disabled(disabled)
+        .frame(width: 200, height: 60)
+        .background(color)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.foreground, lineWidth: 4)
+        )
     }
 }
 
@@ -33,29 +63,14 @@ struct ButtonView: View {
     @StateObject var timer: TimeCounter
     
     var body: some View {
-        Button {
+        ColoredButton(
+            color: timer.timerIsRunning ? .red : .blue,
+            label: timer.buttonTitle,
+            disabled: timer.timerIsRunning
+        ) {
             timer.startTimer()
-        } label: {
-            Text(timer.buttonTitle)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-            
         }
-        .frame(width: 200, height: 60)
-        .background(.red)
-        .cornerRadius(20)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(.foreground, lineWidth: 4)
-        )
     }
-    /*
-    init(tapCount: Binding<Int>, buttonColor: Color) {
-        self._tapCount = tapCount
-        self.buttonColor = buttonColor
-    }
-     */
 }
 
 #Preview {

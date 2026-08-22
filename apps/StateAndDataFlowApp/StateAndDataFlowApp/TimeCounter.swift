@@ -13,6 +13,9 @@ class TimeCounter: ObservableObject {
     var counter = 3
     var timer: Timer?
     var buttonTitle = "Start"
+    var timerIsRunning: Bool {
+        timer != nil
+    }
     
     func startTimer() {
         if counter > 0 {

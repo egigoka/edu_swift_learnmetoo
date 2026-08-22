@@ -6,8 +6,19 @@
 //
 
 import Combine
+import SwiftUI
 
 class UserManager: ObservableObject {
-    @Published var isRegistered = false
+    var isRegistered: Bool {
+        name != ""
+    }
     var name = ""
+    
+    func save(name: String){
+        UserDefaults.standard.set(name, forKey: "username")
+    }
+    
+    func load(){
+        name = UserDefaults.standard.string(forKey: "username") ?? ""
+    }
 }
