@@ -13,14 +13,19 @@ struct StarterView: View {
     
     var body: some View {
         Group {
-            if user.isRegistered {
+            if user.user.isRegistered {
                 ContentView()
             } else {
                 RegisteredView()
+                    .onTapGesture {
+                        UIApplication.shared.sendAction(
+                            #selector(UIResponder.resignFirstResponder),
+                            to: nil,
+                            from: nil,
+                            for: nil
+                        )
+                    }
             }
-        }
-        .onAppear() {
-            user.load()
         }
     }
 }

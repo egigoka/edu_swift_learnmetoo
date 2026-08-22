@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, \(user.name)")
+            Text("Hello, \(user.user.name)")
                 .font(.largeTitle)
                 .padding()
             Text("\(timer.counter)")
@@ -24,7 +24,7 @@ struct ContentView: View {
             ButtonView(timer: timer)
             Spacer()
             ColoredButton(color: .blue, label: "Logout", disabled: false) {
-                user.save(name: "")
+                DataManager.shared.saveUser(user: user.user)
             }
         }
         .padding()
