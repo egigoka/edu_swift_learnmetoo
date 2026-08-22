@@ -19,6 +19,9 @@ struct StarterView: View {
                 RegisteredView()
             }
         }
+        .onAppear() {
+            user.load()
+        }
     }
 }
 

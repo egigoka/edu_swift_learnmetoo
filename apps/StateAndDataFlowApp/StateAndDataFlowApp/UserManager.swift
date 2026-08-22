@@ -9,16 +9,20 @@ import Combine
 import SwiftUI
 
 class UserManager: ObservableObject {
-    var isRegistered: Bool {
-        name != ""
+    @Published var user = User()
+    
+    var nameisValid: Bool {
+        user.name.count >= 3
     }
+    
+    init() {}
+    
+    init(user: User) {
+        self.user = user
+    }
+}
+
+struct User: Codable {
     var name = ""
-    
-    func save(name: String){
-        UserDefaults.standard.set(name, forKey: "username")
-    }
-    
-    func load(){
-        name = UserDefaults.standard.string(forKey: "username") ?? ""
-    }
+    var isRegistered = false
 }

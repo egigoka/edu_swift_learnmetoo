@@ -39,7 +39,8 @@ struct RegisteredView: View {
     private func reggisterUser() {
         if !name.isEmpty {
             user.name = name
-            user.isRegistered = true
+            user.save(name: name)
+            print(user.isRegistered)
         }
     }
 }
