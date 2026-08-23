@@ -14,7 +14,7 @@ struct StarterView: View {
     var body: some View {
         Group {
             if user.user.isRegistered {
-                ContentView()
+                TimerView()
             } else {
                 RegisteredView()
                     .onTapGesture {

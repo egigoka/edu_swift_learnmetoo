@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TimerView: View {
     
     @EnvironmentObject var user: UserManager
     @StateObject private var timer = TimeCounter()
@@ -21,9 +21,9 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .padding()
             Spacer()
-            ButtonView(timer: timer)
+            TimerButtonView(timer: timer)
             Spacer()
-            ColoredButton(color: .blue, label: "Logout", disabled: false) {
+            ColoredButtonView(color: .blue, label: "Logout", disabled: false) {
                 DataManager.shared.clear(userManager: user)
             }
         }
@@ -31,7 +31,7 @@ struct ContentView: View {
     }
 }
 
-struct ColoredButton: View {
+struct ColoredButtonView: View {
     let color: Color
     let label: String
     let disabled: Bool
@@ -48,22 +48,16 @@ struct ColoredButton: View {
             
         }
         .disabled(disabled)
-        .frame(width: 200, height: 60)
-        .background(color)
-        .cornerRadius(20)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(.foreground, lineWidth: 4)
-        )
+        
     }
 }
 
-struct ButtonView: View {
+struct TimerButtonView: View {
     
     @StateObject var timer: TimeCounter
     
     var body: some View {
-        ColoredButton(
+        ColoredButtonView(
             color: timer.timerIsRunning ? .red : .blue,
             label: timer.buttonTitle,
             disabled: timer.timerIsRunning
@@ -74,6 +68,6 @@ struct ButtonView: View {
 }
 
 #Preview {
-    ContentView()
+    TimerView()
         .environmentObject(UserManager())
 }

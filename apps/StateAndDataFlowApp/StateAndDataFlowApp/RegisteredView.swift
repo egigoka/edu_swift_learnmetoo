@@ -18,10 +18,10 @@ struct RegisteredView: View {
             )
             
             .padding()
-            Button(action: reggisterUser) {
+            Button(action: registerUser) {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                    Text("Ok")
+                    Text("OK")
                 }
             }
             .disabled(!userManager.nameIsValid)
@@ -29,9 +29,10 @@ struct RegisteredView: View {
         }
     }
     
-    private func reggisterUser() {
+    private func registerUser() {
         if !userManager.user.name.isEmpty {
             userManager.user.isRegistered = true
+            DataManager.shared.saveUser(user: userManager.user)
         }
     }
 }
