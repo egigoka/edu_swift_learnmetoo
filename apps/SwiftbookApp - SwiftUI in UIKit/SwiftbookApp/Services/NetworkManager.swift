@@ -13,6 +13,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     //private let coursesURL = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
+    //beyond: /mnt/btr/Videos/Educational courses/Swift/Swift_learnmetoo.ru_Evgenij_Efimov/backup_resources
     private let coursesURL = "http://10.1.0.6:9090/fixed/api_courses"
     
     func fetchData(completion: @escaping (_ courses: [Course])->()) {
