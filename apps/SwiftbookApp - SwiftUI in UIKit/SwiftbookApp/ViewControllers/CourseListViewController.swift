@@ -45,9 +45,7 @@ class CourseListViewController: UIViewController {
     }
     
     @IBSegueAction func openCourseDetailsView(_ coder: NSCoder) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
-        let course = courses[indexPath.row]
-        return UIHostingController(coder: coder, rootView: ContentView(course: course))
+        return nil
     }
     
 }
@@ -71,7 +69,8 @@ extension CourseListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CourseListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
