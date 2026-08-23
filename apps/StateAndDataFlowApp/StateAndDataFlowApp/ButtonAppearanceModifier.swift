@@ -30,7 +30,28 @@ extension Button {
     }
 }
 
+struct ButtonTextAppearanceModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.white)
+            .font(.title)
+            .fontWeight(.bold)
+    }
+}
+
+extension Text {
+    func buttonAppearance() -> some View {
+        modifier(ButtonTextAppearanceModifier())
+    }
+}
+
 #Preview {
-    Button(action: {}, label: { Text("Button") })
+    Button {
+        
+    } label: {
+        Text("Button")
+            .buttonAppearance()
+    }
         .buttonAppearance(color: .red)
 }

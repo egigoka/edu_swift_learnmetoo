@@ -20,35 +20,22 @@ struct TimerView: View {
             Text("\(timer.counter)")
                 .font(.largeTitle)
                 .padding()
+            
             Spacer()
+            
             TimerButtonView(timer: timer)
+            
             Spacer()
-            ColoredButtonView(color: .blue, label: "Logout", disabled: false) {
+            
+            Button {
                 DataManager.shared.clear(userManager: user)
+            } label: {
+                Text("Logout")
+                    .buttonAppearance()
             }
+            .buttonAppearance(color: .blue)
         }
         .padding()
-    }
-}
-
-struct ColoredButtonView: View {
-    let color: Color
-    let label: String
-    let disabled: Bool
-    let action: () -> Void
-    
-    var body: some View {
-        Button {
-            action()
-        } label: {
-            Text(label)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-            
-        }
-        .disabled(disabled)
-        
     }
 }
 
@@ -57,13 +44,14 @@ struct TimerButtonView: View {
     @StateObject var timer: TimeCounter
     
     var body: some View {
-        ColoredButtonView(
-            color: timer.timerIsRunning ? .red : .blue,
-            label: timer.buttonTitle,
-            disabled: timer.timerIsRunning
-        ) {
+        Button {
             timer.startTimer()
+        } label: {
+            Text(timer.buttonTitle)
+                .buttonAppearance()
         }
+        .buttonAppearance(color: timer.timerIsRunning ? .red : .blue)
+        .disabled(timer.timerIsRunning)
     }
 }
 
