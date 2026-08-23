@@ -186,4 +186,15 @@ extension ColorViewController: UITextFieldDelegate {
     }
 }
 
-struct 
+struct ColorViewControllerRepresentation: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "ColorViewController")
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+    
+//    typealias UIViewControllerType = UIViewController
+}
