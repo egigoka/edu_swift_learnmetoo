@@ -24,7 +24,7 @@ struct ContentView: View {
             ButtonView(timer: timer)
             Spacer()
             ColoredButton(color: .blue, label: "Logout", disabled: false) {
-                DataManager.shared.saveUser(user: user.user)
+                DataManager.shared.clear(userManager: user)
             }
         }
         .padding()

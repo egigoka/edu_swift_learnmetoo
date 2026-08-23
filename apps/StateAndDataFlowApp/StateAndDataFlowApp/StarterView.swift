@@ -18,12 +18,7 @@ struct StarterView: View {
             } else {
                 RegisteredView()
                     .onTapGesture {
-                        UIApplication.shared.sendAction(
-                            #selector(UIResponder.resignFirstResponder),
-                            to: nil,
-                            from: nil,
-                            for: nil
-                        )
+                        UIApplication.shared.endEditing()
                     }
             }
         }
@@ -33,4 +28,15 @@ struct StarterView: View {
 #Preview {
     StarterView()
         .environmentObject(UserManager())
+}
+
+extension UIApplication {
+    func endEditing() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
+    }
 }

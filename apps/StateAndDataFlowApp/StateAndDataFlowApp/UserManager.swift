@@ -11,7 +11,7 @@ import SwiftUI
 class UserManager: ObservableObject {
     @Published var user = User()
     
-    var nameisValid: Bool {
+    var nameIsValid: Bool {
         user.name.count >= 3
     }
     
