@@ -21,7 +21,7 @@ struct ColorSlider: View {
             
             //Slider(value: $sliderValue, in: 0...255, step: 1)
             ColorUISlider(value: $sliderValue, color: color)
-                .onChange(of: sliderValue) { value in
+                .onChange(of: sliderValue) {
                     textValue = "\(lround(sliderValue))"
                 }
             .accentColor(Color(color))

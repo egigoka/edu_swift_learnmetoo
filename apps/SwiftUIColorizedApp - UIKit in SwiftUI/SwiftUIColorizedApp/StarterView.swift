@@ -13,20 +13,14 @@ struct StarterView: View {
     @State private var showUIKitView = false
     
     var body: some View {
-        VStack(spacing: 32) {
+        VStack {
             Button("Show SwiftUI View") {
                 showSwiftUIView = true
             }
             .sheet(isPresented: $showSwiftUIView) {
                 ContentView()
             }
-            Button("Show UIKit View") {
-                showUIKitView = true
-            }
-            .sheet(isPresented: $showUIKitView) {
-                ColorViewControllerRepresentation()
-                    .ignoresSafeArea()
-            }
+            
         }
     }
 }
