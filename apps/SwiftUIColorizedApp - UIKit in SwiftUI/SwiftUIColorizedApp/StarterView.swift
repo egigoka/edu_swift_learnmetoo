@@ -26,6 +26,7 @@ struct StarterView: View {
             }
             .sheet(isPresented: $showUIKitView) {
                 ColorViewControllerRepresentation()
+                    .ignoresSafeArea()
             }
         }
     }

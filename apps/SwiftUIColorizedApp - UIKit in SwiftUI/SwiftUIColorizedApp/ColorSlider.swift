@@ -19,8 +19,8 @@ struct ColorSlider: View {
         HStack {
             SliderValueLabel(value: sliderValue)
             
-            //Slider(value: $sliderValue, in: 0...255, step: 1)
-            ColorUISlider(value: $sliderValue, color: color)
+            Slider(value: $sliderValue, in: 0...255, step: 1)
+            //ColorUISlider(value: $sliderValue, color: color)
                 .onChange(of: sliderValue) {
                     textValue = "\(lround(sliderValue))"
                 }
@@ -38,8 +38,7 @@ struct ColorSlider: View {
     }
 }
 
-struct ColorSlider_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorSlider(sliderValue: .constant(100), color: .red)
-    }
+#Preview {
+    @Previewable @State var sliderValue = 100.0
+    ColorSlider(sliderValue: $sliderValue, color: .red)
 }
