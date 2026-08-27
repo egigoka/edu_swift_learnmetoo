@@ -6,52 +6,44 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		13190FD030407D7A00D493DD /* TimelineTableViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 13190FCF30407D7A00D493DD /* TimelineTableViewCell */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		13190F933040783800D493DD /* FlightTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13190FBB30407D3400D493DD /* FlightTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		13190FA53040783900D493DD /* Exceptions for "FlightTimeline" folder in "FlightTimeline" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 13190F923040783800D493DD /* FlightTimeline */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		13190F953040783800D493DD /* FlightTimeline */ = {
+		13190FBD30407D3400D493DD /* FlightTimeline */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				13190FA53040783900D493DD /* Exceptions for "FlightTimeline" folder in "FlightTimeline" target */,
-			);
 			path = FlightTimeline;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		13190F903040783800D493DD /* Frameworks */ = {
+		13190FB830407D3400D493DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				13190FD030407D7A00D493DD /* TimelineTableViewCell in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13190F8A3040783700D493DD = {
+		13190FB230407D3400D493DD = {
 			isa = PBXGroup;
 			children = (
-				13190F953040783800D493DD /* FlightTimeline */,
-				13190F943040783800D493DD /* Products */,
+				13190FBD30407D3400D493DD /* FlightTimeline */,
+				13190FBC30407D3400D493DD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		13190F943040783800D493DD /* Products */ = {
+		13190FBC30407D3400D493DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13190F933040783800D493DD /* FlightTimeline.app */,
+				13190FBB30407D3400D493DD /* FlightTimeline.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,63 +51,66 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13190F923040783800D493DD /* FlightTimeline */ = {
+		13190FBA30407D3400D493DD /* FlightTimeline */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13190FA63040783900D493DD /* Build configuration list for PBXNativeTarget "FlightTimeline" */;
+			buildConfigurationList = 13190FC630407D3800D493DD /* Build configuration list for PBXNativeTarget "FlightTimeline" */;
 			buildPhases = (
-				13190F8F3040783800D493DD /* Sources */,
-				13190F903040783800D493DD /* Frameworks */,
-				13190F913040783800D493DD /* Resources */,
+				13190FB730407D3400D493DD /* Sources */,
+				13190FB830407D3400D493DD /* Frameworks */,
+				13190FB930407D3400D493DD /* Resources */,
 			);
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				13190F953040783800D493DD /* FlightTimeline */,
+				13190FBD30407D3400D493DD /* FlightTimeline */,
 			);
 			name = FlightTimeline;
+			packageProductDependencies = (
+				13190FCF30407D7A00D493DD /* TimelineTableViewCell */,
+			);
 			productName = FlightTimeline;
-			productReference = 13190F933040783800D493DD /* FlightTimeline.app */;
+			productReference = 13190FBB30407D3400D493DD /* FlightTimeline.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		13190F8B3040783700D493DD /* Project object */ = {
+		13190FB330407D3400D493DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					13190F923040783800D493DD = {
+					13190FBA30407D3400D493DD = {
 						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = 13190F8E3040783700D493DD /* Build configuration list for PBXProject "FlightTimeline" */;
+			buildConfigurationList = 13190FB630407D3400D493DD /* Build configuration list for PBXProject "FlightTimeline" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 13190F8A3040783700D493DD;
+			mainGroup = 13190FB230407D3400D493DD;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				13190FB130407BEF00D493DD /* XCLocalSwiftPackageReference "Packages/TimelineTableViewCell" */,
+				13190FCE30407D7A00D493DD /* XCLocalSwiftPackageReference "../Packages/TimelineTableViewCell" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 13190F943040783800D493DD /* Products */;
+			productRefGroup = 13190FBC30407D3400D493DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13190F923040783800D493DD /* FlightTimeline */,
+				13190FBA30407D3400D493DD /* FlightTimeline */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		13190F913040783800D493DD /* Resources */ = {
+		13190FB930407D3400D493DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -123,7 +118,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13190F8F3040783800D493DD /* Sources */ = {
+		13190FB730407D3400D493DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -131,69 +126,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		13190FA73040783900D493DD /* Debug configuration for PBXNativeTarget "FlightTimeline" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlightTimeline/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.FlightTimeline;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		13190FA83040783900D493DD /* Release configuration for PBXNativeTarget "FlightTimeline" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlightTimeline/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.FlightTimeline;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		13190FA93040783900D493DD /* Debug configuration for PBXProject "FlightTimeline" */ = {
+		13190FC430407D3800D493DD /* Debug configuration for PBXProject "FlightTimeline" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -256,7 +189,7 @@
 			};
 			name = Debug;
 		};
-		13190FAA3040783900D493DD /* Release configuration for PBXProject "FlightTimeline" */ = {
+		13190FC530407D3800D493DD /* Release configuration for PBXProject "FlightTimeline" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,34 +245,103 @@
 			};
 			name = Release;
 		};
+		13190FC730407D3800D493DD /* Debug configuration for PBXNativeTarget "FlightTimeline" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.FlightTimeline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13190FC830407D3800D493DD /* Release configuration for PBXNativeTarget "FlightTimeline" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.egigoka.FlightTimeline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13190F8E3040783700D493DD /* Build configuration list for PBXProject "FlightTimeline" */ = {
+		13190FB630407D3400D493DD /* Build configuration list for PBXProject "FlightTimeline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13190FA93040783900D493DD /* Debug configuration for PBXProject "FlightTimeline" */,
-				13190FAA3040783900D493DD /* Release configuration for PBXProject "FlightTimeline" */,
+				13190FC430407D3800D493DD /* Debug configuration for PBXProject "FlightTimeline" */,
+				13190FC530407D3800D493DD /* Release configuration for PBXProject "FlightTimeline" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		13190FA63040783900D493DD /* Build configuration list for PBXNativeTarget "FlightTimeline" */ = {
+		13190FC630407D3800D493DD /* Build configuration list for PBXNativeTarget "FlightTimeline" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13190FA73040783900D493DD /* Debug configuration for PBXNativeTarget "FlightTimeline" */,
-				13190FA83040783900D493DD /* Release configuration for PBXNativeTarget "FlightTimeline" */,
+				13190FC730407D3800D493DD /* Debug configuration for PBXNativeTarget "FlightTimeline" */,
+				13190FC830407D3800D493DD /* Release configuration for PBXNativeTarget "FlightTimeline" */,
 			);
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		13190FB130407BEF00D493DD /* XCLocalSwiftPackageReference "Packages/TimelineTableViewCell" */ = {
+		13190FCE30407D7A00D493DD /* XCLocalSwiftPackageReference "../Packages/TimelineTableViewCell" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/TimelineTableViewCell;
+			relativePath = ../Packages/TimelineTableViewCell;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13190FCF30407D7A00D493DD /* TimelineTableViewCell */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimelineTableViewCell;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 13190F8B3040783700D493DD /* Project object */;
+	rootObject = 13190FB330407D3400D493DD /* Project object */;
 	validationLevel = 1;
 }

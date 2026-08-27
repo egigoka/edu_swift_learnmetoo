@@ -59,7 +59,11 @@ class FlightInformation: NSObject {
     
     var timeDifference: Int {
         guard let actual = currentTime else { return 60 }
-        let diff = Calendar.current.dateComponents([.minute], from: scheduledTime, to: actual)
+        let diff = Calendar.current.dateComponents(
+            [.minute],
+            from: scheduledTime,
+            to: actual
+        )
         return diff.minute ?? 0
     }
     
@@ -79,7 +83,17 @@ class FlightInformation: NSObject {
         return .red
     }
     
-    init(recordId: Int, airline: String, number: String, connection: String, scheduledTime: Date, currentTime: Date?, direction: FlightDirection, status: FlightStatus, gate: String) {
+    init(
+        recordId: Int,
+        airline: String,
+        number: String,
+        connection: String,
+        scheduledTime: Date,
+        currentTime: Date?,
+        direction: FlightDirection,
+        status: FlightStatus,
+        gate: String
+    ) {
         self.id = recordId
         self.airline = airline
         self.number = number
@@ -102,7 +116,18 @@ class FlightInformation: NSObject {
     
     static func generateFlight(_ idx: Int) -> FlightInformation {
         let airlines = ["US", "Southeast", "Pacific", "Overland"]
-        let airports = ["Charlotte", "Atlanta", "Chicago", "Dallas/Ft. Worth", "Detroit", "Miami", "Nashville", "New York-LGA", "Denver", "Phoenix"]
+        let airports = [
+            "Charlotte",
+            "Atlanta",
+            "Chicago",
+            "Dallas/Ft. Worth",
+            "Detroit",
+            "Miami",
+            "Nashville",
+            "New York-LGA",
+            "Denver",
+            "Phoenix"
+        ]
         let year = Calendar.current.component(.year, from: Date())
         let month = Calendar.current.component(.month, from: Date())
         let day = Calendar.current.component(.day, from: Date())
@@ -115,7 +140,14 @@ class FlightInformation: NSObject {
         let direction: FlightDirection = idx % 2 == 0 ? .arrival : .departure
         let hour = Int(Float(idx) / 1.75) + 6
         let minute = Int.random(in: 0...11) * 5
-        let scheduled = Calendar.current.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minute, second: 0))!
+        let scheduled = Calendar.current.date(from: DateComponents(
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: 0
+        ))!
         let statusRoll = Int.random(in: 0...100)
         var status: FlightStatus
         var newTime: Date?
@@ -124,46 +156,103 @@ class FlightInformation: NSObject {
             newTime = scheduled
         } else if statusRoll < 90 {
             status = .delayed
-            newTime = scheduled.addingTimeInterval(Double(Int.random(in: 0...3600)))
+            newTime = scheduled.addingTimeInterval(
+                Double(Int.random(in: 0...3600))
+            )
         } else {
             status = .cancelled
             newTime = nil
         }
-        let newFlight = FlightInformation(recordId: idx, airline: airline, number: number, connection: airport, scheduledTime: scheduled, currentTime: newTime, direction: direction, status: status, gate: gate)
+        let newFlight = FlightInformation(
+            recordId: idx,
+            airline: airline,
+            number: number,
+            connection: airport,
+            scheduledTime: scheduled,
+            currentTime: newTime,
+            direction: direction,
+            status: status,
+            gate: gate
+        )
         for daysAgo in (-10)...(-1) {
             let scheduledHour = Int(Float(idx) / 1.75) + 6
             let scheduledMinute = Int.random(in: 0...11) * 5
-            let historyDate = Calendar.current.date(byAdding: .day, value: daysAgo, to: scheduled)!
-            let scheduledYear = Calendar.current.component(.year, from: historyDate)
-            let scheduledMonth = Calendar.current.component(.month, from: historyDate)
-            let scheduledDay = Calendar.current.component(.day, from: historyDate)
-            let historyScheduled = Calendar.current.date(from: DateComponents(year: scheduledYear, month: scheduledMonth, day: scheduledDay, hour: scheduledHour, minute: scheduledMinute, second: 0))!
-            let historyEntry = generateHistory(-daysAgo, id: idx, date: historyDate, direction: direction, scheduled: historyScheduled)
+            let historyDate = Calendar.current.date(
+                byAdding: .day,
+                value: daysAgo,
+                to: scheduled
+            )!
+            let scheduledYear = Calendar.current.component(
+                .year,
+                from: historyDate
+            )
+            let scheduledMonth = Calendar.current.component(
+                .month,
+                from: historyDate
+            )
+            let scheduledDay = Calendar.current.component(
+                .day,
+                from: historyDate
+            )
+            let historyScheduled = Calendar.current.date(
+                from: DateComponents(
+                    year: scheduledYear,
+                    month: scheduledMonth,
+                    day: scheduledDay,
+                    hour: scheduledHour,
+                    minute: scheduledMinute,
+                    second: 0
+                )
+            )!
+            let historyEntry = generateHistory(
+                -daysAgo,
+                 id: idx,
+                 date: historyDate,
+                 direction: direction,
+                 scheduled: historyScheduled
+            )
             newFlight.history.insert(historyEntry, at: 0)
         }
         
         return newFlight
     }
     
-    static func generateHistory(_ day: Int, id: Int, date: Date,
-                                direction: FlightDirection, scheduled: Date) -> FlightHistory {
+    static func generateHistory(
+        _ day: Int,
+        id: Int,
+        date: Date,
+        direction: FlightDirection,
+        scheduled: Date
+    ) -> FlightHistory {
         let statusRoll = Int.random(in: 0...100)
         var status: FlightStatus
         var newTime: Date?
         if statusRoll < 10 { // Early!
             status = .ontime
-            newTime = scheduled.addingTimeInterval(Double(-Int.random(in: 0...600)))
+            newTime = scheduled.addingTimeInterval(
+                Double(-Int.random(in: 0...600))
+            )
         } else if statusRoll < 67 {
             status = .ontime
             newTime = scheduled
         } else if statusRoll < 90 {
             status = .delayed
-            newTime = scheduled.addingTimeInterval(Double(Int.random(in: 0...3600)))
+            newTime = scheduled.addingTimeInterval(
+                Double(Int.random(in: 0...3600))
+            )
         } else {
             status = .cancelled
             newTime = nil
         }
         
-        return FlightHistory(day: day, id: id, date: date, direction: direction, status: status, scheduledTime: scheduled, actualTime: newTime)
+        return FlightHistory(
+            day: day,
+            id: id,
+            date: date,
+            direction: direction,
+            status: status,
+            scheduledTime: scheduled,
+            actualTime: newTime
+        )
     }
 }
