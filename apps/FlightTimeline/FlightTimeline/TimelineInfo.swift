@@ -34,6 +34,9 @@ struct TimelineInfo: UIViewControllerRepresentable {
             timelineTableViewCell,
             forCellReuseIdentifier: "TimelineTableViewCell"
         )
+        
+        uiViewController.tableView.dataSource = context.coordinator
+        
     }
     
     func makeCoordinator() -> Coordinator {
@@ -57,9 +60,14 @@ extension Coordinator: UITableViewDataSource {
         let scheduledString = dateFormatter.string(from: flight.scheduledTime)
         let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "TimelineTableViewCell",
+            for: indexPath
+        ) as? TimelineTableViewCell else {
+            return UITableViewCell()
+        }
         
-        var flightInfo = "\(flight.airline) \(flight.number) "
+        let flightInfo = "\(flight.airline) \(flight.number) "
         + "\(flight.direction == .departure ? "to" : "from") "
         + "\(flight.otherAirport) - \(flight.flightStatus)"
         
@@ -68,11 +76,16 @@ extension Coordinator: UITableViewDataSource {
         
         if flight.status == .cancelled {
             cell.titleLabel.text = "Cancelled"
-        } else if flight.timeDifference != 0, flight.status == cancelled {
+        } else if flight.timeDifference != 0, flight.status == .cancelled {
             cell.titleLabel.text = "Cancelled"
         } else if flight.timeDifference != 0 {
-            
+            cell.titleLabel.text = "\(scheduledString) Now: \(currentString)"
         }
+        
+        cell.titleLabel.textColor = .black
+        cell.bubbleColor = flight.timelineColor
+        
+        return cell
     }
 }
 
