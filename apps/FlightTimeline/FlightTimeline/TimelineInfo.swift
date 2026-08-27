@@ -36,11 +36,44 @@ struct TimelineInfo: UIViewControllerRepresentable {
         )
     }
     
-    func makeCoordinator() -> () {
-        return Coordinator(flights: flights)
+    func makeCoordinator() -> Coordinator {
+        Coordinator(flights: flights)
     }
     
     //typealias UIViewControllerType = UITableViewController
+}
+
+extension Coordinator: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        flights.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        
+        let flight = flights[indexPath.row]
+        let scheduledString = dateFormatter.string(from: flight.scheduledTime)
+        let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineTableViewCell", for: indexPath)
+        
+        var flightInfo = "\(flight.airline) \(flight.number) "
+        + "\(flight.direction == .departure ? "to" : "from") "
+        + "\(flight.otherAirport) - \(flight.flightStatus)"
+        
+        cell.descriptionLabel.text = flightInfo
+        cell.titleLabel.text = "On time for \(scheduledString)"
+        
+        if flight.status == .cancelled {
+            cell.titleLabel.text = "Cancelled"
+        } else if flight.timeDifference != 0, flight.status == cancelled {
+            cell.titleLabel.text = "Cancelled"
+        } else if flight.timeDifference != 0 {
+            
+        }
+    }
 }
 
 class Coordinator: NSObject {
