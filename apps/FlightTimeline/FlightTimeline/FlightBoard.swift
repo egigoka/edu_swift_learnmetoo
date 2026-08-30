@@ -13,7 +13,9 @@ struct FlightBoard: View {
     
     var body: some View {
         List(flightsInfo) { flight in
-            FlightRow(flight: flight)
+            NavigationLink(destination: FlightBoardInformation(flight: flight)) {
+                FlightRow(flight: flight)
+            }
         }
         .navigationTitle(boardName)
     }
