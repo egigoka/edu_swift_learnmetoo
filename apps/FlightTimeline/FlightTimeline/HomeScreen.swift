@@ -24,13 +24,15 @@ struct HomeScreen: View {
                     NavigationLink("Arrivals") {
                         FlightBoard(
                             boardName: "Arrivalls",
-                            flightsInfo: flightsInfo
+                            flightsInfo: flightsInfo.filter
+                                { $0.direction == .arrival }
                         )
                     }
                     NavigationLink("Departures") {
                         FlightBoard(
                             boardName: "Departures",
-                            flightsInfo: flightsInfo
+                            flightsInfo: flightsInfo.filter
+                                { $0.direction == .departure }
                         )
                     }
                     NavigationLink("Flight Timeline") {
