@@ -5,12 +5,22 @@ enum FlightDirection {
     case departure
 }
 
-enum FlightStatus: String, CaseIterable {
+enum FlightStatus: String, CaseIterable, CustomLocalizedStringResourceConvertible {
     case ontime = "On Time"
     case delayed = "Delayed"
     case cancelled = "Cancelled"
     case landed = "Landed"
     case departed = "Departed"
+
+    var localizedStringResource: LocalizedStringResource {
+        switch self {
+        case .ontime: "On Time"
+        case .delayed: "Delayed"
+        case .cancelled: "Cancelled"
+        case .landed: "Landed"
+        case .departed: "Departed"
+        }
+    }
 }
 
 class FlightInformation: NSObject, Identifiable {
