@@ -8,12 +8,35 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    
+    let flightsInfo = FlightInformation.generateFlights()
+    
     var body: some View {
-        Image(systemName: "airplane")
-            .resizable()
-            .frame(width: 250, height: 250)
-            .opacity(0.1)
-            .rotationEffect(.degrees(-90))
+        NavigationView {
+            ZStack {
+                Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                    .opacity(0.1)
+                    .rotationEffect(.degrees(-90))
+                
+                VStack(alignment: .leading, spacing: 16) {
+                    NavigationLink("Arrivals") {
+                        FlightBoard(boardName: "Arrivalls")
+                    }
+                    NavigationLink("Departures") {
+                        FlightBoard(boardName: "Departures")
+                    }
+                    NavigationLink("Flight Timeline") {
+                        TimelineInfo(flights: flightsInfo)
+                    }
+                    
+                    Spacer()
+                }
+                .font(.title)
+            }
+            .navigationTitle("Airport")
+        }
     }
 }
 
