@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var targetValue = Int.random(in: 0...100)
+    @State var sliderValue = 0.0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Move the slider as close as you can to \(targetValue)")
+            GameSlider(
+                value: $sliderValue,
+                color: .red,
+                alpha: CGFloat(computeScore()) / 100
+            )
+            Button("") {
+                print("test")
+            }
         }
         .padding()
+    }
+    
+    private func computeScore() -> Int {
+        let difference = abs(targetValue - lround(sliderValue))
+        return 100 - difference
     }
 }
 
