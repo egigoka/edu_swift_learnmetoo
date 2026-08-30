@@ -15,3 +15,7 @@ struct FlightTimelineApp: App {
         }
     }
 }
+
+#Preview {
+    ContentView()
+}

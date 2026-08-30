@@ -47,18 +47,26 @@ struct TimelineInfo: UIViewControllerRepresentable {
 }
 
 extension Coordinator: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         flights.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
         
         let flight = flights[indexPath.row]
         let scheduledString = dateFormatter.string(from: flight.scheduledTime)
-        let currentString = dateFormatter.string(from: flight.currentTime ?? flight.scheduledTime)
+        let currentString = dateFormatter.string(
+            from: flight.currentTime ?? flight.scheduledTime
+        )
         
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "TimelineTableViewCell",
@@ -99,4 +107,5 @@ class Coordinator: NSObject {
 
 #Preview {
     TimelineInfo(flights: FlightInformation.generateFlights())
+        .ignoresSafeArea(edges: .bottom)
 }
