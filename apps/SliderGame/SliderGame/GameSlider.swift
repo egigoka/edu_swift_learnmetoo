@@ -10,11 +10,12 @@ import SwiftUI
 struct GameSlider: View {
     @Binding var value: Double
     let color: Color
-    let alpha: CGFloat
+    let alpha: Int
+    
     var body: some View {
         HStack {
             Text("0")
-            CustomUISlider(value: $value, color: color, alpha: alpha)
+            CustomUISlider(value: $value, color: UIColor(color), alpha: alpha)
             Text("100")
         }
     }
@@ -22,5 +23,5 @@ struct GameSlider: View {
 
 #Preview {
     @Previewable @State var value: Double = 0
-    GameSlider(value: $value, color: .red, alpha: 0.5)
+    GameSlider(value: $value, color: .red, alpha: 50)
 }

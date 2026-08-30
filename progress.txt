@@ -183,11 +183,11 @@ course 3 lesson 3 homework         - done
 
 course 3 lesson 4 homework review  - done
 course 3 lesson 4 theory           - done
-course 3 lesson 4 homework         - in progress..
+course 3 lesson 4 homework         - done
 
 70%
 
-course 3 lesson 5 homework review  - 
+course 3 lesson 5 homework review  - 31:13
 course 3 lesson 5 theory           - 
 course 3 lesson 5 homework         - 
 

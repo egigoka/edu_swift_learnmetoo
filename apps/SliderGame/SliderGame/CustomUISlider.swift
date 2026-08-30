@@ -10,25 +10,27 @@ import SwiftUI
 struct CustomUISlider: UIViewRepresentable {
     
     @Binding var value: Double
-    let color: Color
-    let alpha: CGFloat
+    
+    let color: UIColor
+    let alpha: Int
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.thumbTintColor = UIColor(color)
-        slider.alpha = alpha
         
-        slider.addTarget(context.coordinator, action: #selector(Coordinator.valueChanged), for: .valueChanged)
+        slider.addTarget(
+            context.coordinator,
+            action: #selector(Coordinator.valueChanged),
+            for: .valueChanged
+        )
         
         return slider
     }
     
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = Float(value)
-        uiView.thumbTintColor = UIColor(color)
-        uiView.alpha = alpha
+        uiView.thumbTintColor = color.withAlphaComponent(CGFloat(alpha) / 100)
     }
     
     func makeCoordinator() -> CustomUISlider.Coordinator {
@@ -53,6 +55,6 @@ extension CustomUISlider {
 }
 
 #Preview {
-    @Previewable @State var value = 0.0
-    CustomUISlider(value: $value, color: .red, alpha: 0.5)
+    @Previewable @State var value = 50.0
+    CustomUISlider(value: $value, color: .red, alpha: 50)
 }

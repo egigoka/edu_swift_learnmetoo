@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State var targetValue = Int.random(in: 0...100)
     @State var sliderValue = Double.random(in: 0...100)
-    @State var alertIsShown = false
+    @State var showAlert = false
     
     var body: some View {
         VStack(spacing: 16) {
@@ -19,14 +19,14 @@ struct ContentView: View {
             GameSlider(
                 value: $sliderValue,
                 color: .red,
-                alpha: CGFloat(computeScore()) / 100
+                alpha: computeScore()
             )
             Button("Check me!") {
-                alertIsShown = true
+                showAlert = true
             }
             .alert(
                 "Your score is \(computeScore())",
-                isPresented: $alertIsShown
+                isPresented: $showAlert
             ) { }
             Button("Start over") {
                 targetValue = Int.random(in: 0...100)
