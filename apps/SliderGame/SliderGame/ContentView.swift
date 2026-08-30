@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var targetValue = Int.random(in: 0...100)
-    @State var sliderValue = Double.random(in: 0...100)
-    @State var showAlert = false
+    @State private var targetValue = Int.random(in: 0...100)
+    @State private var sliderValue = Double.random(in: 0...100)
+    @State private var showAlert = false
     
     var body: some View {
         VStack(spacing: 16) {
