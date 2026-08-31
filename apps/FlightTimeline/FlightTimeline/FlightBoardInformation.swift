@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FlightBoardInformation: View {
+    @Binding var isPresented: Bool
+    
     let flight: FlightInformation
     
     var body: some View {
@@ -16,18 +18,22 @@ struct FlightBoardInformation: View {
                 Text("\(flight.airline) Flight \(flight.number)")
                     .font(.title)
                 Spacer()
+                Button("Done") {
+                    isPresented = false
+                }
             }
             Text("\(flight.direction == .arrival ? "From" : "To") \(flight.otherAirport)")
             Text("\(flight.flightStatus)")
                 .foregroundStyle(Color(flight.timelineColor))
             Spacer()
+            
         }
         .font(.headline)
         .padding()
-        .navigationTitle("Flight Information")
+        //.navigationTitle("Flight Information")
     }
 }
 
 #Preview {
-    FlightBoardInformation(flight: FlightInformation.generateFlight())
+    FlightBoardInformation(isPresented: .constant(true), flight: FlightInformation.generateFlight())
 }

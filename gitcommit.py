@@ -46,8 +46,11 @@ def main() -> None:
         run("git", "push")
 
     now = datetime.now().astimezone()
-    week_start = (now - timedelta(days=now.weekday())).replace(
-        hour=0,
+    cutoff_adjusted_now = now - timedelta(hours=5)
+    week_start = (
+        cutoff_adjusted_now - timedelta(days=cutoff_adjusted_now.weekday())
+    ).replace(
+        hour=5,
         minute=0,
         second=0,
         microsecond=0,

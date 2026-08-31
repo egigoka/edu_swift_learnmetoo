@@ -22,14 +22,15 @@ struct FlightBoard: View {
     var body: some View {
         
         List(shownFlights) { flight in
-            NavigationLink(destination: FlightBoardInformation(flight: flight)) {
+            //NavigationLink(destination: FlightBoardInformation(flight: flight)) {
                 FlightRow(flight: flight)
-            }
+            //}
         }
         .navigationTitle(boardName)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Toggle("Hide Cancelled", isOn: $hideCancelled)
+                    //.toggleStyle(.switch)
             }
         }
     }
