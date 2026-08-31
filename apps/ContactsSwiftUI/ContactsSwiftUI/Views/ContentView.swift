@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var contacts = Contact.generateContacts()
+    
     var body: some View {
         TabView {
-            
+            ContactsList(contacts: contacts)
+                .tabItem {
+                    Label("List", systemImage: "list.dash")
+                }
+            ContactsDetails(contacts: contacts)
+                .tabItem {
+                    Label("Map", systemImage: "phone")
+                }
         }
     }
 }

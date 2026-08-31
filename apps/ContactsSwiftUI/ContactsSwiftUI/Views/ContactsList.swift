@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ContactsList: View {
+    let contacts: [Contact]
+    
     var body: some View {
-        
+        List {
+            ForEach(contacts) { contact in
+                NavigationLink(destination: ContactDetails(contact: contact)) {
+                    Text(contact.name)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    ContactsList()
+    ContactsList(contacts: Contact.generateContacts())
 }
