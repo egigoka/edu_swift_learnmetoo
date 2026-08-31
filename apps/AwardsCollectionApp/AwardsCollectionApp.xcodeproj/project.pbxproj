@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXFileReference section */
-		1387E71A2EBFF78D0057CEB3 /* AwardsCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwardsCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		134137FC3045E45C0065F884 /* AwardsCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwardsCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1387E71C2EBFF78D0057CEB3 /* AwardsCollectionApp */ = {
+		134137FE3045E45C0065F884 /* AwardsCollectionApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AwardsCollectionApp;
 			sourceTree = "<group>";
@@ -19,28 +19,26 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1387E7172EBFF78D0057CEB3 /* Frameworks */ = {
+		134137F93045E45C0065F884 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1387E7112EBFF78D0057CEB3 = {
+		134137F33045E45C0065F884 = {
 			isa = PBXGroup;
 			children = (
-				1387E71C2EBFF78D0057CEB3 /* AwardsCollectionApp */,
-				1387E71B2EBFF78D0057CEB3 /* Products */,
+				134137FE3045E45C0065F884 /* AwardsCollectionApp */,
+				134137FD3045E45C0065F884 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1387E71B2EBFF78D0057CEB3 /* Products */ = {
+		134137FD3045E45C0065F884 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1387E71A2EBFF78D0057CEB3 /* AwardsCollectionApp.app */,
+				134137FC3045E45C0065F884 /* AwardsCollectionApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,84 +46,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1387E7192EBFF78D0057CEB3 /* AwardsCollectionApp */ = {
+		134137FB3045E45C0065F884 /* AwardsCollectionApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1387E7252EBFF7920057CEB3 /* Build configuration list for PBXNativeTarget "AwardsCollectionApp" */;
+			buildConfigurationList = 134138073045E45E0065F884 /* Build configuration list for PBXNativeTarget "AwardsCollectionApp" */;
 			buildPhases = (
-				1387E7162EBFF78D0057CEB3 /* Sources */,
-				1387E7172EBFF78D0057CEB3 /* Frameworks */,
-				1387E7182EBFF78D0057CEB3 /* Resources */,
+				134137F83045E45C0065F884 /* Sources */,
+				134137F93045E45C0065F884 /* Frameworks */,
+				134137FA3045E45C0065F884 /* Resources */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				1387E71C2EBFF78D0057CEB3 /* AwardsCollectionApp */,
+				134137FE3045E45C0065F884 /* AwardsCollectionApp */,
 			);
 			name = AwardsCollectionApp;
-			packageProductDependencies = (
-			);
 			productName = AwardsCollectionApp;
-			productReference = 1387E71A2EBFF78D0057CEB3 /* AwardsCollectionApp.app */;
+			productReference = 134137FC3045E45C0065F884 /* AwardsCollectionApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1387E7122EBFF78D0057CEB3 /* Project object */ = {
+		134137F43045E45C0065F884 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2610;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					1387E7192EBFF78D0057CEB3 = {
-						CreatedOnToolsVersion = 26.0.1;
+					134137FB3045E45C0065F884 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = 1387E7152EBFF78D0057CEB3 /* Build configuration list for PBXProject "AwardsCollectionApp" */;
+			buildConfigurationList = 134137F73045E45C0065F884 /* Build configuration list for PBXProject "AwardsCollectionApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1387E7112EBFF78D0057CEB3;
+			mainGroup = 134137F33045E45C0065F884;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1387E71B2EBFF78D0057CEB3 /* Products */;
+			productRefGroup = 134137FD3045E45C0065F884 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1387E7192EBFF78D0057CEB3 /* AwardsCollectionApp */,
+				134137FB3045E45C0065F884 /* AwardsCollectionApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1387E7182EBFF78D0057CEB3 /* Resources */ = {
+		134137FA3045E45C0065F884 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1387E7162EBFF78D0057CEB3 /* Sources */ = {
+		134137F83045E45C0065F884 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1387E7232EBFF7920057CEB3 /* Debug */ = {
+		134138053045E45E0065F884 /* Debug configuration for PBXProject "AwardsCollectionApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -160,7 +150,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -178,19 +168,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		1387E7242EBFF7920057CEB3 /* Release */ = {
+		134138063045E45E0065F884 /* Release configuration for PBXProject "AwardsCollectionApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +214,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -237,25 +226,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		1387E7262EBFF7920057CEB3 /* Debug */ = {
+		134138083045E45E0065F884 /* Debug configuration for PBXNativeTarget "AwardsCollectionApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -263,7 +251,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -281,14 +268,14 @@
 			};
 			name = Debug;
 		};
-		1387E7272EBFF7920057CEB3 /* Release */ = {
+		134138093045E45E0065F884 /* Release configuration for PBXNativeTarget "AwardsCollectionApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MH53GS72RV;
+				DEVELOPMENT_TEAM = PTT6GCQ699;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -296,7 +283,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,25 +303,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1387E7152EBFF78D0057CEB3 /* Build configuration list for PBXProject "AwardsCollectionApp" */ = {
+		134137F73045E45C0065F884 /* Build configuration list for PBXProject "AwardsCollectionApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1387E7232EBFF7920057CEB3 /* Debug */,
-				1387E7242EBFF7920057CEB3 /* Release */,
+				134138053045E45E0065F884 /* Debug configuration for PBXProject "AwardsCollectionApp" */,
+				134138063045E45E0065F884 /* Release configuration for PBXProject "AwardsCollectionApp" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1387E7252EBFF7920057CEB3 /* Build configuration list for PBXNativeTarget "AwardsCollectionApp" */ = {
+		134138073045E45E0065F884 /* Build configuration list for PBXNativeTarget "AwardsCollectionApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1387E7262EBFF7920057CEB3 /* Debug */,
-				1387E7272EBFF7920057CEB3 /* Release */,
+				134138083045E45E0065F884 /* Debug configuration for PBXNativeTarget "AwardsCollectionApp" */,
+				134138093045E45E0065F884 /* Release configuration for PBXNativeTarget "AwardsCollectionApp" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1387E7122EBFF78D0057CEB3 /* Project object */;
+	rootObject = 134137F43045E45C0065F884 /* Project object */;
+	validationLevel = 1;
 }

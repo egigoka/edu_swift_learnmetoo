@@ -11,17 +11,15 @@ struct ContactsDetails: View {
     let contacts: [Person]
     
     var body: some View {
-        List {
-            ForEach (contacts) { contact in
-                Section(header: Text(contact.name)) {
-                    HStack {
-                        Image(systemName: "phone")
-                        Text(contact.phone)
-                    }
-                    HStack {
-                        Image(systemName: "tray")
-                        Text(contact.email)
-                    }
+        List(contacts) { contact in
+            Section(header: Text(contact.name)) {
+                HStack {
+                    Image(systemName: "phone")
+                    Text(contact.phone)
+                }
+                HStack {
+                    Image(systemName: "tray")
+                    Text(contact.email)
                 }
             }
         }
