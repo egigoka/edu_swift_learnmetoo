@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var contacts = Contact.generateContacts()
+    @State private var contacts = Person.generateContacts()
     
     var body: some View {
         TabView {
@@ -18,7 +18,7 @@ struct ContentView: View {
                 }
             ContactsDetails(contacts: contacts)
                 .tabItem {
-                    Label("Map", systemImage: "phone")
+                    Label("Details", systemImage: "phone")
                 }
         }
     }
