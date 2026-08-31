@@ -18,17 +18,17 @@ extension Person {
     static func generateContacts() -> [Person] {
         var contacts = [Person]()
         
-        var names = DataManager.shared.names
-        var surnames = DataManager.shared.surnames
-        var phones = DataManager.shared.phones
+        let names = DataManager.shared.names.shuffled()
+        let surnames = DataManager.shared.surnames.shuffled()
+        let phones = DataManager.shared.phones.shuffled()
         
-        for _ in 1...10 {
-            let name = names.remove(at: names.indices.randomElement() ?? 0)
-            let surname = surnames.remove(at: surnames.indices.randomElement() ?? 0)
+        for index in 0..<names.count {
+            let name = names[index]
+            let surname = surnames[index]
             let fullName = "\(name) \(surname)"
             
             let email = "\(fullName.lowercased())@example.com"
-            let phone = phones.remove(at: phones.indices.randomElement() ?? 0)
+            let phone = phones[index]
             
             contacts.append(Person(id: UUID(),
                                     name: fullName,
