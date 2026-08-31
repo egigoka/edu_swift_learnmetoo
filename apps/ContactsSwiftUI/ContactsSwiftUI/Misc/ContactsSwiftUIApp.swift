@@ -2,7 +2,7 @@
 //  ContactsSwiftUIApp.swift
 //  ContactsSwiftUI
 //
-//  Created by egigoka on 09.11.2025.
+//  Created by egigoka2kz on 31.08.2026.
 //
 
 import SwiftUI
