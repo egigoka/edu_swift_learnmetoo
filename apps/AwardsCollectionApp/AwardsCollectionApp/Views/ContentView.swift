@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showShape: Bool = false
+    
     var body: some View {
-        Text("Content View")
+        VStack {
+            Button(action: { showShape.toggle() } ) {
+                HStack {
+                    if showShape {
+                        Text("Hide Shape")
+                    } else {
+                        Text("Show Shape")
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.up.square")
+                }
+            }
+        }
     }
 }
 
