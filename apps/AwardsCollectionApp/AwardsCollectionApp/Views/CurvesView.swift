@@ -25,7 +25,7 @@ struct CurvesView: View {
                     control: CGPoint(x: size, y: 0)
                 )
                 path.addQuadCurve(
-                    to: CGPoint,(x: middle, y: farline)
+                    to: CGPoint(x: middle, y: farline),
                     control: CGPoint(x: size, y: size)
                 )
                 path.addQuadCurve(
@@ -33,11 +33,44 @@ struct CurvesView: View {
                     control: CGPoint(x: 0, y: size)
                 )
                 path.addQuadCurve(
-                    to: CGPoint(x: middle, y: nearline,
-                                control: CGPoint
+                    to: CGPoint(x: middle, y: nearline),
+                    control: CGPoint(x: 0, y: 0)
                 )
                 
             }
+            .fill(
+                RadialGradient(
+                    colors: [.white, .yellow],
+                    center: .center,
+                    startRadius: geometry.size.width * 0.05,
+                    endRadius: geometry.size.width * 0.6
+                )
+            )
+            
+            Path { path in
+                path.addArc(
+                    center: CGPoint(x: nearline, y: nearline),
+                    radius: middle,
+                    startAngle: .degrees(90),
+                    endAngle: .degrees(0),
+                    clockwise: true
+                )
+                path.addArc(
+                    center: CGPoint(x: farline, y: nearline),
+                    radius: middle,
+                    startAngle: .degrees(180),
+                    endAngle: .degrees(90),
+                    clockwise: true
+                )
+                path.addArc(
+                    center: CGPoint(x: farline, y: nearline),
+                    radius: middle,
+                    startAngle: .degrees(180),
+                    endAngle: .degrees(90),
+                    clockwise: true
+                )
+            }
+        
         }
         .frame(width: width, height: height)
     }
