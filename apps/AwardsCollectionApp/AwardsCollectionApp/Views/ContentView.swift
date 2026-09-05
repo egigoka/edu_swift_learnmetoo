@@ -12,20 +12,26 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Button(action: { showShape.toggle() } ) {
+            Button(action: { withAnimation { showShape.toggle() } } ) {
                 HStack {
                     Text(showShape ? "Hide Shape" : "Show Shape")
+                    Spacer()
                     Image(systemName: "chevron.up.square")
+                        .scaleEffect(showShape ? 2 : 1)
                         .rotationEffect(.degrees(showShape ? 0 : 180))
-                        .animation(.default)
+//                        .animation(.default)
                 }
             }
             
             Spacer()
             
-            GradientRectangles(width: 300, height: 300)
-                .offset(x: showShape ? 0 : -UIScreen.main.bounds.width)
-                .animation(.easeInOut)
+            if showShape {
+                GradientRectangles(width: 250, height: 250)
+                    .transition(.transition)
+            }
+//            GradientRectangles(width: 300, height: 300)
+//                .offset(x: showShape ? 0 : -UIScreen.main.bounds.width)
+//                .animation(.easeInOut)
 //                .animation(.interpolatingSpring(
 //                    mass: 1,
 //                    stiffness: 100,
@@ -43,6 +49,16 @@ struct ContentView: View {
         }
         .font(.headline)
         .padding()
+    }
+}
+
+extension AnyTransition {
+    static var transition: AnyTransition {
+        let insertion = AnyTransition.move(edge: .leading)
+            .combined(with: .scale)
+        let removal = AnyTransition.scale
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
 
