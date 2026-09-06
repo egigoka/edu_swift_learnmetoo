@@ -1,15 +1,15 @@
 //
 //  VerticalGridView.swift
-//  AwardsCollectionApp
+//  AwordsCollectionApp
 //
-//  Created by egigoka2kz on 06.09.2026.
+//  Created by Alexey Efimov on 27.12.2020.
+//  Copyright © 2020 Alexey Efimov. All rights reserved.
 //
 
 import SwiftUI
 
 struct VerticalGridView: View {
     let data = (1...100).map { "Item \($0)" }
-    //let columns = [GridItem(.adaptive(minimum: 80))]
     let columns = [
         GridItem(.fixed(70)),
         GridItem(.flexible()),
@@ -27,6 +27,8 @@ struct VerticalGridView: View {
     }
 }
 
-#Preview {
-    VerticalGridView()
+struct VerticalGridView_Previews: PreviewProvider {
+    static var previews: some View {
+        VerticalGridView()
+    }
 }

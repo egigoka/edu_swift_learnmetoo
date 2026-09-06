@@ -1,13 +1,16 @@
 //
 //  GradientRectangles.swift
-//  AwardsCollectionApp
+//  AwordsCollectionApp
 //
-//  Created by egigoka2kz on 31.08.2026.
+//  Created by Alexey Efimov on 05.08.2020.
+//  Copyright © 2020 Alexey Efimov. All rights reserved.
 //
 
 import SwiftUI
 
 struct GradientRectangles: View {
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         GeometryReader { geometry in
@@ -34,10 +37,12 @@ struct GradientRectangles: View {
                     .scaleEffect(0.7)
             }
         }
+        .frame(width: width, height: height)
     }
 }
 
-#Preview {
-    GradientRectangles()
-        .frame(width: 200, height: 200)
+struct GradientRectangles_Previews: PreviewProvider {
+    static var previews: some View {
+        GradientRectangles(width: 200, height: 200)
+    }
 }

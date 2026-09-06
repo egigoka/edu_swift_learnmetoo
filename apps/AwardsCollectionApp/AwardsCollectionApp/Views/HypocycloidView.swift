@@ -10,8 +10,8 @@ import SwiftUI
 
 
 struct HypocycloidView: View {
-    private let bigR = 4.176737
-    private let smalR = 1.76
+    @State private var bigR = 4.176737
+    @State private var smalR = 1.76
     
     let width: CGFloat
     let height: CGFloat
@@ -58,6 +58,9 @@ struct HypocycloidView: View {
                 .stroke(color, lineWidth: 2)
             }
             .frame(width: width, height: height)
+            
+//            Slider(value: $bigR, in: 1...10)
+//            Slider(value: $smalR, in: 1...10)
         }
         .padding()
     }

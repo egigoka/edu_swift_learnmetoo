@@ -1,30 +1,64 @@
 //
 //  ShapesView.swift
-//  AwardsCollectionApp
+//  AwordsCollectionApp
 //
-//  Created by egigoka2kz on 31.08.2026.
+//  Created by Alexey Efimov on 05.08.2020.
+//  Copyright © 2020 Alexey Efimov. All rights reserved.
 //
 
 import SwiftUI
 
-
+/*
 struct ShapesView: View {
+    let awards = Award.getAwards()
+    
+    var activeAwards: [Award] {
+        awards.filter { $0.awarded }
+    }
+    
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView {
-                    GradientRectangles(width: 250, height: 250)
-                    PathView(width: 250, height: 250)
-                    CurvesView(width: 250, height: 250)
-                    SwiftBirdView(width: 250, height: 250)
-                    HypocycloidView(width: 250, height: 250)
+            CustomGridView(items: activeAwards, columns: 2) { award in
+                VStack {
+                    award.awardView
+                    Text(award.title)
                 }
             }
-            .navigationTitle("Shapes")
+            .navigationBarTitle("Your awards: \(activeAwards.count)")
         }
     }
 }
 
-#Preview {
-    ShapesView()
+*/
+
+struct ShapesView: View {
+    let awards = Award.getAwards()
+    let columns = [GridItem(.adaptive(minimum: 160, maximum: 200))]
+    
+    var activeAwards: [Award] {
+        awards.filter { $0.awarded }
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(activeAwards, id: \.title) { award in
+                        VStack {
+                            award.awardView
+                            Text(award.title)
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Your awards: \(activeAwards.count)")
+        }
+    }
+}
+
+
+struct ShapesView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShapesView()
+    }
 }
