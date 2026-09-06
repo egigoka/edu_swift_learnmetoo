@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SwiftBirdView: View {
-    let height: CGFloat
     let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         ZStack {
@@ -68,5 +68,5 @@ struct SwiftBirdView: View {
 }
 
 #Preview {
-    SwiftBirdView(height: 250, width: 250)
+    SwiftBirdView(width: 250, height: 250)
 }

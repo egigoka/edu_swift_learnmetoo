@@ -18,7 +18,14 @@ struct TabViews: View {
                 .tabItem {
                     Label("Shapes View", systemImage: "pencil.and.outline")
                 }
-            CustomGridView(items: [1, 11, 15, 7, 48, 12, 1], columns: 3) { item in
+            GridView()
+                .tabItem {
+                    Label("Grid View", systemImage: "square.grid.2x2")
+                }
+            CustomGridView(
+                items: [1, 11, 15, 7, 48, 12, 1],
+                columns: 3
+            ) { item in
                 Text("\(item)")
             }
                 .tabItem {
