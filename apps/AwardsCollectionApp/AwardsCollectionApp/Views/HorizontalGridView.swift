@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct HorizontalGridView: View {
+    let data = 1...10
+    
+    let rows = [GridItem(.fixed(200))]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyHGrid(rows: rows, alignment: .center) {
+                ForEach(data, id: \.self) { item in
+                    Text("Image \(item)")
+                }
+            }
+        }
     }
 }
 
