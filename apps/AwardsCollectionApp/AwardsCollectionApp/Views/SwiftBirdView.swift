@@ -10,7 +10,9 @@ import SwiftUI
 struct SwiftBirdView: View {
     
     var body: some View {
-        GeometryReader {
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let height = geometry.size.height
             ZStack {
                 Image("swift")
                     .resizable()
@@ -67,5 +69,6 @@ struct SwiftBirdView: View {
 }
 
 #Preview {
-    SwiftBirdView(width: 250, height: 250)
+    SwiftBirdView()
+        .frame(width: 250, height: 250)
 }

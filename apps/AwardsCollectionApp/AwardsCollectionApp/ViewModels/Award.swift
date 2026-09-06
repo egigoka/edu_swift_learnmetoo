@@ -30,7 +30,7 @@ struct Award {
                 awarded: true
             ),
             Award(
-                awardView: AnyView(SwiftBirdView(width: 160, height: 160)),
+                awardView: AnyView(SwiftBirdView()),
                 title: "Swift Bird",
                 awarded: true
             ),

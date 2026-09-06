@@ -34,6 +34,7 @@ struct GradientRectangles: View {
                     .opacity(0.5)
                     .scaleEffect(0.7)
             }
+            .aspectRatio(1, contentMode: .fit)
         }
     }
 }
