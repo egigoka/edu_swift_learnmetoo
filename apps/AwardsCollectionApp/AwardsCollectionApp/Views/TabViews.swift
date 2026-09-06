@@ -10,6 +10,10 @@ import SwiftUI
 struct TabViews: View {
     var body: some View {
         TabView {
+            NativeGridView()
+                .tabItem {
+                    Label("Native Grid View", systemImage: "square.grid.2x2")
+                }
             HorizontalGridView()
                 .tabItem {
                     Label("Horizontal Grid View", systemImage: "square.grid.2x2")

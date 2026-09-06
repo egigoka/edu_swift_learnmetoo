@@ -13,7 +13,7 @@ struct HorizontalGridView: View {
     let rows = [GridItem(.fixed(200))]
     
     var body: some View {
-        ScrollView {
+        ScrollView(.horizontal) {
             LazyHGrid(rows: rows, alignment: .center) {
                 ForEach(data, id: \.self) { item in
                     Text("Image \(item)")
