@@ -17,9 +17,12 @@ struct GridView: View {
     var body: some View {
         NavigationView {
             CustomGridView(items: activeAwards, columns: 2) { award in
-                <#code#>
+                VStack {
+                    award.awardView
+                    Text(award.title)
+                }
             }
-            .navigationTitle("Shapes")
+            .navigationTitle("Your Awards: \(activeAwards.count)")
         }
     }
 }

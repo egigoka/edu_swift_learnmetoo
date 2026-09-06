@@ -10,6 +10,10 @@ import SwiftUI
 struct TabViews: View {
     var body: some View {
         TabView {
+            VerticalGridView()
+                .tabItem {
+                    Label("Vertical Grid View", systemImage: "square.grid.2x2")
+                }
             SwiftView()
                 .tabItem {
                     Label("Content View", systemImage: "rosette")
