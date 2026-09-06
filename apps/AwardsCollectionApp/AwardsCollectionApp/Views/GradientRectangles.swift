@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct GradientRectangles: View {
-    let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         GeometryReader { geometry in
@@ -34,14 +32,12 @@ struct GradientRectangles: View {
                     .rotationEffect(.degrees(-90))
                     .opacity(0.5)
                     .scaleEffect(0.7)
-                
             }
         }
-        .frame(width: width, height: height)
-        
     }
 }
 
 #Preview {
-    GradientRectangles(width: 200, height: 200)
+    GradientRectangles()
+        .frame(width: 200, height: 200)
 }

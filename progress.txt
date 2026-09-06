@@ -196,8 +196,8 @@ course 3 lesson 6 theory           - done
 course 3 lesson 6 homework         - done
 
 course 3 lesson 7 homework review  - done
-course 3 lesson 7 theory           - 1:43:54
-course 3 lesson 7 homework         - 
+course 3 lesson 7 theory           - done
+course 3 lesson 7 homework         - in progress.
 
 course 3 lesson 8 homework review  - 
 course 3 lesson 8 theory           - 
