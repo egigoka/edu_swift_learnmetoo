@@ -22,12 +22,21 @@ struct CustomGridView: View {
                 ForEach(0..<rows) { rowIndex in
                     HStack {
                         ForEach(0..<columns) { columnIndex in
-                            Text("\(items[rowIndex * columns + columnIndex]) ?? "")")
+                            if let index = indexFor(row: rowIndex, column: columnIndex) {
+                                Text("\(items[index])")
+                            } else {
+                                Text(" ")
+                            }
                         }
                     }
                 }
             }
         }
+    }
+    
+    private func indexFor(row: Int, column: Int) -> Int? {
+        let index = row * columns + column
+        return index < items.count ? index : nil
     }
 }
 
