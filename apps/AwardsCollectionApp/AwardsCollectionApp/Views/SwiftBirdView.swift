@@ -63,7 +63,6 @@ struct SwiftBirdView: View {
             .stroke(lineWidth: 4)
             .frame(width: width, height: height)
         }
-        .padding()
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NativeGridView: View {
     let awards = Award.getAwards()
-    let columns: [GridItem(.adaptive(minimum: 160, maximum: 200))]
+    let columns = [GridItem(.adaptive(minimum: 160, maximum: 200))]
     
     var activeAwards: [Award] {
         awards.filter { $0.awarded }
