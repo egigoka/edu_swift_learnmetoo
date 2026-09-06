@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct GradientRectangles: View {
-    let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         GeometryReader { geometry in
@@ -37,12 +35,11 @@ struct GradientRectangles: View {
                     .scaleEffect(0.7)
             }
         }
-        .frame(width: width, height: height)
     }
 }
 
 struct GradientRectangles_Previews: PreviewProvider {
     static var previews: some View {
-        GradientRectangles(width: 200, height: 200)
+        GradientRectangles()
     }
 }

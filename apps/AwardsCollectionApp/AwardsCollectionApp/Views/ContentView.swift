@@ -29,7 +29,8 @@ struct ContentView: View {
             Spacer()
             
             if showShape {
-                GradientRectangles(width: 250, height: 250)
+                GradientRectangles()
+                    .frame(width: 250, height: 250)
                     .animation(.default)
                     .transition(.transition)
             }

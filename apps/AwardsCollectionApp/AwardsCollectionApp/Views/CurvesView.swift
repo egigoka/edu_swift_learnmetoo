@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct CurvesView: View {
-    let width: CGFloat
-    let height: CGFloat
+
     var body: some View {
         GeometryReader { geometry in
             let size = min(geometry.size.width, geometry.size.height)
@@ -80,12 +79,11 @@ struct CurvesView: View {
                 .stroke(Color.orange, lineWidth: 2)
             }
         }
-        .frame(width: width, height: height)
     }
 }
 
 struct CurvesView_Previews: PreviewProvider {
     static var previews: some View {
-        CurvesView(width: 200, height: 200)
+        CurvesView()
     }
 }

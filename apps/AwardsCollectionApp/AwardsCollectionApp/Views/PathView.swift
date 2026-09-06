@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct PathView: View {
-    let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         GeometryReader { geometry in
@@ -45,12 +43,12 @@ struct PathView: View {
                 .scaleEffect(0.20)
                 .offset(x: -geometry.size.width / 7.25)
         }
-        .frame(width: width, height: height)
     }
 }
 
 struct PathView_Previews: PreviewProvider {
     static var previews: some View {
-        PathView(width: 200, height: 200)
+        PathView()
+            .frame(width: 200, height: 200)
     }
 }

@@ -12,7 +12,7 @@ struct CustomGridView<Content, T>: View where Content: View {
     
     let items: [T]
     let columns: Int
-    let content: (T) -> Content
+    let content: (CGFloat, T) -> Content
     
     var rows: Int {
         items.count / columns
@@ -27,7 +27,7 @@ struct CustomGridView<Content, T>: View where Content: View {
                         HStack {
                             ForEach(0..<columns) { columnIndex in
                                 if let index = indexFor(row: rowIndex, column: columnIndex) {
-                                    content(items[index])
+                                    content(geometry.size.width, items[index])
                                         .frame(width: sideSize, height: sideSize)
                                 } else {
                                     Spacer()
@@ -48,7 +48,7 @@ struct CustomGridView<Content, T>: View where Content: View {
 
 struct CustomGridView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomGridView(items: [11, 3, 7, 17, 5, 2, 1], columns: 3) { item in
+        CustomGridView(items: [11, 3, 7, 17, 5, 2, 1], columns: 3) { itemSize, item in
             Text("\(item)")
         }
     }
