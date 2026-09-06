@@ -15,6 +15,8 @@ struct ShapesView: View {
                     GradientRectangles(width: 250, height: 250)
                     PathView(width: 250, height: 250)
                     CurvesView(width: 250, height: 250)
+                    SwiftBirdView(height: 250, width: 250)
+                    HypocycloidView(width: 250, height: 250)
                 }
             }
             .navigationTitle("Shapes")

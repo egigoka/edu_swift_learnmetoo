@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SwiftView: View {
     @State private var showShape: Bool = false
     
     var body: some View {
@@ -63,5 +63,5 @@ extension AnyTransition {
 }
 
 #Preview {
-    ContentView()
+    SwiftView()
 }

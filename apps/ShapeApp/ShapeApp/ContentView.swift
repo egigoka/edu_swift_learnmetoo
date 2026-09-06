@@ -41,8 +41,21 @@ struct ContentView: View {
                 )
                 path.addQuadCurve(
                     to: CGPoint(x: 192, y: 179),
-                    control: CGPoint(x: 115, y: 110)
+                    control: CGPoint(x: 110, y: 120)
                 )
+                path.addQuadCurve(
+                    to: CGPoint(x: 92, y: 48),
+                    control: CGPoint(x: 130, y: 110)
+                )
+                path.addQuadCurve(
+                    to: CGPoint(x: 278, y: 195),
+                    control: CGPoint(x: 155, y: 110)
+                )
+                path.addQuadCurve(
+                    to: CGPoint(x: 250, y: 13),
+                    control: CGPoint(x: 310, y: 110)
+                )
+                path.closeSubpath()
             }
             .stroke(lineWidth: 4)
             .frame(width: 400, height: 400)
