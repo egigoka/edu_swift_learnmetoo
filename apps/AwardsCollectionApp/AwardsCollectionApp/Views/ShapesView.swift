@@ -20,7 +20,11 @@ struct ShapesView: View {
         NavigationView {
             CustomGridView(items: activeAwards, columns: 2) { itemSize, award in
                 VStack {
-                    award.awardView
+                    HStack {
+                        Spacer()
+                        award.awardView
+                        Spacer()
+                    }
                     Text(award.title)
                 }
                 .padding()

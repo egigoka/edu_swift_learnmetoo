@@ -62,13 +62,15 @@ struct SwiftBirdView: View {
                     path.closeSubpath()
                 }
                 .stroke(lineWidth: 4)
-                .frame(width: width, height: height)
             }
+            //.frame(width: width, height: height)
         }
+        .aspectRatio(1, contentMode: .fit)
+        //.clipShape(.rect)
     }
 }
 
 #Preview {
     SwiftBirdView()
-        .frame(width: 250, height: 250)
+        .frame(width: 250, height: 500)
 }

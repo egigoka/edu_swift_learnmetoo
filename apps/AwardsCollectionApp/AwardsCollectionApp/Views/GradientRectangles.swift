@@ -24,7 +24,7 @@ struct GradientRectangles: View {
                         )
                         .frame(
                             width: geometry.size.width * 0.7,
-                            height: geometry.size.height * 0.7
+                            height: geometry.size.width * 0.7
                         )
                         .rotationEffect(.degrees(Double(iteration) * 60))
                 }
@@ -35,6 +35,7 @@ struct GradientRectangles: View {
                     .scaleEffect(0.7)
             }
             .aspectRatio(1, contentMode: .fit)
+            //.clipShape(.rect)
         }
     }
 }
