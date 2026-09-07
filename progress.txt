@@ -199,8 +199,8 @@ course 3 lesson 7 homework review  - done
 course 3 lesson 7 theory           - done
 course 3 lesson 7 homework         - done
 
-course 3 lesson 8 homework review  - 28:00
-course 3 lesson 8 theory           - 
+course 3 lesson 8 homework review  - done
+course 3 lesson 8 theory           - 32:26
 course 3 lesson 8 homework         - 
 
 80%

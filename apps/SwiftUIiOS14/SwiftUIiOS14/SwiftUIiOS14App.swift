@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct SwiftUIiOS14App: App {
+    @StateObject var model = DataModel()
+    
     var body: some Scene {
         WindowGroup {
-            Text("Hello")
+            ContentView()
+                .environmentObject(model)
         }
     }
+}
+
+class DataModel: ObservableObject {
+    let objectWillChange = ObservableObjectPublisher()
+    
+    var title = "Hello"
 }
