@@ -33,3 +33,7 @@ struct SampleRow: View {
         self.id = id
     }
 }
+
+#Preview {
+    LazyStacks()
+}
