@@ -206,7 +206,7 @@ course 3 lesson 8 homework         - none
 80%
 
 course 4 lesson 1 homework review  - none
-course 4 lesson 1 theory           - 37:42
+course 4 lesson 1 theory           - 1:29:26
 course 4 lesson 1 homework         - 
 
 course 4 lesson 2 homework review  - 
