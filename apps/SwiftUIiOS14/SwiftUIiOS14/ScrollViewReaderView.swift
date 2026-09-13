@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ScrollViewReaderView: View {
+    let colors = [Color.red, .green, .blue]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            ScrollViewReader { item in
+                Button("Jump to the item 8") {
+                    item.scrollTo(8)
+                }
+                
+                ForEach(0..<10) { index in
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(colors[index % colors.count])
+                        Text("Item \(index)")
+                            .frame(width: 300, height: 300)
+                    }
+                }
+            }
+        }
     }
 }
 
