@@ -13,8 +13,8 @@ struct SwiftUIiOS14App: App {
     @StateObject var model = DataModel()
     
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        DocumentGroup(newDocument: TextFile()) { file in
+            ContentView(document: file.$document)
                 .environmentObject(model)
         }
     }

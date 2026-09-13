@@ -12,7 +12,9 @@ struct LazyStacks: View {
         VStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(1...100, id: \.self, content: SampleRow.init)
+                    ForEach(1...100, id: \.self) { id in
+                        SampleRow(id: id)
+                    }
                 }
             }
         }
@@ -31,4 +33,3 @@ struct SampleRow: View {
         self.id = id
     }
 }
-

@@ -7,43 +7,50 @@
 
 import SwiftUI
 
+private enum AppTab: Hashable {
+    case document
+    case stacks
+    case webLinks
+    case home
+    case editor
+    case map
+    case page
+}
+
 struct ContentView: View {
     @EnvironmentObject var model: DataModel
+    @Binding var document: TextFile
+    @State private var selectedTab = AppTab.document
     
     var body: some View {
-        TabView {
-            LazyStacks()
-                .tabItem {
-                    Label("Stacks", systemImage: "square.stack")
-                }
-            WebLinks()
-                .tabItem {
-                    Label("Web Links", systemImage: "globe")
-                }
-            VStack {
+        TabView(selection: $selectedTab) {
+            Tab("Document Editor", systemImage: "doc.text", value: AppTab.document) {
+                DocumentBase(document: $document)
+            }
+            Tab("Stacks", systemImage: "square.stack", value: AppTab.stacks) {
+                LazyStacks()
+            }
+            Tab("Web Links", systemImage: "globe", value: AppTab.webLinks) {
+                WebLinks()
+            }
+            Tab("Home", systemImage: "house", value: AppTab.home) {
                 Text(model.title)
+                    .padding()
             }
-            .padding()
-            .tabItem {
-                Label("Home", systemImage: "house")
+            Tab("Editor", systemImage: "pencil", value: AppTab.editor) {
+                TextEditorView()
             }
-            TextEditorView()
-                .tabItem {
-                    Label("Editor", systemImage: "pencil")
-                }
-            MapView()
-                .tabItem {
-                    Label("Map", systemImage: "map")
-                }
-            PageView()
-                .tabItem {
-                    Label("Page", systemImage: "book")
-                }
+            Tab("Map", systemImage: "map", value: AppTab.map) {
+                MapView()
+            }
+            Tab("Page", systemImage: "book", value: AppTab.page) {
+                PageView()
+            }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(document: .constant(TextFile()))
         .environmentObject(DataModel())
 }

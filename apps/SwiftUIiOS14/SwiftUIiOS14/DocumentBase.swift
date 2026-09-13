@@ -9,8 +9,10 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct DocumentBase: View {
+    @Binding var document: TextFile
+    
     var body: some View {
-        
+        TextEditor(text: $document.text)
     }
 }
 
@@ -37,5 +39,5 @@ struct TextFile: FileDocument {
 }
 
 #Preview {
-    DocumentBase()
+    DocumentBase(document: .constant(TextFile()))
 }
