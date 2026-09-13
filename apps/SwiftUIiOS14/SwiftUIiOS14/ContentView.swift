@@ -16,6 +16,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Stacks", systemImage: "square.stack")
                 }
+            WebLinks()
+                .tabItem {
+                    Label("Web Links", systemImage: "globe")
+                }
             VStack {
                 Text(model.title)
             }
