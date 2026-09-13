@@ -12,6 +12,7 @@ struct GroupRowsView: View {
         List(0..<100) { rowIndex in
             Text("Row index: \(rowIndex)")
         }
+        .listStyle(InsetGroupedListStyle())
     }
 }
 
