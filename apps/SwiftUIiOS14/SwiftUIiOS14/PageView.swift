@@ -17,6 +17,7 @@ struct PageView: View {
         .font(.largeTitle)
         .foregroundStyle(.red)
         .tabViewStyle(.page)
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
 

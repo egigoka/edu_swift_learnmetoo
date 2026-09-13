@@ -12,6 +12,10 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            LazyStacks()
+                .tabItem {
+                    Label("Stacks", systemImage: "square.stack")
+                }
             VStack {
                 Text(model.title)
             }
@@ -26,6 +30,10 @@ struct ContentView: View {
             MapView()
                 .tabItem {
                     Label("Map", systemImage: "map")
+                }
+            PageView()
+                .tabItem {
+                    Label("Page", systemImage: "book")
                 }
         }
     }
