@@ -14,10 +14,10 @@ struct ScrollViewReaderView: View {
         ScrollView {
             ScrollViewReader { item in
                 Button("Jump to the item 8") {
-                    item.scrollTo(8)
+                    item.scrollTo(8, anchor: .center)
                 }
                 
-                ForEach(0..<10) { index in
+                ForEach(0..<10, id: \.self) { index in
                     ZStack {
                         Rectangle()
                             .foregroundStyle(colors[index % colors.count])
