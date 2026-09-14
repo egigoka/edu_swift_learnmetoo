@@ -210,7 +210,7 @@ course 4 lesson 1 theory           - done
 course 4 lesson 1 homework         - none
 
 course 4 lesson 2 homework review  - none
-course 4 lesson 2 theory           - 51:02
+course 4 lesson 2 theory           - 58:16
 course 4 lesson 2 homework         - 
 
 course 4 lesson 3 homework review  - 
