@@ -13,13 +13,15 @@ struct CourseListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text(viewModel.message)
+                ForEach(viewModel.courses, id: \.name) { course in
+                    Text(course.name)
+                }
             }
             .navigationTitle("Courses")
             .toolbar {
                 ToolbarItem(placement: .topBarPinnedTrailing) {
                     Button {
-                        viewModel.message = "Info about courses"
+                        viewModel.fetchCourses()
                     } label: {
                         Label("Fetch data", systemImage: "arrow.clockwise")
                     }

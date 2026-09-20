@@ -8,6 +8,16 @@
 import Foundation
 import Combine
 
+protocol CourseListViewModelProtocol {
+    var courses: [Course] { get }
+}
+
 class CourseListViewModel: ObservableObject {
-    @Published var message = "Property inside observable object"
+    @Published var courses: [Course] = []
+    
+    func fetchCourses() {
+        NetworkManager.shared.fetchCourses { courses in
+            self.courses = courses
+        }
+    }
 }
