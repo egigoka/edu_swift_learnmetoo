@@ -42,5 +42,5 @@ class NetworkManager {
 }
 
 enum Constans: String {
-    case courseURL = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
+    case courseURL = "http://10.1.0.6:9090/fixed/api_courses"
 }

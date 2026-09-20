@@ -14,7 +14,7 @@ struct Course: Decodable {
     static func getCourse() -> Course {
         Course(
             name: "Course Name",
-            imageUrl: "https://swiftbook.ru/wp-content/uploads/2018/03/2-courselogo.jpg",
+            imageUrl: "https://swiftbook.org/system/uploads/course/image/250/promo_TableView.jpg",
             numberOfLessons: 40,
             numberOfTests: 10
         )
