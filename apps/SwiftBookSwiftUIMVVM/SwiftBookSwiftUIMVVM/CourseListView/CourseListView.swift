@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct CourseListView: View {
+    private var viewModel = CourseListViewModel()
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                
+                Text(viewModel.message)
             }
-            .navigationTitle(Text("Courses"))
-            .navigationBarItems(trailing: Button("Fetch data") {
-                
-            })
+            .navigationTitle("Courses")
+            .toolbar {
+                ToolbarItem(placement: .topBarPinnedTrailing) {
+                    Button {
+                    } label: {
+                        Label("Fetch data", systemImage: "arrow.clockwise")
+                    }
+                }
+            }
         }
     }
 }
