@@ -218,7 +218,7 @@ course 4 lesson 3 theory           - done
 course 4 lesson 3 homework         - none
 
 course 4 lesson 4 homework review  - none
-course 4 lesson 4 theory           - 48:29
+course 4 lesson 4 theory           - 48:57
 course 4 lesson 4 homework         - 
 
 90%

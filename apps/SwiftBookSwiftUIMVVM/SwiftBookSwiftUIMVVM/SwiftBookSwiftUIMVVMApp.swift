@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftBookSwiftUIMVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CourseListView()
         }
     }
 }
