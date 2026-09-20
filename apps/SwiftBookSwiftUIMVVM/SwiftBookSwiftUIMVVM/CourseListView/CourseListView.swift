@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CourseListView: View {
-    private var viewModel = CourseListViewModel()
+    @StateObject private var viewModel = CourseListViewModel()
 
     var body: some View {
         NavigationStack {
@@ -19,6 +19,7 @@ struct CourseListView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarPinnedTrailing) {
                     Button {
+                        viewModel.message = "Info about courses"
                     } label: {
                         Label("Fetch data", systemImage: "arrow.clockwise")
                     }
