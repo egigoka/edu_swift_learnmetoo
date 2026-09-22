@@ -12,21 +12,13 @@ struct CourseListView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ForEach(viewModel.courses, id: \.name) { course in
-                    Text(course.name)
-                }
+            List(viewModel.courses, id: \.name) { course in
+                Text(course.name)
             }
             .navigationTitle("Courses")
-            .toolbar {
-                ToolbarItem(placement: .topBarPinnedTrailing) {
-                    Button {
-                        viewModel.fetchCourses()
-                    } label: {
-                        Label("Fetch data", systemImage: "arrow.clockwise")
-                    }
-                }
-            }
+        }
+        .onAppear {
+            viewModel.fetchCourses()
         }
     }
 }

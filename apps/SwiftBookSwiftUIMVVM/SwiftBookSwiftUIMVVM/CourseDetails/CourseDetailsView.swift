@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CourseDetailsView: View {
-    var viewModel: CourseDetailsViewModel
+    @StateObject var viewModel: CourseDetailsViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -40,7 +40,7 @@ struct FavoriteStatusButton: View {
     var action: () -> Void
     
     var body: some View {
-        Image(systemName: isFavorite ? "heart.filled" : "heart")
+        Image(systemName: isFavorite ? "heart.fill" : "heart")
             .resizable()
             .frame(width: 30, height: 30)
             .offset(x: 155, y: 60)

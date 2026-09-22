@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct RowView: View {
+    let viewModel: RowViewViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            CourseImage(imageData: viewModel.imageData,
+                        imageSize: CGSize(width: 360, height: 180),
+                        cornerRadius: 10,
+                        shadowIsOn: false)
+            Text(viewModel.courseName)
+        }
     }
 }
 

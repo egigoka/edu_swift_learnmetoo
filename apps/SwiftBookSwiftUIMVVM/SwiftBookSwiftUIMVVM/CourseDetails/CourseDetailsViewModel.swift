@@ -45,6 +45,7 @@ class CourseDetailsViewModel: CourseDetailsViewModelProtocol, ObservableObject {
                 for: course.name,
                 with: isFavorite
             )
+            objectWillChange.send()
         }
     }
     

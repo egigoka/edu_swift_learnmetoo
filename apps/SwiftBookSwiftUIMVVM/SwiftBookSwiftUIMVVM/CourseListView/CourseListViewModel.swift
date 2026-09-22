@@ -10,9 +10,10 @@ import Combine
 
 protocol CourseListViewModelProtocol {
     var courses: [Course] { get }
+    func fetchCourses()
 }
 
-class CourseListViewModel: ObservableObject {
+class CourseListViewModel: CourseListViewModelProtocol, ObservableObject {
     @Published var courses: [Course] = []
     
     func fetchCourses() {
