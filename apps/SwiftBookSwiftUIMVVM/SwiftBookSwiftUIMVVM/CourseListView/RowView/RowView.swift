@@ -13,14 +13,15 @@ struct RowView: View {
     var body: some View {
         HStack {
             CourseImage(imageData: viewModel.imageData,
-                        imageSize: CGSize(width: 360, height: 180),
+                        imageSize: CGSize(width: 200, height: 100),
                         cornerRadius: 10,
                         shadowIsOn: false)
             Text(viewModel.courseName)
+            Spacer()
         }
     }
 }
 
 #Preview {
-    RowView()
+    RowView(viewModel: RowViewViewModel(course: Course.getCourse()))
 }

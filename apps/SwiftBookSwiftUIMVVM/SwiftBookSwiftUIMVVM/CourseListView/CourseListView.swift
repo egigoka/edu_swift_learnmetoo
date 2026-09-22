@@ -13,7 +13,13 @@ struct CourseListView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.courses, id: \.name) { course in
-                Text(course.name)
+                NavigationLink(
+                    destination: CourseDetailsView(
+                        viewModel: CourseDetailsViewModel(course: course)
+                    )
+                ) {
+                    RowView(viewModel: RowViewViewModel(course: course))
+                }
             }
             .navigationTitle("Courses")
         }

@@ -218,13 +218,13 @@ course 4 lesson 3 theory           - done
 course 4 lesson 3 homework         - none
 
 course 4 lesson 4 homework review  - none
-course 4 lesson 4 theory           - 2:09:34
-course 4 lesson 4 homework         - 
+course 4 lesson 4 theory           - done
+course 4 lesson 4 homework         - none
 
 90%
 
-course 4 lesson 5 homework review  - 
-course 4 lesson 5 theory           - 
+course 4 lesson 5 homework review  - none
+course 4 lesson 5 theory           - 33:12
 course 4 lesson 5 homework         - 
 
 course 4 lesson 6 homework review  - 
