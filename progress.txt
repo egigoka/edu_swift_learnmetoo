@@ -228,7 +228,7 @@ course 4 lesson 5 theory           - done
 course 4 lesson 5 homework         - none
 
 course 4 lesson 6 homework review  - none
-course 4 lesson 6 theory           - 0:44
+course 4 lesson 6 theory           - 1:02
 course 4 lesson 6 homework         - 
 
 course 4 lesson 7 homework review  - 

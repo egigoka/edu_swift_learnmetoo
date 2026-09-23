@@ -8,8 +8,10 @@
 import Foundation
 
 protocol CourseDetailsInteractorInputProtocol: AnyObject {
+    var isFavorite: Bool { get set }
     init(presenter: CourseDetailsInteractorOutputProtocol, course: Course)
     func provideCourseDetails()
+    func toggleFavoriteStatus()
 }
 
 protocol CourseDetailsInteractorOutputProtocol: AnyObject {
@@ -20,6 +22,14 @@ class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
     unowned let presenter: CourseDetailsInteractorOutputProtocol
     private let course: Course
     
+    var isFavorite: Bool {
+        get {
+            DataManager.shared.getFavoriteStatus(for: course.name ?? "")
+        } set {
+            DataManager.shared.setFavoriteStatus(for: course.name ?? "", with: newValue)
+        }
+    }
+    
     required init(presenter: any CourseDetailsInteractorOutputProtocol, course: Course) {
         self.presenter = presenter
         self.course = course
@@ -29,8 +39,13 @@ class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
         let courseDetailsData = CourseDetailsData(
             courseName: course.name ?? "",
             numberOfLessons: course.numberOfLessons ?? 0,
-            numberOfTests: course.numberOfTests ?? 0
+            numberOfTests: course.numberOfTests ?? 0,
+            imageData: ImageManager.shared.fetchImageData(from: course.imageUrl)
         )
         presenter.receiveCourseDetails(with: courseDetailsData)
+    }
+    
+    func toggleFavoriteStatus() {
+        isFavorite.toggle()
     }
 }

@@ -12,11 +12,15 @@ protocol CourseDetailsViewInputProtocol: AnyObject {
     func displayCourseName(with title: String)
     func displayNumberOfLessons(with title: String)
     func displayNumberOfTests(with title: String)
+    func displayImage(with imageData: Data)
+    func displayImageForFavoriteButton(with favoriteStatus: Bool)
 }
 
 protocol CourseDetailsViewOutputProtocol: AnyObject {
+    var isFavorite: Bool { get }
     init(view: CourseDetailsViewInputProtocol)
     func showDetails()
+    func favoriteButtonPressed()
 }
 
 class CourseDetailsViewController: UIViewController {
@@ -31,38 +35,15 @@ class CourseDetailsViewController: UIViewController {
     var presenter: CourseDetailsViewOutputProtocol!
     
     private let configurator: CourseDetailsConfiguratorProtocol = CourseDetailsConfigurator()
-    private var isFavorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(with: self, and: course)
         presenter.showDetails()
-        loadFavoriteStatus()
-        setupUI()
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        isFavorite.toggle()
-        setImageForFavoriteButton()
-        DataManager.shared.setFavoriteStatus(for: course.name ?? "",
-                                             with: isFavorite)
-    }
-    
-    private func setupUI() {
-        
-        if let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) {
-            courseImage.image = UIImage(data: imageData)
-        }
-        
-        setImageForFavoriteButton()
-    }
-    
-    private func setImageForFavoriteButton() {
-        favoriteButton.tintColor = isFavorite ? .red : .gray
-    }
-    
-    private func loadFavoriteStatus() {
-        isFavorite = DataManager.shared.getFavoriteStatus(for: course.name ?? "")
+        presenter.favoriteButtonPressed()
     }
 }
 
@@ -77,5 +58,13 @@ extension CourseDetailsViewController: CourseDetailsViewInputProtocol {
     
     func displayNumberOfTests(with title: String) {
         numberOfTestsLabel.text = title
+    }
+    
+    func displayImage(with imageData: Data) {
+        courseImage.image = UIImage(data: imageData)
+    }
+    
+    func displayImageForFavoriteButton(with favoriteStatus: Bool) {
+        favoriteButton.tintColor = favoriteStatus ? .red : .gray
     }
 }
