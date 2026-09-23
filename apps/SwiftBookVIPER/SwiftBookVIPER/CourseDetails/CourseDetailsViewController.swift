@@ -10,6 +10,8 @@ import UIKit
 
 protocol CourseDetailsViewInputProtocol: AnyObject {
     func displayCourseName(with title: String)
+    func displayNumberOfLessons(with title: String)
+    func displayNumberOfTests(with title: String)
 }
 
 protocol CourseDetailsViewOutputProtocol: AnyObject {
@@ -47,8 +49,6 @@ class CourseDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        numberOfTestsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
-        numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
         if let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) {
             courseImage.image = UIImage(data: imageData)
@@ -69,5 +69,13 @@ class CourseDetailsViewController: UIViewController {
 extension CourseDetailsViewController: CourseDetailsViewInputProtocol {
     func displayCourseName(with title: String) {
         courseNameLabel.text = title
+    }
+    
+    func displayNumberOfLessons(with title: String) {
+        numberOfLessonsLabel.text = title
+    }
+    
+    func displayNumberOfTests(with title: String) {
+        numberOfTestsLabel.text = title
     }
 }

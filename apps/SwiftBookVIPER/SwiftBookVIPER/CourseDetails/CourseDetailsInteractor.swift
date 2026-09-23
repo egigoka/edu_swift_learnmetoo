@@ -26,7 +26,11 @@ class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
     }
     
     func provideCourseDetails() {
-        let courseDetailsData = CourseDetailsData(courseName: course.name ?? "")
+        let courseDetailsData = CourseDetailsData(
+            courseName: course.name ?? "",
+            numberOfLessons: course.numberOfLessons ?? 0,
+            numberOfTests: course.numberOfTests ?? 0
+        )
         presenter.receiveCourseDetails(with: courseDetailsData)
     }
 }

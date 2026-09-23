@@ -74,6 +74,24 @@
 ## Session Memory
 
 ### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
 - None captured yet.
 
 ### Long Horizon Context
@@ -151,4 +169,18 @@ No `textColor` set. All 3 labels default adaptive:
 Dark Mode runtime → white labels on fixed white background → invisible.
 
 Fix: explicit black `textColor`, or adaptive `systemBackground` + `labelColor`. Say word, patch.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+ty, found static white color lol, mentor smh
+
+---
+
+ASSISTANT:
+Yeah. Static white + dynamic label = classic. Mentor tax collected.
+
+Say word if want adaptive colors patch.
 </conversation_update>
