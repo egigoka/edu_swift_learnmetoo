@@ -32,6 +32,7 @@ class CourseDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.showDetails()
         loadFavoriteStatus()
         setupUI()
     }

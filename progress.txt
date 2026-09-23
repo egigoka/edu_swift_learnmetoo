@@ -224,7 +224,7 @@ course 4 lesson 4 homework         - none
 90%
 
 course 4 lesson 5 homework review  - none
-course 4 lesson 5 theory           - 1:39
+course 4 lesson 5 theory           - 1:49
 course 4 lesson 5 homework         - 
 
 course 4 lesson 6 homework review  - 
