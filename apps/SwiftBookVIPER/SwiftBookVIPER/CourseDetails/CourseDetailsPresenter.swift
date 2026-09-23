@@ -28,7 +28,7 @@ class CourseDetailsPresenter: CourseDetailsViewOutputProtocol {
 
 extension CourseDetailsPresenter: CourseDetailsInteractorOutputProtocol {
     func receiveCourseDetails(with courseData: CourseDetailsData) {
-        
+        view.displayCourseName(with: courseData.courseName)
     }
     
 }

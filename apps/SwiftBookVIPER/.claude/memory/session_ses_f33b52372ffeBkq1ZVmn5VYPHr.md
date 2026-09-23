@@ -56,6 +56,24 @@
 ## Session Memory
 
 ### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
 - None captured yet.
 
 ### Long Horizon Context
@@ -113,4 +131,24 @@ Changed `customModule` to `SwiftBookVIPER` in `Main.storyboard`:
 Existing `tableView`, `courseImage`, `courseNameLabel`, `numberOfLessonsLabel`, `numberOfTestsLabel`, `favoriteButton`, `toggleFavorite:`, `dataSource`/`delegate`, `ShowDetails` links left intact.
 
 Build clean, 0 errors.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+why labels in Main.storyboard CourseDetailsViewController are white on white?
+
+---
+
+ASSISTANT:
+No `textColor` set. All 3 labels default adaptive:
+
+- `Main.storyboard:79,84,92` — `nil textColor` → `labelColor` (black light / white dark)
+- `Main.storyboard:114` — view fixed `white=1`
+- Canvas `appearance=light` hides bug — IB shows black-on-white
+
+Dark Mode runtime → white labels on fixed white background → invisible.
+
+Fix: explicit black `textColor`, or adaptive `systemBackground` + `labelColor`. Say word, patch.
 </conversation_update>
