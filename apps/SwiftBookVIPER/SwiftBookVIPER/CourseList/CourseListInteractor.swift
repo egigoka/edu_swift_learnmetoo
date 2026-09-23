@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+protocol CourseListInteractorInputProtocol: AnyObject {
+    init(presenter: CourseListInteractorOutputProtocol)
+}
+
+protocol CourseListInteractorOutputProtocol: AnyObject {
+    
+}
+
+class CourseListInteractor: CourseListInteractorInputProtocol {
+    unowned let presenter: CourseListInteractorOutputProtocol
+    
+    required init(presenter: any CourseListInteractorOutputProtocol) {
+        self.presenter = presenter
+    }
+}

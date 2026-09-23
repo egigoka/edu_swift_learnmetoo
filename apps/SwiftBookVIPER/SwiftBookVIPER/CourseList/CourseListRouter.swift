@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+protocol CourseListRouterInputProtocol: AnyObject {
+    init(viewController: CourseListViewController)
+    func openCourseDetailsViewController(with course: Course)
+}
+
+class CourseListRouter: CourseListRouterInputProtocol {
+    unowned let viewController: CourseListViewController
+    
+    required init(viewController: CourseListViewController) {
+        self.viewController = viewControllerp
+    }
+    
+    func openCourseDetailsViewController(with course: Course) {
+        
+    }
+}

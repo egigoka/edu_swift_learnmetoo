@@ -26,7 +26,7 @@ class CourseListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //presenter.viewDidLoad()
+        presenter.viewDidLoad()
         tableView.rowHeight = 100
         setupNavigationBar()
         getCourses()
@@ -82,3 +82,6 @@ extension CourseListViewController: UITableViewDelegate {
     }
 }
 
+extension CourseListViewController: CourseListViewInputProtocol {
+    
+}

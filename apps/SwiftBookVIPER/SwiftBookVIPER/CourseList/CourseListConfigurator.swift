@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol CourseListConfiguratorProtocol: AnyObject {
+    func configure(with ViewController: CourseListViewController)
+}
