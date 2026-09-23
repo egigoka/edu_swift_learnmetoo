@@ -14,7 +14,7 @@
 		13A678A43062FD7F007E0DD9 /* Exceptions for "SwiftBookVIPER" folder in "SwiftBookVIPER" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				"Supporting Files/Info.plist",
 			);
 			target = 13A678913062FD7E007E0DD9 /* SwiftBookVIPER */;
 		};
@@ -137,7 +137,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PTT6GCQ699;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBookVIPER/Info.plist;
+				INFOPLIST_FILE = "SwiftBookVIPER/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -169,7 +169,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PTT6GCQ699;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBookVIPER/Info.plist;
+				INFOPLIST_FILE = "SwiftBookVIPER/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
