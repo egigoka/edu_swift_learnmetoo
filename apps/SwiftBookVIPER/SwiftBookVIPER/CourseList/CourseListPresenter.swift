@@ -9,7 +9,7 @@ import Foundation
 
 class CourseListPresenter: CourseListViewOutputProtocol {
     unowned let view: CourseListViewInputProtocol
-    var interactor: CourseDetailsInteractorInputProtocol!
+    var interactor: CourseListInteractorInputProtocol!
     var router: CourseListRouterInputProtocol!
     
     required init(view: any CourseListViewInputProtocol) {
@@ -17,10 +17,12 @@ class CourseListPresenter: CourseListViewOutputProtocol {
     }
     
     func viewDidLoad() {
-        
+        interactor.fetchCourses()
     }
 }
 
-extension CourseListInteractorOutputProtocol {
-    
+extension CourseListPresenter: CourseListInteractorOutputProtocol {
+    func coursesDidReceive(_ courses: [Course]) {
+        view.display(courses)
+    }
 }

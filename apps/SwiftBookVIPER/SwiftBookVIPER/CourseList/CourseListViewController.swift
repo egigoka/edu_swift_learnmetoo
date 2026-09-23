@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CourseListViewInputProtocol: AnyObject {
-    
+    func display(_ courses: [Course])
 }
 
 protocol CourseListViewOutputProtocol: AnyObject {
@@ -22,28 +22,20 @@ class CourseListViewController: UIViewController {
     
     var presenter: CourseListViewOutputProtocol!
     
+    private let configurator: CourseListConfiguratorProtocol = CourseListConfigurator()
     private var courses: [Course] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurator.configure(with: self)
         presenter.viewDidLoad()
         tableView.rowHeight = 100
         setupNavigationBar()
-        getCourses()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailVC = segue.destination as! CourseDetailsViewController
         detailVC.course = sender as? Course
-    }
-    
-    private func getCourses() {
-        NetworkManager.shared.fetchData() { courses in
-            self.courses = courses
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
     }
     
     private func setupNavigationBar() {
@@ -83,5 +75,10 @@ extension CourseListViewController: UITableViewDelegate {
 }
 
 extension CourseListViewController: CourseListViewInputProtocol {
-    
+    func display(_ courses: [Course]) {
+        self.courses = courses
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
