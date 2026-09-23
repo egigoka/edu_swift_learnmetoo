@@ -7,14 +7,26 @@
 
 import UIKit
 
+protocol CourseListViewInputProtocol: AnyObject {
+    
+}
+
+protocol CourseListViewOutputProtocol: AnyObject {
+    init(view: CourseListViewInputProtocol)
+    func viewDidLoad()
+}
+
 class CourseListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var presenter: CourseListViewOutputProtocol!
     
     private var courses: [Course] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //presenter.viewDidLoad()
         tableView.rowHeight = 100
         setupNavigationBar()
         getCourses()

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CourseDetailsViewInputProtocol: AnyObject {
-    
+    func displayCourseName(with title: String)
 }
 
 protocol CourseDetailsViewOutputProtocol: AnyObject {
@@ -28,10 +28,12 @@ class CourseDetailsViewController: UIViewController {
     var course: Course!
     var presenter: CourseDetailsViewOutputProtocol!
     
+    private let configurator: CourseDetailsConfiguratorProtocol = CourseDetailsConfigurator()
     private var isFavorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurator.configure(with: self, and: course)
         presenter.showDetails()
         loadFavoriteStatus()
         setupUI()
@@ -45,7 +47,6 @@ class CourseDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        courseNameLabel.text = course.name
         numberOfTestsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
         numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
@@ -66,5 +67,7 @@ class CourseDetailsViewController: UIViewController {
 }
 
 extension CourseDetailsViewController: CourseDetailsViewInputProtocol {
-    
+    func displayCourseName(with title: String) {
+        courseNameLabel.text = title
+    }
 }

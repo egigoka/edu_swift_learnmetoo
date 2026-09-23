@@ -8,11 +8,11 @@
 import Foundation
 
 struct CourseDetailsData {
-    
+    let courseName: String
 }
 
 class CourseDetailsPresenter: CourseDetailsViewOutputProtocol {
-    unowned view: CourseDetailsViewInputProtocol
+    unowned let view: CourseDetailsViewInputProtocol
     var interactor: CourseDetailsInteractorInputProtocol!
     
     required init(view: any CourseDetailsViewInputProtocol) {
@@ -20,12 +20,15 @@ class CourseDetailsPresenter: CourseDetailsViewOutputProtocol {
     }
     
     func showDetails() {
-        
+        interactor.provideCourseDetails()
     }
     
     
 }
 
 extension CourseDetailsPresenter: CourseDetailsInteractorOutputProtocol {
+    func receiveCourseDetails(with courseData: CourseDetailsData) {
+        
+    }
     
 }

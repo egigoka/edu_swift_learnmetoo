@@ -9,18 +9,24 @@ import Foundation
 
 protocol CourseDetailsInteractorInputProtocol: AnyObject {
     init(presenter: CourseDetailsInteractorOutputProtocol, course: Course)
-    
+    func provideCourseDetails()
 }
 
 protocol CourseDetailsInteractorOutputProtocol: AnyObject {
-    
+    func receiveCourseDetails(with courseData: CourseDetailsData)
 }
 
 class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
     unowned let presenter: CourseDetailsInteractorOutputProtocol
     private let course: Course
+    
     required init(presenter: any CourseDetailsInteractorOutputProtocol, course: Course) {
         self.presenter = presenter
         self.course = course
+    }
+    
+    func provideCourseDetails() {
+        let courseDetailsData = CourseDetailsData(courseName: course.name ?? "")
+        presenter.receiveCourseDetails(with: courseDetailsData)
     }
 }
