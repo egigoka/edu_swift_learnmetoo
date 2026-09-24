@@ -26,6 +26,7 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let courses = try decoder.decode([Course].self, from: data)
+                DataManager.shared.setCourses(courses)
                 completion(courses)
             } catch let error {
                 print("Error serialization json", error)

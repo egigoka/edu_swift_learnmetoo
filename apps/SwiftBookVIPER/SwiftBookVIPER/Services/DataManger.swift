@@ -30,6 +30,6 @@ class DataManager {
     }
     
     func getCourse(at indexPath: IndexPath) -> Course {
-        courses[indexPath.row]
+        courses[indexPath[1]]
     }
 }

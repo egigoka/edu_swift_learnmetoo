@@ -36,4 +36,8 @@ extension CourseListPresenter: CourseListInteractorOutputProtocol {
         
         view.reloadData(for: section)
     }
+    
+    func courseDidReceive(_ course: Course) {
+        router.openCourseDetailsViewController(with: course)
+    }
 }

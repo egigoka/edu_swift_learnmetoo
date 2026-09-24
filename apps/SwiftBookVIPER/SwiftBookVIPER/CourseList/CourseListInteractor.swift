@@ -15,6 +15,7 @@ protocol CourseListInteractorInputProtocol: AnyObject {
 
 protocol CourseListInteractorOutputProtocol: AnyObject {
     func coursesDidReceive(_ courses: [Course])
+    func courseDidReceive(_ course: Course)
 }
 
 class CourseListInteractor: CourseListInteractorInputProtocol {
@@ -31,6 +32,7 @@ class CourseListInteractor: CourseListInteractorInputProtocol {
     }
     
     func getCourse(at indexPath: IndexPath) {
-        <#code#>
+        let course = DataManager.shared.getCourse(at: indexPath)
+        presenter.courseDidReceive(course)
     }
 }

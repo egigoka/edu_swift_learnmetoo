@@ -5,7 +5,7 @@
 //  Created by egigoka2kz on 23.09.2026.
 //
 
-import Foundation
+import UIKit
 
 protocol CourseListRouterInputProtocol: AnyObject {
     init(viewController: CourseListViewController)
@@ -20,6 +20,9 @@ class CourseListRouter: CourseListRouterInputProtocol {
     }
     
     func openCourseDetailsViewController(with course: Course) {
-        
+        viewController.performSegue(
+            withIdentifier: "ShowDetails",
+            sender: course
+        )
     }
 }
