@@ -14,6 +14,7 @@ protocol CourseListViewInputProtocol: AnyObject {
 protocol CourseListViewOutputProtocol: AnyObject {
     init(view: CourseListViewInputProtocol)
     func viewDidLoad()
+    func didTapCell(at indexPath: IndexPath)
 }
 
 class CourseListViewController: UIViewController {
@@ -29,7 +30,6 @@ class CourseListViewController: UIViewController {
         super.viewDidLoad()
         configurator.configure(with: self)
         presenter.viewDidLoad()
-        tableView.rowHeight = 100
         setupNavigationBar()
     }
     
@@ -69,13 +69,18 @@ extension CourseListViewController: UITableViewDataSource {
 extension CourseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presenter.didTapCell(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        CGFloat(section.rows[indexPath.row].cellHeight)
     }
 }
 
 extension CourseListViewController: CourseListViewInputProtocol {
     func reloadData(for section: CourseSection) {
         self.section = section
-        DispatchQueue.main.async { [unowned self]
+        DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }

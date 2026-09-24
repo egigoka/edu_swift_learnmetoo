@@ -8,6 +8,7 @@
 import Foundation
 
 class CourseListPresenter: CourseListViewOutputProtocol {
+    
     unowned let view: CourseListViewInputProtocol
     var interactor: CourseListInteractorInputProtocol!
     var router: CourseListRouterInputProtocol!
@@ -18,6 +19,10 @@ class CourseListPresenter: CourseListViewOutputProtocol {
     
     func viewDidLoad() {
         interactor.fetchCourses()
+    }
+    
+    func didTapCell(at indexPath: IndexPath) {
+        interactor.getCourse(at: indexPath)
     }
 }
 
