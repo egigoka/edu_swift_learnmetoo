@@ -228,11 +228,11 @@ course 4 lesson 5 theory           - done
 course 4 lesson 5 homework         - none
 
 course 4 lesson 6 homework review  - none
-course 4 lesson 6 theory           - 2:08
-course 4 lesson 6 homework         - 
+course 4 lesson 6 theory           - done
+course 4 lesson 6 homework         - none
 
-course 4 lesson 7 homework review  - 
-course 4 lesson 7 theory           - 
+course 4 lesson 7 homework review  - none
+course 4 lesson 7 theory           - 0:30
 course 4 lesson 7 homework         - 
 
 course 4 lesson 8 homework review  - 
