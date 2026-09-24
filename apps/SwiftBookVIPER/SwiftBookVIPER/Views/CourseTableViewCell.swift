@@ -8,12 +8,24 @@
 
 import UIKit
 
-class CourseTableViewCell: UITableViewCell {
-    func configure(with course: Course) {
+protocol CellRepresentable {
+    var courseCell: CellIdentifiable? { get set }
+}
+
+class CourseTableViewCell: UITableViewCell, CellRepresentable {
+    var courseCell: (any CellIdentifiable)? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let courseCell = courseCell as? CourseCell else { return }
         var content = defaultContentConfiguration()
-        content.text = course.name
-        guard let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) else { return }
-        content.image = UIImage(data: imageData)
+        content.text = courseCell.name
+        if let imageData = ImageManager.shared.fetchImageData(from: courseCell.imageURL) {
+            content.image = UIImage(data: imageData)
+        }
         contentConfiguration = content
     }
 }

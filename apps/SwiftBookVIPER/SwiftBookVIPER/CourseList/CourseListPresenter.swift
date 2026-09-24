@@ -23,6 +23,12 @@ class CourseListPresenter: CourseListViewOutputProtocol {
 
 extension CourseListPresenter: CourseListInteractorOutputProtocol {
     func coursesDidReceive(_ courses: [Course]) {
-        view.display(courses)
+        let section = CourseSection()
+        
+        courses.forEach { course in
+            section.rows.append(CourseCell(course: course))
+        }
+        
+        view.reloadData(for: section)
     }
 }

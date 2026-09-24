@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CourseListViewInputProtocol: AnyObject {
-    func display(_ courses: [Course])
+    func reloadData(for section: CourseSection)
 }
 
 protocol CourseListViewOutputProtocol: AnyObject {
@@ -23,7 +23,7 @@ class CourseListViewController: UIViewController {
     var presenter: CourseListViewOutputProtocol!
     
     private let configurator: CourseListConfiguratorProtocol = CourseListConfigurator()
-    private var courses: [Course] = []
+    private var section: SectionRowsRepresentable = CourseSection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +53,13 @@ class CourseListViewController: UIViewController {
 extension CourseListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseTableViewCell
-        let course = courses[indexPath.row]
-        cell.configure(with: course)
+        let courseCell = section.rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: courseCell.cellIdentifier, for: indexPath) as! CourseTableViewCell
+        cell.courseCell = courseCell
         
         return cell
     }
@@ -69,15 +69,13 @@ extension CourseListViewController: UITableViewDataSource {
 extension CourseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let course = courses[indexPath.row]
-        performSegue(withIdentifier: "ShowDetails", sender: course)
     }
 }
 
 extension CourseListViewController: CourseListViewInputProtocol {
-    func display(_ courses: [Course]) {
-        self.courses = courses
-        DispatchQueue.main.async {
+    func reloadData(for section: CourseSection) {
+        self.section = section
+        DispatchQueue.main.async { [unowned self]
             self.tableView.reloadData()
         }
     }
