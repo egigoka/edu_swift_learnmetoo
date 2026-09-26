@@ -236,7 +236,7 @@ course 4 lesson 7 theory           - done
 course 4 lesson 7 homework         - none
 
 course 4 lesson 8 homework review  - none
-course 4 lesson 8 theory           - 0:17.
+course 4 lesson 8 theory           - 0:18
 course 4 lesson 8 homework         - 
 
 100%
