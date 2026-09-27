@@ -199,6 +199,24 @@
 <existing_memory>
 ## Session Memory
 
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
 You are a short‑term session memory processor for an OpenCode plugin.
 
 You are NOT the coding agent. You are a clean‑room, one‑shot summarizer.
@@ -423,4 +441,16 @@ USER:
 <conversation_update>
 ASSISTANT:
 Yes. Clean Swift templates pass Swift syntax parsing, formatting lint, plist validation, and `git diff --check`. Ready for commit. Stage only `xcode-templates/Clean Swift/`; `~/configs` has unrelated changes.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+commit, push
+
+---
+
+ASSISTANT:
+Committed Clean Swift template formatting as `cb9ccd3` and pushed to `origin/master`. Unrelated local changes remain uncommitted.
 </conversation_update>
