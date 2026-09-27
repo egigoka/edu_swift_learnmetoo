@@ -28,7 +28,8 @@ final class CourseDetailsPresenter: CourseDetailsPresentationLogic {
             courseName: response.courseName ?? "NONAME",
             numberOfLessons: numberOfLessons,
             numberOfTests: numberOfTests,
-            imageData: response.imageData ?? Data()
+            imageData: response.imageData ?? Data(),
+            isFavorite: response.isFavorite
         )
         viewController?.displayCourseDetails(viewModel: viewModel)
     }

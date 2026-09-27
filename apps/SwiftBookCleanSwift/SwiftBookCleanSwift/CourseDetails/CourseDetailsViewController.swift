@@ -28,8 +28,6 @@ final class CourseDetailsViewController: UIViewController {
     var interactor: CourseDetailsBusinessLogic?
     var router: (NSObjectProtocol & CourseDetailsRoutingLogic & CourseDetailsDataPassing)?
     
-    private var isFavorite = false
-    
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -45,8 +43,6 @@ final class CourseDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passRequest()
-        loadFavoriteStatus()
-        setupUI()
     }
     
     // MARK: Do something
@@ -56,26 +52,7 @@ final class CourseDetailsViewController: UIViewController {
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        isFavorite.toggle()
-        setImageForFavoriteButton()
-        DataManager.shared.setFavoriteStatus(for: course.name ?? "", with: isFavorite)
-    }
-    
-    private func setupUI() {
         
-        if let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) {
-            courseImage.image = UIImage(data: imageData)
-        }
-              
-        setImageForFavoriteButton()
-    }
-    
-    private func setImageForFavoriteButton() {
-        favoriteButton.tintColor = isFavorite ? .red : .gray
-    }
-    
-    private func loadFavoriteStatus() {
-        isFavorite = DataManager.shared.getFavoriteStatus(for: course.name ?? "")
     }
     
     // MARK: Setup
@@ -99,5 +76,7 @@ extension CourseDetailsViewController: CourseDetailsDisplayLogic {
         courseNameLabel.text = viewModel.courseName
         numberOfLessonsLabel.text = viewModel.numberOfLessons
         numberOfTestsLabel.text = viewModel.numberOfTests
+        courseImage.image = UIImage(data: viewModel.imageData)
+        favoriteButton.tintColor = viewModel.isFavorite ? .red : .gray
     }
 }

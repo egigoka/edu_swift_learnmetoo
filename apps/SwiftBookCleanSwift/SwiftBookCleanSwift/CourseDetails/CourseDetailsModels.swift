@@ -25,6 +25,7 @@ enum CourseDetails {
             let numberOfLessons: Int?
             let numberOfTests: Int?
             let imageData: Data?
+            let isFavorite: Bool
         }
         
         struct ViewModel: Sendable {
@@ -32,6 +33,17 @@ enum CourseDetails {
             let numberOfLessons: String
             let numberOfTests: String
             let imageData: Data
+            let isFavorite: Bool
+        }
+    }
+    
+    enum SetFavoriteStatus {
+        struct Response {
+            let isFavorite: Bool
+        }
+        
+        struct ViewModel {
+            let isFavorite: Bool
         }
     }
 }
