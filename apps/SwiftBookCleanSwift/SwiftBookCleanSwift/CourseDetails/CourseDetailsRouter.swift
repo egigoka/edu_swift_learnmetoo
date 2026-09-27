@@ -16,7 +16,7 @@ import UIKit
 }
 
 protocol CourseDetailsDataPassing {
-    var dataStore: CourseDetailsDataStore? { get set }
+    var dataStore: CourseDetailsDataStore? { get }
 }
 
 final class CourseDetailsRouter: NSObject, CourseDetailsRoutingLogic, CourseDetailsDataPassing {
@@ -24,4 +24,5 @@ final class CourseDetailsRouter: NSObject, CourseDetailsRoutingLogic, CourseDeta
     weak var viewController: CourseDetailsViewController?
     var dataStore: CourseDetailsDataStore?
 
+    
 }

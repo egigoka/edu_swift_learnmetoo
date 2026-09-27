@@ -17,7 +17,6 @@ enum CourseDetails {
     enum ShowDetails {
         
         struct Request: Sendable {
-            let course: Course
         }
         
         struct Response: Sendable {

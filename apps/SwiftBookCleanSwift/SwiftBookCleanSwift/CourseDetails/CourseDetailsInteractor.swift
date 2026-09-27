@@ -19,7 +19,7 @@ protocol CourseDetailsBusinessLogic {
 }
 
 protocol CourseDetailsDataStore {
-    var course: Course? { get }
+    var course: Course? { get set }
 }
 
 final class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStore {
@@ -32,7 +32,6 @@ final class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDa
     // MARK: Do something
     
     func provideCourseDetails(request: CourseDetails.ShowDetails.Request) {
-        course = request.course
         worker = CourseDetailsWorker()
         isFavorite = worker?.getFavoriteStatus(for: course?.name ?? "") ?? false
         let imageData = worker?.getImage(from: course?.imageUrl)

@@ -37,6 +37,60 @@
 <existing_memory>
 ## Session Memory
 
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
 You are a short‑term session memory processor for an OpenCode plugin.
 
 You are NOT the coding agent. You are a clean‑room, one‑shot summarizer.
@@ -149,4 +203,52 @@ ASSISTANT:
 Pushed `9cf0c58` — keybindings, snippets, Clean Swift + VIPER templates now tracked.
 
 Left other modified files uncommitted (skill sync churn, `codex.toml`, `macos.sh`) — say word if those go in too.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+in clean swift change 2 spaces indents to 4 spaces indents where applicable
+
+---
+
+ASSISTANT:
+Done, build green.
+
+Files already 4-space almost everywhere. Two spots fixed:
+
+- `CourseListRouter.swift`: template leftover 6-space body indent now 8
+- `CourseTableViewCell.swift`: `guard` continuation 18 now 20
+
+Whitespace-only diff, verified with `git diff --ignore-all-space` empty.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+in router commented code still wrong spacing
+
+---
+
+ASSISTANT:
+Fixed. Missing space after `//`, now `// destination.course...`. Other `//\S` hits only URLs and `///` docs — fine.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+ffs, fix all the spacing issues in templates
+
+---
+
+USER:
+▣ DCP | -150.3K removed, +2.7K summary
+
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░⣿⣿⣿⣿⣿⣿⣿█│
+▣ Compression #9 -32.6K removed, +2.7K summary
+→ Topic: Clean Swift template formatting
+→ Items: 41 messages and 48 tools compressed
 </conversation_update>

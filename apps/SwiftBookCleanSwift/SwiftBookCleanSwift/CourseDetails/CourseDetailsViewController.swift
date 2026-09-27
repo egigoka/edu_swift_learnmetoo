@@ -25,7 +25,6 @@ final class CourseDetailsViewController: UIViewController {
     @IBOutlet private weak var courseImage: UIImageView!
     @IBOutlet private weak var favoriteButton: UIButton!
     
-    var course: Course!
     var interactor: CourseDetailsBusinessLogic?
     var router: (NSObjectProtocol & CourseDetailsRoutingLogic & CourseDetailsDataPassing)?
     
@@ -48,7 +47,7 @@ final class CourseDetailsViewController: UIViewController {
     
     // MARK: Do something
     func passRequest() {
-        let request = CourseDetails.ShowDetails.Request(course: course)
+        let request = CourseDetails.ShowDetails.Request()
         interactor?.provideCourseDetails(request: request)
     }
     

@@ -34,9 +34,9 @@ final class CourseTableViewCell: UITableViewCell, CellModelRepresentable {
         guard let imageURL = cellModel.imageURL else { return }
         Task { @MainActor [weak self] in
             guard let imageData = await ImageManager.shared.fetchImageData(from: imageURL),
-                  let self,
-                  let current = self.cellModel as? CourseList.ShowCourses.ViewModel.CourseCellModel,
-                  current.imageURL == imageURL else { return }
+                    let self,
+                    let current = self.cellModel as? CourseList.ShowCourses.ViewModel.CourseCellModel,
+                    current.imageURL == imageURL else { return }
             var updated = self.defaultContentConfiguration()
             updated.text = current.name
             updated.image = UIImage(data: imageData)
