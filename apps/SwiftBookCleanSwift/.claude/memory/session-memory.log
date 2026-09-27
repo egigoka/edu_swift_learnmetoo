@@ -201,3 +201,21 @@
 {"ts":"2026-09-27T10:36:51.351Z","event":"side_session_summarize_done","sessionID":"ses_f1d8f9cf0ffe8V3AbxwWADNVbT","resultChars":4824,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
 {"ts":"2026-09-27T10:36:51.355Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":1,"processedEntries":1,"totalEntries":1,"checkpointID":"msg_0e2704e52001Uue7L7phgEq4Tb","bytes":2161}
 {"ts":"2026-09-27T10:36:51.355Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":1,"newestMessageID":""}
+{"ts":"2026-09-27T11:28:51.702Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":101}
+{"ts":"2026-09-27T11:28:56.485Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":102}
+{"ts":"2026-09-27T11:29:05.211Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":103}
+{"ts":"2026-09-27T11:29:18.568Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":2}
+{"ts":"2026-09-27T11:29:18.581Z","event":"side_session_created","sessionID":"ses_f1d5f9710ffet0tN0F6BNQKOyV"}
+{"ts":"2026-09-27T11:29:18.592Z","event":"side_session_summarize_done","sessionID":"ses_f1d5f9710ffet0tN0F6BNQKOyV","resultChars":1478,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
+{"ts":"2026-09-27T11:29:18.602Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":2,"processedEntries":2,"totalEntries":2,"checkpointID":"msg_0e2a03424001bvG4uZpcNxDE6V","bytes":1514}
+{"ts":"2026-09-27T11:29:18.602Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":2,"newestMessageID":""}
+{"ts":"2026-09-27T11:33:40.670Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":1514}
+{"ts":"2026-09-27T11:33:40.670Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T11:33:44.109Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":105}
+{"ts":"2026-09-27T11:33:47.082Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":106}
+{"ts":"2026-09-27T11:34:03.816Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":107}
+{"ts":"2026-09-27T11:34:11.719Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":1514}
+{"ts":"2026-09-27T11:34:11.719Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T11:34:15.360Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":109}
+{"ts":"2026-09-27T11:34:22.930Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":110}
+{"ts":"2026-09-27T11:34:34.217Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":111}

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListPresentationLogic {
-    func presentSomething(response: CourseList.ShowCourses.Response)
+    func presentCourses(response: CourseList.ShowCourses.Response)
 }
 
 final class CourseListPresenter: CourseListPresentationLogic {
@@ -22,8 +22,15 @@ final class CourseListPresenter: CourseListPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: CourseList.ShowCourses.Response) {
-        let viewModel = CourseList.ShowCourses.ViewModel()
+    func presentCourses(response: CourseList.ShowCourses.Response) {
+        var rows: [CellIdentifier] = []
+        
+        response.courses.forEach { course in
+            let model = CourseList.ShowCourses.ViewModel.CourseCellModel(course: course)
+            rows.append(model)
+        }
+        
+        let viewModel = CourseList.ShowCourses.ViewModel(rows: rows)
         viewController?.displaySomething(viewModel: viewModel)
     }
 }

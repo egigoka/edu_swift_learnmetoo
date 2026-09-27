@@ -13,26 +13,26 @@
 import UIKit
 
 protocol CourseListBusinessLogic {
-    func doSomething(request: CourseList.ShowCourses.Request)
+    func fetchCourses()
 }
 
 protocol CourseListDataStore {
-    //var name: String { get set }
+    var courses: [Course] { get }
 }
 
 final class CourseListInteractor: CourseListBusinessLogic, CourseListDataStore {
     
     var presenter: CourseListPresentationLogic?
-    var worker: CourseListWorker?
-    //var name: String = ""
+    var courses: [Course] = []
     
     // MARK: Do something
     
-    func doSomething(request: CourseList.ShowCourses.Request) {
-        worker = CourseListWorker()
-        worker?.doSomeWork()
-        
-        let response = CourseList.ShowCourses.Response()
-        presenter?.presentSomething(response: response)
+    func fetchCourses() {
+        NetworkManager.shared.fetchData { [weak self] courses in
+            self?.courses = courses
+            
+            let response = CourseList.ShowCourses.Response(courses: courses)
+            self?.presenter?.presentCourses(response: response)
+        }
     }
 }
