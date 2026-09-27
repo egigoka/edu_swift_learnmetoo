@@ -1,37 +1,3 @@
-{"ts":"2026-09-27T10:20:07.825Z","event":"side_session_summarize_done","sessionID":"ses_f1d9eecf9ffe5s8nb3CGtrati0","resultChars":1460,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
-{"ts":"2026-09-27T10:20:07.833Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":2,"processedEntries":2,"totalEntries":2,"checkpointID":"msg_0e260fd5b001nQ64Pjwc1bY27l","bytes":1496}
-{"ts":"2026-09-27T10:20:07.833Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":2,"newestMessageID":""}
-{"ts":"2026-09-27T10:21:11.025Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":65}
-{"ts":"2026-09-27T10:21:33.295Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":66}
-{"ts":"2026-09-27T10:21:45.586Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":67}
-{"ts":"2026-09-27T10:21:51.262Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":1496}
-{"ts":"2026-09-27T10:21:51.279Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
-{"ts":"2026-09-27T10:21:55.612Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":69}
-{"ts":"2026-09-27T10:21:59.836Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":70}
-{"ts":"2026-09-27T10:22:04.528Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":71}
-{"ts":"2026-09-27T10:22:08.741Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":1496}
-{"ts":"2026-09-27T10:22:08.744Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
-{"ts":"2026-09-27T10:22:12.755Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":73}
-{"ts":"2026-09-27T10:22:20.153Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":74}
-{"ts":"2026-09-27T10:22:39.728Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":75}
-{"ts":"2026-09-27T10:22:44.209Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":1496}
-{"ts":"2026-09-27T10:22:44.212Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
-{"ts":"2026-09-27T10:22:49.556Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":77}
-{"ts":"2026-09-27T10:22:54.934Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":78}
-{"ts":"2026-09-27T10:23:08.636Z","event":"dcp_compress_triggered","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
-{"ts":"2026-09-27T10:23:08.667Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":2}
-{"ts":"2026-09-27T10:23:08.671Z","event":"side_session_created","sessionID":"ses_f1d9c2a83ffeegyg18kWCbteC2"}
-{"ts":"2026-09-27T10:23:08.728Z","event":"side_session_summarize_done","sessionID":"ses_f1d9c2a83ffeegyg18kWCbteC2","resultChars":4672,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
-{"ts":"2026-09-27T10:23:08.798Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","chunkEntries":2,"processedEntries":2,"totalEntries":2,"checkpointID":"msg_0e263d557001K6QUb7yQNooH6T","bytes":2009}
-{"ts":"2026-09-27T10:23:08.799Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","processedEntries":2,"newestMessageID":""}
-{"ts":"2026-09-27T10:23:09.107Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":79}
-{"ts":"2026-09-27T10:23:12.364Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":1}
-{"ts":"2026-09-27T10:23:12.366Z","event":"side_session_created","sessionID":"ses_f1d9c1c13ffeXgaQJkMwx2GG14"}
-{"ts":"2026-09-27T10:23:12.370Z","event":"side_session_summarize_done","sessionID":"ses_f1d9c1c13ffeXgaQJkMwx2GG14","resultChars":5202,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
-{"ts":"2026-09-27T10:23:12.373Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":1,"processedEntries":1,"totalEntries":1,"checkpointID":"msg_0e263d6a4001RTVNtLF1wPgAFJ","bytes":2539}
-{"ts":"2026-09-27T10:23:12.373Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":1,"newestMessageID":""}
-{"ts":"2026-09-27T10:23:25.347Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":2539}
-{"ts":"2026-09-27T10:23:25.347Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
 {"ts":"2026-09-27T10:23:51.517Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":81}
 {"ts":"2026-09-27T10:23:53.959Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":82}
 {"ts":"2026-09-27T10:23:58.004Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":83}
@@ -304,3 +270,33 @@
 {"ts":"2026-09-27T13:37:46.057Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
 {"ts":"2026-09-27T13:38:01.433Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":209}
 {"ts":"2026-09-27T13:38:20.089Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":210}
+{"ts":"2026-09-27T13:38:32.689Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":211}
+{"ts":"2026-09-27T13:39:18.871Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":6256}
+{"ts":"2026-09-27T13:39:18.875Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T13:40:47.295Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":213}
+{"ts":"2026-09-27T13:41:21.184Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":214}
+{"ts":"2026-09-27T13:41:34.443Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":215}
+{"ts":"2026-09-27T13:41:57.884Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":2}
+{"ts":"2026-09-27T13:41:57.891Z","event":"side_session_created","sessionID":"ses_f1ce62401ffeMeWP3BS2dS4gkG"}
+{"ts":"2026-09-27T13:41:57.908Z","event":"side_session_summarize_done","sessionID":"ses_f1ce62401ffeMeWP3BS2dS4gkG","resultChars":9401,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
+{"ts":"2026-09-27T13:41:57.926Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":2,"processedEntries":2,"totalEntries":2,"checkpointID":"msg_0e3197f4c001lStCuYQo1dYQvT","bytes":6738}
+{"ts":"2026-09-27T13:41:57.926Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":2,"newestMessageID":""}
+{"ts":"2026-09-27T13:47:15.378Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":6738}
+{"ts":"2026-09-27T13:47:15.378Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T13:47:28.384Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":217}
+{"ts":"2026-09-27T13:47:50.816Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":218}
+{"ts":"2026-09-27T13:48:13.272Z","event":"dcp_compress_triggered","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T13:48:13.383Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":2}
+{"ts":"2026-09-27T13:48:13.397Z","event":"side_session_created","sessionID":"ses_f1ce0692cffeylXwYDM9CieO3U"}
+{"ts":"2026-09-27T13:48:13.466Z","event":"side_session_summarize_done","sessionID":"ses_f1ce0692cffeylXwYDM9CieO3U","resultChars":9897,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
+{"ts":"2026-09-27T13:48:13.573Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","chunkEntries":2,"processedEntries":2,"totalEntries":2,"checkpointID":"msg_0e31f963d00122EHOIXXtYL1wr","bytes":7234}
+{"ts":"2026-09-27T13:48:13.574Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"dcp_compress","processedEntries":2,"newestMessageID":""}
+{"ts":"2026-09-27T13:48:13.991Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":219}
+{"ts":"2026-09-27T13:48:25.711Z","event":"memory_inject_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","bytes":7234}
+{"ts":"2026-09-27T13:48:25.715Z","event":"memory_inject_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj"}
+{"ts":"2026-09-27T13:48:35.656Z","event":"memory_inject_skipped","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"remind_every_n","remindEveryN":4,"userTurnCount":221}
+{"ts":"2026-09-27T13:48:45.563Z","event":"memory_update_start","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","mode":"clean","model":"opencode/minimax-m2.5-free","deltaEntries":1}
+{"ts":"2026-09-27T13:48:45.570Z","event":"side_session_created","sessionID":"ses_f1cdfeb80ffeHW7BNud5DtJdBQ"}
+{"ts":"2026-09-27T13:48:45.579Z","event":"side_session_summarize_done","sessionID":"ses_f1cdfeb80ffeHW7BNud5DtJdBQ","resultChars":10344,"resultPreview":"You are a short‑term session memory processor for an OpenCode plugin.\n\nYou are NOT the coding agent. You are a clean‑roo"}
+{"ts":"2026-09-27T13:48:45.594Z","event":"memory_update_chunk_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","chunkEntries":1,"processedEntries":1,"totalEntries":1,"checkpointID":"msg_0e31fecf7001hnB4eZ93VOy5LS","bytes":7681}
+{"ts":"2026-09-27T13:48:45.594Z","event":"memory_update_done","sessionID":"ses_f20ff3ec8ffe7XSF9UzDisy4bj","reason":"session_idle","processedEntries":1,"newestMessageID":""}

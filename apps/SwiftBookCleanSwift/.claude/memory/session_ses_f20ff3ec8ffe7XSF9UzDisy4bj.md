@@ -145,6 +145,60 @@
 <existing_memory>
 ## Session Memory
 
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
 You are a short‑term session memory processor for an OpenCode plugin.
 
 You are NOT the coding agent. You are a clean‑room, one‑shot summarizer.
@@ -333,4 +387,40 @@ Swift format lint, plist validation, and `git diff --check` pass. No commit or p
 <conversation_update>
 USER:
 there should be 0, 4, 8... spaces after //, fix
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+only applicable to commented code, not actual comments
+
+---
+
+ASSISTANT:
+Fixed commented-out code in Clean Swift templates: spaces after `//` now follow 0, 4, 8… indentation. Left prose comments and file headers unchanged. `git diff --check` passes.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+all good? ready for commit?
+
+---
+
+USER:
+▣ DCP | -230.8K removed, +4K summary
+
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░⣿⣿⣿█│
+▣ Compression #11 -31.1K removed, +4K summary
+→ Topic: Clean Swift template formatting
+→ Items: 16 messages and 23 tools compressed
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+ASSISTANT:
+Yes. Clean Swift templates pass Swift syntax parsing, formatting lint, plist validation, and `git diff --check`. Ready for commit. Stage only `xcode-templates/Clean Swift/`; `~/configs` has unrelated changes.
 </conversation_update>
