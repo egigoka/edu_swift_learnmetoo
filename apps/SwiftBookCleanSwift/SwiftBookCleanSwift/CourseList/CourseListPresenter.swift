@@ -26,11 +26,12 @@ final class CourseListPresenter: CourseListPresentationLogic {
         var rows: [CellIdentifier] = []
         
         response.courses.forEach { course in
-            let model = CourseList.ShowCourses.ViewModel.CourseCellModel(course: course)
-            rows.append(model)
+            let courseCellModel =
+                CourseList.ShowCourses.ViewModel.CourseCellModel(course: course)
+            rows.append(courseCellModel)
         }
         
         let viewModel = CourseList.ShowCourses.ViewModel(rows: rows)
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayCourses(viewModel: viewModel)
     }
 }

@@ -29,10 +29,12 @@ final class CourseListInteractor: CourseListBusinessLogic, CourseListDataStore {
     
     func fetchCourses() {
         NetworkManager.shared.fetchData { [weak self] courses in
-            self?.courses = courses
-            
-            let response = CourseList.ShowCourses.Response(courses: courses)
-            self?.presenter?.presentCourses(response: response)
+            Task { @MainActor in
+                self?.courses = courses
+                
+                let response = CourseList.ShowCourses.Response(courses: courses)
+                self?.presenter?.presentCourses(response: response)
+            }
         }
     }
 }

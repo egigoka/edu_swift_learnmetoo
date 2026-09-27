@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListDisplayLogic: AnyObject {
-    func displaySomething(viewModel: CourseList.ShowCourses.ViewModel)
+    func displayCourses(viewModel: CourseList.ShowCourses.ViewModel)
 }
 
 final class CourseListViewController: UIViewController {
@@ -23,14 +23,12 @@ final class CourseListViewController: UIViewController {
     var interactor: CourseListBusinessLogic?
     var router: (NSObjectProtocol & CourseListRoutingLogic & CourseListDataPassing)?
     
-    private var courses: [Course] = []
+    private var rows: [CellIdentifier] = []
     
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         CourseListConfigurator.shared.configure(with: self)
-        doSomething()
-        tableView.rowHeight = 100
         setupNavigationBar()
         getCourses()
     }
@@ -45,19 +43,10 @@ final class CourseListViewController: UIViewController {
         }
     }
     
-    // MARK: Do something
-    func doSomething() {
-        let request = CourseList.ShowCourses.Request()
-        interactor?.doSomething(request: request)
-    }
+    // MARK: Courses
     
     private func getCourses() {
-        NetworkManager.shared.fetchData { [weak self] courses in
-            Task { @MainActor in
-                self?.courses = courses
-                self?.tableView.reloadData()
-            }
-        }
+        interactor?.fetchCourses()
     }
     
     private func setupNavigationBar() {
@@ -73,8 +62,11 @@ final class CourseListViewController: UIViewController {
 
 // MARK: - CourseListDisplayLogic
 extension CourseListViewController: CourseListDisplayLogic {
-    func displaySomething(viewModel: CourseList.ShowCourses.ViewModel) {
-        
+    func displayCourses(viewModel: CourseList.ShowCourses.ViewModel) {
+        rows = viewModel.rows
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -82,13 +74,13 @@ extension CourseListViewController: CourseListDisplayLogic {
 extension CourseListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        return rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseTableViewCell
-        let course = courses[indexPath.row]
-        cell.configure(with: course)
+        let cellModel = rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier, for: indexPath) as! CourseTableViewCell
+        cell.cellModel = cellModel
         
         return cell
     }
@@ -98,7 +90,9 @@ extension CourseListViewController: UITableViewDataSource {
 extension CourseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let course = courses[indexPath.row]
-        performSegue(withIdentifier: "ShowDetails", sender: course)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        CGFloat(rows[indexPath.row].cellHeight)
     }
 }

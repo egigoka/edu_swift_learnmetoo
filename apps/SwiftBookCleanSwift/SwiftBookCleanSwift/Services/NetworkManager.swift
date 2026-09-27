@@ -16,7 +16,7 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchData(completion: @escaping ([Course]) -> Void) {
+    func fetchData(completion: @escaping @Sendable ([Course]) -> Void) {
         guard let url = URL(string: coursesURL) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
