@@ -92,6 +92,60 @@
 ## Session Memory
 
 ### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
 - None captured yet.
 
 ### Long Horizon Context
@@ -184,4 +238,40 @@ ASSISTANT:
 Warning gone. Added `AccentColor.colorset` (system blue, light + dark). Build succeed, no asset warning.
 
 Want different brand color later, say hex.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+failure in void _UIApplicationEvaluateRuntimeIssueForNoSceneLifecycleAdoption(void)_block_invoke (UIApplication_RuntimeIssues.m:106) : Application failed to launch: UIScene life cycle is required for apps built with this SDK. See "Transitioning to the UIKit scene-based life cycle" in the UIKit documentation for more information on migration.
+
+---
+
+USER:
+▣ DCP | -46.2K removed, +686 summary
+
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░⣿⣿⣿⣿⣿⣿⣿⣿⣿███│
+▣ Compression #3 -2.8K removed, +134 summary
+→ Topic: AccentColor asset fix
+→ Items: 9 messages and 8 tools compressed
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+▣ DCP | -66.2K removed, +914 summary
+
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿█│
+▣ Compression #4 -19.9K removed, +228 summary
+→ Topic: Scene lifecycle migration
+→ Items: 16 messages and 21 tools compressed
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+ASSISTANT:
+App running. Scene crash gone. Courses screen show, list empty for now.
 </conversation_update>

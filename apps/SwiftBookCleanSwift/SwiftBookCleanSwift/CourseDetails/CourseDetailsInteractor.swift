@@ -13,26 +13,27 @@
 import UIKit
 
 protocol CourseDetailsBusinessLogic {
-    func doSomething(request: CourseDetails.Something.Request)
+    func provideCourseDetails(request: CourseDetails.ShowDetails.Request)
 }
 
 protocol CourseDetailsDataStore {
-    //var name: String { get set }
+    var course: Course? { get }
 }
 
 final class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDataStore {
     
     var presenter: CourseDetailsPresentationLogic?
     var worker: CourseDetailsWorker?
-    //var name: String = ""
+    var course: Course?
     
     // MARK: Do something
     
-    func doSomething(request: CourseDetails.Something.Request) {
+    func provideCourseDetails(request: CourseDetails.ShowDetails.Request) {
+        course = request.course
         worker = CourseDetailsWorker()
         worker?.doSomeWork()
         
-        let response = CourseDetails.Something.Response()
-        presenter?.presentSomething(response: response)
+        let response = CourseDetails.ShowDetails.Response(courseName: course?.name)
+        presenter?.presentCourseDetails(response: response)
     }
 }

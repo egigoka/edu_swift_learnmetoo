@@ -14,15 +14,18 @@ import UIKit
 
 enum CourseDetails {
     // MARK: Use cases
-    
-    enum Something {
+    enum ShowDetails {
+        
         struct Request: Sendable {
+            let course: Course
         }
         
         struct Response: Sendable {
+            let courseName: String?
         }
         
         struct ViewModel: Sendable {
+            let courseName: String
         }
     }
 }

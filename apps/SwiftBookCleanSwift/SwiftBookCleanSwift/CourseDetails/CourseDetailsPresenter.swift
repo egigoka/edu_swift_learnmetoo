@@ -13,17 +13,15 @@
 import UIKit
 
 protocol CourseDetailsPresentationLogic {
-    func presentSomething(response: CourseDetails.Something.Response)
+    func presentCourseDetails(response: CourseDetails.ShowDetails.Response)
 }
 
 final class CourseDetailsPresenter: CourseDetailsPresentationLogic {
     
     weak var viewController: CourseDetailsDisplayLogic?
     
-    // MARK: Do something
-    
-    func presentSomething(response: CourseDetails.Something.Response) {
-        let viewModel = CourseDetails.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentCourseDetails(response: CourseDetails.ShowDetails.Response) {
+        let viewModel = CourseDetails.ShowDetails.ViewModel(courseName: response.courseName ?? "NONAME")
+        viewController?.displayCourseDetails(viewModel: viewModel)
     }
 }

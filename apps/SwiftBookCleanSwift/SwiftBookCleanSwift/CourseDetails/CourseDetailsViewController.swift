@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseDetailsDisplayLogic: AnyObject {
-    func displaySomething(viewModel: CourseDetails.Something.ViewModel)
+    func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel)
 }
 
 final class CourseDetailsViewController: UIViewController {
@@ -44,15 +44,15 @@ final class CourseDetailsViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        passRequest()
         loadFavoriteStatus()
         setupUI()
     }
     
     // MARK: Do something
-    func doSomething() {
-        let request = CourseDetails.Something.Request()
-        interactor?.doSomething(request: request)
+    func passRequest() {
+        let request = CourseDetails.ShowDetails.Request(course: course)
+        interactor?.provideCourseDetails(request: request)
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
@@ -62,7 +62,6 @@ final class CourseDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        courseNameLabel.text = course.name
         numberOfLessonsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
         numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
@@ -96,8 +95,9 @@ final class CourseDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - CourseDetailsDisplayLogic
 extension CourseDetailsViewController: CourseDetailsDisplayLogic {
-    func displaySomething(viewModel: CourseDetails.Something.ViewModel) {
-        
+    func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel) {
+        courseNameLabel.text = viewModel.courseName
     }
 }
