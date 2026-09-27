@@ -31,9 +31,14 @@ final class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDa
     func provideCourseDetails(request: CourseDetails.ShowDetails.Request) {
         course = request.course
         worker = CourseDetailsWorker()
-        worker?.doSomeWork()
+        let imageData = worker?.getImage(from: course?.imageUrl)
         
-        let response = CourseDetails.ShowDetails.Response(courseName: course?.name)
+        let response = CourseDetails.ShowDetails.Response(
+            courseName: course?.name,
+            numberOfLessons: course?.numberOfLessons,
+            numberOfTests: course?.numberOfTests,
+            imageData: imageData
+        )
         presenter?.presentCourseDetails(response: response)
     }
 }

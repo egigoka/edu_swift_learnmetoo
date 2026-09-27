@@ -62,8 +62,6 @@ final class CourseDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        numberOfLessonsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
-        numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
         if let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) {
             courseImage.image = UIImage(data: imageData)
@@ -99,5 +97,7 @@ final class CourseDetailsViewController: UIViewController {
 extension CourseDetailsViewController: CourseDetailsDisplayLogic {
     func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel) {
         courseNameLabel.text = viewModel.courseName
+        numberOfLessonsLabel.text = viewModel.numberOfLessons
+        numberOfTestsLabel.text = viewModel.numberOfTests
     }
 }

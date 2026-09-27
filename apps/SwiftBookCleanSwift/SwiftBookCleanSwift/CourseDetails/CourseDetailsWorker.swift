@@ -13,6 +13,7 @@
 import UIKit
 
 final class CourseDetailsWorker {
-    func doSomeWork() {
+    func getImage(from imageURL: URL?) -> Data? {
+        ImageManager.shared.fetchImageData(from: imageURL)
     }
 }

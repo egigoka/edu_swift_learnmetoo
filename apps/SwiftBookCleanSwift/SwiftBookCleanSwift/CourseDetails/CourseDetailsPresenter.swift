@@ -21,7 +21,15 @@ final class CourseDetailsPresenter: CourseDetailsPresentationLogic {
     weak var viewController: CourseDetailsDisplayLogic?
     
     func presentCourseDetails(response: CourseDetails.ShowDetails.Response) {
-        let viewModel = CourseDetails.ShowDetails.ViewModel(courseName: response.courseName ?? "NONAME")
+        let numberOfLessons = "Number of lessons: \(response.numberOfLessons ?? 0)"
+        let numberOfTests = "Number of tests: \(response.numberOfTests ?? 0)"
+        
+        let viewModel = CourseDetails.ShowDetails.ViewModel(
+            courseName: response.courseName ?? "NONAME",
+            numberOfLessons: numberOfLessons,
+            numberOfTests: numberOfTests,
+            imageData: response.imageData ?? Data()
+        )
         viewController?.displayCourseDetails(viewModel: viewModel)
     }
 }

@@ -22,10 +22,16 @@ enum CourseDetails {
         
         struct Response: Sendable {
             let courseName: String?
+            let numberOfLessons: Int?
+            let numberOfTests: Int?
+            let imageData: Data?
         }
         
         struct ViewModel: Sendable {
             let courseName: String
+            let numberOfLessons: String
+            let numberOfTests: String
+            let imageData: Data
         }
     }
 }
