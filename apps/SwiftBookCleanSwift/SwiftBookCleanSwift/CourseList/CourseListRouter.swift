@@ -50,8 +50,11 @@ final class CourseListRouter: NSObject, CourseListRoutingLogic, CourseListDataPa
     // MARK: Passing data
     
     func passDataToCourseDetails(source: CourseListDataStore, destination: inout CourseDetailsDataStore) {
-        guard let indexPath = viewController?.tableView.indexPathForSelectedRow
-        else { return }
+        guard let viewController = viewController else { print("no viewController"); return}
+        guard let tableView = viewController.tableView else { print("no tableView"); return}
+        
+        guard let indexPath = viewController.tableView.indexPathForSelectedRow
+                else { print("no indexPath"); return }
         destination.course = source.courses[indexPath.row]
     }
 }

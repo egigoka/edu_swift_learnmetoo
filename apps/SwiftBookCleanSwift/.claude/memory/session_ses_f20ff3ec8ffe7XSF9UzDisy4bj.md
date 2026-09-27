@@ -91,6 +91,60 @@
 <existing_memory>
 ## Session Memory
 
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
+### User Instructions
+- …
+
+### Long Horizon Context
+- …
+
+### Decisions
+- …
+
+### Conclusions
+- …
+
+### Active References
+- …
+
+<existing_memory>
+## Session Memory
+
 You are a short‑term session memory processor for an OpenCode plugin.
 
 You are NOT the coding agent. You are a clean‑room, one‑shot summarizer.
@@ -251,4 +305,32 @@ USER:
 ▣ Compression #9 -32.6K removed, +2.7K summary
 → Topic: Clean Swift template formatting
 → Items: 41 messages and 48 tools compressed
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+▣ DCP | -199.7K removed, +3.5K summary
+
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░⣿⣿█│
+▣ Compression #10 -49.4K removed, +3.5K summary
+→ Topic: Template spacing completion
+→ Items: 13 messages and 30 tools compressed
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+ASSISTANT:
+Fixed spacing across all 30 Swift files and 8 plists in `~/configs/xcode-templates/Clean Swift/`. Indentation now uses four spaces; commented examples and trailing whitespace cleaned up.
+
+Swift format lint, plist validation, and `git diff --check` pass. No commit or push.
+</conversation_update>
+
+</existing_memory>
+
+<conversation_update>
+USER:
+there should be 0, 4, 8... spaces after //, fix
 </conversation_update>
