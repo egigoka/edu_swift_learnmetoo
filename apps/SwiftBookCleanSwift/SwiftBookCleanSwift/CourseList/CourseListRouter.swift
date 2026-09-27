@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol CourseListRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToCourseDetails(segue: UIStoryboardSegue?)
 }
 
 protocol CourseListDataPassing {
@@ -27,29 +27,29 @@ final class CourseListRouter: NSObject, CourseListRoutingLogic, CourseListDataPa
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToCourseDetails(segue: UIStoryboardSegue?) {
+      if let segue = segue {
+        let destinationVC = segue.destination as! CourseDetailsViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToCourseDetails(source: dataStore!, destination: &destinationDS)
+      } else {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "CourseDetailsViewController") as! CourseDetailsViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToCourseDetails(source: dataStore!, destination: &destinationDS)
+        navigateToCourseDetails(source: viewController!, destination: destinationVC)
+      }
+    }
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: CourseListViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToCourseDetails(source: CourseListViewController, destination: CourseDetailsViewController) {
+      source.show(destination, sender: nil)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: CourseListDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToCourseDetails(source: CourseListDataStore, destination: inout CourseDetailsDataStore) {
+      //destination.course = source.courses[index]
+    }
 }

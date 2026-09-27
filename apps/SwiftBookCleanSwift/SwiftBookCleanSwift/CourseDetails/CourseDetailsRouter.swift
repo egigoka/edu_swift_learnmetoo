@@ -13,43 +13,15 @@
 import UIKit
 
 @objc protocol CourseDetailsRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
 protocol CourseDetailsDataPassing {
-    var dataStore: CourseDetailsDataStore? { get }
+    var dataStore: CourseDetailsDataStore? { get set }
 }
 
 final class CourseDetailsRouter: NSObject, CourseDetailsRoutingLogic, CourseDetailsDataPassing {
     
     weak var viewController: CourseDetailsViewController?
     var dataStore: CourseDetailsDataStore?
-    
-    // MARK: Routing
-    
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: CourseDetailsViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: CourseDetailsDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+
 }
