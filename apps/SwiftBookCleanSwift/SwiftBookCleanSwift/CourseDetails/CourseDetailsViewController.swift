@@ -14,6 +14,7 @@ import UIKit
 
 protocol CourseDetailsDisplayLogic: AnyObject {
     func displayCourseDetails(viewModel: CourseDetails.ShowDetails.ViewModel)
+    func displayFavoriteButtonStatus(viewModel: CourseDetails.SetFavoriteStatus.ViewModel)
 }
 
 final class CourseDetailsViewController: UIViewController {
@@ -52,7 +53,7 @@ final class CourseDetailsViewController: UIViewController {
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        
+        interactor?.setFavoriteStatus()
     }
     
     // MARK: Setup
@@ -77,6 +78,10 @@ extension CourseDetailsViewController: CourseDetailsDisplayLogic {
         numberOfLessonsLabel.text = viewModel.numberOfLessons
         numberOfTestsLabel.text = viewModel.numberOfTests
         courseImage.image = UIImage(data: viewModel.imageData)
+        favoriteButton.tintColor = viewModel.isFavorite ? .red : .gray
+    }
+    
+    func displayFavoriteButtonStatus(viewModel: CourseDetails.SetFavoriteStatus.ViewModel) {
         favoriteButton.tintColor = viewModel.isFavorite ? .red : .gray
     }
 }

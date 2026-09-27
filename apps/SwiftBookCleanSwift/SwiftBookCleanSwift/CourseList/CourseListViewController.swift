@@ -35,18 +35,13 @@ final class CourseListViewController: UIViewController {
     }
     
     // MARK: Routing
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let scene = segue.identifier {
-//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-//            if let router = router, router.responds(to: selector) {
-//                router.perform(selector, with: segue)
-//            }
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let courseDetailsVC = segue.destination as! CourseDetailsViewController
-        courseDetailsVC.course = sender as? Course
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
     }
     
     // MARK: Do something
@@ -72,20 +67,6 @@ final class CourseListViewController: UIViewController {
         navBarAppearance.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-    }
-    
-    // MARK: Setup
-    private func setup() {
-        let viewController = self
-        let interactor = CourseListInteractor()
-        let presenter = CourseListPresenter()
-        let router = CourseListRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
     }
 }
 

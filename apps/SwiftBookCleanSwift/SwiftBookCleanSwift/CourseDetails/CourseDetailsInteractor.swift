@@ -15,6 +15,7 @@ import UIKit
 protocol CourseDetailsBusinessLogic {
     var isFavorite: Bool { get }
     func provideCourseDetails(request: CourseDetails.ShowDetails.Request)
+    func setFavoriteStatus()
 }
 
 protocol CourseDetailsDataStore {
@@ -44,5 +45,13 @@ final class CourseDetailsInteractor: CourseDetailsBusinessLogic, CourseDetailsDa
             isFavorite: isFavorite
         )
         presenter?.presentCourseDetails(response: response)
+    }
+    
+    func setFavoriteStatus() {
+        isFavorite.toggle()
+        worker?.setNewFavoriteStatus(for: course?.name ?? "", with: isFavorite)
+        
+        let response = CourseDetails.SetFavoriteStatus.Response(isFavorite: isFavorite)
+        presenter?.presentFavoriteStatus(response: response)
     }
 }

@@ -13,11 +13,24 @@
 import UIKit
 
 final class CourseDetailsWorker {
+
     func getImage(from imageURL: URL?) -> Data? {
-        ImageManager.shared.fetchImageData(from: imageURL)
+        if let cached = ImageManager.shared.cachedImageData(for: imageURL) {
+            return cached
+        }
+        // Cache miss: warm cache off main thread. Sync chain keeps
+        // original shape, so this pass returns nil, cached next time.
+        Task {
+            _ = await ImageManager.shared.fetchImageData(from: imageURL)
+        }
+        return nil
     }
     
     func getFavoriteStatus(for courseName: String) -> Bool {
         DataManager.shared.getFavoriteStatus(for: courseName)
+    }
+    
+    func setNewFavoriteStatus(for courseName: String, with status: Bool) {
+        DataManager.shared.setFavoriteStatus(for: courseName, with: status)
     }
 }
