@@ -8,32 +8,22 @@
 
 import UIKit
 
-final class CourseTableViewCell: UITableViewCell {
-    private var currentImageURL: URL?
+protocol CellModelRepresentable {
+    var cellModel: CellIdentifier? { get set }
+}
 
-    func configure(with course: Course) {
-        var content = defaultContentConfiguration()
-        content.text = course.name
-        contentConfiguration = content
-        currentImageURL = course.imageUrl
 
-        guard let imageURL = course.imageUrl else { return }
-        Task { @MainActor [weak self] in
-            guard let imageData = await ImageManager.shared.fetchImageData(from: imageURL),
-                  let image = UIImage(data: imageData),
-                  self?.currentImageURL == imageURL else { return }
-            var updatedContent = self?.defaultContentConfiguration()
-            updatedContent?.text = course.name
-            updatedContent?.image = image
-            if let updatedContent {
-                self?.contentConfiguration = updatedContent
-            }
+final class CourseTableViewCell: UITableViewCell, CellModelRepresentable {
+    var cellModel: any CellIdentifier? {
+        didSet {
+            updateViews()
         }
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        currentImageURL = nil
-        contentConfiguration = defaultContentConfiguration()
+    
+    func updateViews() {
+        guard let cellModel =
+                cellModel as? CourseList.ShowCourses.ViewModel.CourseCellModel
+        else { return }
+        
     }
 }

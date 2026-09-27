@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListDisplayLogic: AnyObject {
-    func displaySomething(viewModel: CourseList.Something.ViewModel)
+    func displaySomething(viewModel: CourseList.ShowCourses.ViewModel)
 }
 
 final class CourseListViewController: UIViewController {
@@ -28,6 +28,7 @@ final class CourseListViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        CourseListConfigurator.shared.configure(with: self)
         doSomething()
         tableView.rowHeight = 100
         setupNavigationBar()
@@ -46,7 +47,7 @@ final class CourseListViewController: UIViewController {
     
     // MARK: Do something
     func doSomething() {
-        let request = CourseList.Something.Request()
+        let request = CourseList.ShowCourses.Request()
         interactor?.doSomething(request: request)
     }
     
@@ -72,7 +73,7 @@ final class CourseListViewController: UIViewController {
 
 // MARK: - CourseListDisplayLogic
 extension CourseListViewController: CourseListDisplayLogic {
-    func displaySomething(viewModel: CourseList.Something.ViewModel) {
+    func displaySomething(viewModel: CourseList.ShowCourses.ViewModel) {
         
     }
 }

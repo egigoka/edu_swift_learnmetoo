@@ -12,17 +12,39 @@
 
 import UIKit
 
+protocol CellIdentifier {
+    var cellIdentifier: String { get }
+    var cellHeight: Float { get }
+}
+
 enum CourseList {
     // MARK: Use cases
     
-    enum Something {
-        struct Request: Sendable {
-        }
-        
+    enum ShowCourses {
         struct Response: Sendable {
+            let courses: [Course]
         }
         
         struct ViewModel: Sendable {
+            struct CourseCellModel: CellIdentifier {
+                let name: String
+                let imageURL: URL?
+                
+                var cellIdentifier: String {
+                    "CourseCell"
+                }
+                
+                var cellHeight: Float {
+                    100
+                }
+                
+                init(course: Course) {
+                    name = course.name ?? ""
+                    imageURL = course.imageUrl
+                }
+            }
+            
+            let rows: [CellIdentifier]
         }
     }
 }

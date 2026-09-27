@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListBusinessLogic {
-    func doSomething(request: CourseList.Something.Request)
+    func doSomething(request: CourseList.ShowCourses.Request)
 }
 
 protocol CourseListDataStore {
@@ -28,11 +28,11 @@ final class CourseListInteractor: CourseListBusinessLogic, CourseListDataStore {
     
     // MARK: Do something
     
-    func doSomething(request: CourseList.Something.Request) {
+    func doSomething(request: CourseList.ShowCourses.Request) {
         worker = CourseListWorker()
         worker?.doSomeWork()
         
-        let response = CourseList.Something.Response()
+        let response = CourseList.ShowCourses.Response()
         presenter?.presentSomething(response: response)
     }
 }

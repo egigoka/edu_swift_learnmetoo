@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CourseListPresentationLogic {
-    func presentSomething(response: CourseList.Something.Response)
+    func presentSomething(response: CourseList.ShowCourses.Response)
 }
 
 final class CourseListPresenter: CourseListPresentationLogic {
@@ -22,8 +22,8 @@ final class CourseListPresenter: CourseListPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: CourseList.Something.Response) {
-        let viewModel = CourseList.Something.ViewModel()
+    func presentSomething(response: CourseList.ShowCourses.Response) {
+        let viewModel = CourseList.ShowCourses.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }
 }
